@@ -40,6 +40,7 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 #include <QClipboard>
 #include <QScrollBar>
 #include <QStatusBar>
+#include <QOpenGLWidget>
 
 #include <limits>
 
