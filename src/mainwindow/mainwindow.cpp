@@ -3571,8 +3571,16 @@ void MainWindow::postKeyEvent(const QString & serializedKeys) {
 			}
 		}
 
-		QApplication::postEvent(QApplication::focusWidget(), new QKeyEvent(QEvent::KeyPress, keyCode, modFlags, key.at(0)));
-		QApplication::postEvent(QApplication::focusWidget(), new QKeyEvent(QEvent::KeyRelease, keyCode, modFlags, key.at(0)));
+		QWidget * widget = nullptr;
+		QMenu * activeMenu = qobject_cast<QMenu*>(QApplication::activePopupWidget());
+
+		if (activeMenu) {
+			widget = activeMenu;
+		} else {
+			widget = QApplication::focusWidget();
+		}
+		QApplication::postEvent(widget, new QKeyEvent(QEvent::KeyPress, keyCode, modFlags, key.at(0)));
+		QApplication::postEvent(widget, new QKeyEvent(QEvent::KeyRelease, keyCode, modFlags, key.at(0)));
 	}
 }
 
