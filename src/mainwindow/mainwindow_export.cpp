@@ -1479,6 +1479,20 @@ QString MainWindow::getSpiceNetlist(QString simulationName, QList< QList<class C
 			}
 		}
 	}
+    //If we have still not found a ground, it is because the negative power supply pin is not connected
+    //Repeat the same loop as before, but without forcing to be connected to other elements
+    if (!ground){
+        DebugDialog::debug("Netlist exporter: Trying to identify an isolated negative connection of a power supply as ground");
+        foreach (QList<ConnectorItem *> * net, netList) {
+            if (ground) break;
+            foreach (ConnectorItem * ci, *net) {
+                if (ci->connectorSharedName().compare("-", Qt::CaseInsensitive) == 0) {
+                    ground = net;
+                    break;
+                }
+            }
+        }
+    }
 
 	if (ground) {
 		DebugDialog::debug("Netlist exporter: ground found");
