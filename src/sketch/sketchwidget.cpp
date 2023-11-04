@@ -2015,6 +2015,10 @@ void SketchWidget::dropEvent(QDropEvent *event)
 		QGraphicsView::dropEvent(event);
 	}
 
+#ifndef QT_NO_DEBUG
+	emit routingCheckSignal();
+#endif
+
 	DebugDialog::debug("after drop event");
 
 }
