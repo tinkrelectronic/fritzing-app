@@ -7366,14 +7366,14 @@ void SketchWidget::resizeNoteForCommand(long itemID, const QSizeF & size)
 	note->setSize(size);
 }
 
-QString SketchWidget::renderToSVG(RenderThing & renderThing, QGraphicsItem * board, const LayerList & layers, bool applyViewFromBelow)
+QString SketchWidget::renderToSVG(RenderThing & renderThing, QGraphicsItem * board, const LayerList & layers, bool applyViewFromBelow, bool ignoreHide)
 {
 	renderThing.setBoard(board);
-	QList<QGraphicsItem *> itemsAndLabels = getVisibleItemsAndLabels(renderThing, layers);
+	QList<QGraphicsItem *> itemsAndLabels = getVisibleItemsAndLabels(renderThing, layers, ignoreHide);
 	return renderToSVG(renderThing, itemsAndLabels, applyViewFromBelow);
 }
 
-QList<QGraphicsItem *> SketchWidget::getVisibleItemsAndLabels(RenderThing & renderThing, const LayerList & layers)
+QList<QGraphicsItem *> SketchWidget::getVisibleItemsAndLabels(RenderThing & renderThing, const LayerList & layers, bool ignoreHide)
 {
 	QList<QGraphicsItem *> itemsAndLabels;
 	QRectF itemsBoundingRect;
@@ -7382,7 +7382,8 @@ QList<QGraphicsItem *> SketchWidget::getVisibleItemsAndLabels(RenderThing & rend
 	Q_FOREACH (QGraphicsItem * item, items) {
 		auto * itemBase = dynamic_cast<ItemBase *>(item);
 		if (!itemBase) continue;
-		if (itemBase->hidden() || itemBase->layerHidden()) continue;
+		if (itemBase->layerHidden()) continue;
+		if (itemBase->hidden() && !ignoreHide) continue;
 		if (!renderThing.renderBlocker) {
 			Pad * pad = qobject_cast<Pad *>(itemBase);
 			if (pad && pad->copperBlocker()) {
