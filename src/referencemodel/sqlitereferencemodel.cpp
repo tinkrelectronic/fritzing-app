@@ -517,6 +517,24 @@ bool SqliteReferenceModel::loadFromDB(QSqlDatabase & keep_db, QSqlDatabase & db)
 		}
 	}
 
+	QSqlQuery queryFrom(db);
+	queryFrom.prepare("SELECT id, name, data FROM icons");
+	if (queryFrom.exec()) {
+		QSqlQuery insertQuery(keep_db);
+		insertQuery.prepare("INSERT OR IGNORE INTO icons (id, name, data) VALUES (:id, :name, :data)");
+
+		while (queryFrom.next()) {
+			insertQuery.bindValue(":id", queryFrom.value(0));
+			insertQuery.bindValue(":name", queryFrom.value(1));
+			insertQuery.bindValue(":data", queryFrom.value(2));
+			if (!insertQuery.exec()) {
+				DebugDialog::debug(QString("Failed to insert icon into keep_db: %1").arg(insertQuery.lastError().text()));
+			}
+		}
+	} else {
+		DebugDialog::debug(QString("Failed to retrieve icons from db."));
+	}
+
 	return true;
 }
 
