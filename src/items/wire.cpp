@@ -1733,15 +1733,6 @@ bool Wire::rotation45Allowed() {
 	return false;
 }
 
-void Wire::addedToScene(bool temporary) {
-	ItemBase::addedToScene(temporary);
-
-	InfoGraphicsView * infoGraphicsView = InfoGraphicsView::getInfoGraphicsView(this);
-	if (infoGraphicsView == nullptr) return;
-
-	infoGraphicsView->newWire(this);
-}
-
 void Wire::setConnectorDimensions(double width, double height)
 {
 	setConnectorDimensionsAux(connector0(), width, height);

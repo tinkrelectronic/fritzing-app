@@ -136,7 +136,6 @@ public:
 	bool hasPartNumberProperty();
 	bool rotationAllowed();
 	bool rotation45Allowed();
-	void addedToScene(bool temporary);
 	void setConnectorDimensions(double width, double height);
 	void originalConnectorDimensions(double & width, double & height);
 	double hoverStrokeWidth();

@@ -768,6 +768,7 @@ ItemBase * SketchWidget::addItemAux(ModelPart * modelPart, ViewLayer::ViewLayerP
 
 		addToScene(wire, wire->viewLayerID());
 		wire->addedToScene(temporary);
+		newWire(wire);
 		wire->debugInfo("add " + descr);
 
 		return wire;
@@ -5692,6 +5693,20 @@ void SketchWidget::wireSplitSlot(Wire* wire, QPointF newPos, QPointF oldPos, con
 	new CleanUpWiresCommand(this, CleanUpWiresCommand::RedoOnly, parentCommand);
 
 	m_undoStack->push(parentCommand);
+}
+
+void SketchWidget::newWire(Wire * wire)
+{
+	QObject::connect(wire, &Wire::wireChangedSignal, this,
+									  &SketchWidget::wireChangedSlot, Qt::DirectConnection);
+	QObject::connect(wire, &Wire::wireChangedCurveSignal, this,
+								  &SketchWidget::wireChangedCurveSlot, Qt::DirectConnection);
+	QObject::connect(wire, &Wire::wireSplitSignal, this,
+								  &SketchWidget::wireSplitSlot);
+	QObject::connect(wire, &Wire::wireJoinSignal, this,
+								  &SketchWidget::wireJoinSlot);
+
+	Q_EMIT newWireSignal(wire);
 }
 
 void SketchWidget::getWireJoinCurves(Wire * wire1, Wire * wire2, QPointF * newPos, QLineF * newLine, Bezier * b0, Bezier * b1) {
