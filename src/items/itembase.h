@@ -216,7 +216,6 @@ public:
 	virtual void setDropOffset(QPointF offset);
 	bool hasRubberBandLeg() const;
 	void killRubberBandLeg();
-	bool sceneEvent(QEvent *event);
 	void clearConnectorItemCache();
 	const QList<ConnectorItem *> & cachedConnectorItems();
 	const QList<ConnectorItem *> & cachedConnectorItemsConst() const;

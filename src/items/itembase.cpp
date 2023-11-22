@@ -1943,11 +1943,6 @@ bool ItemBase::hasRubberBandLeg() const
 	return m_hasRubberBandLeg;
 }
 
-bool ItemBase::sceneEvent(QEvent *event)
-{
-	return QGraphicsSvgItem::sceneEvent(event);
-}
-
 const QList<ConnectorItem *> & ItemBase::cachedConnectorItems()
 {
 	if (m_cachedConnectorItems.isEmpty()) {
