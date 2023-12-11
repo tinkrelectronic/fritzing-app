@@ -223,7 +223,11 @@ public:
 	void noteSizeChanged(ItemBase * itemBase, const QSizeF & oldSize, const QSizeF & newSize);
 	void resizeNoteForCommand(long itemID, const QSizeF & );
 	class SelectItemCommand* stackSelectionState(bool pushIt, QUndoCommand * parentCommand);
-	QString renderToSVG(RenderThing &, QGraphicsItem * board, const LayerList &, bool applyViewFromBelow = false, bool ignoreHide = false);
+
+	QString renderToSVG(RenderThing &, QGraphicsItem * board, const LayerList &);
+	QString renderToSVGForSVG(RenderThing &, QGraphicsItem * board, const LayerList &);
+	QString renderToSVGForCopper(RenderThing &, QGraphicsItem * board, const LayerList &);
+
 	bool spaceBarIsPressed() noexcept;
 	virtual long setUpSwap(SwapThing &, bool master);
 	ConnectorItem * lastHoverEnterConnectorItem();

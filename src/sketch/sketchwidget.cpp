@@ -7366,12 +7366,27 @@ void SketchWidget::resizeNoteForCommand(long itemID, const QSizeF & size)
 	note->setSize(size);
 }
 
-QString SketchWidget::renderToSVG(RenderThing & renderThing, QGraphicsItem * board, const LayerList & layers, bool applyViewFromBelow, bool ignoreHide)
+QString SketchWidget::renderToSVG(RenderThing & renderThing, QGraphicsItem * board, const LayerList & layers)
 {
 	renderThing.setBoard(board);
-	QList<QGraphicsItem *> itemsAndLabels = getVisibleItemsAndLabels(renderThing, layers, ignoreHide);
-	return renderToSVG(renderThing, itemsAndLabels, applyViewFromBelow);
+	QList<QGraphicsItem *> itemsAndLabels = getVisibleItemsAndLabels(renderThing, layers, false);
+	return renderToSVG(renderThing, itemsAndLabels, false);
 }
+
+QString SketchWidget::renderToSVGForCopper(RenderThing & renderThing, QGraphicsItem * board, const LayerList & layers)
+{
+	renderThing.setBoard(board);
+	QList<QGraphicsItem *> itemsAndLabels = getVisibleItemsAndLabels(renderThing, layers, true);
+	return renderToSVG(renderThing, itemsAndLabels, false);
+}
+
+QString SketchWidget::renderToSVGForSVG(RenderThing & renderThing, QGraphicsItem * board, const LayerList & layers)
+{
+	renderThing.setBoard(board);
+	QList<QGraphicsItem *> itemsAndLabels = getVisibleItemsAndLabels(renderThing, layers, false);
+	return renderToSVG(renderThing, itemsAndLabels, true);
+}
+
 
 QList<QGraphicsItem *> SketchWidget::getVisibleItemsAndLabels(RenderThing & renderThing, const LayerList & layers, bool ignoreHide)
 {
