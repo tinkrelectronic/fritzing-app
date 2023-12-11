@@ -6740,24 +6740,6 @@ void SketchWidget::hideConnectors(bool hide) {
 	}
 }
 
-void SketchWidget::saveLayerVisibility()
-{
-	m_viewLayerVisibility.clear();
-	Q_FOREACH (ViewLayer::ViewLayerID viewLayerID, m_viewLayers.keys()) {
-		ViewLayer * viewLayer = m_viewLayers.value(viewLayerID);
-		if (!viewLayer) continue;
-
-		m_viewLayerVisibility.insert(viewLayerID, viewLayer->visible());
-	}
-}
-
-void SketchWidget::restoreLayerVisibility()
-{
-	Q_FOREACH (ViewLayer::ViewLayerID viewLayerID, m_viewLayerVisibility.keys()) {
-		setLayerVisible(m_viewLayers.value(viewLayerID),  m_viewLayerVisibility.value(viewLayerID), false);
-	}
-}
-
 void SketchWidget::changeWireFlags(long wireId, ViewGeometry::WireFlags wireFlags)
 {
 	ItemBase *item = findItem(wireId);

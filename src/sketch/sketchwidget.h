@@ -195,8 +195,6 @@ public:
 	void changeWireFlags(long wireId, ViewGeometry::WireFlags wireFlags);
 	void setIgnoreSelectionChangeEvents(bool);
 	void hideConnectors(bool hide);
-	void saveLayerVisibility();
-	void restoreLayerVisibility();
 	void updateRoutingStatus(CleanUpWiresCommand*, RoutingStatus &, bool manual);
 	void updateRoutingStatus(RoutingStatus &, bool manual);
 	virtual bool hasAnyNets();
