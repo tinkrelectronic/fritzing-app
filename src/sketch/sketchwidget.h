@@ -225,8 +225,7 @@ public:
 	class SelectItemCommand* stackSelectionState(bool pushIt, QUndoCommand * parentCommand);
 
 	QString renderToSVG(RenderThing &, QGraphicsItem * board, const LayerList &);
-	QString renderToSVGForSVG(RenderThing &, QGraphicsItem * board, const LayerList &);
-	QString renderToSVGForCopper(RenderThing &, QGraphicsItem * board, const LayerList &);
+	QString renderToSVGForSVGExport(RenderThing &, QGraphicsItem * board, const LayerList &);
 
 	bool spaceBarIsPressed() noexcept;
 	virtual long setUpSwap(SwapThing &, bool master);
@@ -517,7 +516,7 @@ protected:
 	QGraphicsItem * getClickedItem(QList<QGraphicsItem *> & items);
 	void cleanupRatsnests(QList< QPointer<ConnectorItem> > & connectorItems, bool connect);
 	void rotateWire(Wire *, QTransform & rotation, QPointF center, bool undoOnly, QUndoCommand * parentCommand);
-	QList<QGraphicsItem *> getVisibleItemsAndLabels(RenderThing & renderThing, const LayerList & layers, bool ignoreHide);
+	QList<QGraphicsItem *> getVisibleItemsAndLabels(RenderThing & renderThing, const LayerList & layers);
 	QString renderToSVG(RenderThing &, QList<QGraphicsItem *> & itemsAndLabels, bool applyViewFromBelow = false);
 	QList<ItemBase *> collectSuperSubs(ItemBase *);
 	void squashShapes(QPointF scenePos);

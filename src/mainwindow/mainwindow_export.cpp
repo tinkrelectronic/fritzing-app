@@ -1144,7 +1144,7 @@ void MainWindow::exportSvg(double res, bool selectedItems, bool flatten, const Q
 	renderThing.selectedItems = selectedItems;
 	renderThing.hideTerminalPoints = true;
 	renderThing.renderBlocker = false;
-	QString svg = m_currentGraphicsView->renderToSVGForSVG(renderThing, nullptr, viewLayerIDs);
+	QString svg = m_currentGraphicsView->renderToSVGForSVGExport(renderThing, nullptr, viewLayerIDs);
 	if (svg.isEmpty()) {
 		// tell the user something reasonable
 		delete fileProgressDialog;
@@ -1776,8 +1776,6 @@ void MainWindow::exportToGerber() {
 	FileProgressDialog * fileProgressDialog = exportProgress();
 
 	FolderUtils::setOpenSaveFolder(exportDir);
-	m_pcbGraphicsView->saveLayerVisibility();
-	m_pcbGraphicsView->setAllLayersVisible(true);
 
 	QFileInfo info(m_fwFilename);
 	QString prefix = info.completeBaseName();
@@ -1786,7 +1784,6 @@ void MainWindow::exportToGerber() {
 	}
 	GerberGenerator::exportToGerber(prefix, exportDir, board, m_pcbGraphicsView, true);
 
-	m_pcbGraphicsView->restoreLayerVisibility();
 	m_statusBar->showMessage(tr("Sketch exported to Gerber"), 2000);
 
 	delete fileProgressDialog;
