@@ -198,7 +198,7 @@ void FabUploadProgress::httpError(QNetworkReply* reply)
 	if (!jsonDoc.isNull() && jsonDoc.isObject()) {
 		QJsonObject jsonObj = jsonDoc.object();
 		QJsonArray errorsArray = jsonObj["errors"].toArray();
-		foreach (const QJsonValue &value, errorsArray) {
+		for (const QJsonValue &value : errorsArray) {
 			jsonErrors += (jsonErrors.isEmpty() ? "" : ", ") + value.toString();
 		}
 	}
