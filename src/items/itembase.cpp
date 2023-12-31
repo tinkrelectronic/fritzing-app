@@ -1241,7 +1241,7 @@ void ItemBase::flipItem(Qt::Orientations orientation) {
 void ItemBase::transformItem(const QTransform & currTransf, bool includeRatsnest) {
 	//debugInfo("transform item " + TextUtils::svgMatrix(currTransf));
 
-	QTransform trns = getViewGeometry().transform();
+	//QTransform trns = getViewGeometry().transform();
 	//debugInfo("\t" + TextUtils::svgMatrix(trns));
 
 
@@ -1262,7 +1262,7 @@ void ItemBase::transformItem(const QTransform & currTransf, bool includeRatsnest
 		updateConnections(includeRatsnest, already);
 	}
 
-	trns = getViewGeometry().transform();
+	//trns = getViewGeometry().transform();
 	//debugInfo("\t" + TextUtils::svgMatrix(trns));
 
 	update();
