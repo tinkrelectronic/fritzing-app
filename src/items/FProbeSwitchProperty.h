@@ -18,23 +18,28 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 
 ********************************************************************/
 
-#ifndef FPPROBESWITCHPACKAGE_H
-#define FPPROBESWITCHPACKAGE_H
+#ifndef FPPROBESWITCHPROPERTY_H
+#define FPPROBESWITCHPROPERTY_H
 
 #include "testing/FProbe.h"
 
-#include "../utils/familypropertycombobox.h"
+#include "utils/familypropertycombobox.h"
 
 #include <QObject>
 #include <QVariant>
 
-class FProbeSwitchPackage : public FProbe {
+class FProbeSwitchProperty : public FProbe {
 public:
-		FProbeSwitchPackage(FamilyPropertyComboBox * familyPropertyComboBox);
-		~FProbeSwitchPackage() {};
+	FProbeSwitchProperty(FamilyPropertyComboBox * familyPropertyComboBox, std::string property);
+	~FProbeSwitchProperty() {};
 
 	QVariant read() { return QVariant(); };
 	void write(QVariant);
+
+	static void insertIf(QString property,
+						 FamilyPropertyComboBox *comboBox,
+						 std::string propertyList);
+
 
 protected:
 	FamilyPropertyComboBox * m_familyPropertyComboBox;
