@@ -35,6 +35,7 @@ static inline int QuickHash(ViewLayer::ViewID viewID, ViewLayer::ViewLayerID vie
 }
 
 Connector::Connector( ConnectorShared * connectorShared, ModelPart * modelPart)
+	: m_isSubBus(false)
 {
 	m_modelPart = modelPart;
 	m_connectorShared = connectorShared;
@@ -236,6 +237,20 @@ Bus * Connector::bus() {
 
 void Connector::setBus(Bus * bus) {
 	m_bus = bus;
+	m_isSubBus = false;
+}
+
+void Connector::setSubBus(Bus * bus) {
+	m_bus = bus;
+	m_isSubBus = true;
+}
+
+void Connector::removeSubBus() {
+	if(m_isSubBus) {
+		delete m_bus;
+		m_bus = nullptr;
+		m_isSubBus = false;
+	}
 }
 
 void Connector::unprocess(ViewLayer::ViewID viewID, ViewLayer::ViewLayerID viewLayerID) {
