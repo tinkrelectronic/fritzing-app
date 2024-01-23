@@ -432,8 +432,7 @@ void SketchWidget::loadFromModelParts(QList<ModelPart *> & modelParts, BaseComma
 	}
 
 	Q_FOREACH (long newID, superparts2.keys()) {
-		auto * asc = new AddSubpartCommand(this, crossViewType, superparts2.value(newID), newID, parentCommand);
-		asc->setRedoOnly();
+		new AddSubpartCommand(this, crossViewType, superparts2.value(newID), newID, parentCommand);
 	}
 
 	if (parentCommand) {
@@ -5189,8 +5188,7 @@ void SketchWidget::makeDeleteItemCommand(ItemBase * itemBase, BaseCommand::Cross
 
 	// Need to put this after prep slot so subparts are added before label setting on undo.
 	if (itemBase->superpart()) {
-		auto * asc = new AddSubpartCommand(this, crossView, itemBase->superpart()->id(), itemBase->id(), parentCommand);
-		asc->setUndoOnly();
+		new RemoveSubpartCommand(this, crossView, itemBase->superpart()->id(), itemBase->id(), parentCommand);
 	}
 
 	if (crossView == BaseCommand::CrossView) {
@@ -8479,8 +8477,7 @@ AddItemCommand * SketchWidget::newAddItemCommand(BaseCommand::CrossViewType cros
 		vg.setLoc(vg.loc() + (mps->subpartOffset() * GraphicsUtils::SVGDPI));
 		vg.setZ(-1);
 		new AddItemCommand(this, crossViewType, mps->moduleID(), viewLayerPlacement, vg, subID, updateInfoView, -1, parent);
-		auto * asc = new AddSubpartCommand(this, crossViewType, id, subID, parent);
-		asc->setRedoOnly();
+		new AddSubpartCommand(this, crossViewType, id, subID, parent);
 	}
 
 	return aic;
@@ -9881,6 +9878,23 @@ void SketchWidget::addSubpartForCommand(long id, long subpartID, bool doEmit) {
 
 	if (doEmit) {
 		Q_EMIT addSubpartSignal(id, subpartID, false);
+	}
+}
+
+void SketchWidget::removeSubpartForCommand(long id, long subpartID, bool doEmit) {
+	ItemBase * super = findItem(id);
+	if (!super) return;
+
+	ItemBase * sub = findItem(subpartID);
+	if (!sub) return;
+
+	super->removeSubpart(sub);
+
+	//Not sure if a command to invert this needs to be added:
+	//sub->setInstanceTitle("", true);
+
+	if (doEmit) {
+		Q_EMIT removeSubpartSignal(id, subpartID, false);
 	}
 }
 

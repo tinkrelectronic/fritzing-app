@@ -798,6 +798,7 @@ void MainWindow::connectPair(SketchWidget * signaller, SketchWidget * slotter)
 					 slotter, SLOT(packItemsForCommand(int, const QList<long> &, QUndoCommand *, bool))) != nullptr);
 
 	succeeded = succeeded && (connect(signaller, SIGNAL(addSubpartSignal(long, long, bool)), slotter, SLOT(addSubpartForCommand(long, long, bool))) != nullptr);
+	succeeded = succeeded && (connect(signaller, SIGNAL(removeSubpartSignal(long, long, bool)), slotter, SLOT(removeSubpartForCommand(long, long, bool))) != nullptr);
 
 	if (!succeeded) {
 		DebugDialog::debug("connectPair failed");

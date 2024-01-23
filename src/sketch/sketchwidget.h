@@ -586,6 +586,7 @@ Q_SIGNALS:
 	void resizedSignal(ItemBase *);
 	void cleanupRatsnestsSignal(bool doEmit);
 	void addSubpartSignal(long id, long subpartID, bool doEmit);
+	void removeSubpartSignal(long id, long subpartID, bool doEmit);
 	void getDroppedItemViewLayerPlacementSignal(ModelPart * modelPart, ViewLayer::ViewLayerPlacement &);
 	void packItemsSignal(int columns, const QList<long> & ids, QUndoCommand *parent, bool doEmit);
 	void routingCheckSignal();
@@ -652,6 +653,7 @@ public Q_SLOTS:
 	void ratsnestConnectForCommand(long id, const QString & connectorID, bool connect, bool doEmit);
 	void cleanupRatsnestsForCommand(bool doEmit);
 	void addSubpartForCommand(long id, long subpartid, bool doEmit);
+	void removeSubpartForCommand(long id, long subpartID, bool doEmit);
 	void packItemsForCommand(int columns, const QList<long> & ids, QUndoCommand *parent, bool doEmit);
 
 protected:
