@@ -242,6 +242,7 @@ public:
 	const QString & spice() const;
 	const QString & spiceModel() const;
 	void addSubpart(ItemBase *);
+	void removeSubpart(ItemBase *);
 	void setSuperpart(ItemBase *);
 	ItemBase * superpart();
 	ItemBase * findSubpart(const QString & connectorID, ViewLayer::ViewLayerPlacement);
