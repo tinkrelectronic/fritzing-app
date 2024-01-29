@@ -1148,9 +1148,14 @@ void SketchWidget::deleteAux(QSet<ItemBase *> & deletedItems, QUndoCommand * par
 	deleteMiddle(deletedItems, parentCommand);
 
 	// actual delete commands must come last for undo to work properly
-	Q_FOREACH (ItemBase * itemBase, deletedItems) {
-		this->makeDeleteItemCommand(itemBase, BaseCommand::CrossView, parentCommand);
-	}
+	Q_FOREACH (ItemBase * itemBase, deletedItems)
+		// need to delete subparts first
+		if (itemBase->superpart() != nullptr)
+			this->makeDeleteItemCommand(itemBase, BaseCommand::CrossView, parentCommand);
+
+	Q_FOREACH (ItemBase * itemBase, deletedItems)
+		if (itemBase->superpart() == nullptr)
+			this->makeDeleteItemCommand(itemBase, BaseCommand::CrossView, parentCommand);
 
 	new CleanUpRatsnestsCommand(this, CleanUpWiresCommand::RedoOnly, parentCommand);
 	new CleanUpWiresCommand(this, CleanUpWiresCommand::RedoOnly, parentCommand);
