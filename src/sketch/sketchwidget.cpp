@@ -81,6 +81,7 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 #include "../items/schematicframe.h"
 #include "../utils/graphutils.h"
 #include "../utils/ratsnestcolors.h"
+#include "utils/duplicatetracker.h"
 
 /////////////////////////////////////////////////////////////////////
 
@@ -9619,56 +9620,44 @@ void SketchWidget::addToSketch(QList<ModelPart *> & modelParts) {
 
 
 void SketchWidget::selectItems(QList<ItemBase *> startingItemBases) {
-	QSet<ItemBase *> itemBases;
-	Q_FOREACH (ItemBase * itemBase, startingItemBases) {
-		if (itemBase) itemBases.insert(itemBase->layerKinChief());
-	}
+	KDToolBox::DuplicateTracker<ItemBase*> itemBasesTracker;
+	itemBasesTracker.reserve(startingItemBases.size());
 
-	QSet<ItemBase *> already;
-	Q_FOREACH (QGraphicsItem * item, scene()->selectedItems()) {
-		auto * itemBase = dynamic_cast<ItemBase *>(item);
-		if (itemBase) already.insert(itemBase->layerKinChief());
-	}
-
-	bool theSame = (itemBases.count() == already.count());
-	if (theSame) {
-		Q_FOREACH(ItemBase * itemBase, itemBases) {
-			if (!already.contains(itemBase)) {
-				theSame = false;
-				break;
-			}
+	QList<ItemBase *> uniqueItemBases; // To maintain the order
+	for (ItemBase *itemBase : startingItemBases) {
+		if (itemBase && !itemBasesTracker.hasSeen(itemBase->layerKinChief())) {
+			uniqueItemBases.append(itemBase->layerKinChief());
 		}
 	}
 
-	if (theSame) return;
-
-	int count = 0;
-	ItemBase * theItemBase = nullptr;
-	Q_FOREACH(ItemBase * itemBase, itemBases) {
-		if (itemBase) {
-			theItemBase = itemBase;
-			count++;
+	QList<ItemBase *> currentlySelectedItems;
+	// We know that selectedItems is a unique list, since each item can only have one scene,
+	// and the 'selected' state is a property of the items.
+	for (QGraphicsItem *item : scene()->selectedItems()) {
+		if (auto *itemBase = dynamic_cast<ItemBase *>(item)) {
+			currentlySelectedItems.append(itemBase->layerKinChief());
 		}
 	}
+
+	if (uniqueItemBases == currentlySelectedItems) {
+		  return;
+	  }
 
 	QString message;
+	int count = uniqueItemBases.size();
 	if (count == 0) {
 		message = tr("Deselect all");
-	}
-	else if (count == 1) {
-		message = tr("Select %1").arg(theItemBase->instanceTitle());
-	}
-	else {
+	} else if (count == 1) {
+		message = tr("Select %1").arg(uniqueItemBases.first()->instanceTitle());
+	} else {
 		message = tr("Select %1 items").arg(count);
 	}
-	auto * parentCommand = new QUndoCommand(message);
+	auto *parentCommand = new QUndoCommand(message);
 
 	stackSelectionState(false, parentCommand);
 	auto * selectItemCommand = new SelectItemCommand(this, SelectItemCommand::NormalSelect, parentCommand);
-	Q_FOREACH(ItemBase * itemBase, itemBases) {
-		if (itemBase) {
-			selectItemCommand->addRedo(itemBase->id());
-		}
+	for (ItemBase *itemBase : uniqueItemBases) {
+		selectItemCommand->addRedo(itemBase->id());
 	}
 
 	scene()->clearSelection();

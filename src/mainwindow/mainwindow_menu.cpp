@@ -4628,29 +4628,37 @@ void MainWindow::findPartInSketch() {
 
 	QStringList strings;
 	strings << text;
-	QList<ItemBase *> matched;
-	Q_FOREACH (ItemBase * itemBase, itemBases) {
+	QList<ItemBase *> exactMatched;
+	QList<ItemBase *> partialMatched;
 
-#ifndef QT_NO_DEBUG
-		if (QString::number(itemBase->id()).contains(text)) {
-			matched << itemBase;
-			continue;
+	// Iterate through all item bases to find matches.
+	Q_FOREACH (ItemBase *itemBase, itemBases) {
+		if (DebugDialog::enabled()) {
+			if (QString::number(itemBase->id()).contains(text)) {
+				partialMatched << itemBase;
+				continue;
+			}
 		}
-#endif
 
-		if (itemBase->instanceTitle().contains(text, Qt::CaseInsensitive)) {
-			matched << itemBase;
+		// Prioritize exact matches on title
+		if (itemBase->instanceTitle().compare(text, Qt::CaseInsensitive) == 0) {
+			exactMatched << itemBase;
+			continue;
+		} else if (itemBase->instanceTitle().contains(text, Qt::CaseInsensitive)) {
+			partialMatched << itemBase;
 			continue;
 		}
 
 		QList<ModelPart *> modelParts;
 		m_referenceModel->search(itemBase->modelPart(), strings, modelParts, true);
-		if (modelParts.count() > 0) {
-			matched << itemBase;
+		if (!modelParts.isEmpty()) {
+			partialMatched << itemBase;
 		}
 	}
 
-	if (matched.count() == 0) {
+	QList<ItemBase *> matched = partialMatched + exactMatched;
+
+	if (matched.isEmpty()) {
 		QMessageBox::information(this, tr("Search"), tr("No parts matched search term '%1'.").arg(text));
 		return;
 	}
