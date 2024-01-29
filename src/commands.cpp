@@ -2244,7 +2244,7 @@ AddSubpartCommand::AddSubpartCommand(SketchWidget *sketchWidget,  CrossViewType 
 void AddSubpartCommand::undo()
 {
 	if (!m_redoOnly) {
-		m_sketchWidget->addSubpartForCommand(m_itemID, m_subpartItemID, true);
+		m_sketchWidget->addSubpartForCommand(m_itemID, m_subpartItemID, crossViewType() == BaseCommand::CrossView);
 	}
 	BaseCommand::undo();
 }
@@ -2252,7 +2252,7 @@ void AddSubpartCommand::undo()
 void AddSubpartCommand::redo()
 {
 	if (!m_undoOnly) {
-		m_sketchWidget->addSubpartForCommand(m_itemID, m_subpartItemID, true);
+		m_sketchWidget->addSubpartForCommand(m_itemID, m_subpartItemID, crossViewType() == BaseCommand::CrossView);
 	}
 	BaseCommand::redo();
 }
