@@ -1156,13 +1156,6 @@ void SketchWidget::deleteAux(QSet<ItemBase *> & deletedItems, QUndoCommand * par
 
 	deleteMiddle(deletedItems, parentCommand);
 
-	Q_FOREACH (ItemBase * itemBase, deletedItems) {
-		if (itemBase->superpart()) {
-			auto * asc = new AddSubpartCommand(this, BaseCommand::CrossView, itemBase->superpart()->id(), itemBase->id(), parentCommand);
-			asc->setUndoOnly();
-		}
-	}
-
 	// actual delete commands must come last for undo to work properly
 	Q_FOREACH (ItemBase * itemBase, deletedItems) {
 		this->makeDeleteItemCommand(itemBase, BaseCommand::CrossView, parentCommand);
@@ -5166,6 +5159,12 @@ void SketchWidget::makeDeleteItemCommand(ItemBase * itemBase, BaseCommand::Cross
 		Q_EMIT makeDeleteItemCommandPrepSignal(itemBase, true, parentCommand);
 	}
 	makeDeleteItemCommandPrepSlot(itemBase, false, parentCommand);
+
+	// Need to put this after prep slot so subparts are added before label setting on undo.
+	if (itemBase->superpart()) {
+		auto * asc = new AddSubpartCommand(this, crossView, itemBase->superpart()->id(), itemBase->id(), parentCommand);
+		asc->setUndoOnly();
+	}
 
 	if (crossView == BaseCommand::CrossView) {
 		Q_EMIT makeDeleteItemCommandFinalSignal(itemBase, true, parentCommand);
