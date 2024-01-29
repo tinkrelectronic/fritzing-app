@@ -87,7 +87,8 @@ bool RatsnestColor::matchColor(const QString & string) {
 
 //////////////////////////////////////////////////////
 
-RatsnestColors::RatsnestColors(const QDomElement & view)
+RatsnestColors::RatsnestColors(const QDomElement & view, bool sameColor)
+	: m_sameColor(sameColor)
 {
 	m_viewID = ViewLayer::idFromXmlName(view.attribute("name"));
 	m_backgroundColor.setNamedColor(view.attribute("background"));
@@ -113,7 +114,7 @@ RatsnestColors::~RatsnestColors()
 	m_ratsnestColorList.clear();
 }
 
-void RatsnestColors::initNames() {
+void RatsnestColors::initNames(bool sameColor) {
 	QFile file(":/resources/ratsnestcolors.xml");
 	if (!file.open(QIODevice::ReadOnly)) {
 		DebugDialog::debug("Unable to open :/resources/ratsnestcolors.xml");
@@ -138,7 +139,7 @@ void RatsnestColors::initNames() {
 
 	QDomElement view = root.firstChildElement("view");
 	while (!view.isNull()) {
-		auto * ratsnestColors = new RatsnestColors(view);
+		auto * ratsnestColors = new RatsnestColors(view, sameColor);
 		m_viewList.insert(ratsnestColors->m_viewID, ratsnestColors);
 		view = view.nextSiblingElement("view");
 	}
@@ -160,6 +161,7 @@ const QColor & RatsnestColors::netColor(ViewLayer::ViewID viewID) {
 
 const QColor & RatsnestColors::getNextColor() {
 	if (m_ratsnestColorList.count() <= 0) return ErrorColor;
+	if (m_sameColor) return ErrorColor; // Must be black because it seems that GND wires are black.
 
 	int resetCount = 0;
 	while (true) {

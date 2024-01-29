@@ -597,7 +597,7 @@ int FApplication::init() {
 	MainWindow::initNames();
 	FSvgRenderer::initNames();
 	ViewLayer::initNames();
-	RatsnestColors::initNames();
+	RatsnestColors::initNames(solidRatsnest);
 	Wire::initNames(solidRatsnest);
 	ItemBase::initNames();
 	ViewLayer::initNames();
