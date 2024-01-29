@@ -22,6 +22,7 @@ HEADERS += \
     src/sketch/sketchwidget.h \
     src/sketch/welcomeview.h \
     src/sketch/zoomablegraphicsview.h \
+    src/sketch/subpartswapmanager.h \
 
 
 SOURCES += \
@@ -34,3 +35,4 @@ SOURCES += \
     src/sketch/sketchwidget.cpp \
     src/sketch/welcomeview.cpp \
     src/sketch/zoomablegraphicsview.cpp \
+    src/sketch/subpartswapmanager.cpp \

@@ -6042,8 +6042,18 @@ long SketchWidget::setUpSwap(SwapThing & swapThing, bool master)
 {
 	// setUpSwap is performed once for each of the three views.
 
+	ItemBase * itemBase = swapThing.itemBase;
+	if (itemBase->viewID() != m_viewID) {
+		itemBase = findItem(itemBase->id());
+	}
+
+	QSharedPointer<SubpartSwapManager> manager = swapThing.subpartSwapManager;
+
 	// Only perform this for the first of the three views.
 	if (swapThing.firstTime) {
+		manager->generateSubpartModelIndices(swapThing.newModuleID);
+		manager->correlateOldAndNewSubparts(swapThing.newModuleID, itemBase);
+
 		swapThing.firstTime = false;
 		swapThing.newID = swapStart(swapThing, master);
 
@@ -6051,42 +6061,62 @@ long SketchWidget::setUpSwap(SwapThing & swapThing, bool master)
 		Q_EMIT swapStartSignal(swapThing, master);
 	}
 
-	ItemBase * itemBase = swapThing.itemBase;
-	if (itemBase->viewID() != m_viewID) {
-		itemBase = findItem(itemBase->id());
-		if (!itemBase) return swapThing.newID;
+	if (!itemBase) return swapThing.newID;
+
+	manager->resetOldSubParts(itemBase);
+	Q_FOREACH(NewSubModuleID newSubModuleID, manager->getNewModuleIDs()) {
+		if (manager->newModuleIDWasCorrelated(newSubModuleID)) {
+			ItemBase * oldSubPart = manager->extractSubPart(newSubModuleID);
+			setUpSwapMiddle(swapThing, newSubModuleID, oldSubPart, manager->getNewSubID(newSubModuleID), master);
+			setUpSwapFinal(swapThing, newSubModuleID, oldSubPart, manager->getNewSubID(newSubModuleID), master);
+		}
 	}
 
-	setUpSwapReconnect(swapThing, itemBase, swapThing.newID, master);
-	new CheckStickyCommand(this, BaseCommand::SingleView, swapThing.newID, false, CheckStickyCommand::RemoveOnly, swapThing.parentCommand);
+	setUpSwapMiddle(swapThing, swapThing.newModuleID, itemBase, swapThing.newID, master);
+	setUpSwapFinal(swapThing, swapThing.newModuleID, itemBase, swapThing.newID, master);
+
+	if (master) {
+		new CleanUpRatsnestsCommand(this, CleanUpWiresCommand::RedoOnly, swapThing.parentCommand);
+		new CleanUpWiresCommand(this, CleanUpWiresCommand::RedoOnly, swapThing.parentCommand);
+	}
+
+	return swapThing.newID;
+}
+
+void SketchWidget::setUpSwapMiddle(SwapThing & swapThing, QString newModuleID, ItemBase * itemBase, long newID, bool master) {
+	setUpSwapReconnect(swapThing, newModuleID, itemBase, newID, master);
+
+	new CheckStickyCommand(this, BaseCommand::SingleView, newID, false, CheckStickyCommand::RemoveOnly, swapThing.parentCommand);
 
 	PartLabel * partLabel = itemBase->partLabel();
 	if(partLabel != nullptr) {
 		QDomElement empty;
 		QDomElement labelGeometry;
 		partLabel->getLabelGeometry(labelGeometry);
-		auto * restoreLabelCommand = new RestoreLabelCommand(this, swapThing.newID, empty, labelGeometry, swapThing.parentCommand);
+		auto * restoreLabelCommand = new RestoreLabelCommand(this, newID, empty, labelGeometry, swapThing.parentCommand);
 		restoreLabelCommand->setRedoOnly();
 	}
 
 	if (itemBase->isPartLabelVisible()) {
 		auto * slc = new ShowLabelCommand(this, swapThing.parentCommand);
-		slc->add(swapThing.newID, true, true);
+		slc->add(newID, true, true);
 	}
 
 	if(partLabel != nullptr) {
-		auto * checkPartLabelLayerVisibilityCommand = new CheckPartLabelLayerVisibilityCommand(this, swapThing.newID, swapThing.parentCommand);
+		auto * checkPartLabelLayerVisibilityCommand = new CheckPartLabelLayerVisibilityCommand(this, newID, swapThing.parentCommand);
 		checkPartLabelLayerVisibilityCommand->setRedoOnly();
 	}
+}
 
+void SketchWidget::setUpSwapFinal(SwapThing & swapThing, QString newModuleID, ItemBase * itemBase, long newID, bool master) {
 	// Only perform this for the last of the three views.
 	if (master) {
 		auto * selectItemCommand = new SelectItemCommand(this, SelectItemCommand::NormalSelect, swapThing.parentCommand);
-		selectItemCommand->addRedo(swapThing.newID);
+		selectItemCommand->addRedo(newID);
 		selectItemCommand->addUndo(itemBase->id());
 
 		new ChangeLabelTextCommand(this, itemBase->id(), itemBase->instanceTitle(), itemBase->instanceTitle(), swapThing.parentCommand);
-		new ChangeLabelTextCommand(this, swapThing.newID, itemBase->instanceTitle(), itemBase->instanceTitle(), swapThing.parentCommand);
+		new ChangeLabelTextCommand(this, newID, itemBase->instanceTitle(), itemBase->instanceTitle(), swapThing.parentCommand);
 
 		/*
 		foreach (Wire * wire, swapThing.wiresToDelete) {
@@ -6104,17 +6134,14 @@ long SketchWidget::setUpSwap(SwapThing & swapThing, bool master)
 		}
 		*/
 
+		// Why crossview? Because this is called only for the last view.
 		makeDeleteItemCommand(itemBase, BaseCommand::CrossView, swapThing.parentCommand);
 		selectItemCommand = new SelectItemCommand(this, SelectItemCommand::NormalSelect, swapThing.parentCommand);
-		selectItemCommand->addRedo(swapThing.newID);  // to make sure new item is selected so it appears in the info view
+		selectItemCommand->addRedo(newID);  // to make sure new item is selected so it appears in the info view
 
-		prepDeleteProps(itemBase, swapThing.newID, swapThing.newModuleID, swapThing.propsMap, swapThing.parentCommand);
-		new CleanUpRatsnestsCommand(this, CleanUpWiresCommand::RedoOnly, swapThing.parentCommand);
-		new CleanUpWiresCommand(this, CleanUpWiresCommand::RedoOnly, swapThing.parentCommand);
+		prepDeleteProps(itemBase, newID, newModuleID, swapThing.propsMap, swapThing.parentCommand);
 		setUpSwapRenamePins(swapThing, itemBase);
 	}
-
-	return swapThing.newID;
 }
 
 void SketchWidget::setUpSwapRenamePins(SwapThing & swapThing, ItemBase * itemBase)
@@ -6157,9 +6184,9 @@ void SketchWidget::setUpSwapRenamePins(SwapThing & swapThing, ItemBase * itemBas
 	new RenamePinsCommand(this, swapThing.newID, oldLabels, newLabels, swapThing.parentCommand);
 }
 
-void SketchWidget::setUpSwapReconnect(SwapThing & swapThing, ItemBase * itemBase, long newID, bool master)
+void SketchWidget::setUpSwapReconnect(SwapThing & swapThing, QString newModuleID, ItemBase * itemBase, long newID, bool master)
 {
-	ModelPart * newModelPart = m_referenceModel->retrieveModelPart(swapThing.newModuleID);
+	ModelPart * newModelPart = m_referenceModel->retrieveModelPart(newModuleID);
 	if (!newModelPart) return;
 
 	QList<ConnectorItem *> fromConnectorItems(itemBase->cachedConnectorItems());
@@ -6167,7 +6194,7 @@ void SketchWidget::setUpSwapReconnect(SwapThing & swapThing, ItemBase * itemBase
 	newModelPart->initConnectors();			//  make sure the connectors are set up
 	QList< QPointer<Connector> > newConnectors = newModelPart->connectors().values();
 
-	bool checkReplacedby = (!itemBase->modelPart()->replacedby().isEmpty() && itemBase->modelPart()->replacedby() == swapThing.newModuleID);
+	bool checkReplacedby = (!itemBase->modelPart()->replacedby().isEmpty() && itemBase->modelPart()->replacedby() == newModuleID);
 
 	QList<ConnectorItem *> notFound;
 	QList<ConnectorItem *> other;
@@ -9521,7 +9548,6 @@ void SketchWidget::canConnect(Wire * from, ItemBase * to, bool & connect) {
 
 long SketchWidget::swapStart(SwapThing & swapThing, bool master) {
 	Q_UNUSED(master);
-	// This function is only called for the first of the three views.
 
 	long newID = ItemBase::getNextID(swapThing.newModelIndex);
 
@@ -9542,8 +9568,9 @@ long SketchWidget::swapStart(SwapThing & swapThing, bool master) {
 
 	new MoveItemCommand(this, itemBase->id(), vg, vg, false, swapThing.parentCommand);
 
-	// command created for each view
-	newAddItemCommand(BaseCommand::SingleView, nullptr, swapThing.newModuleID, swapThing.viewLayerPlacement, vg, newID, true, swapThing.newModelIndex, true, swapThing.parentCommand);
+	new AddItemCommand(this, BaseCommand::SingleView, swapThing.newModuleID, swapThing.viewLayerPlacement, vg, newID, true, swapThing.newModelIndex, swapThing.parentCommand);
+
+	swapStartSubParts(swapThing, itemBase, newID, vg);
 
 	if (needsTransform) {
 		QTransform m(oldTransform.m11(), oldTransform.m12(), oldTransform.m21(), oldTransform.m22(), 0, 0);
@@ -9553,9 +9580,43 @@ long SketchWidget::swapStart(SwapThing & swapThing, bool master) {
 		m_infoView->updateLocation(itemBase->layerKinChief());
 	}
 
-
-
 	return newID;
+}
+
+void SketchWidget::swapStartSubParts(SwapThing & swapThing, ItemBase * itemBase, long newID, const ViewGeometry & vg) {
+	QSharedPointer<SubpartSwapManager> manager = swapThing.subpartSwapManager;
+	manager->resetOldSubParts(itemBase);
+	Q_FOREACH(NewSubModuleID newSubModuleID, manager->getNewModuleIDs()) {
+		bool subNeedsTransform = false;
+		ItemBase * subPart = nullptr;
+		QTransform subOldTransform;
+		ViewGeometry subVgLocal;
+		if (manager->newModuleIDWasCorrelated(newSubModuleID)) {
+			subPart = manager->extractSubPart(newSubModuleID);
+			ViewGeometry subVg = subPart->getViewGeometry();
+			subOldTransform = subVg.transform();
+			if (!subOldTransform.isIdentity()) {
+				// restore identity transform
+				subVg.setTransform(QTransform());
+				subNeedsTransform = true;
+			}
+			new MoveItemCommand(this, subPart->id(), subVg, subVg, false, swapThing.parentCommand);
+			subVgLocal = subVg;
+		}
+
+		long newSubID = manager->getNewSubID(newSubModuleID);
+		new AddItemCommand(this, BaseCommand::SingleView, newSubModuleID, swapThing.viewLayerPlacement, subVgLocal, newSubID, true, manager->getNewModelIndex(newSubModuleID), swapThing.parentCommand);
+		auto * asc = new AddSubpartCommand(this, BaseCommand::SingleView, newID, newSubID, swapThing.parentCommand);
+		asc->setRedoOnly();
+
+		if (subNeedsTransform) {
+			QTransform m(subOldTransform.m11(), subOldTransform.m12(), subOldTransform.m21(), subOldTransform.m22(), 0, 0);
+			new TransformItemCommand(this, newSubID, m, m, swapThing.parentCommand);
+		}
+		if (m_infoView && subPart != nullptr) {
+			m_infoView->updateLocation(subPart->layerKinChief());
+		}
+	}
 }
 
 void SketchWidget::setPasting(bool pasting) {

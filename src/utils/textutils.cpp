@@ -2076,3 +2076,27 @@ QString TextUtils::setOfSetsToString(const QSet<QSet<QString>> & setOfSets) {
 	}
 	return setOfSetsString;
 }
+
+QString TextUtils::commonPrefix(const QStringList &strings) {
+	if (strings.empty()) return "";
+	QString prefix = strings.first();
+	foreach (const QString &str, strings) {
+		while (!str.startsWith(prefix)) {
+			prefix.chop(1);
+			if (prefix.isEmpty()) return "";
+		}
+	}
+	return prefix;
+}
+
+QString TextUtils::commonSuffix(const QStringList &strings) {
+	if (strings.empty()) return "";
+	QString suffix = strings.first();
+	foreach (const QString &str, strings) {
+		while (!str.endsWith(suffix)) {
+			suffix.remove(0, 1);
+			if (suffix.isEmpty()) return "";
+		}
+	}
+	return suffix;
+}

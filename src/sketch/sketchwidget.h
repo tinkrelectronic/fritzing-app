@@ -40,6 +40,7 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 #include "../viewlayer.h"
 #include "../utils/misc.h"
 #include "../utils/graphutils.h"
+#include "../sketch/subpartswapmanager.h"
 #include "../commands.h"
 
 #include "renderthing.h"
@@ -64,6 +65,7 @@ struct SwapThing {
 	ItemBase * itemBase;
 	long newModelIndex;
 	QString newModuleID;
+	QSharedPointer<SubpartSwapManager> subpartSwapManager;
 	ViewLayer::ViewLayerPlacement viewLayerPlacement;
 	QList<Wire *> wiresToDelete;
 	QUndoCommand * parentCommand;
@@ -229,6 +231,8 @@ public:
 
 	bool spaceBarIsPressed() noexcept;
 	virtual long setUpSwap(SwapThing &, bool master);
+	void setUpSwapMiddle(SwapThing &, QString newModuleID, ItemBase * itemBase, long newID, bool master);
+	void setUpSwapFinal(SwapThing &, QString newModuleID, ItemBase * itemBase, long newID, bool master);
 	ConnectorItem * lastHoverEnterConnectorItem();
 	ItemBase * lastHoverEnterItem();
 	LayerHash & viewLayers();
@@ -442,7 +446,7 @@ protected:
     void drawForeground( QPainter * painter, const QRectF & rect );
 	void handleConnect(QDomElement & connect, ModelPart *, const QString & fromConnectorID, ViewLayer::ViewLayerID, QStringList & alreadyConnected,
 	                   QHash<long, ItemBase *> & newItems, QUndoCommand * parentCommand, bool seekOutsideConnections);
-	void setUpSwapReconnect(SwapThing &, ItemBase * itemBase, long newID, bool master);
+	void setUpSwapReconnect(SwapThing &, QString newModuleID, ItemBase * itemBase, long newID, bool master);
 	void setUpSwapRenamePins(SwapThing & swapThing, ItemBase * itemBase);
 	void makeSwapWire(SketchWidget *, ItemBase *, long newID, ConnectorItem * fromConnectorItem, ConnectorItem * toConnectorItem, Connector * newConnector, QUndoCommand * parentCommand);
 	bool swappedGender(ConnectorItem * originalConnectorItem, Connector * newConnector);
@@ -527,6 +531,7 @@ protected:
 	virtual bool updateOK(ConnectorItem *, ConnectorItem *);
 	virtual void viewGeometryConversionHack(ViewGeometry &, ModelPart *);
 	void prepDeleteOtherPropsNumbers(const QString & propertyName, ItemBase * itemBase, long id, const QString & newModuleID, QUndoCommand * parentCommand);
+	void swapStartSubParts(SwapThing & swapThing, ItemBase * itemBase, long newID, const ViewGeometry & vg);
 
 protected:
 	static bool lessThan(int a, int b);
