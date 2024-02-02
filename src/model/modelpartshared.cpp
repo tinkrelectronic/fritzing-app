@@ -19,6 +19,7 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 ********************************************************************/
 
 #include "modelpartshared.h"
+#include "palettemodel.h"
 #include "../connectors/connectorshared.h"
 #include "../debugdialog.h"
 #include "../connectors/busshared.h"
@@ -390,22 +391,37 @@ void ModelPartShared::initConnectors() {
 	if (m_connectorsInitialized)
 		return;
 
-	QFile file(m_path);
+	bool isSubpart = !m_subpartID.isEmpty() && m_superpart;
+
+	QString pathToUse = isSubpart ? m_superpart->path() : m_path;
+	QFile file(pathToUse);
 	if (!file.open(QIODevice::ReadOnly)) {
-		DebugDialog::debug(QString("Unable to open :%1").arg(m_path));
+		DebugDialog::debug(QString("Unable to open :%1").arg(pathToUse));
+		return;
 	}
+
 	QString errorStr;
 	int errorLine;
 	int errorColumn;
 	QDomDocument doc;
-	doc.setContent(&file, &errorStr, &errorLine, &errorColumn);
-
-	m_connectorsInitialized = true;
-	QDomElement root = doc.documentElement();
-	if (root.isNull()) {
+	if (!doc.setContent(&file, &errorStr, &errorLine, &errorColumn)) {
+		DebugDialog::debug(QString("Failed to set content from file:%1 Error:%2 Line:%3 Column:%4")
+				   .arg(pathToUse).arg(errorStr).arg(errorLine).arg(errorColumn));
+		file.close();
 		return;
 	}
+	file.close();
 
+	if (isSubpart) {
+		// Replace the superpart document with the subpart document
+		doc = PaletteModel::makeSubpartDoc(m_subpartID, doc);
+		if (doc.isNull()) {
+			DebugDialog::debug(QString("Failed to create subpart document for subpart ID %1").arg(m_subpartID));
+			return;
+		}
+	}
+
+	QDomElement root = doc.documentElement();
 	QDomElement connectors = root.firstChildElement("connectors");
 	if (connectors.isNull())
 		return;
@@ -433,8 +449,7 @@ void ModelPartShared::initConnectors() {
 	}
 
 	//DebugDialog::debug(QString("model %1 has %2 connectors and %3 bus connectors").arg(this->title()).arg(m_connectorSharedHash.count()).arg(m_buses.count()) );
-
-
+	m_connectorsInitialized = true;
 }
 
 ConnectorShared * ModelPartShared::getConnectorShared(const QString & id) {
