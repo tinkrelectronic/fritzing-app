@@ -45,7 +45,6 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 #include "utils/textutils.h"
 #include "utils/graphicsutils.h"
 #include "utils/uploadpair.h"
-#include "infoview/htmlinfoview.h"
 #include "svg/gedaelement2svg.h"
 #include "svg/kicadmodule2svg.h"
 #include "svg/kicadschematic2svg.h"
@@ -85,7 +84,6 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 #include <QTemporaryFile>
 #include <QDir>
 #include <QMetaType>
-#include <time.h>
 
 #ifdef LINUX_32
 #define PLATFORM_NAME "linux-32bit"

@@ -22,12 +22,12 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 #include <QMenu>
 #include <QMimeData>
 
-#include "../infoview/htmlinfoview.h"
-#include "../items/itembase.h"
-#include "../fsvgrenderer.h"
-#include "../itemdrag.h"
-#include "../items/partfactory.h"
-#include "../layerattributes.h"
+#include "infoview/htmlinfoview.h"
+#include "items/itembase.h"
+#include "fsvgrenderer.h"
+#include "itemdrag.h"
+#include "items/partfactory.h"
+#include "layerattributes.h"
 #include "partsbinpalettewidget.h"
 
 #include "partsbinlistview.h"

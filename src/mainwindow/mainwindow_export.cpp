@@ -49,7 +49,6 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 #include "../program/programwindow.h"
 #include "../svg/gerbergenerator.h"
 #include "../processeventblocker.h"
-#include "../items/propertydef.h"
 #include "src/ipc/ipc_d_356.h"
 
 static QString eagleActionType = ".eagle";

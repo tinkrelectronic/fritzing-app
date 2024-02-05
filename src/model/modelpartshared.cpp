@@ -27,7 +27,6 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 
 #include <QHash>
 #include <QMessageBox>
-#include <math.h>
 
 void copyPinAttributes(QDomElement & from, QDomElement & to)
 {

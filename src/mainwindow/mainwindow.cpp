@@ -42,7 +42,6 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "mainwindow.h"
 #include "../debugdialog.h"
-#include "fdockwidget.h"
 #include "../infoview/htmlinfoview.h"
 #include "../waitpushundostack.h"
 #include "../sketch/breadboardsketchwidget.h"
