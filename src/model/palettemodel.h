@@ -77,6 +77,8 @@ protected:
 	ModelPart * makeSubpart(ModelPart * originalModelPart, const QDomElement & originalSubpart, const QDomDocument & superpartDoc);
 
 public:
+	static QString createSubpartModuleID(const QString & superPartModuleID, const QString & subpartID);
+	static QDomDocument makeSubpartDoc(const QDomElement & originalSubpart, const QDomDocument & superpartDoc);
 	static void initNames();
 	static void setFzpOverrideFolder(const QString &);
 

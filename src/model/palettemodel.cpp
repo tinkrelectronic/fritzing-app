@@ -540,13 +540,33 @@ QList<ModelPart *> PaletteModel::findContribNoBin() {
 }
 
 ModelPart * PaletteModel::makeSubpart(ModelPart * originalModelPart, const QDomElement & originalSubpart, const QDomDocument & superpartDoc) {
-	QString newLabel = originalSubpart.attribute("label");
 	QString newID = originalSubpart.attribute("id");
-	QString moduleID = superpartDoc.documentElement().attribute("moduleId") + "_" + newID;
+	QString moduleID = PaletteModel::createSubpartModuleID(superpartDoc.documentElement().attribute("moduleId"), newID);
 	ModelPart * modelPart = retrieveModelPart(moduleID);
 	if (modelPart) {
 		return modelPart;
 	}
+
+	QDomDocument subdoc = PaletteModel::makeSubpartDoc(originalSubpart, superpartDoc);
+	QString path = PartFactory::fzpPath() + moduleID + ".fzp";
+	QString fzp = subdoc.toString(4);
+	TextUtils::writeUtf8(path, fzp);
+
+	modelPart = new ModelPart(subdoc, path, ModelPart::SchematicSubpart);
+	modelPart->setSubpartID(newID);
+	originalModelPart->modelPartShared()->addSubpart(modelPart->modelPartShared());
+	m_partHash.insert(moduleID, modelPart);
+	return modelPart;
+}
+
+QString PaletteModel::createSubpartModuleID(const QString & superPartModuleID, const QString & subpartID) {
+	return superPartModuleID + "_" + subpartID;
+}
+
+QDomDocument PaletteModel::makeSubpartDoc(const QDomElement & originalSubpart, const QDomDocument & superpartDoc) {
+	QString newLabel = originalSubpart.attribute("label");
+	QString newID = originalSubpart.attribute("id");
+	QString moduleID = PaletteModel::createSubpartModuleID(superpartDoc.documentElement().attribute("moduleId"), newID);
 
 	QDomDocument subdoc = superpartDoc.cloneNode(true).toDocument();
 	QDomElement root = subdoc.documentElement();
@@ -611,16 +631,7 @@ ModelPart * PaletteModel::makeSubpart(ModelPart * originalModelPart, const QDomE
 
 		originalConnector = originalConnector.nextSiblingElement("connector");
 	}
-
-	QString path = PartFactory::fzpPath() + moduleID + ".fzp";
-	QString fzp = subdoc.toString(4);
-	TextUtils::writeUtf8(path, fzp);
-
-	modelPart = new ModelPart(subdoc, path, ModelPart::SchematicSubpart);
-	modelPart->setSubpartID(newID);
-	originalModelPart->modelPartShared()->addSubpart(modelPart->modelPartShared());
-	m_partHash.insert(moduleID, modelPart);
-	return modelPart;
+	return subdoc;
 }
 
 QList<ModelPart *> PaletteModel::allParts() {
