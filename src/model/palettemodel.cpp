@@ -321,7 +321,7 @@ ModelPart * PaletteModel::loadPart(const QString & path, bool update) {
 	QDomElement subparts = root.firstChildElement("schematic-subparts");
 	QDomElement subpart = subparts.firstChildElement("subpart");
 	while (!subpart.isNull()) {
-		ModelPart * subModelPart = makeSubpart(modelPart, subpart, domDocument);
+		ModelPart * subModelPart = makeSubpart(modelPart, subpart.attribute("id"), domDocument);
 		m_partHash.insert(subModelPart->moduleID(), subModelPart);
 		subpart = subpart.nextSiblingElement("subpart");
 	}
@@ -539,21 +539,20 @@ QList<ModelPart *> PaletteModel::findContribNoBin() {
 	return modelParts;
 }
 
-ModelPart * PaletteModel::makeSubpart(ModelPart * originalModelPart, const QDomElement & originalSubpart, const QDomDocument & superpartDoc) {
-	QString newID = originalSubpart.attribute("id");
-	QString moduleID = PaletteModel::createSubpartModuleID(superpartDoc.documentElement().attribute("moduleId"), newID);
+ModelPart * PaletteModel::makeSubpart(ModelPart * originalModelPart, const QString & newSubID, const QDomDocument & superpartDoc) {
+	QString moduleID = PaletteModel::createSubpartModuleID(superpartDoc.documentElement().attribute("moduleId"), newSubID);
 	ModelPart * modelPart = retrieveModelPart(moduleID);
 	if (modelPart) {
 		return modelPart;
 	}
 
-	QDomDocument subdoc = PaletteModel::makeSubpartDoc(originalSubpart, superpartDoc);
+	QDomDocument subdoc = PaletteModel::makeSubpartDoc(newSubID, superpartDoc);
 	QString path = PartFactory::fzpPath() + moduleID + ".fzp";
 	QString fzp = subdoc.toString(4);
 	TextUtils::writeUtf8(path, fzp);
 
 	modelPart = new ModelPart(subdoc, path, ModelPart::SchematicSubpart);
-	modelPart->setSubpartID(newID);
+	modelPart->setSubpartID(newSubID);
 	originalModelPart->modelPartShared()->addSubpart(modelPart->modelPartShared());
 	m_partHash.insert(moduleID, modelPart);
 	return modelPart;
@@ -563,14 +562,30 @@ QString PaletteModel::createSubpartModuleID(const QString & superPartModuleID, c
 	return superPartModuleID + "_" + subpartID;
 }
 
-QDomDocument PaletteModel::makeSubpartDoc(const QDomElement & originalSubpart, const QDomDocument & superpartDoc) {
+QDomDocument PaletteModel::makeSubpartDoc(const QString & newSubID, const QDomDocument & superpartDoc) {
+	QDomDocument subdoc = superpartDoc.cloneNode(true).toDocument();
+	QDomElement root = subdoc.documentElement();
+	QDomElement subparts = root.firstChildElement("schematic-subparts");
+
+	QDomElement subpart = subparts.firstChildElement("subpart");
+	QDomElement originalSubpart;
+	bool subIDFound = false;
+	while (!subpart.isNull()) {
+		if (subpart.attribute("id") == newSubID) {
+			originalSubpart = subpart;
+			subIDFound = true;
+			break;
+		}
+		subpart = subpart.nextSiblingElement("subpart");
+	}
+
+	if (!subIDFound)
+		return QDomDocument();
+
 	QString newLabel = originalSubpart.attribute("label");
 	QString newID = originalSubpart.attribute("id");
 	QString moduleID = PaletteModel::createSubpartModuleID(superpartDoc.documentElement().attribute("moduleId"), newID);
 
-	QDomDocument subdoc = superpartDoc.cloneNode(true).toDocument();
-	QDomElement root = subdoc.documentElement();
-	QDomElement subparts = root.firstChildElement("schematic-subparts");
 	root.removeChild(subparts);
 	root.setAttribute("moduleId", moduleID);
 	QDomElement label = root.firstChildElement("label");
