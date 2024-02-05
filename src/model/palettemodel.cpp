@@ -321,7 +321,7 @@ ModelPart * PaletteModel::loadPart(const QString & path, bool update) {
 	QDomElement subparts = root.firstChildElement("schematic-subparts");
 	QDomElement subpart = subparts.firstChildElement("subpart");
 	while (!subpart.isNull()) {
-		ModelPart * subModelPart = makeSubpart(modelPart, subpart);
+		ModelPart * subModelPart = makeSubpart(modelPart, subpart, domDocument);
 		m_partHash.insert(subModelPart->moduleID(), subModelPart);
 		subpart = subpart.nextSiblingElement("subpart");
 	}
@@ -539,17 +539,16 @@ QList<ModelPart *> PaletteModel::findContribNoBin() {
 	return modelParts;
 }
 
-ModelPart * PaletteModel::makeSubpart(ModelPart * originalModelPart, const QDomElement & originalSubpart) {
+ModelPart * PaletteModel::makeSubpart(ModelPart * originalModelPart, const QDomElement & originalSubpart, const QDomDocument & superpartDoc) {
 	QString newLabel = originalSubpart.attribute("label");
 	QString newID = originalSubpart.attribute("id");
-	QDomElement originalRoot = originalSubpart.ownerDocument().documentElement();
-	QString moduleID = originalRoot.attribute("moduleId") + "_" + newID;
+	QString moduleID = superpartDoc.documentElement().attribute("moduleId") + "_" + newID;
 	ModelPart * modelPart = retrieveModelPart(moduleID);
 	if (modelPart) {
 		return modelPart;
 	}
 
-	QDomDocument subdoc = originalSubpart.ownerDocument().cloneNode(true).toDocument();
+	QDomDocument subdoc = superpartDoc.cloneNode(true).toDocument();
 	QDomElement root = subdoc.documentElement();
 	QDomElement subparts = root.firstChildElement("schematic-subparts");
 	root.removeChild(subparts);
