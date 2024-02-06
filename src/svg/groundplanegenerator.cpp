@@ -192,7 +192,6 @@ void GroundPlanePaintEngine::drawPolygon(const QPointF *points, int pointCount, 
 	cp.Execute(ctUnion, clipperPaths, pftNonZero, qtToClipperFillType(mode));
 }
 
-// http://imgur.com/a/N4Q8k
 GroundPlaneGenerator::GroundPlaneGenerator() {
 	m_strokeWidthIncrement = 0;
 	m_minRiseSize = m_minRunSize = 1;
