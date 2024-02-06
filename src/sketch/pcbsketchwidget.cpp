@@ -1462,6 +1462,7 @@ bool PCBSketchWidget::groundFill(bool fillGroundTraces, ViewLayer::ViewLayerID v
 
 	boardImageRect = renderThing.imageRect;
 	renderThing.renderBlocker = true;
+	renderThing.blackOnly = false;
 
 	QString svg0;
 	if (viewLayerID == ViewLayer::UnknownLayer || viewLayerID == ViewLayer::GroundPlane0) {
