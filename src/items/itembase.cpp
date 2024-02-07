@@ -1638,7 +1638,7 @@ bool ItemBase::collectExtraInfo(QWidget * parent, const QString & family, const 
 		m_propsMap.insert(prop, tempValue);
 		FProbeSwitchProperty::insertIf(prop,
 									  comboBox,
-									  "Package, Layer, Variant"
+									  "Package, Layer, Variant, Pins, Form, Position, Row, Stepper type"
 									   );
 		return true;
 	}
