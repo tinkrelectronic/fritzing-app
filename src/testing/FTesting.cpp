@@ -133,7 +133,7 @@ void FTestingServerThread::run()
 	}
 
 	QStringList params = tokens.at(1).split("/", Qt::SplitBehaviorFlags::SkipEmptyParts);
-	QString command = params.takeFirst();
+	QString command = QUrl::fromPercentEncoding(params.takeFirst().toUtf8());
 	if (params.count() == 0) {
 		writeResponse(socket, 400, "Bad Request", "", "");
 		return;
