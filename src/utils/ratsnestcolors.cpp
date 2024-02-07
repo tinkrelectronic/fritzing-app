@@ -27,6 +27,7 @@ QHash<ViewLayer::ViewID, RatsnestColors *> RatsnestColors::m_viewList;
 QHash<QString, class RatsnestColor *> RatsnestColors::m_allNames;
 
 QColor ErrorColor(0, 0, 0);
+QColor TestColor(0, 0, 0);
 
 //////////////////////////////////////////////////////
 
@@ -161,7 +162,7 @@ const QColor & RatsnestColors::netColor(ViewLayer::ViewID viewID) {
 
 const QColor & RatsnestColors::getNextColor() {
 	if (m_ratsnestColorList.count() <= 0) return ErrorColor;
-	if (m_sameColor) return ErrorColor; // Must be black because it seems that GND wires are black.
+	if (m_sameColor) return TestColor;
 
 	int resetCount = 0;
 	while (true) {
