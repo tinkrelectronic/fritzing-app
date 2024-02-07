@@ -397,20 +397,14 @@ void ModelPartShared::initConnectors() {
 	QFile file(pathToUse);
 	if (!file.open(QIODevice::ReadOnly)) {
 		DebugDialog::debug(QString("Unable to open :%1").arg(pathToUse));
-		return;
 	}
-
 	QString errorStr;
 	int errorLine;
 	int errorColumn;
 	QDomDocument doc;
-	if (!doc.setContent(&file, &errorStr, &errorLine, &errorColumn)) {
-		DebugDialog::debug(QString("Failed to set content from file:%1 Error:%2 Line:%3 Column:%4")
-				   .arg(pathToUse).arg(errorStr).arg(errorLine).arg(errorColumn));
-		file.close();
-		return;
-	}
-	file.close();
+	doc.setContent(&file, &errorStr, &errorLine, &errorColumn);
+
+	m_connectorsInitialized = true;
 
 	if (isSubpart) {
 		// Replace the superpart document with the subpart document
@@ -422,6 +416,10 @@ void ModelPartShared::initConnectors() {
 	}
 
 	QDomElement root = doc.documentElement();
+	if (root.isNull()) {
+		return;
+	}
+
 	QDomElement connectors = root.firstChildElement("connectors");
 	if (connectors.isNull())
 		return;
@@ -449,7 +447,8 @@ void ModelPartShared::initConnectors() {
 	}
 
 	//DebugDialog::debug(QString("model %1 has %2 connectors and %3 bus connectors").arg(this->title()).arg(m_connectorSharedHash.count()).arg(m_buses.count()) );
-	m_connectorsInitialized = true;
+
+
 }
 
 ConnectorShared * ModelPartShared::getConnectorShared(const QString & id) {
