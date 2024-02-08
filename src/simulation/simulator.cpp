@@ -61,7 +61,6 @@ Simulator::Simulator(MainWindow *mainWindow) : QObject(mainWindow) {
 	m_mainWindow = mainWindow;
 	m_breadboardGraphicsView = dynamic_cast<BreadboardSketchWidget *>(mainWindow->sketchWidgets().at(0));
 	m_schematicGraphicsView = dynamic_cast<SchematicSketchWidget *>(mainWindow->sketchWidgets().at(1));
-	m_instanceTitleSim = new QList<QString>;
 
 	m_simTimer = new QTimer(this);
 	m_simTimer->setSingleShot(true);
@@ -251,11 +250,10 @@ void Simulator::simulate() {
 	std::cout << "Generate a hash table to find the breadboard parts from parts in the schematic view" <<std::endl;
 	m_sch2bbItemHash.clear();
 	foreach (ItemBase* schPart, itemBases) {
-		m_instanceTitleSim->append(schPart->instanceTitle());
 		foreach (QGraphicsItem * bbItem, m_breadboardGraphicsView->scene()->items()) {
 			ItemBase * bbPart = dynamic_cast<ItemBase *>(bbItem);
 			if (!bbPart) continue;
-			if (schPart->instanceTitle().compare(bbPart->instanceTitle()) == 0) {
+			if (schPart->id() == bbPart->id()) {
 				m_sch2bbItemHash.insert(schPart, bbPart);
 			}
 		}

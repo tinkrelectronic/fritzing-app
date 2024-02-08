@@ -92,7 +92,6 @@ protected:
 	QHash<ItemBase *, ItemBase *> m_sch2bbItemHash;
 	QHash<ConnectorItem *, int> m_connector2netHash;
 
-	QList<QString>* m_instanceTitleSim;
 	QTimer *m_simTimer;
 	static constexpr int SimDelay = 200;
 	static constexpr double HarmfulNegativeVoltage = -0.5;
