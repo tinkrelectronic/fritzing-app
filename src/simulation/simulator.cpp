@@ -950,7 +950,7 @@ void Simulator::updateLED(ItemBase * part) {
 void Simulator::updateCapacitor(ItemBase * part) {
 	QString family = part->getProperty("family").toLower();
 
-	ConnectorItem * negLeg, * posLeg;
+	ConnectorItem * negLeg = nullptr, * posLeg = nullptr;
 	QList<ConnectorItem *> legs = part->cachedConnectorItems();
 	foreach(ConnectorItem * ci, legs) {
 		if(ci->connectorSharedName().toLower().compare("+") == 0) posLeg = ci;
@@ -1083,7 +1083,7 @@ void Simulator::updateDcMotor(ItemBase * part) {
 	double maxV = getMaxPropValue(part, "voltage (max)");
 	double minV = getMaxPropValue(part, "voltage (min)");
 	std::cout << "Motor1: " << std::endl;
-	ConnectorItem * terminal1, * terminal2;
+	ConnectorItem *terminal1 = nullptr, *terminal2 = nullptr;
 	QList<ConnectorItem *> probes = part->cachedConnectorItems();
 	foreach(ConnectorItem * ci, probes) {
 		if(ci->connectorSharedName().toLower().compare("pin 1") == 0) terminal1 = ci;
