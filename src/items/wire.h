@@ -33,7 +33,7 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 #include <QMenu>
 
 #include "itembase.h"
-#include "../utils/cursormaster.h"
+#include "utils/cursormaster.h"
 
 class WireAction : public QAction {
 	Q_OBJECT
