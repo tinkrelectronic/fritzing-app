@@ -27,6 +27,7 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 #include <clipper.hpp>
 
 #include <QBitArray>
+#include <QFile>
 #include <QPainter>
 #include <QPaintDevice>
 #include <QPaintEngine>

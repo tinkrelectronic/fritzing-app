@@ -22,6 +22,7 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 #include "connectors/connectorshared.h"
 #include "connectors/busshared.h"
 #include "connectors/bus.h"
+#include "utils/misc.h"
 #include "version/version.h"
 #include "utils/textutils.h"
 #include "items/itembase.h"

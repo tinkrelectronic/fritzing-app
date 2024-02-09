@@ -39,9 +39,8 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 #include <QTimer>
 #include <QCursor>
 
-#include "../viewgeometry.h"
-#include "../viewlayer.h"
-#include "../utils/misc.h"
+#include "viewgeometry.h"
+#include "viewlayer.h"
 
 class ConnectorItem;
 class ModelPart;

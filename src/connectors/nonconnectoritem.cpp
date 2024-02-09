@@ -27,6 +27,7 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "../utils/graphicsutils.h"
 #include "../model/modelpart.h"
+#include "utils/misc.h"
 
 //static const double EffectiveAdjustment = 1.25;
 constexpr double EffectiveAdjustmentFactor = 5.0 / 15.0;
