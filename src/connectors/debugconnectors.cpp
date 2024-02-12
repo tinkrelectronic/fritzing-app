@@ -63,14 +63,28 @@ void DebugConnectors::monitorConnections(bool enabled)
 	m_monitorEnabled = enabled;
 }
 
+void logConnector(QString info, ConnectorItem *connectorItem)
+{
+	ViewLayer::ViewLayerID layer = connectorItem->attachedToViewLayerID();
+	ViewLayer::ViewID view = connectorItem->attachedToViewID();
+
+	qDebug() << info << " " << connectorItem->attachedToTitle()
+			 << connectorItem->attachedToInstanceTitle() << ViewLayer::viewLayerNameFromID(layer)
+			 << ViewLayer::viewIDName(view);
+
+}
+
 QSet<QString> DebugConnectors::getItemConnectorSet(ConnectorItem *connectorItem) {
 	QSet<QString> set;
-	static QRegularExpression re("^(AM|VM|OM)\\d+");
+	// logConnector("from", connectorItem);
 	Q_FOREACH (ConnectorItem * toConnectorItem, connectorItem->connectedToItems()) {
 		ItemBase * attachedToItem = toConnectorItem->attachedTo();
 		VirtualWire * virtualWire = qobject_cast<VirtualWire *>(attachedToItem);
 		if (virtualWire != nullptr) continue;
-		if (re.match(attachedToItem->instanceTitle()).hasMatch()) continue; // Ignore Multimeter. It has no pcb connections.
+		// logConnector("to", toConnectorItem);
+		// Ignore Multimeter and Probes. They have no pcb connections.
+		if (attachedToItem->title().contains("Multimeter")) continue;
+		if (attachedToItem->title().contains("Oscilloscope")) continue;
 		QString idString = toConnectorItem->attachedToInstanceTitle() + ":" + toConnectorItem->connectorSharedID();
 		set.insert(idString);
 	}
