@@ -8391,6 +8391,7 @@ AddItemCommand * SketchWidget::newAddItemCommand(BaseCommand::CrossViewType cros
 		long subID = ItemBase::getNextID();
 		ViewGeometry vg = viewGeometry;
 		vg.setLoc(vg.loc() + (mps->subpartOffset() * GraphicsUtils::SVGDPI));
+		vg.setZ(-1);
 		new AddItemCommand(this, crossViewType, mps->moduleID(), viewLayerPlacement, vg, subID, updateInfoView, -1, parent);
 		auto * asc = new AddSubpartCommand(this, crossViewType, id, subID, parent);
 		asc->setRedoOnly();
