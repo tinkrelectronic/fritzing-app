@@ -37,12 +37,17 @@ const QString FritzingWindow::QtFunkyPlaceholder = QLatin1String("[*]");  // thi
 QString FritzingWindow::ReadOnlyPlaceholder(" [READ-ONLY] ");
 QStringList FritzingWindow::OtherKnownExtensions;
 
-FritzingWindow::FritzingWindow(const QString &untitledFileName, int &untitledFileCount, QString fileExt, QWidget * parent, Qt::WindowFlags f)
+FritzingWindow::FritzingWindow(QWidget * parent, Qt::WindowFlags f)
 	: QMainWindow(parent, f)
 {
 	// Let's set the icon
 	this->setWindowIcon(QIcon(QPixmap(":resources/images/fritzing_icon.png")));
 
+	m_undoStack = new WaitPushUndoStack(this);
+	connect(m_undoStack, SIGNAL(cleanChanged(bool)), this, SLOT(undoStackCleanChanged(bool)) );
+}
+
+void FritzingWindow::initializeTitle(const QString &untitledFileName, int &untitledFileCount, QString fileExt) {
 	QString fn = untitledFileName;
 
 	if(untitledFileCount > 1) {
@@ -54,9 +59,6 @@ FritzingWindow::FritzingWindow(const QString &untitledFileName, int &untitledFil
 	untitledFileCount++;
 
 	FritzingWindow::setTitle();
-
-	m_undoStack = new WaitPushUndoStack(this);
-	connect(m_undoStack, SIGNAL(cleanChanged(bool)), this, SLOT(undoStackCleanChanged(bool)) );
 }
 
 void FritzingWindow::createCloseAction() {

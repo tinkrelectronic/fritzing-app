@@ -247,8 +247,11 @@ QRegularExpression MainWindow::GuidMatcher = QRegularExpression("[A-Fa-f0-9]{32}
 /////////////////////////////////////////////
 
 MainWindow::MainWindow(ReferenceModel *referenceModel, QWidget * parent) :
-	FritzingWindow(MainWindow::untitledFileName(), MainWindow::untitledFileCount(), MainWindow::fileExtension(), parent)
+	FritzingWindow(parent)
 {
+	this->initializeTitle(MainWindow::untitledFileName(),
+						 MainWindow::untitledFileCount(),
+						 MainWindow::fileExtension());
 	m_noSchematicConversion = m_useOldSchematic = m_convertedSchematic = false;
 	m_initialTab = 1;
 	m_rolloverQuoteDialog = nullptr;
