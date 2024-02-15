@@ -4314,11 +4314,18 @@ double SketchWidget::fitInWindow() {
 
 	QRectF itemsRect;
 	Q_FOREACH(QGraphicsItem * item, scene()->items()) {
-		auto * itemBase = dynamic_cast<ItemBase *>(item);
-		if (!itemBase) continue;
-		if (!itemBase->isEverVisible()) continue;
+		auto * partLabel = dynamic_cast<PartLabel *>(item);
+		if (partLabel) {
+			if (!partLabel->isVisible()) continue;
+			if (!partLabel->initialized()) continue;
+			itemsRect |= partLabel->sceneBoundingRect();
+		} else {
+			auto * itemBase = dynamic_cast<ItemBase *>(item);
+			if (!itemBase) continue;
+			if (!itemBase->isEverVisible()) continue;
 
-		itemsRect |= itemBase->sceneBoundingRect();
+			itemsRect |= itemBase->sceneBoundingRect();
+		}
 	}
 
 	static constexpr double borderFactor = 0.03;
