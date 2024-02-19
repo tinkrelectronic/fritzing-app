@@ -6064,7 +6064,7 @@ long SketchWidget::setUpSwap(SwapThing & swapThing, bool master)
 	if (!itemBase) return swapThing.newID;
 
 	manager->resetOldSubParts(itemBase);
-	Q_FOREACH(NewSubModuleID newSubModuleID, manager->getNewModuleIDs()) {
+	for (const auto & newSubModuleID : manager->getNewModuleIDs()) {
 		if (manager->newModuleIDWasCorrelated(newSubModuleID)) {
 			ItemBase * oldSubPart = manager->extractSubPart(newSubModuleID);
 			setUpSwapMiddle(swapThing, newSubModuleID, oldSubPart, manager->getNewSubID(newSubModuleID), master);
@@ -6110,38 +6110,37 @@ void SketchWidget::setUpSwapMiddle(SwapThing & swapThing, QString newModuleID, I
 
 void SketchWidget::setUpSwapFinal(SwapThing & swapThing, QString newModuleID, ItemBase * itemBase, long newID, bool master) {
 	// Only perform this for the last of the three views.
-	if (master) {
-		auto * selectItemCommand = new SelectItemCommand(this, SelectItemCommand::NormalSelect, swapThing.parentCommand);
-		selectItemCommand->addRedo(newID);
-		selectItemCommand->addUndo(itemBase->id());
+	if (!master) return;
+	auto * selectItemCommand = new SelectItemCommand(this, SelectItemCommand::NormalSelect, swapThing.parentCommand);
+	selectItemCommand->addRedo(newID);
+	selectItemCommand->addUndo(itemBase->id());
 
-		new ChangeLabelTextCommand(this, itemBase->id(), itemBase->instanceTitle(), itemBase->instanceTitle(), swapThing.parentCommand);
-		new ChangeLabelTextCommand(this, newID, itemBase->instanceTitle(), itemBase->instanceTitle(), swapThing.parentCommand);
+	new ChangeLabelTextCommand(this, itemBase->id(), itemBase->instanceTitle(), itemBase->instanceTitle(), swapThing.parentCommand);
+	new ChangeLabelTextCommand(this, newID, itemBase->instanceTitle(), itemBase->instanceTitle(), swapThing.parentCommand);
 
-		/*
-		foreach (Wire * wire, swapThing.wiresToDelete) {
-			QList<Wire *> chained;
-			QList<ConnectorItem *> ends;
-			wire->collectChained(chained, ends);
-			foreach (Wire * w, chained) {
-				if (!swapThing.wiresToDelete.contains(w)) swapThing.wiresToDelete.append(w);
-			}
+	/*
+	foreach (Wire * wire, swapThing.wiresToDelete) {
+		QList<Wire *> chained;
+		QList<ConnectorItem *> ends;
+		wire->collectChained(chained, ends);
+		foreach (Wire * w, chained) {
+			if (!swapThing.wiresToDelete.contains(w)) swapThing.wiresToDelete.append(w);
 		}
-
-		makeWiresChangeConnectionCommands(swapThing.wiresToDelete, swapThing.parentCommand);
-		foreach (Wire * wire, swapThing.wiresToDelete) {
-			makeDeleteItemCommand(wire, BaseCommand::CrossView, swapThing.parentCommand);
-		}
-		*/
-
-		// Why crossview? Because this is called only for the last view.
-		makeDeleteItemCommand(itemBase, BaseCommand::CrossView, swapThing.parentCommand);
-		selectItemCommand = new SelectItemCommand(this, SelectItemCommand::NormalSelect, swapThing.parentCommand);
-		selectItemCommand->addRedo(newID);  // to make sure new item is selected so it appears in the info view
-
-		prepDeleteProps(itemBase, newID, newModuleID, swapThing.propsMap, swapThing.parentCommand);
-		setUpSwapRenamePins(swapThing, itemBase);
 	}
+
+	makeWiresChangeConnectionCommands(swapThing.wiresToDelete, swapThing.parentCommand);
+	foreach (Wire * wire, swapThing.wiresToDelete) {
+		makeDeleteItemCommand(wire, BaseCommand::CrossView, swapThing.parentCommand);
+	}
+	*/
+
+	// Why crossview? Because this is called only for the last view.
+	makeDeleteItemCommand(itemBase, BaseCommand::CrossView, swapThing.parentCommand);
+	selectItemCommand = new SelectItemCommand(this, SelectItemCommand::NormalSelect, swapThing.parentCommand);
+	selectItemCommand->addRedo(newID);  // to make sure new item is selected so it appears in the info view
+
+	prepDeleteProps(itemBase, newID, newModuleID, swapThing.propsMap, swapThing.parentCommand);
+	setUpSwapRenamePins(swapThing, itemBase);
 }
 
 void SketchWidget::setUpSwapRenamePins(SwapThing & swapThing, ItemBase * itemBase)
@@ -9586,7 +9585,7 @@ long SketchWidget::swapStart(SwapThing & swapThing, bool master) {
 void SketchWidget::swapStartSubParts(SwapThing & swapThing, ItemBase * itemBase, long newID, const ViewGeometry & vg) {
 	QSharedPointer<SubpartSwapManager> manager = swapThing.subpartSwapManager;
 	manager->resetOldSubParts(itemBase);
-	Q_FOREACH(NewSubModuleID newSubModuleID, manager->getNewModuleIDs()) {
+	for (const auto & newSubModuleID : manager->getNewModuleIDs()) {
 		bool subNeedsTransform = false;
 		ItemBase * subPart = nullptr;
 		QTransform subOldTransform;
