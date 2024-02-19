@@ -57,32 +57,18 @@ void SubpartSwapManager::correlateOldAndNewSubparts(const NewMainModuleID &newMo
 	}
 	QMap<QString, ItemBase*> subpartMap;
 
-	QStringList oldModuleIDs, newModuleIDs;
 	for (ItemBase* subpart : itemBase->subparts()) {
-		oldModuleIDs << subpart->moduleID();
-	}
-	for (ModelPartShared* mps : modelPartShared->subparts()) {
-		newModuleIDs << mps->moduleID();
-	}
-	QString oldPrefix = TextUtils::commonPrefix(oldModuleIDs);
-	QString oldSuffix = TextUtils::commonSuffix(oldModuleIDs);
-	QString newPrefix = TextUtils::commonPrefix(newModuleIDs);
-	QString newSuffix = TextUtils::commonSuffix(newModuleIDs);
-
-	for (ItemBase* subpart : itemBase->subparts()) {
-		QString id = subpart->moduleID();
-		QString uniqueSubString = id.mid(oldPrefix.length(), id.length() - oldPrefix.length() - oldSuffix.length());
-		subpartMap.insert(uniqueSubString, subpart);
+		auto * modelPart = subpart->modelPart();
+		if (!modelPart) continue;
+		auto * modelPartShared = modelPart->modelPartShared();
+		if (!modelPartShared) continue;
+		subpartMap.insert(modelPartShared->subpartID(), subpart);
 	}
 
 	for (ModelPartShared* mps : modelPartShared->subparts()) {
-		QString newSubModuleID = mps->moduleID();
-		QString uniqueSubString = newSubModuleID.mid(newPrefix.length(), newSubModuleID.length() - newPrefix.length() - newSuffix.length());
-		ItemBase * subPart = nullptr;
-		if (subpartMap.contains(uniqueSubString)) {
-			subPart = subpartMap[uniqueSubString];
+		if (subpartMap.contains(mps->subpartID())) {
+			ItemBase * subPart = subpartMap[mps->subpartID()];
 			m_subPartModuleIDNew2OldMap.insert(mps->moduleID(), subPart->moduleID());
-			m_subPartModuleIDOld2NewMap.insert(subPart->moduleID(), mps->moduleID());
 		} else {
 			DebugDialog::debug(QString("SketchWidget::swapStart old subpart with moduleID: %1 not found").arg(mps->moduleID()));
 		}
@@ -123,8 +109,4 @@ NewSubID SubpartSwapManager::getNewSubID(const NewSubModuleID &newModuleID) cons
 
 OldSubModuleID SubpartSwapManager::getOldModuleID(const NewSubModuleID &newModuleID) const {
 	return m_subPartModuleIDNew2OldMap.value(newModuleID);
-}
-
-NewSubModuleID SubpartSwapManager::getNewModuleID(const OldSubModuleID &oldModuleID) const {
-	return m_subPartModuleIDOld2NewMap.value(oldModuleID);
 }

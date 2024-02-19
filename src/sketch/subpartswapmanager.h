@@ -55,7 +55,6 @@ public:
 
 private:
 	OldSubModuleID getOldModuleID(const NewSubModuleID &newModuleID) const;
-	NewSubModuleID getNewModuleID(const OldSubModuleID &oldModuleID) const;
 
 private:
 	QPointer<class ReferenceModel> m_referenceModel;
@@ -65,7 +64,6 @@ private:
 	QMap<NewSubModuleID, NewModelIndex> m_subPartNewModuleID2NewModelIndexMap;
 	QMap<NewSubModuleID, NewSubID> m_subPartNewModuleID2NewSubIDMap;
 	QMap<NewSubModuleID, OldSubModuleID> m_subPartModuleIDNew2OldMap;
-	QMap<OldSubModuleID, NewSubModuleID> m_subPartModuleIDOld2NewMap;
 	//-------------------------------------------------------------------------------------------
 
 	QMap<OldSubModuleID, ItemBase *> m_subPartMap;
