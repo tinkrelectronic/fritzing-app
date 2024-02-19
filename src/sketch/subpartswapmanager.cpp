@@ -32,64 +32,59 @@ SubpartSwapManager::SubpartSwapManager(ReferenceModel *referenceModel)
 }
 
 //-------------------------------------------------------------------------------------------
-// View independent function to be used once per swap session
+// View independent functions to be used once per swap session
 void SubpartSwapManager::generateSubpartModelIndices(const NewMainModuleID &newModuleID) {
 	ModelPart * newModelPart = m_referenceModel->retrieveModelPart(newModuleID);
-	if (newModelPart->hasSubparts()) {
-		ModelPartShared * modelPartShared = newModelPart->modelPartShared();
-		if (modelPartShared) {
-			Q_FOREACH (ModelPartShared* mps, modelPartShared->subparts()) {
-				long newSubModelIndex = ModelPart::nextIndex();
-				m_subPartNewModuleID2NewModelIndexMap.insert(mps->moduleID(), newSubModelIndex);
-				long newSubID = ItemBase::getNextID(newSubModelIndex);
-				m_subPartNewModuleID2NewSubIDMap.insert(mps->moduleID(), newSubID);
-			}
-
-		}
+	if (!newModelPart->hasSubparts()) return;
+	ModelPartShared * modelPartShared = newModelPart->modelPartShared();
+	if (!modelPartShared) return;
+	for (ModelPartShared* mps : modelPartShared->subparts()) {
+		long newSubModelIndex = ModelPart::nextIndex();
+		m_subPartNewModuleID2NewModelIndexMap.insert(mps->moduleID(), newSubModelIndex);
+		long newSubID = ItemBase::getNextID(newSubModelIndex);
+		m_subPartNewModuleID2NewSubIDMap.insert(mps->moduleID(), newSubID);
 	}
 }
 
 void SubpartSwapManager::correlateOldAndNewSubparts(const NewMainModuleID &newModuleID, ItemBase *itemBase) {
 	if (!itemBase) return;
 	ModelPart * newModelPart = m_referenceModel->retrieveModelPart(newModuleID);
-	if (newModelPart->hasSubparts()) {
-		ModelPartShared * modelPartShared = newModelPart->modelPartShared();
-		if (modelPartShared) {
-			if (itemBase->subparts().count() != modelPartShared->subparts().count()) {
-				DebugDialog::debug(QString("SketchWidget::swapStart: subpart counts for old and new item disagree: old count: %1 new count: %2").arg(itemBase->subparts().count()).arg(modelPartShared->subparts().count()));
-			}
-			QMap<QString, ItemBase*> subpartMap;
+	if (!newModelPart->hasSubparts()) return;
+	ModelPartShared * modelPartShared = newModelPart->modelPartShared();
+	if (!modelPartShared) return;
+	if (itemBase->subparts().count() != modelPartShared->subparts().count()) {
+		DebugDialog::debug(QString("SketchWidget::swapStart: subpart counts for old and new item disagree: old count: %1 new count: %2").arg(itemBase->subparts().count()).arg(modelPartShared->subparts().count()));
+	}
+	QMap<QString, ItemBase*> subpartMap;
 
-			QStringList oldModuleIDs, newModuleIDs;
-			Q_FOREACH (ItemBase* subpart, itemBase->subparts()) {
-				oldModuleIDs << subpart->moduleID();
-			}
-			Q_FOREACH (ModelPartShared* mps, modelPartShared->subparts()) {
-				newModuleIDs << mps->moduleID();
-			}
-			QString oldPrefix = TextUtils::commonPrefix(oldModuleIDs);
-			QString oldSuffix = TextUtils::commonSuffix(oldModuleIDs);
-			QString newPrefix = TextUtils::commonPrefix(newModuleIDs);
-			QString newSuffix = TextUtils::commonSuffix(newModuleIDs);
+	QStringList oldModuleIDs, newModuleIDs;
+	for (ItemBase* subpart : itemBase->subparts()) {
+		oldModuleIDs << subpart->moduleID();
+	}
+	for (ModelPartShared* mps : modelPartShared->subparts()) {
+		newModuleIDs << mps->moduleID();
+	}
+	QString oldPrefix = TextUtils::commonPrefix(oldModuleIDs);
+	QString oldSuffix = TextUtils::commonSuffix(oldModuleIDs);
+	QString newPrefix = TextUtils::commonPrefix(newModuleIDs);
+	QString newSuffix = TextUtils::commonSuffix(newModuleIDs);
 
-			foreach (ItemBase* subpart, itemBase->subparts()) {
-				QString id = subpart->moduleID();
-				QString uniqueSubString = id.mid(oldPrefix.length(), id.length() - oldPrefix.length() - oldSuffix.length());
-				subpartMap.insert(uniqueSubString, subpart);
-			}
+	for (ItemBase* subpart : itemBase->subparts()) {
+		QString id = subpart->moduleID();
+		QString uniqueSubString = id.mid(oldPrefix.length(), id.length() - oldPrefix.length() - oldSuffix.length());
+		subpartMap.insert(uniqueSubString, subpart);
+	}
 
-			Q_FOREACH (ModelPartShared * mps, modelPartShared->subparts()) {
-				QString newSubModuleID = mps->moduleID();
-				QString uniqueSubString = newSubModuleID.mid(newPrefix.length(), newSubModuleID.length() - newPrefix.length() - newSuffix.length());
-				ItemBase * subPart = nullptr;
-				if (subpartMap.contains(uniqueSubString)) {
-					subPart = subpartMap[uniqueSubString];
-					m_subPartModuleIDNew2OldMap.insert(mps->moduleID(), subPart->moduleID());
-					m_subPartModuleIDOld2NewMap.insert(subPart->moduleID(), mps->moduleID());
-				} else {
-					DebugDialog::debug(QString("SketchWidget::swapStart old subpart with moduleID: %1 not found").arg(mps->moduleID()));
-				}
-			}
+	for (ModelPartShared* mps : modelPartShared->subparts()) {
+		QString newSubModuleID = mps->moduleID();
+		QString uniqueSubString = newSubModuleID.mid(newPrefix.length(), newSubModuleID.length() - newPrefix.length() - newSuffix.length());
+		ItemBase * subPart = nullptr;
+		if (subpartMap.contains(uniqueSubString)) {
+			subPart = subpartMap[uniqueSubString];
+			m_subPartModuleIDNew2OldMap.insert(mps->moduleID(), subPart->moduleID());
+			m_subPartModuleIDOld2NewMap.insert(subPart->moduleID(), mps->moduleID());
+		} else {
+			DebugDialog::debug(QString("SketchWidget::swapStart old subpart with moduleID: %1 not found").arg(mps->moduleID()));
 		}
 	}
 }
@@ -98,7 +93,7 @@ void SubpartSwapManager::correlateOldAndNewSubparts(const NewMainModuleID &newMo
 
 void SubpartSwapManager::resetOldSubParts(ItemBase * itemBase) {
 	m_subPartMap.clear();
-	Q_FOREACH (ItemBase* subPart, itemBase->subparts()) {
+	for (ItemBase* subPart : itemBase->subparts()) {
 		m_subPartMap.insert(subPart->moduleID(), subPart);
 	}
 }
