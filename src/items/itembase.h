@@ -80,6 +80,7 @@ public:
 	virtual ~ItemBase();
 
 	constexpr qint64 id() const noexcept { return m_id; }
+	QString subpartID() const;
 	void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
 	double z();
 	virtual void saveGeometry() = 0;

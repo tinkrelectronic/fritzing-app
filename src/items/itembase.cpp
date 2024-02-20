@@ -2238,6 +2238,12 @@ const QList< QPointer<ItemBase> > & ItemBase::subparts()
 	return m_subparts;
 }
 
+QString ItemBase::subpartID() const {
+	if (m_modelPart)
+		return m_modelPart->subpartID();
+	return QString();
+}
+
 QHash<QString, QString> ItemBase::prepareProps(ModelPart * modelPart, bool wantDebug, QStringList & keys)
 {
 	m_propsMap.clear();
