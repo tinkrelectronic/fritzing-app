@@ -48,6 +48,7 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 #include "../sketch/schematicsketchwidget.h"
 #include "../sketch/pcbsketchwidget.h"
 #include "../sketch/welcomeview.h"
+#include "../sketch/subpartswapmanager.h"
 #include "../utils/folderutils.h"
 #include "../utils/fmessagebox.h"
 #include "../utils/lockmanager.h"

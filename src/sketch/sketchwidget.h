@@ -40,10 +40,11 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 #include "../viewlayer.h"
 #include "../utils/misc.h"
 #include "../utils/graphutils.h"
-#include "../sketch/subpartswapmanager.h"
 #include "../commands.h"
 
 #include "renderthing.h"
+
+class SubpartSwapManager;
 
 struct ItemCount {
 	int selCount;
