@@ -6053,7 +6053,8 @@ long SketchWidget::setUpSwap(SwapThing & swapThing, bool master)
 	// Only perform this for the first of the three views.
 	if (swapThing.firstTime) {
 		manager->generateSubpartModelIndices(swapThing.newModuleID);
-		manager->correlateOldAndNewSubparts(swapThing.newModuleID, itemBase);
+		if (itemBase)
+			manager->correlateOldAndNewSubparts(swapThing.newModuleID, itemBase);
 
 		swapThing.firstTime = false;
 		swapThing.newID = swapStart(swapThing, master);

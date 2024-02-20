@@ -43,7 +43,6 @@ void SubpartSwapManager::generateSubpartModelIndices(const NewMainModuleID &newM
 }
 
 void SubpartSwapManager::correlateOldAndNewSubparts(const NewMainModuleID &newModuleID, ItemBase *itemBase) {
-	if (!itemBase) return;
 	auto subpartList = subparts(newModuleID);
 	if (subpartList.count() <= 0) return;
 	QMap<QString, ItemBase*> subpartMap;
