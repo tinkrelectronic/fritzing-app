@@ -28,6 +28,7 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 class ReferenceModel;
 class ItemBase;
 class ViewGeometry;
+class ModelPartShared;
 
 typedef QString NewMainModuleID;
 typedef QString NewSubModuleID;
@@ -45,6 +46,7 @@ public:
 	void correlateOldAndNewSubparts(const NewMainModuleID &newModuleID, ItemBase *itemBase);
 	//-------------------------------------------------------------------------------------------
 
+	const QList< QPointer<ModelPartShared> > & subparts(const NewMainModuleID &newModuleID);
 	void resetOldSubParts(ItemBase * itemBase);
 	ItemBase * extractSubPart(const NewSubModuleID & newModuleID);
 	bool newModuleIDWasCorrelated(const NewSubModuleID & newModuleID) const;

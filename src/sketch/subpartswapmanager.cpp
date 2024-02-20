@@ -34,11 +34,7 @@ SubpartSwapManager::SubpartSwapManager(ReferenceModel *referenceModel)
 //-------------------------------------------------------------------------------------------
 // View independent functions to be used once per swap session
 void SubpartSwapManager::generateSubpartModelIndices(const NewMainModuleID &newModuleID) {
-	ModelPart * newModelPart = m_referenceModel->retrieveModelPart(newModuleID);
-	if (!newModelPart->hasSubparts()) return;
-	ModelPartShared * modelPartShared = newModelPart->modelPartShared();
-	if (!modelPartShared) return;
-	for (ModelPartShared* mps : modelPartShared->subparts()) {
+	for (ModelPartShared* mps : subparts(newModuleID)) {
 		long newSubModelIndex = ModelPart::nextIndex();
 		m_subPartNewModuleID2NewModelIndexMap.insert(mps->moduleID(), newSubModelIndex);
 		long newSubID = ItemBase::getNextID(newSubModelIndex);
@@ -48,12 +44,10 @@ void SubpartSwapManager::generateSubpartModelIndices(const NewMainModuleID &newM
 
 void SubpartSwapManager::correlateOldAndNewSubparts(const NewMainModuleID &newModuleID, ItemBase *itemBase) {
 	if (!itemBase) return;
-	ModelPart * newModelPart = m_referenceModel->retrieveModelPart(newModuleID);
-	if (!newModelPart->hasSubparts()) return;
-	ModelPartShared * modelPartShared = newModelPart->modelPartShared();
-	if (!modelPartShared) return;
-	if (itemBase->subparts().count() != modelPartShared->subparts().count()) {
-		DebugDialog::debug(QString("SketchWidget::swapStart: subpart counts for old and new item disagree: old count: %1 new count: %2").arg(itemBase->subparts().count()).arg(modelPartShared->subparts().count()));
+	auto subpartList = subparts(newModuleID);
+	if (subpartList.count() <= 0) return;
+	if (itemBase->subparts().count() != subpartList.count()) {
+		DebugDialog::debug(QString("SketchWidget::swapStart: subpart counts for old and new item disagree: old count: %1 new count: %2").arg(itemBase->subparts().count()).arg(subpartList.count()));
 	}
 	QMap<QString, ItemBase*> subpartMap;
 
@@ -65,7 +59,7 @@ void SubpartSwapManager::correlateOldAndNewSubparts(const NewMainModuleID &newMo
 		subpartMap.insert(modelPartShared->subpartID(), subpart);
 	}
 
-	for (ModelPartShared* mps : modelPartShared->subparts()) {
+	for (ModelPartShared* mps : subpartList) {
 		if (subpartMap.contains(mps->subpartID())) {
 			ItemBase * subPart = subpartMap[mps->subpartID()];
 			m_subPartModuleIDNew2OldMap.insert(mps->moduleID(), subPart->moduleID());
@@ -76,6 +70,16 @@ void SubpartSwapManager::correlateOldAndNewSubparts(const NewMainModuleID &newMo
 }
 
 //-------------------------------------------------------------------------------------------
+
+const QList< QPointer<ModelPartShared> > & SubpartSwapManager::subparts(const NewMainModuleID &newModuleID) {
+	static const QList< QPointer<ModelPartShared> > emptyList;
+	ModelPart * newModelPart = m_referenceModel->retrieveModelPart(newModuleID);
+	if (!newModelPart) return emptyList;
+	if (!newModelPart->hasSubparts()) return emptyList;
+	ModelPartShared * modelPartShared = newModelPart->modelPartShared();
+	if (!modelPartShared) return emptyList;
+	return modelPartShared->subparts();
+}
 
 void SubpartSwapManager::resetOldSubParts(ItemBase * itemBase) {
 	m_subPartMap.clear();
