@@ -63,7 +63,7 @@ private:
 
 	//-------------------------------------------------------------------------------------------
 	// View independent members
-	QMap<NewSubModuleID, NewModelIndex> m_subPartNewModuleID2NewModelIndexMap;
+	QMap<NewSubModuleID, NewModelIndex> m_subPartNewModuleID2NewModelIndexMap; // This map is required because we need the modelIndex later for the addItemCommand
 	QMap<NewSubModuleID, NewSubID> m_subPartNewModuleID2NewSubIDMap;
 	QMap<NewSubModuleID, OldSubModuleID> m_subPartModuleIDNew2OldMap;
 	//-------------------------------------------------------------------------------------------
