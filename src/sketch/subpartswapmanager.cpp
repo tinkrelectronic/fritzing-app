@@ -46,9 +46,6 @@ void SubpartSwapManager::correlateOldAndNewSubparts(const NewMainModuleID &newMo
 	if (!itemBase) return;
 	auto subpartList = subparts(newModuleID);
 	if (subpartList.count() <= 0) return;
-	if (itemBase->subparts().count() != subpartList.count()) {
-		DebugDialog::debug(QString("SketchWidget::swapStart: subpart counts for old and new item disagree: old count: %1 new count: %2").arg(itemBase->subparts().count()).arg(subpartList.count()));
-	}
 	QMap<QString, ItemBase*> subpartMap;
 
 	for (ItemBase* subpart : itemBase->subparts()) {
@@ -59,14 +56,9 @@ void SubpartSwapManager::correlateOldAndNewSubparts(const NewMainModuleID &newMo
 		subpartMap.insert(modelPartShared->subpartID(), subpart);
 	}
 
-	for (ModelPartShared* mps : subpartList) {
-		if (subpartMap.contains(mps->subpartID())) {
-			ItemBase * subPart = subpartMap[mps->subpartID()];
-			m_subPartModuleIDNew2OldMap.insert(mps->moduleID(), subPart->moduleID());
-		} else {
-			DebugDialog::debug(QString("SketchWidget::swapStart old subpart with moduleID: %1 not found").arg(mps->moduleID()));
-		}
-	}
+	for (ModelPartShared* mps : subpartList)
+		if (subpartMap.contains(mps->subpartID()))
+			m_subPartModuleIDNew2OldMap.insert(mps->moduleID(), subpartMap[mps->subpartID()]->moduleID());
 }
 
 //-------------------------------------------------------------------------------------------
