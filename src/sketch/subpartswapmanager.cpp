@@ -48,13 +48,8 @@ void SubpartSwapManager::correlateOldAndNewSubparts(const NewMainModuleID &newMo
 	if (subpartList.count() <= 0) return;
 	QMap<QString, ItemBase*> subpartMap;
 
-	for (ItemBase* subpart : itemBase->subparts()) {
-		auto * modelPart = subpart->modelPart();
-		if (!modelPart) continue;
-		auto * modelPartShared = modelPart->modelPartShared();
-		if (!modelPartShared) continue;
-		subpartMap.insert(modelPartShared->subpartID(), subpart);
-	}
+	for (ItemBase* subpart : itemBase->subparts())
+		subpartMap.insert(subpart->subpartID(), subpart);
 
 	for (ModelPartShared* mps : subpartList)
 		if (subpartMap.contains(mps->subpartID()))
