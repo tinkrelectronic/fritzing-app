@@ -101,7 +101,8 @@ protected:
 	QHash<ConnectorItem *, int> m_connector2netHash;
 
     QTimer *m_simTimer, *m_showResultsTimer;
-    int currSimStep;
+    int m_currSimStep;
+
 	static constexpr int SimDelay = 200;
 	static constexpr double HarmfulNegativeVoltage = -0.5;
 
