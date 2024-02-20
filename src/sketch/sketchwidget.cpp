@@ -9570,7 +9570,7 @@ long SketchWidget::swapStart(SwapThing & swapThing, bool master) {
 
 	new AddItemCommand(this, BaseCommand::SingleView, swapThing.newModuleID, swapThing.viewLayerPlacement, vg, newID, true, swapThing.newModelIndex, swapThing.parentCommand);
 
-	swapStartSubParts(swapThing, itemBase, newID, vg);
+	swapStartSubParts(swapThing, itemBase, newID);
 
 	if (needsTransform) {
 		QTransform m(oldTransform.m11(), oldTransform.m12(), oldTransform.m21(), oldTransform.m22(), 0, 0);
@@ -9583,7 +9583,7 @@ long SketchWidget::swapStart(SwapThing & swapThing, bool master) {
 	return newID;
 }
 
-void SketchWidget::swapStartSubParts(SwapThing & swapThing, ItemBase * itemBase, long newID, const ViewGeometry & vg) {
+void SketchWidget::swapStartSubParts(SwapThing & swapThing, ItemBase * itemBase, long newID) {
 	QSharedPointer<SubpartSwapManager> manager = swapThing.subpartSwapManager;
 	manager->resetOldSubParts(itemBase);
 	for (const auto & newSubModuleID : manager->getNewModuleIDs()) {

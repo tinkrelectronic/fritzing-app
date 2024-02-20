@@ -532,7 +532,7 @@ protected:
 	virtual bool updateOK(ConnectorItem *, ConnectorItem *);
 	virtual void viewGeometryConversionHack(ViewGeometry &, ModelPart *);
 	void prepDeleteOtherPropsNumbers(const QString & propertyName, ItemBase * itemBase, long id, const QString & newModuleID, QUndoCommand * parentCommand);
-	void swapStartSubParts(SwapThing & swapThing, ItemBase * itemBase, long newID, const ViewGeometry & vg);
+	void swapStartSubParts(SwapThing & swapThing, ItemBase * itemBase, long newID);
 
 protected:
 	static bool lessThan(int a, int b);
