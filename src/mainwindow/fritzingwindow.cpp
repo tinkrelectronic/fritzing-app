@@ -44,7 +44,7 @@ FritzingWindow::FritzingWindow(QWidget * parent, Qt::WindowFlags f)
 	this->setWindowIcon(QIcon(QPixmap(":resources/images/fritzing_icon.png")));
 
 	m_undoStack = new WaitPushUndoStack(this);
-	connect(m_undoStack, SIGNAL(cleanChanged(bool)), this, SLOT(undoStackCleanChanged(bool)) );
+	connect(m_undoStack, &WaitPushUndoStack::cleanChanged, this, &FritzingWindow::undoStackCleanChanged);
 }
 
 void FritzingWindow::initializeTitle(const QString &untitledFileName, int &untitledFileCount, QString fileExt) {
@@ -65,7 +65,7 @@ void FritzingWindow::createCloseAction() {
 	m_closeAct = new QAction(tr("&Close Window"), this);
 	m_closeAct->setShortcut(tr("Ctrl+W"));
 	m_closeAct->setStatusTip(tr("Close the current sketch"));
-	connect(m_closeAct, SIGNAL(triggered()), this, SLOT(close()));
+	connect(m_closeAct, &QAction::triggered, this, &FritzingWindow::close);
 }
 
 void FritzingWindow::setTitle() {
