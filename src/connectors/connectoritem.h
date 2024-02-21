@@ -23,8 +23,8 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "nonconnectoritem.h"
 #include "connector.h"
-#include "../utils/cursormaster.h"
-#include "../utils/bezier.h"
+#include "utils/cursormaster.h"
+#include "utils/bezier.h"
 
 #include <QThread>
 #include <QGraphicsLineItem>
