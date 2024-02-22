@@ -134,8 +134,6 @@ public:
 	}
 	static QString setToString(const QSet<QString> & set);
 	static QString setOfSetsToString(const QSet<QSet<QString>> & setOfSets);
-	static QString commonPrefix(const QStringList &strings);
-	static QString commonSuffix(const QStringList &strings);
 
 public:
 	static const QRegularExpression FindWhitespace;
