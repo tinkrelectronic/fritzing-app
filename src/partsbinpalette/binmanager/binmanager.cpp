@@ -44,6 +44,7 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 #include "../../items/partfactory.h"
 #include "../partsbinpalettewidget.h"
 #include "../partsbinview.h"
+#include "utils/fmessagebox.h"
 
 ///////////////////////////////////////////////////////////
 
@@ -693,6 +694,7 @@ void BinManager::hackLocalContrib(QList<BinLocation *> & locations)
 	BinLocation * localContrib = nullptr;
 	BinLocation * myParts = nullptr;
 	Q_FOREACH (BinLocation * location, locations) {
+		DebugDialog::debug(QString("Bin location %1").arg(location->title));
 		if (location->location == BinLocation::User) {
 			if (location->title == "Contributed Parts") {
 				localContrib = location;
@@ -703,7 +705,25 @@ void BinManager::hackLocalContrib(QList<BinLocation *> & locations)
 		}
 	}
 
-	if (localContrib == nullptr) return;
+	if (localContrib == nullptr)
+		return;
+
+	QMessageBox::StandardButton reply;
+	DebugDialog::debug("Ask to migrate to MY PARTS");
+	reply = FMessageBox::question(nullptr,
+								  "Confirmation",
+								  "The 'Contributed Parts' bin has been replaced with 'My Parts' "
+								  "since Fritzing 0.7.12. Would you like Frtizing to move the parts over?",
+								  QMessageBox::Yes | QMessageBox::No);
+
+	if (reply == QMessageBox::Yes) {
+		DebugDialog::debug("User chose Yes");
+	} else {
+		DebugDialog::debug("User chose No");
+		return;
+	}
+
+	DebugDialog::debug("Found a legacy 'Contributed Parts' bin. Moving content to 'My Parts' bin.");
 
 	if (myParts == nullptr) {
 		createIfBinNotExists(MyPartsBinLocation, MyPartsBinTemplateLocation);
