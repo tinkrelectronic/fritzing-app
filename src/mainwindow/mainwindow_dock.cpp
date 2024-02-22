@@ -208,6 +208,11 @@ void MainWindow::initDock() {
 	m_infoView = new HtmlInfoView();
 	m_infoView->init(false);
 	connect(m_infoView, SIGNAL(clickObsoleteSignal()), this, SLOT(selectAllObsolete()));
+
+	if (m_fileProgressDialog != nullptr) {
+		m_fileProgressDialog->setValue(49);
+	}
+
 	//DebugDialog::debug("after html view");
 
 	m_binManager = new BinManager(m_referenceModel, m_infoView, m_undoStack, this);

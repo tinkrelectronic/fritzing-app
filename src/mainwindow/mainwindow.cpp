@@ -430,7 +430,7 @@ void MainWindow::init(ReferenceModel *referenceModel, bool lockFiles) {
 
 
 	initWelcomeView();
-	initSketchWidgets(true);
+	initSketchWidgets(true); // 14%
 	initProgrammingWidget();
 
 	m_simulator = new Simulator(this);
@@ -441,7 +441,7 @@ void MainWindow::init(ReferenceModel *referenceModel, bool lockFiles) {
 	m_undoGroup->setActiveStack(m_undoStack);
 
 	initDock();
-	initMenus();
+	initMenus(); // 44%
 	moreInitDock();
 
 	createZoomOptions(m_breadboardWidget);
@@ -564,7 +564,7 @@ void MainWindow::initSketchWidgets(bool withIcons) {
 	addTab(m_breadboardWidget, ":/resources/images/icons/TabWidgetBreadboardActive_icon.png", tr("Breadboard"), withIcons);
 
 	if (m_fileProgressDialog != nullptr) {
-		m_fileProgressDialog->setValue(11);
+		m_fileProgressDialog->setValue(11); // 5%
 	}
 
 	m_schematicGraphicsView = new SchematicSketchWidget(ViewLayer::SchematicView, this);
@@ -573,7 +573,7 @@ void MainWindow::initSketchWidgets(bool withIcons) {
 	addTab(m_schematicWidget, ":/resources/images/icons/TabWidgetSchematicActive_icon.png", tr("Schematic"), withIcons);
 
 	if (m_fileProgressDialog != nullptr) {
-		m_fileProgressDialog->setValue(20);
+		m_fileProgressDialog->setValue(20); // 10%
 	}
 
 	m_pcbGraphicsView = new PCBSketchWidget(ViewLayer::PCBView, this);
@@ -583,7 +583,7 @@ void MainWindow::initSketchWidgets(bool withIcons) {
 
 
 	if (m_fileProgressDialog != nullptr) {
-		m_fileProgressDialog->setValue(29);
+		m_fileProgressDialog->setValue(29); // 14%
 	}
 }
 
@@ -3219,6 +3219,10 @@ void MainWindow::initProgrammingWidget() {
 
 	auto * sketchAreaWidget = new SketchAreaWidget(m_programView, this, false, true);
 	addTab(sketchAreaWidget, ":/resources/images/icons/TabWidgetCodeActive_icon.png", tr("Code"), true);
+
+	if (m_fileProgressDialog != nullptr) {
+		m_fileProgressDialog->setValue(39);
+	}
 }
 
 ProgramWindow *MainWindow::programmingWidget() {
