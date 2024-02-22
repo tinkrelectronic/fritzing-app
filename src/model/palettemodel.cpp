@@ -31,6 +31,7 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 #include "../utils/textutils.h"
 #include "../items/moduleidnames.h"
 #include "../items/partfactory.h"
+#include "utils/misc.h"
 
 QString PaletteModel::s_fzpOverrideFolder;
 
