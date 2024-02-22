@@ -753,35 +753,19 @@ void FolderUtils::createUserDataStoreFolders() {
 	}
 
 	// in older versions of Fritzing, local parts and bins were in userDataStore
-	QList<QDir> toRemove;
-	QStringList folders;
-	folders << "bins" << "parts";
-	bool foundOld = false;
-	Q_FOREACH(QString folder, folders ) {
-		foundOld || QFileInfo(userDataStore.absoluteFilePath(folder)).exists();
-	}
+	// "older" refers to Fritzing versions before 2013.
+	for (const QString folder : {"bins", "parts"}) {
+		QDir oldDir(userDataStore.absoluteFilePath(folder));
+		if (oldDir.exists()) {
+			QString oldLocation(oldDir.absolutePath());
+			QString newLocation(documents.absoluteFilePath(folder));
 
-	if (foundOld) {
-		// inform user about the move
-		FMessageBox::information(nullptr, QCoreApplication::translate("FolderUtils", "Moving your custom parts"),
-		                         QCoreApplication::translate("FolderUtils", "<p>Your custom-made parts and bins are moved from the hidden "
-		                                 "app data folder to your fritzing documents folder at <br/><br/><em>%1</em><br/><br/>"
-		                                 "This way, we hope to make it easier for you to find and edit them manually.</p>")
-		                         .arg(documents.absolutePath()));
-
-		// copy these into the new locations
-		Q_FOREACH(QString folder, folders ) {
-			QDir source(userDataStore.absoluteFilePath(folder));
-			QDir target(documents.absoluteFilePath(folder));
-			if (source.exists()) {
-				replicateDir(source, target);
-				toRemove << source;
-			}
-		}
-
-		// now remove the obsolete locations
-		Q_FOREACH (QDir dir, toRemove) {
-			rmdir(dir);
+			QMessageBox::information(nullptr,
+									 QCoreApplication::translate("Legacy", "Move Your Custom Parts"),
+									 QCoreApplication::translate("Legacy", "<p>Please move your custom-made parts and bins from the old location:<br/><br/><em>%1</em><br/><br/>"
+																		   "to the new Fritzing documents folder at:<br/><br/><em>%2</em><br/><br/>")
+										 .arg(oldLocation, newLocation));
+			break;
 		}
 	}
 }
