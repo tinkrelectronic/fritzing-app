@@ -385,7 +385,7 @@ void FolderUtils::rmdir(const QString &dirPath) {
 }
 
 void FolderUtils::rmdir(QDir & dir) {
-	//DebugDialog::debug(QString("removing folder: %1").arg(dir.path()));
+	DebugDialog::debug(QString("removing folder: %1").arg(dir.path()));
 
 	QStringList files = dir.entryList(QDir::AllEntries | QDir::NoDotAndDotDot);
 	for(int i=0; i < files.size(); i++) {
@@ -728,26 +728,24 @@ void FolderUtils::showInFolder(const QString & path)
 #endif
 }
 
+// make sure that the folder structure for parts and bins, exists
 void FolderUtils::createUserDataStoreFolders() {
-	// make sure that the folder structure for parts and bins, exists
-
 	if (singleton == nullptr) {
 		singleton = new FolderUtils();
 	}
 
 	QDir userDataStore(getTopLevelUserDataStorePath());
-	Q_FOREACH(QString folder, singleton->m_userFolders) {
+	for (const QString &folder : singleton->m_userFolders) {
 		QString path = userDataStore.absoluteFilePath(folder);
-		if(!QFileInfo(path).exists()) {
+		if (!QFileInfo::exists(path)) {
 			userDataStore.mkpath(folder);
 		}
 	}
 
 	QDir documents(getTopLevelDocumentsPath());
-	QStringList documentFolders(singleton->m_documentFolders);
-	Q_FOREACH(QString folder, documentFolders) {
+	for (const QString &folder : singleton->m_documentFolders) {
 		QString path = documents.absoluteFilePath(folder);
-		if(!QFileInfo(path).exists()) {
+		if (!QFileInfo::exists(path)) {
 			documents.mkpath(folder);
 		}
 	}
