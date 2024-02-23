@@ -759,7 +759,7 @@ void FolderUtils::createUserDataStoreFolders() {
 			QString oldLocation(oldDir.absolutePath());
 			QString newLocation(documents.absoluteFilePath(folder));
 
-			QMessageBox::information(nullptr,
+			FMessageBox::information(nullptr,
 									 QCoreApplication::translate("Legacy", "Move Your Custom Parts"),
 									 QCoreApplication::translate("Legacy", "<p>Please move your custom-made parts and bins from the old location:<br/><br/><em>%1</em><br/><br/>"
 																		   "to the new Fritzing documents folder at:<br/><br/><em>%2</em><br/><br/>")
