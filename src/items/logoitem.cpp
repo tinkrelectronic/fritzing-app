@@ -31,6 +31,7 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 #include "../utils/cursormaster.h"
 #include "../debugdialog.h"
 #include "../svg/clipperhelpers.h"
+#include "utils/misc.h"
 
 #include <QHBoxLayout>
 #include <QVBoxLayout>

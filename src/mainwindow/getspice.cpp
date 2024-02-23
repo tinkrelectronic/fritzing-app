@@ -25,6 +25,8 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 #include "../model/modelpart.h"
 #include "../utils/textutils.h"
 
+#include <QRegularExpression>
+
 QString GetSpice::getSpice(ItemBase * itemBase, const QList< QList<class ConnectorItem *>* >& netList) {
 	static QRegularExpression curlies("\\{([^\\{\\}]*)\\}");
 	QString spice = itemBase->spice();

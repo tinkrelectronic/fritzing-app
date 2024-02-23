@@ -74,6 +74,7 @@ later:
 #include "../utils/cursormaster.h"
 #include "../utils/ratsnestcolors.h"
 #include "../layerattributes.h"
+#include "utils/misc.h"
 
 #include <stdlib.h>
 

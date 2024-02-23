@@ -226,6 +226,7 @@ parts editor support
 #include "../utils/cursormaster.h"
 #include "ercdata.h"
 #include "utils/ftooltip.h"
+#include "utils/misc.h"
 
 /////////////////////////////////////////////////////////
 

@@ -29,11 +29,9 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 #include <QPainter>
 #include <QCoreApplication>
 #include <QtGlobal>
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-#include <QGraphicsSvgItem>
-#else
+#include <QFileInfo>
 #include <QtSvgWidgets/QGraphicsSvgItem>
-#endif
+
 #include <qnumeric.h>
 
 /////////////////////////////////////////////

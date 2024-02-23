@@ -25,6 +25,7 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 #include "../model/modelpart.h"
 #include "bus.h"
 #include "ercdata.h"
+#include "utils/misc.h"
 
 QHash <Connector::ConnectorType, QString > Connector::Names;
 static const QList<SvgIdLayer *> EmptySvgIdLayerList;

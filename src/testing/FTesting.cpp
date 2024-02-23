@@ -26,6 +26,7 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 
 #include <QUrl>
 #include <QStringBuilder>
+#include <QRegularExpression>
 
 FTesting::FTesting() {
 }

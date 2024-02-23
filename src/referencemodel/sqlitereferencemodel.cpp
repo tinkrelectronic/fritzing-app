@@ -39,6 +39,7 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 #include "../connectors/busshared.h"
 #include "../utils/folderutils.h"
 #include "../utils/fmessagebox.h"
+#include "utils/misc.h"
 
 
 #define MAX_CONN_TRIES 3

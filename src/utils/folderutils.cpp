@@ -21,7 +21,6 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 #include "folderutils.h"
 #include "lockmanager.h"
 #include "textutils.h"
-#include "fmessagebox.h"
 #include <QDesktopServices>
 #include <QCoreApplication>
 #include <QSettings>
@@ -35,6 +34,8 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 #include <QStandardPaths>
 
 #include "../debugdialog.h"
+#include "utils/misc.h"
+#include "fmessagebox.h"
 #include <quazip/quazip.h>
 #include <quazip/quazipfile.h>
 

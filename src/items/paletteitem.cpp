@@ -36,6 +36,7 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 #include "../utils/textutils.h"
 #include "../utils/familypropertycombobox.h"
 #include "../svg/svgfilesplitter.h"
+#include "utils/misc.h"
 #include "wire.h"
 
 #include <QGraphicsSceneMouseEvent>

@@ -28,7 +28,8 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 
 #include <QCoreApplication>
 #include <QStandardPaths>
-#include "../debugdialog.h"
+#include <QFileInfo>
+#include "debugdialog.h"
 
 // Macro for serializing variable/function name into a string.
 #define STRFY(name) #name

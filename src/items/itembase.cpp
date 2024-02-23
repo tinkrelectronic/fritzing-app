@@ -41,6 +41,7 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 #include "../referencemodel/referencemodel.h"
 #include "../items/FProbeSwitchProperty.h"
 #include "utils/ftooltip.h"
+#include "utils/misc.h"
 
 #include <QScrollBar>
 #include <QTimer>
