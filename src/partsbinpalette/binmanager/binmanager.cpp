@@ -552,6 +552,7 @@ void BinManager::updateFileName(PartsBinPaletteWidget* bin, const QString &newFi
 void BinManager::saveStateAndGeometry() {
 	QSettings settings;
 	settings.remove("bins2"); // clean up previous state
+	DebugDialog::debug("saveStateAndGeometry", settings.status());
 	settings.beginGroup("bins2");
 
 	for(int j = m_stackTabWidget->count() - 1; j >= 0; j--) {
@@ -572,6 +573,7 @@ void BinManager::restoreStateAndGeometry(QList<BinLocation *> & actualLocations)
 	QList<BinLocation *> theoreticalLocations;
 
 	QSettings settings;
+	DebugDialog::debug("restoreStateAndGeometry", settings.status());
 	settings.beginGroup("bins2");
 	int size = settings.childGroups().size();
 	if (size == 0) {
