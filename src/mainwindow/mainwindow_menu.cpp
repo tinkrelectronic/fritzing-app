@@ -68,6 +68,7 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 #include "../sketchtoolbutton.h"
 #include "../help/firsttimehelpdialog.h"
 #include "../connectors/debugconnectors.h"
+#include "mainwindow/fprobeactions.h"
 
 ////////////////////////////////////////////////////////
 
@@ -976,13 +977,10 @@ void MainWindow::createPartMenuActions() {
 	m_dumpAllPartsAction = new QAction(tr("Dump all parts"), this);
 	m_dumpAllPartsAction->setStatusTip(tr("Debug dump all parts in this view"));
 	connect(m_dumpAllPartsAction, SIGNAL(triggered()), this, SLOT(dumpAllParts()));
-
+#endif
 	m_testConnectorsAction = new QAction(tr("Test Connectors"), this);
 	m_testConnectorsAction->setStatusTip(tr("Connect all connectors to a single test part"));
-	connect(m_testConnectorsAction, SIGNAL(triggered()), this, SLOT(testConnectors()));
-
-#endif
-
+	connect(m_testConnectorsAction, &QAction::triggered, this, &MainWindow::testConnectors);
 
 	m_rotate45cwAct = new QAction(tr("Rotate 45° Clockwise"), this);
 	m_rotate45cwAct->setStatusTip(tr("Rotate current selection 45 degrees clockwise"));
@@ -1342,6 +1340,8 @@ void MainWindow::createMenus()
 	createWindowMenu();
 	createTraceMenus();
 	createHelpMenu();
+
+	auto * actionProbe = new FProbeActions("MenuBar", menuBar());
 }
 
 QMenu * MainWindow::createRotateSubmenu(QMenu * parentMenu) {
@@ -3413,7 +3413,9 @@ bool MainWindow::isGroundFill(ItemBase * itemBase) {
 QMenu *MainWindow::breadboardItemMenu() {
 	auto *menu = new QMenu(QObject::tr("Part"), this);
 	createRotateSubmenu(menu);
-	return viewItemMenuAux(menu);
+	viewItemMenuAux(menu);
+	auto * probe = new FProbeActions("BreadboardItem", menu);
+	return menu;
 }
 
 QMenu *MainWindow::schematicItemMenu() {
@@ -3421,7 +3423,10 @@ QMenu *MainWindow::schematicItemMenu() {
 	createRotateSubmenu(menu);
 	menu->addAction(m_flipHorizontalAct);
 	menu->addAction(m_flipVerticalAct);
-	return viewItemMenuAux(menu);
+	viewItemMenuAux(menu);
+	auto * probe = new FProbeActions("SchematicItem", menu);
+	return menu;
+
 }
 
 QMenu *MainWindow::pcbItemMenu() {
@@ -3434,6 +3439,7 @@ QMenu *MainWindow::pcbItemMenu() {
 	m_convertToBendpointSeparator = menu->addSeparator();
 	menu->addAction(m_setOneGroundFillSeedAct);
 	menu->addAction(m_clearGroundFillSeedsAct);
+	auto * probe = new FProbeActions("PCBItem", menu);
 	return menu;
 }
 
@@ -3466,7 +3472,7 @@ QMenu *MainWindow::breadboardWireMenu() {
 #endif
 
 	connect( menu, SIGNAL(aboutToShow()), this, SLOT(updateWireMenu()));
-
+	auto * probe = new FProbeActions("BreadboardWire", menu);
 	return menu;
 }
 
@@ -3492,7 +3498,7 @@ QMenu *MainWindow::pcbWireMenu() {
 #endif
 
 	connect(menu, SIGNAL(aboutToShow()), this, SLOT(updateWireMenu()));
-
+	auto * probe = new FProbeActions("PCBWire", menu);
 	return menu;
 }
 
@@ -3524,7 +3530,7 @@ QMenu *MainWindow::schematicWireMenu() {
 #endif
 
 	connect( menu, SIGNAL(aboutToShow()), this, SLOT(updateWireMenu()));
-
+	auto * probe = new FProbeActions("SchematicWire", menu);
 	return menu;
 }
 
@@ -3538,10 +3544,7 @@ QMenu *MainWindow::viewItemMenuAux(QMenu* menu) {
 	menu->addAction(m_duplicateAct);
 	menu->addAction(m_deleteAct);
 	menu->addAction(m_deleteMinusAct);
-#ifndef QT_NO_DEBUG
-	menu->addSeparator();
-	menu->addAction(m_disconnectAllAct);
-#endif
+
 	menu->addSeparator();
 	menu->addAction(m_openInPartsEditorNewAct);
 	createAddToBinSubmenu(menu);
@@ -3552,8 +3555,12 @@ QMenu *MainWindow::viewItemMenuAux(QMenu* menu) {
 	menu->addAction(m_infoViewOnHoverAction);
 	menu->addAction(m_exportNormalizedSvgAction);
 	menu->addAction(m_exportNormalizedFlattenedSvgAction);
-	menu->addAction(m_testConnectorsAction);
 #endif
+	if (DebugDialog::enabled()) {
+		menu->addSeparator();
+		menu->addAction(m_testConnectorsAction);
+		menu->addAction(m_disconnectAllAct);
+	}
 
 	connect(
 	    menu,
