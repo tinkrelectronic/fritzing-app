@@ -121,7 +121,8 @@ ItemBase::ItemBase( ModelPart* modelPart, ViewLayer::ViewID viewID, const ViewGe
 }
 
 ItemBase::~ItemBase() {
-	//DebugDialog::debug(QString("deleting itembase %1 %2 %3").arg((long) this, 0, 16).arg(m_id).arg((long) m_modelPart, 0, 16));
+	DebugDialog::debug(QString("deleting itembase %1").arg((qintptr)this, 0, 16));
+	// DebugDialog::debug(QString("deleting itembase %1 %2 %3").arg((long) this, 0, 16).arg(m_id).arg((long) m_modelPart, 0, 16));
 	if (m_partLabel != nullptr) {
 		delete m_partLabel;
 		m_partLabel = nullptr;
@@ -131,6 +132,7 @@ ItemBase::~ItemBase() {
 		Q_FOREACH (ConnectorItem * toConnectorItem, connectorItem->connectedToItems()) {
 			toConnectorItem->tempRemove(connectorItem, true);
 		}
+		connectorItem->detach();
 	}
 
 	Q_FOREACH (ItemBase * itemBase, m_stickyList) {
@@ -147,7 +149,7 @@ ItemBase::~ItemBase() {
 
 	//m_simItem is a child of this object, it gets delated by the destructor
 	m_simItem = nullptr;
-
+	DebugDialog::debug(QString("deleted itembase %1").arg((qintptr)this, 0, 16));
 }
 
 void ItemBase::setTooltip() {

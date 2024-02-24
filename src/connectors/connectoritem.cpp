@@ -330,17 +330,29 @@ ConnectorItem::ConnectorItem( Connector * connector, ItemBase * attachedTo )
 
 ConnectorItem::~ConnectorItem() {
 	m_equalPotentialDisplayItems.removeOne(this);
-	//DebugDialog::debug(QString("deleting connectorItem %1").arg((long) this, 0, 16));
+	DebugDialog::debug(QString("deleting connectorItem %1").arg((long) this, 0, 16));
 	Q_FOREACH (ConnectorItem * connectorItem, m_connectedTo) {
 		if (connectorItem) {
 			//DebugDialog::debug(QString("temp remove %1 %2").arg(this->attachedToID()).arg(connectorItem->attachedToID()));
 			connectorItem->tempRemove(this, this->attachedToID() != connectorItem->attachedToID());
 		}
 	}
-	if (this->connector()) {
-		this->connector()->removeViewItem(this);
-	}
+
+	detach();
 	clearCurves();
+}
+
+void ConnectorItem::detach()
+{
+	if (!m_attachedTo) {
+		DebugDialog::debug(QString("already detached connectorItem %1").arg((long) this, 0, 16));
+		return;
+	}
+	DebugDialog::debug(QString("detaching connectorItem %1").arg((long) this, 0, 16));
+	if (this->connector()) {
+		connector()->removeViewItem(this);
+	}
+	m_attachedTo = nullptr;
 }
 
 void ConnectorItem::hoverEnterEvent ( QGraphicsSceneHoverEvent * event ) {

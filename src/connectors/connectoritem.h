@@ -53,6 +53,7 @@ public:
 	ConnectorItem(Connector *, ItemBase* attachedTo);
 	~ConnectorItem();
 
+	void detach();
 	Connector * connector();
 	void connectorHover(ItemBase *, bool hovering);
 	bool connectorHovering();
