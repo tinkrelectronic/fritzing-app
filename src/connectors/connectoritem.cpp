@@ -315,8 +315,6 @@ ConnectorItem::ConnectorItem( Connector * connector, ItemBase * attachedTo )
     m_connector(connector),
     m_overConnectorItem(nullptr)
 {
-	// initialize m_connectorT, otherwise will trigger qWarning("QLine::unitVector: New line does not have unit length");
-	// TODO: figure out why paint is being called with m_connectorT not initialized
 	if (connector) {
 		connector->addViewItem(this);
 	}
@@ -330,7 +328,7 @@ ConnectorItem::ConnectorItem( Connector * connector, ItemBase * attachedTo )
 
 ConnectorItem::~ConnectorItem() {
 	m_equalPotentialDisplayItems.removeOne(this);
-	DebugDialog::debug(QString("deleting connectorItem %1").arg((long) this, 0, 16));
+	// DebugDialog::debug(QString("deleting connectorItem %1").arg((long) this, 0, 16));
 	Q_FOREACH (ConnectorItem * connectorItem, m_connectedTo) {
 		if (connectorItem) {
 			//DebugDialog::debug(QString("temp remove %1 %2").arg(this->attachedToID()).arg(connectorItem->attachedToID()));
@@ -345,10 +343,10 @@ ConnectorItem::~ConnectorItem() {
 void ConnectorItem::detach()
 {
 	if (!m_attachedTo) {
-		DebugDialog::debug(QString("already detached connectorItem %1").arg((long) this, 0, 16));
+		// DebugDialog::debug(QString("already detached connectorItem %1").arg((long) this, 0, 16));
 		return;
 	}
-	DebugDialog::debug(QString("detaching connectorItem %1").arg((long) this, 0, 16));
+	// DebugDialog::debug(QString("detaching connectorItem %1").arg((long) this, 0, 16));
 	if (this->connector()) {
 		connector()->removeViewItem(this);
 	}
