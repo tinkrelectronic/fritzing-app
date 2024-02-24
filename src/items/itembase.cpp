@@ -2241,7 +2241,7 @@ QHash<QString, QString> ItemBase::prepareProps(ModelPart * modelPart, bool wantD
 
 	// TODO: someday get local props
 	QHash<QString, QString> props = modelPart->properties();
-	QString family = props.value("family", "").toLower();
+	// QString family = props.value("family", "").toLower();
 
 	// ensure family is first;
 	keys = props.keys();
@@ -2249,7 +2249,7 @@ QHash<QString, QString> ItemBase::prepareProps(ModelPart * modelPart, bool wantD
 	keys.push_front("family");
 
 	// ensure part number  is last
-	QString partNumber = props.value(ModelPartShared::PartNumberPropertyName, "").toLower();
+	// QString partNumber = props.value(ModelPartShared::PartNumberPropertyName, "").toLower();
 	for (auto&& propertyName : {ModelPartShared::MNPropertyName, ModelPartShared::MPNPropertyName, ModelPartShared::PartNumberPropertyName}) {
 		keys.removeOne(propertyName);
 	}
