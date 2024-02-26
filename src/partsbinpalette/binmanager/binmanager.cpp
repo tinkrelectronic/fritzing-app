@@ -713,15 +713,15 @@ void BinManager::hackLocalContrib(QList<BinLocation *> & locations)
 	QMessageBox::StandardButton reply;
 	DebugDialog::debug("Ask to migrate to MY PARTS");
 	reply = FMessageBox::question(nullptr,
-								  "Confirmation",
-								  "The 'Contributed Parts' bin has been replaced with 'My Parts' "
-								  "since Fritzing 0.7.12. Would you like Frtizing to move the parts over?",
+								  tr("Confirmation"),
+								  tr("The 'Contributed Parts' bin has been replaced with 'My Parts' since Fritzing 0.7.12.") +
+								  tr("Would you like Fritzing to move the parts over?"),
 								  QMessageBox::Yes | QMessageBox::No);
 
 	if (reply == QMessageBox::Yes) {
-		DebugDialog::debug("User chose Yes");
+		DebugDialog::debug("User confirmed migrating bins  < 0.7.12");
 	} else {
-		DebugDialog::debug("User chose No");
+		DebugDialog::debug("User declined migrating bins < 0.7.12");
 		return;
 	}
 
