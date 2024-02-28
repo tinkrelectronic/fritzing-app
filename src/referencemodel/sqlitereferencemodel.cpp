@@ -32,6 +32,7 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "qbuffer.h"
 #include "sqlitereferencemodel.h"
+#include "serviceiconfetcher.h"
 #include "../debugdialog.h"
 #include "../connectors/svgidlayer.h"
 #include "../connectors/connector.h"
@@ -538,6 +539,10 @@ bool SqliteReferenceModel::createDatabase(const QString & databaseName, bool ful
 		m_swappingEnabled = false;
 	}
 	else {
+		if (fullLoad) {
+			DebugDialog::debug("Fetching icons from server");
+			ServiceIconFetcher::instance()->fetchIcons();
+		}
 		m_keepGoing = false;
 		bool gotTransaction = m_database.transaction();
 		if(!gotTransaction) {
@@ -660,6 +665,25 @@ bool SqliteReferenceModel::createDatabase(const QString & databaseName, bool ful
 
 		Q_FOREACH(ModelPart* mp, m_partHash.values()) {
 			addPartAux(mp, fullLoad);
+		}
+
+		if (fullLoad) {
+			DebugDialog::debug("Writing any icons from server into database");
+			ServiceIconFetcher::instance()->waitForIcons();
+
+			for (const auto &[name, pixmap] : ServiceIconFetcher::instance()->getIcons().toStdMap()) {
+				QByteArray byteArray;
+				QBuffer buffer(&byteArray);
+				buffer.open(QIODevice::WriteOnly);
+				pixmap.save(&buffer, "PNG");
+
+				QSqlQuery insertQuery;
+				insertQuery.prepare("INSERT INTO icons (name, data) VALUES (:name, :data)");
+				insertQuery.bindValue(":name", name);
+				insertQuery.bindValue(":data", byteArray);
+				result = insertQuery.exec();
+				debugError(result, insertQuery);
+			}
 		}
 
 		createIndexes();
