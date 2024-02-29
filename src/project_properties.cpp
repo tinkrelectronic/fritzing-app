@@ -44,12 +44,8 @@ void ProjectProperties::saveProperties(QXmlStreamWriter & streamWriter) {
 	streamWriter.writeEndElement();
 }
 
-void ProjectProperties::initLegacyProjectDefaults() {
-	// Set any old project defaults that differ from standard defaults
-}
-
 void ProjectProperties::load(const QDomElement & projectProperties) {
-	initLegacyProjectDefaults();
+	// If required set differing legacy project defaults after this line.
 	if (!projectProperties.isNull()) {
 		for (auto it = m_propertiesMap.begin(); it != m_propertiesMap.end(); ++it) {
 			QDomElement element = projectProperties.firstChildElement(it.key());

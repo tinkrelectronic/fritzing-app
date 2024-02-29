@@ -39,7 +39,6 @@ public:
 
 	void saveProperties(QXmlStreamWriter & streamWriter);
 	// Only the elements defaulted in the constructor will be loaded.
-	void initLegacyProjectDefaults();
 	void load(const QDomElement & projectProperties);
 	QString getProjectProperty(const QString & key);
 	void setProjectProperty(const QString & key, QString value);
