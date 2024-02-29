@@ -754,7 +754,7 @@ QChar Simulator::getDeviceType (ItemBase* part) {
 	if (index > 0) {
 		return part->spice().at(index-1).toLower();
 	}
-	QString msg = QString("Error getting the device type. The type is not recognized. Part=%1, Spice line=%2").arg(part->instanceTitle()).arg(part->spice());
+	QString msg = QString("Error getting the device type. The type is not recognized. Part=%1, Spice line=%2").arg(part->instanceTitle(), part->spice());
 	//TODO: Add tr()
 	std::cout << msg.toStdString() << std::endl;
 	throw msg.toStdString();
@@ -1510,8 +1510,7 @@ void Simulator::updateOscilloscope(unsigned long timeStep, ItemBase * part) {
                           "text-anchor='middle' transform='translate(%1, %2) rotate(-90)'>%4</text>\n")
                       .arg(xOffset[channel] + paddingAlignment * 180 + (1+paddingAlignment)*30)
                       .arg(schScreenOffsetY + screenHeight/2)
-                      .arg(lineColor[channel])
-                      .arg(netName);
+					  .arg(lineColor[channel], netName);
 
 
 
@@ -1521,7 +1520,7 @@ void Simulator::updateOscilloscope(unsigned long timeStep, ItemBase * part) {
             schSvg += QString("<text x='%1' y='%2' font-family='Droid Sans' font-size='60' fill='%3' text-anchor='%4'>%5</text>\n")
                           .arg(xOffset[channel] +  paddingAlignment * 10)
                           .arg(schScreenOffsetY + divisionSize * tick + 20)
-                          .arg(lineColor[channel]).arg(textAlignment).arg(voltageText);
+						  .arg(lineColor[channel], textAlignment, voltageText);
 
             schSvg += QString("<line x1='%1' y1='%2' x2='%3' y2='%2' stroke='%4' stroke-width='4' />\n")
                           .arg(xOffset[channel] - tickSize + paddingAlignment * tickSize * -1)
@@ -1547,7 +1546,7 @@ void Simulator::updateOscilloscope(unsigned long timeStep, ItemBase * part) {
     for (int tick = 0; tick < (horDivisions+1); ++tick) {
         schSvg += QString("<text x='%1' y='%2' text-anchor='middle' font-family='Droid Sans' font-size='60' fill='%3'>%4</text>")
                       .arg(schScreenOffsetX+divisionSize*tick).arg(screenHeight+schScreenOffsetY*1.25)
-                      .arg("white").arg(TextUtils::convertToPowerPrefix(hPos + timeDiv*tick));
+					  .arg("white", TextUtils::convertToPowerPrefix(hPos + timeDiv*tick));
     }
     schSvg += QString("<text x='%1' y='%2' text-anchor='middle' font-family='Droid Sans' font-size='60' fill='%3'>Time (s)</text>")
                   .arg(schScreenOffsetX + screenWidth / 2)
