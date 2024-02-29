@@ -27,7 +27,7 @@ ProjectProperties::ProjectProperties() {
 	m_propertiesMap[ProjectPropertyKeySimulatorNumberOfSteps] = "400";
 	m_propertiesMap[ProjectPropertyKeySimulatorTimeStepS] = "1us";
 	m_propertiesMap[ProjectPropertyKeySimulatorAnimationTimeS] = "5s";
-	m_keys = QStringList(m_propertiesMap.keys());
+	m_validSettings = QStringList(m_propertiesMap.keys());
 }
 
 ProjectProperties::~ProjectProperties() {
@@ -36,7 +36,7 @@ ProjectProperties::~ProjectProperties() {
 void ProjectProperties::saveProperties(QXmlStreamWriter & streamWriter) {
 	streamWriter.writeStartElement("project_properties");
 
-	for (const QString & key: std::as_const(m_keys)) {
+	for (const QString & key: std::as_const(m_validSettings)) {
 		streamWriter.writeStartElement(key);
 		streamWriter.writeAttribute("value", m_propertiesMap[key]);
 		streamWriter.writeEndElement();
@@ -47,11 +47,11 @@ void ProjectProperties::saveProperties(QXmlStreamWriter & streamWriter) {
 
 void ProjectProperties::load(const QDomElement & projectProperties) {
 	QMap<QString, bool> loadedValueMap;
-	for (const QString & key: std::as_const(m_keys)) {
+	for (const QString & key: std::as_const(m_validSettings)) {
 		loadedValueMap[key] = false;
 	}
 	if (!projectProperties.isNull()) {
-		for (const QString & key: std::as_const(m_keys)) {
+		for (const QString & key: std::as_const(m_validSettings)) {
 			QDomElement element = projectProperties.firstChildElement(key);
 			if (!element.isNull()) {
 				m_propertiesMap[key] = element.attribute("value");
@@ -59,7 +59,7 @@ void ProjectProperties::load(const QDomElement & projectProperties) {
 			}
 		}
 	}
-	for (const QString & key: std::as_const(m_keys)) {
+	for (const QString & key: std::as_const(m_validSettings)) {
 		if (m_OldProjectValuePropertiesMap.contains(key) && !loadedValueMap[key]) {
 			m_propertiesMap[key] = m_OldProjectValuePropertiesMap[key];
 		}
