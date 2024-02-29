@@ -20,8 +20,6 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "project_properties.h"
 
-#include <utility>
-
 ProjectProperties::ProjectProperties() {
 	m_propertiesMap[ProjectPropertyKeySimulatorTimeStepMode] = "false";
 	m_propertiesMap[ProjectPropertyKeySimulatorNumberOfSteps] = "400";
