@@ -23,10 +23,10 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 #include <utility>
 
 ProjectProperties::ProjectProperties() {
-    m_propertiesMap[ProjectPropertyKeySimulatorTimeStepMode] = "false";
-    m_propertiesMap[ProjectPropertyKeySimulatorNumberOfSteps] = "400";
-    m_propertiesMap[ProjectPropertyKeySimulatorTimeStepS] = "1us";
-    m_propertiesMap[ProjectPropertyKeySimulatorAnimationTimeS] = "5s";
+	m_propertiesMap[ProjectPropertyKeySimulatorTimeStepMode] = "false";
+	m_propertiesMap[ProjectPropertyKeySimulatorNumberOfSteps] = "400";
+	m_propertiesMap[ProjectPropertyKeySimulatorTimeStepS] = "1us";
+	m_propertiesMap[ProjectPropertyKeySimulatorAnimationTimeS] = "5s";
 	m_keys = QStringList(m_propertiesMap.keys());
 }
 
@@ -60,7 +60,7 @@ void ProjectProperties::load(const QDomElement & projectProperties) {
 		}
 	}
 	for (const QString & key: std::as_const(m_keys)) {
-		if (!loadedValueMap[key]) {
+		if (m_OldProjectValuePropertiesMap.contains(key) && !loadedValueMap[key]) {
 			m_propertiesMap[key] = m_OldProjectValuePropertiesMap[key];
 		}
 	}
