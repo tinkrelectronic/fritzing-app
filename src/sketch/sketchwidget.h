@@ -43,6 +43,7 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 #include "../commands.h"
 
 #include "renderthing.h"
+#include "swapthing.h"
 
 class SubpartSwapManager;
 
@@ -58,24 +59,6 @@ struct ItemCount {
 	int obsoleteCount;
 	int moveLockCount;
 	int wireCount;
-};
-
-struct SwapThing {
-	bool firstTime;
-	long newID;
-	ItemBase * itemBase;
-	long newModelIndex;
-	QString newModuleID;
-	QSharedPointer<SubpartSwapManager> subpartSwapManager;
-	ViewLayer::ViewLayerPlacement viewLayerPlacement;
-	QList<Wire *> wiresToDelete;
-	QUndoCommand * parentCommand;
-	QHash<ConnectorItem *, ChangeConnectionCommand *> reconnections;
-	QHash<ConnectorItem *, Connector *> byWire;
-	QHash<ConnectorItem *, ConnectorItem *> toConnectorItems;
-	QHash<ConnectorItem *, Connector *> swappedGender;
-	SketchWidget * bbView;
-	QMap<QString, QString> propsMap;
 };
 
 class SizeItem : public QObject, public QGraphicsLineItem
