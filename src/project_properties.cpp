@@ -46,22 +46,17 @@ void ProjectProperties::saveProperties(QXmlStreamWriter & streamWriter) {
 }
 
 void ProjectProperties::load(const QDomElement & projectProperties) {
-	QMap<QString, bool> loadedValueMap;
 	for (const QString & key: std::as_const(m_validSettings)) {
-		loadedValueMap[key] = false;
+		if (m_OldProjectValuePropertiesMap.contains(key)) {
+			m_propertiesMap[key] = m_OldProjectValuePropertiesMap[key];
+		}
 	}
 	if (!projectProperties.isNull()) {
 		for (const QString & key: std::as_const(m_validSettings)) {
 			QDomElement element = projectProperties.firstChildElement(key);
 			if (!element.isNull()) {
 				m_propertiesMap[key] = element.attribute("value");
-				loadedValueMap[key] = true;
 			}
-		}
-	}
-	for (const QString & key: std::as_const(m_validSettings)) {
-		if (m_OldProjectValuePropertiesMap.contains(key) && !loadedValueMap[key]) {
-			m_propertiesMap[key] = m_OldProjectValuePropertiesMap[key];
 		}
 	}
 }
