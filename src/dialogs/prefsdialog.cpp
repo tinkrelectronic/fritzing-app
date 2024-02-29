@@ -167,7 +167,6 @@ void PrefsDialog::initCode(QWidget * widget, QList<Platform *> platforms)
 void PrefsDialog::initBetaFeatures(QWidget * widget)
 {
 	QVBoxLayout * vLayout = new QVBoxLayout();
-	vLayout->addWidget(createSimulatorBetaFeaturesForm());
 	vLayout->addWidget(createGerberBetaFeaturesForm());
 	vLayout->addWidget(createProjectPropertiesForm());
 	vLayout->addSpacerItem(new QSpacerItem(1, 1, QSizePolicy::Preferred, QSizePolicy::Expanding));
@@ -466,33 +465,6 @@ QWidget * PrefsDialog::createGerberBetaFeaturesForm() {
 	});
 
 	return gerberGroup;
-}
-
-QWidget * PrefsDialog::createSimulatorBetaFeaturesForm() {
-	QSettings settings;
-	QGroupBox * simulator = new QGroupBox(tr("Simulator"), this);
-
-	QVBoxLayout * layout = new QVBoxLayout();
-
-	QLabel * label = new QLabel(tr("The simulator is now enabled by default."));
-
-	label->setWordWrap(true);
-	layout->addWidget(label);
-	layout->addSpacing(10);
-
-	QCheckBox * box = new QCheckBox(tr("Enable simulator"));
-	box->setFixedWidth(FORMLABELWIDTH);
-
-	box->setChecked(settings.value("simulatorEnabled", false).toBool()); // Initialize the value of box using m_settings
-	layout->addWidget(box);
-
-	simulator->setLayout(layout);
-
-	connect(box, &QCheckBox::clicked, this, [this](bool checked) {
-		m_settings.insert("simulatorEnabled", QString::number(checked));
-	});
-
-	return simulator;
 }
 
 QWidget *PrefsDialog::createProjectPropertiesForm() {

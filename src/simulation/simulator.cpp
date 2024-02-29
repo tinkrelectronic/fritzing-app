@@ -67,16 +67,12 @@ Simulator::Simulator(MainWindow *mainWindow) : QObject(mainWindow) {
 	m_simTimer->setSingleShot(true);
 	connect(m_simTimer, &QTimer::timeout, this, &Simulator::simulate);
 
-    // Configure the timer to show the simulation results
-    m_showResultsTimer = new QTimer(this);
-    connect(m_showResultsTimer, &QTimer::timeout, this, &Simulator::showSimulationResults);
+	// Configure the timer to show the simulation results
+	m_showResultsTimer = new QTimer(this);
+	connect(m_showResultsTimer, &QTimer::timeout, this, &Simulator::showSimulationResults);
 
-	QSettings settings;
-	int enabled = settings.value("simulatorEnabled", 0).toInt();
 	enable(true);
 	m_simulating = false;
-
-
 }
 
 Simulator::~Simulator() {

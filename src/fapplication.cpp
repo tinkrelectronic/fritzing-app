@@ -1297,21 +1297,12 @@ int FApplication::startup()
 		if (prevVersion != currVersion) {
 			QVariant pid = settings.value("pid");
 			QVariant language = settings.value("language");
-			QVariant simulatorEnabled = settings.value("simulatorEnabled");
 			settings.clear();
 			if (!pid.isNull()) {
 				settings.setValue("pid", pid);
 			}
 			if (!language.isNull()) {
 				settings.setValue("language", language);
-			}
-			if (!simulatorEnabled.isNull()) {
-				settings.setValue("simulatorEnabled", simulatorEnabled);
-			}
-
-			// Check if prevVersion is smaller than "1.0.0" or not set (new install)
-			if (prevVersion.isEmpty() || Version::greaterThan(prevVersion, "1.0.0")) {
-				settings.setValue("simulatorEnabled", "1");
 			}
 		}
 	}
@@ -1472,11 +1463,6 @@ void FApplication::updatePrefs(PrefsDialog & prefsDialog)
 						sketchWidget->setCurvyWires(hash.value(key).compare("1") == 0);
 					}
 				}
-			}
-		}
-		else if (key.compare("simulatorEnabled") == 0) {
-			foreach (MainWindow * mainWindow, mainWindows) {
-				mainWindow->enableSimulator(hash.value(key).toInt());
 			}
 		}
 	}
