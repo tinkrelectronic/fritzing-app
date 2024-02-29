@@ -46,7 +46,6 @@ public:
 private:
 	QMap<QString, QString> m_propertiesMap;
 	QMap<QString, QString> m_OldProjectValuePropertiesMap;
-	QStringList m_validSettings;
 };
 
 #endif // PROJECT_PROPERTIES_H
