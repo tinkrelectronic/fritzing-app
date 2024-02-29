@@ -46,12 +46,11 @@ void ProjectProperties::saveProperties(QXmlStreamWriter & streamWriter) {
 
 void ProjectProperties::load(const QDomElement & projectProperties) {
 	// If required set differing legacy project defaults after this line.
-	if (!projectProperties.isNull()) {
-		for (auto it = m_propertiesMap.begin(); it != m_propertiesMap.end(); ++it) {
-			QDomElement element = projectProperties.firstChildElement(it.key());
-			if (!element.isNull()) {
-				it.value() = element.attribute("value");
-			}
+	if (projectProperties.isNull()) return;
+	for (auto it = m_propertiesMap.begin(); it != m_propertiesMap.end(); ++it) {
+		QDomElement element = projectProperties.firstChildElement(it.key());
+		if (!element.isNull()) {
+			it.value() = element.attribute("value");
 		}
 	}
 }
