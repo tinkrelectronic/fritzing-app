@@ -20,12 +20,8 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "subpartswapmanager.h"
 
-#include "../referencemodel/referencemodel.h"
-#include "../items/itembase.h"
-#include "../utils/textutils.h"
-#include "../utils/graphicsutils.h"
-#include "../viewgeometry.h"
-#include "../debugdialog.h"
+#include "referencemodel/referencemodel.h"
+#include "items/itembase.h"
 
 SubpartSwapManager::SubpartSwapManager(ReferenceModel *referenceModel)
 	: m_referenceModel(referenceModel) {
