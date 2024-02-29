@@ -58,9 +58,7 @@ const QList< QPointer<ModelPartShared> > & SubpartSwapManager::subparts(const Ne
 	ModelPart * newModelPart = m_referenceModel->retrieveModelPart(newModuleID);
 	if (!newModelPart) return emptyList;
 	if (!newModelPart->hasSubparts()) return emptyList;
-	ModelPartShared * modelPartShared = newModelPart->modelPartShared();
-	if (!modelPartShared) return emptyList;
-	return modelPartShared->subparts();
+	return newModelPart->modelPartShared()->subparts();
 }
 
 void SubpartSwapManager::resetOldSubParts(ItemBase * itemBase) {
