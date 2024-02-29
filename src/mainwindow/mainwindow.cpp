@@ -2563,7 +2563,7 @@ long MainWindow::swapSelectedAuxAux(ItemBase * itemBase, const QString & moduleI
 	swapThing.parentCommand = parentCommand;
 	swapThing.propsMap = propsMap;
 	swapThing.bbView = m_breadboardGraphicsView;
-	swapThing.subpartSwapManager = QSharedPointer<SubpartSwapManager>(new SubpartSwapManager(m_referenceModel));
+	swapThing.subpartSwapManager = QSharedPointer<SubpartSwapManager>(new SubpartSwapManager());
 
 	long newID = 0;
 	for (int i = 0; i < 3; i++) {

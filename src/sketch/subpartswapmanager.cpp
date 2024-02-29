@@ -20,17 +20,16 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "subpartswapmanager.h"
 
-#include "referencemodel/referencemodel.h"
 #include "items/itembase.h"
+#include "model/modelpart.h"
+#include "model/modelpartshared.h"
 
-SubpartSwapManager::SubpartSwapManager(ReferenceModel *referenceModel)
-	: m_referenceModel(referenceModel) {
-}
+SubpartSwapManager::SubpartSwapManager() {}
 
 //-------------------------------------------------------------------------------------------
 // View independent functions to be used once per swap session
-void SubpartSwapManager::generateSubpartModelIndices(const NewMainModuleID &newModuleID) {
-	for (ModelPartShared* mps : subparts(newModuleID)) {
+void SubpartSwapManager::generateSubpartModelIndices(const QList< QPointer<ModelPartShared> > & subparts) {
+	for (ModelPartShared* mps : subparts) {
 		long newSubModelIndex = ModelPart::nextIndex();
 		m_subPartNewModuleID2NewModelIndexMap.insert(mps->moduleID(), newSubModelIndex);
 		long newSubID = ItemBase::getNextID(newSubModelIndex);
@@ -38,9 +37,7 @@ void SubpartSwapManager::generateSubpartModelIndices(const NewMainModuleID &newM
 	}
 }
 
-void SubpartSwapManager::correlateOldAndNewSubparts(const NewMainModuleID &newModuleID, ItemBase *itemBase) {
-	auto subpartList = subparts(newModuleID);
-	if (subpartList.count() <= 0) return;
+void SubpartSwapManager::correlateOldAndNewSubparts(const QList< QPointer<ModelPartShared> > & subpartList, ItemBase *itemBase) {
 	QMap<QString, ItemBase*> subpartMap;
 
 	for (ItemBase* subpart : itemBase->subparts())
@@ -53,13 +50,6 @@ void SubpartSwapManager::correlateOldAndNewSubparts(const NewMainModuleID &newMo
 
 //-------------------------------------------------------------------------------------------
 
-const QList< QPointer<ModelPartShared> > & SubpartSwapManager::subparts(const NewMainModuleID &newModuleID) {
-	static const QList< QPointer<ModelPartShared> > emptyList;
-	ModelPart * newModelPart = m_referenceModel->retrieveModelPart(newModuleID);
-	if (!newModelPart) return emptyList;
-	if (!newModelPart->hasSubparts()) return emptyList;
-	return newModelPart->modelPartShared()->subparts();
-}
 
 void SubpartSwapManager::resetOldSubParts(ItemBase * itemBase) {
 	m_subPartMap.clear();

@@ -6050,9 +6050,15 @@ long SketchWidget::setUpSwap(SwapThing & swapThing, bool master)
 
 	// Only perform this for the first of the three views.
 	if (swapThing.firstTime) {
-		manager->generateSubpartModelIndices(swapThing.newModuleID);
-		if (itemBase)
-			manager->correlateOldAndNewSubparts(swapThing.newModuleID, itemBase);
+
+		ModelPart * newModelPart = m_referenceModel->retrieveModelPart(swapThing.newModuleID);
+		if (newModelPart && newModelPart->hasSubparts()) {
+			auto subparts = newModelPart->modelPartShared()->subparts();
+
+			manager->generateSubpartModelIndices(subparts);
+			if (itemBase)
+				manager->correlateOldAndNewSubparts(subparts, itemBase);
+		}
 
 		swapThing.firstTime = false;
 		swapThing.newID = swapStart(swapThing, master);

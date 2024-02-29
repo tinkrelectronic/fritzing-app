@@ -38,16 +38,16 @@ typedef long NewSubID;
 
 class SubpartSwapManager {
 public:
-	explicit SubpartSwapManager(ReferenceModel *referenceModel);
+	explicit SubpartSwapManager();
 
 	//-------------------------------------------------------------------------------------------
 	// View independent function to be used once per swap session
-	void generateSubpartModelIndices(const NewMainModuleID &newModuleID);
-	void correlateOldAndNewSubparts(const NewMainModuleID &newModuleID, ItemBase *itemBase);
+	void generateSubpartModelIndices(const QList< QPointer<ModelPartShared> > &);
+	void correlateOldAndNewSubparts(const QList< QPointer<ModelPartShared> > &, ItemBase *itemBase);
 	//-------------------------------------------------------------------------------------------
 
-	const QList< QPointer<ModelPartShared> > & subparts(const NewMainModuleID &newModuleID);
 	void resetOldSubParts(ItemBase * itemBase);
+
 	ItemBase * extractSubPart(const NewSubModuleID & newModuleID);
 	bool newModuleIDWasCorrelated(const NewSubModuleID & newModuleID) const;
 	NewModelIndex getNewModelIndex(const NewSubModuleID &newModuleID) const;
@@ -57,9 +57,6 @@ public:
 
 private:
 	OldSubModuleID getOldModuleID(const NewSubModuleID &newModuleID) const;
-
-private:
-	QPointer<class ReferenceModel> m_referenceModel;
 
 	//-------------------------------------------------------------------------------------------
 	// View independent members
