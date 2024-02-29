@@ -768,20 +768,21 @@ QChar Simulator::getDeviceType (ItemBase* part) {
  * @returns the value of the property for the part. If it is empty, returns the maximum value allowed.
  */
 double Simulator::getMaxPropValue(ItemBase *part, QString property) {
-	double value;
 	QString propertyStr = part->getProperty(property);
-	QString symbol = getSymbol(part, property);
+	if (propertyStr.isEmpty()) {
+		return std::numeric_limits<double>::max();
+	}
 
-	if(propertyStr.isEmpty()) {
-		value = std::numeric_limits<double>::max();
+	double value;
+	QString symbol = getSymbol(part, property);
+	static QRegularExpression regExp("[^pnu\x00B5mkMGT^\\d.]");
+
+	if (!symbol.isEmpty()) {
+		value = TextUtils::convertFromPowerPrefix(propertyStr, symbol);
 	} else {
-		if (!symbol.isEmpty()) {
-			value = TextUtils::convertFromPowerPrefix(propertyStr, symbol);
-		} else {
-			//Attempt to remove the symbol: Remove all the letters, except the multipliers
-			propertyStr.remove(QRegularExpression("[^pnu\x00B5mkMGT^\\d.]"));
-			value = TextUtils::convertFromPowerPrefix(propertyStr, symbol);
-		}
+		//Attempt to remove the symbol: Remove all the letters, except the multipliers
+		propertyStr.remove(regExp);
+		value = TextUtils::convertFromPowerPrefix(propertyStr, symbol);
 	}
 	return value;
 }
