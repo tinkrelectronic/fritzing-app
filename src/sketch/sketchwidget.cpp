@@ -9604,8 +9604,7 @@ void SketchWidget::swapStartSubParts(SwapThing & swapThing, ItemBase * itemBase,
 
 		long newSubID = manager->getNewSubID(newSubModuleID);
 		new AddItemCommand(this, BaseCommand::SingleView, newSubModuleID, swapThing.viewLayerPlacement, subVgLocal, newSubID, true, manager->getNewModelIndex(newSubModuleID), swapThing.parentCommand);
-		auto * asc = new AddSubpartCommand(this, BaseCommand::SingleView, newID, newSubID, swapThing.parentCommand);
-		asc->setRedoOnly();
+		new AddSubpartCommand(this, BaseCommand::SingleView, newID, newSubID, swapThing.parentCommand);
 
 		if (subNeedsTransform) {
 			QTransform m(subOldTransform.m11(), subOldTransform.m12(), subOldTransform.m21(), subOldTransform.m22(), 0, 0);
