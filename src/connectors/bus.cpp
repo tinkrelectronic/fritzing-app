@@ -59,8 +59,6 @@ Connector * Bus::subConnector() const noexcept {
 }
 
 void Bus::removeSubConnector() {
-	if (m_subConnector != nullptr) {
-		delete m_subConnector;
-	}
+	delete m_subConnector;
 	m_subConnector = nullptr;
 }
