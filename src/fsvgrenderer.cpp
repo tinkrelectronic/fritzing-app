@@ -667,22 +667,19 @@ bool FSvgRenderer::setUpConnector(SvgIdLayer * svgIdLayer, bool ignoreTerminalPo
 	QTransform elementMatrix = this->transformForElement(connectorID);
 	QRectF r1 = elementMatrix.mapRect(bounds);
 
-	if (connectorInfo != nullptr) {
-		if (connectorInfo->gotCircle) {
-			QLineF l(0,0,connectorInfo->radius, 0);
-			QLineF lm = elementMatrix.map(l);
-			svgIdLayer->m_radius = lm.length() * defaultSizeF.width() / viewBox.width();
+	if (connectorInfo->gotCircle) {
+		QLineF l(0,0,connectorInfo->radius, 0);
+		QLineF lm = elementMatrix.map(l);
+		svgIdLayer->m_radius = lm.length() * defaultSizeF.width() / viewBox.width();
 
-			QLineF k(0,0,connectorInfo->strokeWidth, 0);
-			QLineF km = elementMatrix.map(k);
-			svgIdLayer->m_strokeWidth = km.length() * defaultSizeF.width() / viewBox.width();
-			//bounds = connectorInfo->cbounds;
-		}
-		if (connectorInfo->gotPath) {
-			svgIdLayer->m_path = true;
-		}
+		QLineF k(0,0,connectorInfo->strokeWidth, 0);
+		QLineF km = elementMatrix.map(k);
+		svgIdLayer->m_strokeWidth = km.length() * defaultSizeF.width() / viewBox.width();
+		//bounds = connectorInfo->cbounds;
 	}
-
+	if (connectorInfo->gotPath) {
+		svgIdLayer->m_path = true;
+	}
 
 	/*
 	svgIdLayer->m_rect.setRect(r1.x() * defaultSize.width() / viewBox.width(),
