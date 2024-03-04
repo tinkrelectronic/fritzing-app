@@ -135,6 +135,8 @@ public:
 	void bringToFront();
 	void alignItems(Qt::Alignment);
 	double fitInWindow();
+	QRectF calculateVisibleItemsBoundingRect();
+	void adjustSceneRect(const QRectF &itemsRect, qreal viewMarginFactor);
 	void rotateX(double degrees, bool rubberBandLegEnabled, ItemBase * originatingItem);
 	void flipX(Qt::Orientations orientation, bool rubberBandLegEnabled);
 	void addBendpoint(ItemBase * lastHoverEnterItem, ConnectorItem * lastHoverEnterConnectorItem, QPointF lastLocation);
@@ -343,6 +345,7 @@ public:
 	void putItemByModuleID(const QString & moduleID);
 
 protected:
+	void adjustSceneRect(double zoomFactor, const QRectF &targetRect);
 	void dragEnterEvent(QDragEnterEvent *);
 	bool dragEnterEventAux(QDragEnterEvent *);
 	bool setDroppingItemAndOffset(const QPoint & pos, const QPointF & offset, ModelPart * modelPart);

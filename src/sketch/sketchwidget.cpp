@@ -4310,48 +4310,71 @@ void SketchWidget::bringToFront() {
 	continueZChangeMax(bases, 0, bases.size(), lessThan, 1, text);
 }
 
+
 double SketchWidget::fitInWindow() {
+	bool updateState = updatesEnabled();
+	setUpdatesEnabled(false);
 
+	QRectF itemsRect = calculateVisibleItemsBoundingRect();
+
+	// Adjust the rectangle to include a border around the items
+	static constexpr double borderFactor = 0.03;
+	itemsRect.adjust(-itemsRect.width() * borderFactor, -itemsRect.height() * borderFactor,
+					 itemsRect.width() * borderFactor, itemsRect.height() * borderFactor);
+
+
+	// Avoid 'jumping' scrollbars by always caclulating as
+	// if they were both visible.
+	auto originalHorizontalPolicy = horizontalScrollBarPolicy();
+	auto originalVerticalPolicy = verticalScrollBarPolicy();
+	setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
+	setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
+
+	fitInView(itemsRect, Qt::KeepAspectRatio);
+	qreal viewMarginFactor = 0.6;
+	adjustSceneRect(itemsRect, viewMarginFactor);
+
+	setHorizontalScrollBarPolicy(originalHorizontalPolicy);
+	setVerticalScrollBarPolicy(originalVerticalPolicy);
+
+	QApplication::processEvents(QEventLoop::ExcludeUserInputEvents);
+
+	double scaleFactor = this->transform().m11();
+	m_scaleValue = scaleFactor * 100; // Convert scale factor to percentage
+
+	setUpdatesEnabled(updateState);
+	return m_scaleValue;
+}
+
+QRectF SketchWidget::calculateVisibleItemsBoundingRect() {
 	QRectF itemsRect;
-	Q_FOREACH(QGraphicsItem * item, scene()->items()) {
-		auto * partLabel = dynamic_cast<PartLabel *>(item);
-		if (partLabel) {
-			if (!partLabel->isVisible()) continue;
-			if (!partLabel->initialized()) continue;
-			itemsRect |= partLabel->sceneBoundingRect();
-		} else {
-			auto * itemBase = dynamic_cast<ItemBase *>(item);
-			if (!itemBase) continue;
-			if (!itemBase->isEverVisible()) continue;
+	for (QGraphicsItem* item : scene()->items()) {
+		if (!item->isVisible()) continue;
 
+		auto * partLabel = dynamic_cast<PartLabel *>(item);
+		if (partLabel && partLabel->initialized()) {
+			itemsRect |= partLabel->sceneBoundingRect();
+			continue;
+		}
+
+		auto * itemBase = dynamic_cast<ItemBase*>(item);
+		if (itemBase && itemBase->isEverVisible()) {
 			itemsRect |= itemBase->sceneBoundingRect();
 		}
 	}
+	return itemsRect;
+}
 
-	static constexpr double borderFactor = 0.03;
-	itemsRect.adjust(-itemsRect.width() * borderFactor, -itemsRect.height() * borderFactor, itemsRect.width() * borderFactor, itemsRect.height() * borderFactor);
+void SketchWidget::adjustSceneRect(const QRectF &itemsRect, qreal viewMarginFactor) {
+	QRectF viewRectInViewCoord = mapToScene(viewport()->rect()).boundingRect();
+	QPointF conversionFactor(viewRectInViewCoord.width() / viewport()->width(),
+							 viewRectInViewCoord.height() / viewport()->height());
 
-	QRectF viewRect = rect();
+	qreal sceneMarginWidth = width() * viewMarginFactor * conversionFactor.x();
+	qreal sceneMarginHeight = height() * viewMarginFactor * conversionFactor.y();
 
-	//fitInView(itemsRect.x(), itemsRect.y(), itemsRect.width(), itemsRect.height(), Qt::KeepAspectRatio);
-
-	double wRelation = (viewRect.width() - this->verticalScrollBar()->width() - 5)  / itemsRect.width();
-	double hRelation = (viewRect.height() - this->horizontalScrollBar()->height() - 5) / itemsRect.height();
-
-	//DebugDialog::debug(QString("scen rect: w%1 h%2").arg(itemsRect.width()).arg(itemsRect.height()));
-	//DebugDialog::debug(QString("view rect: w%1 h%2").arg(viewRect.width()).arg(viewRect.height()));
-	//DebugDialog::debug(QString("relations (v/s): w%1 h%2").arg(wRelation).arg(hRelation));
-
-	if(wRelation < hRelation) {
-		m_scaleValue = (wRelation * 100);
-	} else {
-		m_scaleValue = (hRelation * 100);
-	}
-
-	this->centerOn(itemsRect.center());
-	this->absoluteZoom(m_scaleValue);
-
-	return m_scaleValue;
+	QRectF adjustedRect = itemsRect.adjusted(-sceneMarginWidth, -sceneMarginHeight, sceneMarginWidth, sceneMarginHeight);
+	scene()->setSceneRect(adjustedRect);
 }
 
 bool SketchWidget::startZChange(QList<ItemBase *> & bases) {
