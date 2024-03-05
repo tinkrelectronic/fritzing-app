@@ -1253,6 +1253,37 @@ QRadioButton::indicator:checked:pressed  {
 	background:none;
 }
 
+#sketchAreaToolbar #simulationButton::menu-button { /*the little arrow to open the submenu*/
+        border: none;
+	/* background-image: none; */
+	margin-top: 28px;
+	margin-right:20px;
+	background:transparent;
+	width:6px;
+	height:6px;
+	float:right;
+}
+
+#sketchAreaToolbar #simulationButton::menu-arrow {
+        image: url(:/resources/images/icons/smalToolarrowSimulation-normal.svg);
+	border: none;
+	padding: 4px;
+	background:transparent;
+}
+
+#sketchAreaToolbar #simulationButton::menu-arrow:open {
+        image: url(:/resources/images/icons/smalToolarrowSimulation-pressed.svg);
+	border: none;
+	padding: 4px;
+	background:transparent;
+}
+
+#sketchAreaToolbar #simulationButton::menu-arrow:disabled{
+        image: url(:/resources/images/icons/smalToolarrowSimulation-inactive.svg);
+	border: none;
+	padding: 4px;
+	background:transparent;
+}
 
 #sketchAreaToolbar #shareProjectButton{
 	color:#fff;
