@@ -195,51 +195,51 @@ void Simulator::simulate() {
 	m_simulator->clearLog();
 
 	QList< QList<ConnectorItem *>* > netList;
-    itemBases.clear();
+	itemBases.clear();
 	QString spiceNetlist = m_mainWindow->getSpiceNetlist("Simulator Netlist", netList, itemBases);
 
 	//Select the type of analysis based on if there is an oscilloscope in the simulation
-    m_simEndTime = -1, m_simStartTime = std::numeric_limits<double>::max();;
+	m_simEndTime = -1, m_simStartTime = std::numeric_limits<double>::max();;
 	foreach (ItemBase * item, itemBases) {
 		if(item->family().toLower().contains("oscilloscope")) {
 			//TODO: Use TextUtils::convertFromPowerPrefixU function
 			double time_div = TextUtils::convertFromPowerPrefix(item->getProperty("time/div"), "s");
-            double pos = TextUtils::convertFromPowerPrefix(item->getProperty("horizontal position"), "s");
-            std::cout << "Found oscilloscope: time/div: " << item->getProperty("time/div").toStdString() << " " << time_div << item->getProperty("horizontal position").toStdString() << " " << pos << std::endl;
-            if (pos < m_simStartTime) {
-                m_simStartTime = pos;
-            }
-            double maxSimTimeOsc = pos + time_div * 10;
-            if (maxSimTimeOsc > m_simEndTime) {
-                m_simEndTime = maxSimTimeOsc;
-            }
+			double pos = TextUtils::convertFromPowerPrefix(item->getProperty("horizontal position"), "s");
+			std::cout << "Found oscilloscope: time/div: " << item->getProperty("time/div").toStdString() << " " << time_div << item->getProperty("horizontal position").toStdString() << " " << pos << std::endl;
+			if (pos < m_simStartTime) {
+				m_simStartTime = pos;
+			}
+			double maxSimTimeOsc = pos + time_div * 10;
+			if (maxSimTimeOsc > m_simEndTime) {
+				m_simEndTime = maxSimTimeOsc;
+			}
 		}
 	}
 
-    //Read the project properties
-    QString timeStepModeStr = m_mainWindow->getProjectProperties()->getProjectProperty(ProjectPropertyKeySimulatorTimeStepMode);
-    QString numStepsStr = m_mainWindow->getProjectProperties()->getProjectProperty(ProjectPropertyKeySimulatorNumberOfSteps);
-    QString timeStepStr = m_mainWindow->getProjectProperties()->getProjectProperty(ProjectPropertyKeySimulatorTimeStepS);
-    QString animationTimeStr = m_mainWindow->getProjectProperties()->getProjectProperty(ProjectPropertyKeySimulatorAnimationTimeS);
+	//Read the project properties
+	QString timeStepModeStr = m_mainWindow->getProjectProperties()->getProjectProperty(ProjectPropertyKeySimulatorTimeStepMode);
+	QString numStepsStr = m_mainWindow->getProjectProperties()->getProjectProperty(ProjectPropertyKeySimulatorNumberOfSteps);
+	QString timeStepStr = m_mainWindow->getProjectProperties()->getProjectProperty(ProjectPropertyKeySimulatorTimeStepS);
+	QString animationTimeStr = m_mainWindow->getProjectProperties()->getProjectProperty(ProjectPropertyKeySimulatorAnimationTimeS);
 
-    std::cout << "" << timeStepModeStr.toStdString() << " " << numStepsStr.toStdString() << " " << timeStepStr.toStdString()
-              << " " << animationTimeStr.toStdString() << std::endl;
-    if (m_simEndTime > 0) {
-        if (timeStepModeStr.contains("true", Qt::CaseInsensitive)) {
-            m_simStepTime = TextUtils::convertFromPowerPrefixU(timeStepStr, "s");
-            m_simNumberOfSteps = (m_simEndTime-m_simStartTime)/m_simStepTime;
-        } else {
-            m_simNumberOfSteps = TextUtils::convertFromPowerPrefixU(numStepsStr, "");
-            m_simStepTime = (m_simEndTime-m_simStartTime)/m_simNumberOfSteps;
-        }
+	std::cout << "" << timeStepModeStr.toStdString() << " " << numStepsStr.toStdString() << " " << timeStepStr.toStdString()
+		  << " " << animationTimeStr.toStdString() << std::endl;
+	if (m_simEndTime > 0) {
+		if (timeStepModeStr.contains("true", Qt::CaseInsensitive)) {
+			m_simStepTime = TextUtils::convertFromPowerPrefixU(timeStepStr, "s");
+			m_simNumberOfSteps = (m_simEndTime-m_simStartTime)/m_simStepTime;
+		} else {
+			m_simNumberOfSteps = TextUtils::convertFromPowerPrefixU(numStepsStr, "");
+			m_simStepTime = (m_simEndTime-m_simStartTime)/m_simNumberOfSteps;
+		}
 
-        int timerInterval = TextUtils::convertFromPowerPrefixU(animationTimeStr, "")/m_simNumberOfSteps*1000;
-        m_showResultsTimer->setInterval(timerInterval);
+		int timerInterval = TextUtils::convertFromPowerPrefixU(animationTimeStr, "")/m_simNumberOfSteps*1000;
+		m_showResultsTimer->setInterval(timerInterval);
 
-        //We have found at least one oscilloscope
-        QString tranAnalysis = QString(".TRAN %1 %2 %3").arg(m_simStepTime).arg(m_simEndTime).arg(m_simStartTime);
-        spiceNetlist.replace(".OP", tranAnalysis);
-    }
+		//We have found at least one oscilloscope
+		QString tranAnalysis = QString(".TRAN %1 %2 %3").arg(m_simStepTime).arg(m_simEndTime).arg(m_simStartTime);
+		spiceNetlist.replace(".OP", tranAnalysis);
+	}
 
 
 	std::cout << "Netlist: " << spiceNetlist.toStdString() << std::endl;
