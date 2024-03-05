@@ -1008,6 +1008,14 @@ QWidget *MainWindow::createSimulationButton(SketchAreaWidget *parent) {
 	simulationButton->setDefaultAction(m_startSimulatorAct);
 	simulationButton->setText(tr("Simulate"));
 	simulationButton->setIcon(QIcon(QPixmap(":/resources/images/icons/toolbarSimulationEnabled_icon.png")));
+
+	auto *menu = new QMenu(this);
+	menu->addAction(m_startSimulatorAct);
+	menu->addAction(m_stopSimulatorAct);
+	simulationButton->setMenu(menu);
+	// connect(menu,SIGNAL(aboutToHide()),this,SLOT(setEnabledIconAux()));
+	simulationButton->setPopupMode(QToolButton::MenuButtonPopup);
+
 	widget->addWidget(simulationButton);
 
 	QToolButton* stopSimulationButton = new QToolButton(widget);
