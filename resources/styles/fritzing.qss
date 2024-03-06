@@ -1259,8 +1259,8 @@ QRadioButton::indicator:checked:pressed  {
 	margin-top: 28px;
 	margin-right:20px;
 	background:transparent;
-	width:6px;
-	height:6px;
+	width:8px;
+	height:8px;
 	float:right;
 }
 
