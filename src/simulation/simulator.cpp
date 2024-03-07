@@ -109,6 +109,10 @@ bool Simulator::isEnabled() {
 	return m_enabled;
 }
 
+bool Simulator::isTransientSimulation() {
+	return m_transientSimulationEnabled;
+}
+
 /**
  * Enables or disables the simulator. If it is disabled, removes the simulation effects: the grey out of
  * the parts that are not simulated and the messages previously added.
@@ -122,6 +126,10 @@ void Simulator::enable(bool enable) {
 	if (!m_enabled) {
 		removeSimItems();
 	}		
+}
+
+void Simulator::enableTransientSimulation(bool enable) {
+	m_transientSimulationEnabled = enable;
 }
 
 /**
