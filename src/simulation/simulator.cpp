@@ -515,6 +515,8 @@ void Simulator::drawSmoke(ItemBase* part) {
 	schSmoke->setPos(QPointF(schPartBoundingBox.width()/2-schSmokeBoundingBox.width()*scale,
 							 schPartBoundingBox.height()/2-schSmokeBoundingBox.height()*scale));
 
+	part->addSimulationGraphicsItem(schSmoke);
+	m_sch2bbItemHash.value(part)->addSimulationGraphicsItem(bbSmoke);
 }
 
 /**
@@ -584,6 +586,8 @@ void Simulator::updateMultimeterScreen(ItemBase * multimeter, QString msg){
 
 	bbScreen->setZValue(std::numeric_limits<double>::max());
 	schScreen->setZValue(std::numeric_limits<double>::max());
+	m_sch2bbItemHash.value(multimeter)->addSimulationGraphicsItem(bbScreen);
+	multimeter->addSimulationGraphicsItem(schScreen);
 }
 
 /**
@@ -604,6 +608,7 @@ void Simulator::removeSimItems(QList<QGraphicsItem *> items) {
 		item->setGraphicsEffect(NULL);
 		ItemBase * itemBase = dynamic_cast<ItemBase *>(item);
 		if (itemBase) {
+			itemBase->removeSimulationGraphicsItem();
 			if (itemBase->viewID() == ViewLayer::ViewID::BreadboardView) {
 				LED * led = dynamic_cast<LED *>(item);
 				if (led) {
@@ -1299,6 +1304,8 @@ void Simulator::updateDcMotor(unsigned long timeStep, ItemBase * part) {
 
 		schRotate->setZValue(std::numeric_limits<double>::max());
 		bbRotate->setZValue(std::numeric_limits<double>::max());
+		part->addSimulationGraphicsItem(schRotate);
+		m_sch2bbItemHash.value(part)->addSimulationGraphicsItem(bbRotate);
 	}
 }
 
@@ -1577,5 +1584,10 @@ void Simulator::updateOscilloscope(unsigned long timeStep, ItemBase * part) {
     schGraph->setZValue(std::numeric_limits<double>::max());
     bbGraph->setSharedRenderer(bbGraphRender);
     bbGraph->setZValue(std::numeric_limits<double>::max());
+
+    part->addSimulationGraphicsItem(schGraph);
+    m_sch2bbItemHash.value(part)->addSimulationGraphicsItem(bbGraph);
+
+
 
 }
