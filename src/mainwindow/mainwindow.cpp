@@ -1010,8 +1010,16 @@ QWidget *MainWindow::createSimulationButton(SketchAreaWidget *parent) {
 	simulationButton->setIcon(QIcon(QPixmap(":/resources/images/icons/toolbarSimulationEnabled_icon.png")));
 
 	auto *menu = new QMenu(this);
-	menu->addAction(m_startSimulatorAct);
-	menu->addAction(m_stopSimulatorAct);
+	QAction* normalModeAct = new QAction(tr("Normal Mode"), this);
+	QAction* transientModeAct = new QAction(tr("Transient Mode"), this);
+	normalModeAct->setCheckable(true);
+	transientModeAct->setCheckable(true);
+	QActionGroup* modeActionGroup = new QActionGroup(this);
+	modeActionGroup->addAction(normalModeAct);
+	modeActionGroup->addAction(transientModeAct);
+	normalModeAct->setChecked(true);
+	menu->addAction(normalModeAct);
+	menu->addAction(transientModeAct);
 	simulationButton->setMenu(menu);
 	// connect(menu,SIGNAL(aboutToHide()),this,SLOT(setEnabledIconAux()));
 	simulationButton->setPopupMode(QToolButton::MenuButtonPopup);
@@ -1026,6 +1034,13 @@ QWidget *MainWindow::createSimulationButton(SketchAreaWidget *parent) {
 	stopSimulationButton->setText(tr("Stop"));
 	stopSimulationButton->setIcon(QIcon(QPixmap(":/resources/images/icons/toolbarStopSimulationEnabled_icon.png")));
 	widget->addWidget(stopSimulationButton);
+
+	connect(normalModeAct, &QAction::triggered, this, [=]() {
+		m_simulator->enableTransientSimulation(false);
+	});
+	connect(transientModeAct, &QAction::triggered, this, [=]() {
+		m_simulator->enableTransientSimulation(true);
+	});
 
 	connect(m_simulator, &Simulator::simulationStartedOrStopped, this, [=](bool running) {
 		if (running) {
