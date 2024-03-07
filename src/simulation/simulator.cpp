@@ -224,6 +224,11 @@ void Simulator::simulate() {
 		}
 	}
 
+	if (m_simEndTime <= 0 && m_transientSimulationEnabled) {
+		m_simStartTime = 0;
+		m_simEndTime = 10;
+	}
+
 	//Read the project properties
 	QString timeStepModeStr = m_mainWindow->getProjectProperties()->getProjectProperty(ProjectPropertyKeySimulatorTimeStepMode);
 	QString numStepsStr = m_mainWindow->getProjectProperties()->getProjectProperty(ProjectPropertyKeySimulatorNumberOfSteps);
