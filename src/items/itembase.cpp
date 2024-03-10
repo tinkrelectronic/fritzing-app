@@ -1627,13 +1627,17 @@ bool ItemBase::collectExtraInfo(QWidget * parent, const QString & family, const 
 
 	QString tempValue = value;
 	QList<QPair<QString, QString>> collection;
+	ItemBase * targetItem(this);
 
 	if (prop.compare("chip label", Qt::CaseInsensitive) == 0) {
 		// Get a list of ModuleIDs with their associated values for the property 'prop'
 		// This should be the prefered method for all parts that get fully swapped.
 		// for now, we only do this for 'chip label'
 		collection = collectPartsOfFamilyWithProp(family, prop);
-		tempValue = moduleID();
+		if (superpart()) {
+			targetItem = superpart();
+		}
+		tempValue = targetItem->moduleID();
 	} else {
 		// Original method. Only look at the property text. This does not work well
 		// with translations, and often requires difficult (buggy) reverse lookups
@@ -1642,6 +1646,7 @@ bool ItemBase::collectExtraInfo(QWidget * parent, const QString & family, const 
 		for (const QString &value : values) {
 			collection.append(qMakePair(QString(), value));
 		}
+
 	}
 
 	if (collection.count() > 1) {
@@ -1660,9 +1665,10 @@ bool ItemBase::collectExtraInfo(QWidget * parent, const QString & family, const 
 		comboBox->setCurrentIndex(currentIndex);
 		comboBox->setEnabled(swappingEnabled);
 		comboBox->setSizeAdjustPolicy(QComboBox::AdjustToContents);
+
 		connect(comboBox,
 				&QComboBox::currentIndexChanged,
-				this,
+				targetItem,
 				QOverload<int>::of(&ItemBase::swapEntry));
 
 		returnWidget = comboBox;
