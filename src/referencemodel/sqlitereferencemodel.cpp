@@ -1223,6 +1223,39 @@ QStringList SqliteReferenceModel::propValues(const QString &family, const QStrin
 	return retval;
 }
 
+
+// Get a list of ModuleIDs and property values
+// All parts must be of the same family, and a have property with the requested name
+// Obsolete parts are excluded
+// Subparts are excluded
+QList<QPair<QString, QString>> SqliteReferenceModel::allPartsOfFamilyWithProp(const QString &family, const QString &propName) {
+	QList<QPair<QString, QString>> result;
+
+	QSqlQuery query;
+	query.prepare(
+		"SELECT part.moduleID, prop.value FROM properties prop JOIN parts part ON part.id = prop.part_id "
+		"WHERE part.family = :family AND prop.name = :propName AND part.itemtype <> :itemType AND (part.replacedby IS NULL OR part.replacedby = '') "
+		"ORDER BY prop.value"
+		);
+	query.bindValue(":family", family.toLower().trimmed());
+	query.bindValue(":propName", propName.toLower().trimmed());
+	query.bindValue(":itemType", static_cast<int>(ModelPart::SchematicSubpart)); // Exclude subparts
+
+	if (query.exec()) {
+		while (query.next()) {
+			QString moduleID = query.value(0).toString();
+			QString value = query.value(1).toString();
+			if (!moduleID.isEmpty() && !value.isEmpty()) result.append(qMakePair(moduleID, value));
+		}
+	} else {
+		debugExec("couldn't retrieve values", query);
+		m_swappingEnabled = false;
+	}
+
+	return result;
+}
+
+// Hopefully, there was a reason that value is used as key, and moduleId is used as value
 QMultiHash<QString, QString> SqliteReferenceModel::allPropValues(const QString &family, const QString &propName) {
 	QMultiHash<QString, QString> retval;
 

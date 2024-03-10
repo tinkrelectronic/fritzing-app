@@ -342,6 +342,9 @@ protected:
 	QVariant itemChange(QGraphicsItem::GraphicsItemChange change, const QVariant & value);
 
 	virtual QStringList collectValues(const QString & family, const QString & prop, QString & value);
+	virtual QList<QPair<QString, QString> > collectPartsOfFamilyWithProp(const QString &family,
+													 const QString &prop);
+
 
 	void setInstanceTitleTooltip(const QString& text);
 	virtual void setDefaultTooltip();
