@@ -1629,21 +1629,27 @@ bool ItemBase::collectExtraInfo(QWidget * parent, const QString & family, const 
 	QList<QPair<QString, QString>> collection;
 
 	if (prop.compare("chip label", Qt::CaseInsensitive) == 0) {
+		// Get a list of ModuleIDs with their associated values for the property 'prop'
+		// This should be the prefered method for all parts that get fully swapped.
+		// for now, we only do this for 'chip label'
 		collection = collectPartsOfFamilyWithProp(family, prop);
 		tempValue = moduleID();
 	} else {
+		// Original method. Only look at the property text. This does not work well
+		// with translations, and often requires difficult (buggy) reverse lookups
+		// to identify the part with that property.
 		QStringList values = collectValues(family, prop, tempValue);
-		for (const QString& value : values) {
+		for (const QString &value : values) {
 			collection.append(qMakePair(QString(), value));
 		}
 	}
 
 	if (collection.count() > 1) {
-		auto * comboBox = new FamilyPropertyComboBox(family, prop, parent);
+		auto *comboBox = new FamilyPropertyComboBox(family, prop, parent);
 		comboBox->setObjectName("infoViewComboBox");
 
 		int currentIndex = collection.count() - 1;
-		for (const auto& kv : collection) {
+		for (const auto &kv : collection) {
 			comboBox->addItem(kv.second, kv.first);
 			if (kv.first.isEmpty() && kv.second == tempValue) {
 				currentIndex = comboBox->count() - 1;
@@ -1654,7 +1660,10 @@ bool ItemBase::collectExtraInfo(QWidget * parent, const QString & family, const 
 		comboBox->setCurrentIndex(currentIndex);
 		comboBox->setEnabled(swappingEnabled);
 		comboBox->setSizeAdjustPolicy(QComboBox::AdjustToContents);
-		connect(comboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(swapEntry(int)));
+		connect(comboBox,
+				&QComboBox::currentIndexChanged,
+				this,
+				QOverload<int>::of(&ItemBase::swapEntry));
 
 		returnWidget = comboBox;
 		m_propsMap.insert(prop, tempValue);
@@ -1671,6 +1680,11 @@ void ItemBase::swapEntry(int index) {
 	auto * comboBox = qobject_cast<FamilyPropertyComboBox *>(sender());
 	if (comboBox == nullptr) return;
 
+	QVariant data = comboBox->itemData(index);
+	if (data.isValid() && data.typeId() == QMetaType::QString) {
+		QString moduleID = data.toString();
+		m_propsMap.insert("moduleID", moduleID);
+	}
 	swapEntry(comboBox->itemText(index));
 }
 
