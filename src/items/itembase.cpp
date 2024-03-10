@@ -1672,6 +1672,10 @@ bool ItemBase::collectExtraInfo(QWidget * parent, const QString & family, const 
 				QOverload<int>::of(&ItemBase::swapEntry));
 
 		returnWidget = comboBox;
+
+		// Fixme: Does this still work when using item data? tempValue will be a moduleID then.
+		// Also, swapEntry will overwrite prop (see ~ 30 lines below) , probably before it ever gets used.
+		// Remove ?
 		m_propsMap.insert(prop, tempValue);
 		FProbeSwitchProperty::insertIf(prop,
 									   comboBox,
@@ -1689,6 +1693,8 @@ void ItemBase::swapEntry(int index) {
 	QVariant data = comboBox->itemData(index);
 	if (data.isValid() && data.typeId() == QMetaType::QString) {
 		QString moduleID = data.toString();
+		// swapSelectMap will pick this up, and can directly retrieve the model part,
+		// instead of searching for matching properties
 		m_propsMap.insert("moduleID", moduleID);
 	}
 	swapEntry(comboBox->itemText(index));
