@@ -26,9 +26,9 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 #include <QNetworkRequest>
 #include <QPixmap>
 #include <QTimer>
+#include <QEventLoop>
 
 #include "serviceiconfetcher.h"
-#include "sqlitereferencemodel.h"
 #include "../debugdialog.h"
 
 ServiceIconFetcher* ServiceIconFetcher::m_instance = nullptr;
