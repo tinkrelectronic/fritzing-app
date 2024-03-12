@@ -924,22 +924,52 @@ SketchToolButton *MainWindow::createAutorouteButton(SketchAreaWidget *parent) {
 	return autorouteButton;
 }
 
+void MainWindow::onServiceAislerSelected() {
+	QSettings settings;
+	settings.setValue("service", "Aisler");
+}
+
+void MainWindow::onServicePCBWaySelected() {
+	QSettings settings;
+	settings.setValue("service", "PCBWay");
+}
+
 SketchToolButton *MainWindow::createOrderFabButton(SketchAreaWidget *parent) {
-	auto *orderFabButton = new SketchToolButton("Order",parent, m_orderFabAct);
+	auto *orderFabButton = new SketchToolButton("Order", parent, m_orderFabAct);
 	orderFabButton->setText(tr("Fabricate"));
 	orderFabButton->setObjectName("orderFabButton");
-	orderFabButton->setEnabledIcon();// seems to need this to display button icon first time
+	orderFabButton->setEnabledIcon();
 
-	QMenu *serviceMenu = new QMenu(this);
-	QAction *aislerAction = new QAction(tr("Aisler"), this);
-	QAction *pcbWayAction = new QAction(tr("PCBWay"), this);
+	QSettings settings;
+	QString currentService = settings.value("service", "Aisler").toString();
+
+	QMenu *serviceMenu = new QMenu(orderFabButton);
+	QAction *aislerAction = new QAction(tr("Aisler"), orderFabButton);
+	QAction *pcbWayAction = new QAction(tr("PCBWay"), orderFabButton);
+
+	aislerAction->setCheckable(true);
+	pcbWayAction->setCheckable(true);
+
+	if (currentService == "Aisler") {
+		aislerAction->setChecked(true);
+	} else if (currentService == "PCBWay") {
+		pcbWayAction->setChecked(true);
+	}
+
+	QActionGroup *serviceActionGroup = new QActionGroup(orderFabButton);
+	serviceActionGroup->addAction(aislerAction);
+	serviceActionGroup->addAction(pcbWayAction);
+
 	serviceMenu->addAction(aislerAction);
 	serviceMenu->addAction(pcbWayAction);
 	orderFabButton->setMenu(serviceMenu);
 	orderFabButton->setPopupMode(QToolButton::MenuButtonPopup);
 
-	connect(orderFabButton, SIGNAL(entered()), this, SLOT(orderFabHoverEnter()));
-	connect(orderFabButton, SIGNAL(left()), this, SLOT(orderFabHoverLeave()));
+	connect(aislerAction, &QAction::triggered, this, &MainWindow::onServiceAislerSelected);
+	connect(pcbWayAction, &QAction::triggered, this, &MainWindow::onServicePCBWaySelected);
+
+	connect(orderFabButton, &SketchToolButton::entered, this, &MainWindow::orderFabHoverEnter);
+	connect(orderFabButton, &SketchToolButton::left, this, &MainWindow::orderFabHoverLeave);
 
 	return orderFabButton;
 }
