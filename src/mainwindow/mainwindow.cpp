@@ -929,6 +929,15 @@ SketchToolButton *MainWindow::createOrderFabButton(SketchAreaWidget *parent) {
 	orderFabButton->setText(tr("Fabricate"));
 	orderFabButton->setObjectName("orderFabButton");
 	orderFabButton->setEnabledIcon();// seems to need this to display button icon first time
+
+	QMenu *serviceMenu = new QMenu(this);
+	QAction *aislerAction = new QAction(tr("Aisler"), this);
+	QAction *pcbWayAction = new QAction(tr("PCBWay"), this);
+	serviceMenu->addAction(aislerAction);
+	serviceMenu->addAction(pcbWayAction);
+	orderFabButton->setMenu(serviceMenu);
+	orderFabButton->setPopupMode(QToolButton::MenuButtonPopup);
+
 	connect(orderFabButton, SIGNAL(entered()), this, SLOT(orderFabHoverEnter()));
 	connect(orderFabButton, SIGNAL(left()), this, SLOT(orderFabHoverLeave()));
 
