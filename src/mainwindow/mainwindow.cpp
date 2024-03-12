@@ -1080,6 +1080,14 @@ QWidget *MainWindow::createSimulationButton(SketchAreaWidget *parent) {
 	connect(transientModeAct, &QAction::triggered, this, [=]() {
 		m_simulator->enableTransientSimulation(true);
 	});
+	connect(transientModeAct, &QAction::triggered, this, [=]() {
+		m_simulator->enableTransientSimulation(true);
+		FMessageBox::warning(
+					this,
+					tr("Simulation Mode"),
+					tr("Transient simulation mode is a beta feature.")
+					);
+	});
 
 	connect(m_simulator, &Simulator::simulationStartedOrStopped, this, [=](bool running) {
 		if (running) {
