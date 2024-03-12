@@ -1382,6 +1382,38 @@ QRadioButton::indicator:checked:pressed  {
 	margin:5px 10px 5px 5px;
 }
 
+#sketchAreaToolbar #orderFabButton::menu-button { /*the little arrow to open the submenu*/
+        border: none;
+	/* background-image: none; */
+	margin-top: 28px;
+	margin-right:20px;
+	background:transparent;
+	width:8px;
+	height:8px;
+	float:right;
+}
+
+#sketchAreaToolbar #orderFabButton::menu-arrow {
+        image: url(:/resources/images/icons/smalToolarrowFab-normal.svg);
+	border: none;
+	padding: 4px;
+	background:transparent;
+}
+
+#sketchAreaToolbar #orderFabButton::menu-arrow:open {
+        image: url(:/resources/images/icons/smalToolarrowFab-pressed.svg);
+	border: none;
+	padding: 4px;
+	background:transparent;
+}
+
+#sketchAreaToolbar #orderFabButton::menu-arrow:disabled{
+        image: url(:/resources/images/icons/smalToolarrowFab-inactive.svg);
+	border: none;
+	padding: 4px;
+	background:transparent;
+}
+
 /* ################### zoomslider #################### */
 
 QSlider::groove:horizontal 

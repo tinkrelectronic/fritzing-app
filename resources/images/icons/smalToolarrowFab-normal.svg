@@ -1,0 +1,6 @@
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Circle with #215c6a fill -->
+  <circle cx="100" cy="100" r="80" fill="#3a2e2a" />
+  <!-- White Triangle, points define three vertices (x,y pairs) -->
+  <polygon points="100,140 50,80 150,80" fill="white" />
+</svg>

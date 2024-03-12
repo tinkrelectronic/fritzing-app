@@ -379,5 +379,8 @@
         <file>resources/images/icons/smalToolarrow-inactive.svg</file>
         <file>resources/images/icons/smalToolarrow-pressed.svg</file>
         <file>resources/images/icons/smalToolarrow-normal.svg</file>
+        <file>resources/images/icons/smalToolarrowFab-inactive.svg</file>
+        <file>resources/images/icons/smalToolarrowFab-pressed.svg</file>
+        <file>resources/images/icons/smalToolarrowFab-normal.svg</file>
     </qresource>
 </RCC>
