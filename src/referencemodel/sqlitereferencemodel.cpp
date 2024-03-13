@@ -238,7 +238,7 @@ bool SqliteReferenceModel::loadFromDB(QSqlDatabase & keep_db, QSqlDatabase & db)
 	if (!query.isActive()) return false;
 
 	QSqlQuery q2(keep_db);
-	bool result = q2.prepare("INSERT INTO parts(moduleID, family, core) VALUES (:moduleID, :family, :core)");
+	bool result = q2.prepare("INSERT INTO parts(moduleID, family, core, replacedby, itemtype) VALUES (:moduleID, :family, :core, :replacedby, :itemtype)");
 	debugError(result, q2);
 
 	QFileInfo info(db.databaseName());
@@ -294,6 +294,8 @@ bool SqliteReferenceModel::loadFromDB(QSqlDatabase & keep_db, QSqlDatabase & db)
 		q2.bindValue(":moduleID", modelPartShared->moduleID());
 		q2.bindValue(":family", family);
 		q2.bindValue(":core", "1");
+		q2.bindValue(":replacedby", modelPart->replacedby());
+		q2.bindValue(":itemtype", modelPart->itemType());
 		bool result = q2.exec();
 		if (!result) debugExec("unable to add part to memory", q2);
 
@@ -1363,7 +1365,6 @@ bool SqliteReferenceModel::createParts(QSqlDatabase & db, bool fullLoad)
 	QString extra;
 	if (fullLoad) {
 		extra = "version TEXT,\n"
-		        "replacedby TEXT,\n"
 		        "fritzingversion TEXT,\n"
 		        "author TEXT,\n"
 		        "title TEXT,\n"
@@ -1372,8 +1373,7 @@ bool SqliteReferenceModel::createParts(QSqlDatabase & db, bool fullLoad)
 		        "description TEXT,\n"
 		        "spice TEXT,\n"
 		        "spicemodel TEXT,\n"
-		        "taxonomy TEXT,\n"
-		        "itemtype INTEGER NOT NULL,\n"
+				"taxonomy TEXT,\n"
 		        "path TEXT\n"
 		        ;
 	}
@@ -1384,11 +1384,13 @@ bool SqliteReferenceModel::createParts(QSqlDatabase & db, bool fullLoad)
 
 
 	QString string = QString("CREATE TABLE parts (\n"
-	                         "id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,\n"
-	                         "moduleID TEXT NOT NULL,\n"
-	                         "family TEXT NOT NULL,\n"
-	                         "%1"
-	                         ")")
+							 "id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,\n"
+							 "moduleID TEXT NOT NULL,\n"
+							 "family TEXT NOT NULL,\n"
+							 "replacedby TEXT,\n"
+							 "itemtype INTEGER NOT NULL,\n"
+							 "%1"
+							 ")")
 	                 .arg(extra);
 
 	QSqlQuery query = db.exec(string);
