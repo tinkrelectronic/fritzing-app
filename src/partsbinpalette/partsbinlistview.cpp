@@ -302,7 +302,7 @@ bool PartsBinListView::dropMimeData(int index, const QMimeData *data, Qt::DropAc
 	return true;
 }
 
-QMimeData * PartsBinListView::mimeData(const QList<QListWidgetItem *> items) const {
+QMimeData * PartsBinListView::mimeData(const QList<QListWidgetItem *> & items) const {
 	if (items.count()>1) {
 		throw "PartsBinListView::mimeData too many items";
 	}
