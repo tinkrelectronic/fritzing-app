@@ -788,30 +788,37 @@ QPointF FSvgRenderer::calcTerminalPoint(const QString & terminalId, const QRectF
 
 QPointF FSvgRenderer::autoTerminalPoint(const QRectF & connectorRect)
 {
-	QPointF terminalPoint;
-	double widthHeightRatio = connectorRect.width() / connectorRect.height();
-	if (widthHeightRatio >= 0.9 && widthHeightRatio <= 1.1) {
-		// connectorRect is almost quadratic (within +- 10 percent)
-		terminalPoint = connectorRect.center() - connectorRect.topLeft();
-	} else {
-		QSizeF defaultSizeF = this->defaultSize();
-		QPointF defaultCenter(defaultSizeF.width() / 2, defaultSizeF.height() / 2);
+	const double epsilon = 0.001;
+	// Directly return the center if width or height is near zero, treating as almost quadratic
+	bool widthNearZero = std::abs(connectorRect.width()) < epsilon;
+	bool heightNearZero = std::abs(connectorRect.height()) < epsilon;
+	if (widthNearZero && heightNearZero) {
+		return connectorRect.center() - connectorRect.topLeft();
+	}
 
-		if (connectorRect.width() > connectorRect.height()) {
-			if (connectorRect.center().x() < defaultCenter.x()) {
-				terminalPoint = QPointF(connectorRect.left(), connectorRect.center().y()) - connectorRect.topLeft();
-			} else {
-				terminalPoint = QPointF(connectorRect.right(), connectorRect.center().y()) - connectorRect.topLeft();
-			}
-		} else {
-			if (connectorRect.center().y() < defaultCenter.y()) {
-				terminalPoint = QPointF(connectorRect.center().x(), connectorRect.top()) - connectorRect.topLeft();
-			} else {
-				terminalPoint = QPointF(connectorRect.center().x(), connectorRect.bottom()) - connectorRect.topLeft();
-			}
+	if (!heightNearZero) {
+		double widthHeightRatio = connectorRect.width() / connectorRect.height();
+		if (widthHeightRatio >= 0.9 && widthHeightRatio <= 1.1) {
+			// connectorRect is almost quadratic (within +- 10 percent)
+			return connectorRect.center() - connectorRect.topLeft();
 		}
 	}
-	return terminalPoint;
+
+	QSizeF defaultSizeF = this->defaultSize();
+	QPointF defaultCenter(defaultSizeF.width() / 2, defaultSizeF.height() / 2);
+	if (connectorRect.width() > connectorRect.height()) {
+		if (connectorRect.center().x() < defaultCenter.x()) {
+			return QPointF(connectorRect.left(), connectorRect.center().y()) - connectorRect.topLeft();
+		} else {
+			return QPointF(connectorRect.right(), connectorRect.center().y()) - connectorRect.topLeft();
+		}
+	} else {
+		if (connectorRect.center().y() < defaultCenter.y()) {
+			return QPointF(connectorRect.center().x(), connectorRect.top()) - connectorRect.topLeft();
+		} else {
+			return QPointF(connectorRect.center().x(), connectorRect.bottom()) - connectorRect.topLeft();
+		}
+	}
 }
 
 QList<SvgIdLayer *> FSvgRenderer::setUpNonConnectors(ViewLayer::ViewLayerPlacement viewLayerPlacement) {
