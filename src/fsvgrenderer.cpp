@@ -751,7 +751,7 @@ QPointF FSvgRenderer::calcTerminalPoint(const QString & terminalId, const QRectF
 		return terminalPoint;
 	}
 	if (terminalId.isNull() || terminalId.isEmpty()) {
-		return terminalPoint;
+		return autoTerminalPoint(connectorRect);
 	}
 
 	if (!this->elementExists(terminalId)) {
@@ -783,6 +783,34 @@ QPointF FSvgRenderer::calcTerminalPoint(const QString & terminalId, const QRectF
 	//arg(terminalPoint.y()).
 	//arg(terminalID) );
 
+	return terminalPoint;
+}
+
+QPointF FSvgRenderer::autoTerminalPoint(const QRectF & connectorRect)
+{
+	QPointF terminalPoint;
+	double widthHeightRatio = connectorRect.width() / connectorRect.height();
+	if (widthHeightRatio >= 0.9 && widthHeightRatio <= 1.1) {
+		// connectorRect is almost quadratic (within +- 10 percent)
+		terminalPoint = connectorRect.center() - connectorRect.topLeft();
+	} else {
+		QSizeF defaultSizeF = this->defaultSize();
+		QPointF defaultCenter(defaultSizeF.width() / 2, defaultSizeF.height() / 2);
+
+		if (connectorRect.width() > connectorRect.height()) {
+			if (connectorRect.center().x() < defaultCenter.x()) {
+				terminalPoint = QPointF(connectorRect.left(), connectorRect.center().y()) - connectorRect.topLeft();
+			} else {
+				terminalPoint = QPointF(connectorRect.right(), connectorRect.center().y()) - connectorRect.topLeft();
+			}
+		} else {
+			if (connectorRect.center().y() < defaultCenter.y()) {
+				terminalPoint = QPointF(connectorRect.center().x(), connectorRect.top()) - connectorRect.topLeft();
+			} else {
+				terminalPoint = QPointF(connectorRect.center().x(), connectorRect.bottom()) - connectorRect.topLeft();
+			}
+		}
+	}
 	return terminalPoint;
 }
 
