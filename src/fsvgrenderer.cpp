@@ -696,7 +696,16 @@ bool FSvgRenderer::setUpConnector(SvgIdLayer * svgIdLayer, bool ignoreTerminalPo
 	//if (!svgIdLayer->m_svgVisible) {
 	//DebugDialog::debug("not vis");
 	//}
-	QPointF terminal = calcTerminalPoint(svgIdLayer->m_terminalId, svgRect, ignoreTerminalPoint, viewBox, connectorInfo->terminalMatrix);
+	QPointF terminal;
+	if (svgIdLayer->m_viewID == ViewLayer::SchematicView && svgIdLayer->m_terminalId.isEmpty()) {
+		terminal = autoTerminalPoint(svgRect);
+	} else {
+		terminal = calcTerminalPoint(svgIdLayer->m_terminalId,
+									 svgRect,
+									 ignoreTerminalPoint,
+									 viewBox,
+									 connectorInfo->terminalMatrix);
+	}
 
 	svgIdLayer->setPointRect(viewLayerPlacement, terminal, svgRect, !bounds.isNull());
 	calcLeg(svgIdLayer, viewBox, connectorInfo);
@@ -750,8 +759,8 @@ QPointF FSvgRenderer::calcTerminalPoint(const QString & terminalId, const QRectF
 	if (ignoreTerminalPoint) {
 		return terminalPoint;
 	}
-	if (terminalId.isNull() || terminalId.isEmpty()) {
-		return autoTerminalPoint(connectorRect);
+	if (terminalId.isEmpty()) {
+		return terminalPoint;
 	}
 
 	if (!this->elementExists(terminalId)) {
