@@ -78,6 +78,7 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 #include "../mainwindow/FProbeKeyPressEvents.h"
 #include "connectors/debugconnectors.h"
 #include "connectors/debugconnectorsprobe.h"
+#include "referencemodel/sqlitereferencemodel.h"
 
 FTabWidget::FTabWidget(QWidget * parent) : QTabWidget(parent)
 {
@@ -926,49 +927,50 @@ SketchToolButton *MainWindow::createAutorouteButton(SketchAreaWidget *parent) {
 	return autorouteButton;
 }
 
-void MainWindow::onServiceAislerSelected() {
-	QSettings settings;
-	settings.setValue("service", "Aisler");
-}
-
-void MainWindow::onServicePCBWaySelected() {
-	QSettings settings;
-	settings.setValue("service", "PCBWay");
-}
-
 SketchToolButton *MainWindow::createOrderFabButton(SketchAreaWidget *parent) {
 	auto *orderFabButton = new SketchToolButton("Order", parent, m_orderFabAct);
 	orderFabButton->setText(tr("Fabricate"));
 	orderFabButton->setObjectName("orderFabButton");
 	orderFabButton->setEnabledIcon();
 
-	QSettings settings;
-	QString currentService = settings.value("service", "Aisler").toString();
+	QStringList serviceNames = SqliteReferenceModel().getAllIconNames();
+	serviceNames.removeIf([](const QString &serviceName) {
+	    return serviceName.contains("Fritzing", Qt::CaseInsensitive);
+	});
+	QStringList backupServices{"Aisler", "PCBWay"};
 
-	QMenu *serviceMenu = new QMenu(orderFabButton);
-	QAction *aislerAction = new QAction(tr("Aisler"), orderFabButton);
-	QAction *pcbWayAction = new QAction(tr("PCBWay"), orderFabButton);
-
-	aislerAction->setCheckable(true);
-	pcbWayAction->setCheckable(true);
-
-	if (currentService == "Aisler") {
-		aislerAction->setChecked(true);
-	} else if (currentService == "PCBWay") {
-		pcbWayAction->setChecked(true);
+	if (serviceNames.isEmpty()) {
+		serviceNames = backupServices;
 	}
 
-	QActionGroup *serviceActionGroup = new QActionGroup(orderFabButton);
-	serviceActionGroup->addAction(aislerAction);
-	serviceActionGroup->addAction(pcbWayAction);
+	QSettings settings;
+	QString currentService = settings.value("service", serviceNames.first()).toString();
 
-	serviceMenu->addAction(aislerAction);
-	serviceMenu->addAction(pcbWayAction);
+	if (!serviceNames.contains(currentService, Qt::CaseSensitive)) {
+		currentService = serviceNames.first();
+		settings.setValue("service", currentService);
+	}
+
+	QMenu *serviceMenu = new QMenu(orderFabButton);
+	QActionGroup *serviceActionGroup = new QActionGroup(orderFabButton);
+
+	foreach(const QString &serviceName, serviceNames) {
+		QAction *serviceAction = new QAction(serviceName, orderFabButton);
+		serviceAction->setCheckable(true);
+		if (currentService == serviceName) {
+			serviceAction->setChecked(true);
+		}
+		serviceMenu->addAction(serviceAction);
+		serviceActionGroup->addAction(serviceAction);
+
+		connect(serviceAction, &QAction::triggered, this, [serviceName]() {
+			QSettings settings;
+			settings.setValue("service", serviceName);
+		});
+	}
+
 	orderFabButton->setMenu(serviceMenu);
 	orderFabButton->setPopupMode(QToolButton::MenuButtonPopup);
-
-	connect(aislerAction, &QAction::triggered, this, &MainWindow::onServiceAislerSelected);
-	connect(pcbWayAction, &QAction::triggered, this, &MainWindow::onServicePCBWaySelected);
 
 	connect(orderFabButton, &SketchToolButton::entered, this, &MainWindow::orderFabHoverEnter);
 	connect(orderFabButton, &SketchToolButton::left, this, &MainWindow::orderFabHoverLeave);

@@ -1575,3 +1575,20 @@ bool SqliteReferenceModel::removex(qulonglong id, const QString & tableName, con
 
 	return result;
 }
+
+QStringList SqliteReferenceModel::getAllIconNames() const
+{
+	QStringList names;
+
+	QSqlQuery query("SELECT name FROM icons");
+	if (query.exec()) {
+		while (query.next()) {
+			names.append(query.value(0).toString());
+		}
+	} else {
+		DebugDialog::debug(QString("Failed to get icon names: %1").arg(query.lastError().text()));
+	}
+
+	return names;
+
+}

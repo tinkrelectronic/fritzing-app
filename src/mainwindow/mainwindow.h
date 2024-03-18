@@ -456,8 +456,6 @@ protected Q_SLOTS:
 	void updateWelcomeViewRecentList(bool doEmit = true);
 	virtual void initZoom();
 	void onShareOnlineFinished();
-	void onServiceAislerSelected();
-	void onServicePCBWaySelected();
 
 protected:
 	void initSketchWidget(SketchWidget *);
