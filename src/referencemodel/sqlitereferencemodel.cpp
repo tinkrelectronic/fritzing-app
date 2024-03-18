@@ -1053,8 +1053,8 @@ bool SqliteReferenceModel::insertPart(ModelPart * modelPart, bool fullLoad) {
 		}
 	} else {
 		debugExec("couldn't insert part", query);
-		FailurePartMessages << tr("part '%1' with id '%2'; possibly because it has no 'family' property.")
-							.arg(modelPart->path(), modelPart->moduleID());
+		FailurePartMessages << tr("part '%1' with id '%2' error '%3'; possibly because it has no 'family' property.")
+							.arg(modelPart->path(), modelPart->moduleID(), query.lastError().text());
 	}
 
 	DebugModelPart = nullptr;
