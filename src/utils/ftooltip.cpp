@@ -4,8 +4,6 @@
 
 namespace FToolTip {
 
-const QString HOVER_TEXT_COLOR = "#363636";
-
 QString createConnectionHtmlList(const QList<ConnectorItem*>& connectors)
 {
 	QString connections = "<ul style='margin-left:0;padding-left:0;'>";
@@ -21,10 +19,9 @@ QString createConnectionHtmlList(const QList<ConnectorItem*>& connectors)
 }
 
 QString createTooltipHtml(const QString& text, const QString& title) {
-	QString html = QStringLiteral("<b><font color='") % HOVER_TEXT_COLOR % "'>" % text % QStringLiteral("</font></b>");
+    QString html = QStringLiteral("<b>") % text % QStringLiteral("</b>");
 	if (!title.isEmpty()) {
-		html += QStringLiteral("<br></br><font size='2' color='")
-				% HOVER_TEXT_COLOR % "'>"
+        html += QStringLiteral("<br></br><font size='2'>")
 				% title
 				% QStringLiteral("</font>");
 	}
@@ -32,9 +29,7 @@ QString createTooltipHtml(const QString& text, const QString& title) {
 }
 
 QString createNonWireItemTooltipHtml(const QString& name, const QString& descr, const QString& title) {
-	QString html = QStringLiteral("<span style='color:")
-				   % HOVER_TEXT_COLOR
-				   % QStringLiteral(";'><b>")
+    QString html = QStringLiteral("<span><b>")
 				   % name
 				   % QStringLiteral("</b>");
 
