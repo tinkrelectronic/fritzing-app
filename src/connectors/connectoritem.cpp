@@ -1506,8 +1506,6 @@ void ConnectorItem::collectPart(ConnectorItem * connectorItem, QList<ConnectorIt
 	partsConnectors.append(connectorItem);
 }
 
-
-
 void ConnectorItem::updateTooltip() {
 	if (attachedToItemType() != ModelPart::Wire) {
 		QString name = connectorSharedName();
@@ -1525,7 +1523,12 @@ void ConnectorItem::updateTooltip() {
 		} else {
 			id = match.captured(0);
 		}
-		setToolTip(FToolTip::createNonWireItemTooltipHtml(name, descr, id, attachedToTitle()));
+        DebugDialog::debug(QString("Name: %1, Description: %2, ID: %3, Attached To: %4")
+                               .arg(name,
+                                    descr.isEmpty() ? "N/A" : descr,
+                                    id.isEmpty() ? "N/A" : id,
+                                    attachedToTitle()));
+        setToolTip(FToolTip::createNonWireItemTooltipHtml(name, descr, attachedToTitle()));
 		return;
 	}
 
