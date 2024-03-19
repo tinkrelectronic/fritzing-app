@@ -1576,7 +1576,7 @@ bool SqliteReferenceModel::removex(qulonglong id, const QString & tableName, con
 	return result;
 }
 
-QStringList SqliteReferenceModel::getAllIconNames() const
+QStringList SqliteReferenceModel::getAllServiceIconNames() const
 {
 	QStringList names;
 

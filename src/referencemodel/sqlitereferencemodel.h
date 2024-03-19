@@ -65,7 +65,7 @@ public:
 
 	QPixmap retrieveIcon(const QString &name);
 	bool insertIcon(const QString &name, const QPixmap &icon);
-	QStringList getAllIconNames() const;
+	QStringList getAllServiceIconNames() const;
 
 
 protected:

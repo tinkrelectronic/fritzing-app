@@ -933,7 +933,7 @@ SketchToolButton *MainWindow::createOrderFabButton(SketchAreaWidget *parent) {
 	orderFabButton->setObjectName("orderFabButton");
 	orderFabButton->setEnabledIcon();
 
-	QStringList serviceNames = SqliteReferenceModel().getAllIconNames();
+	QStringList serviceNames = SqliteReferenceModel().getAllServiceIconNames();
 	serviceNames.removeIf([](const QString &serviceName) {
 	    return serviceName.contains("Fritzing", Qt::CaseInsensitive);
 	});
