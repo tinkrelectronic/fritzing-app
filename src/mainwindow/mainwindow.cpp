@@ -79,6 +79,7 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 #include "connectors/debugconnectors.h"
 #include "connectors/debugconnectorsprobe.h"
 #include "referencemodel/sqlitereferencemodel.h"
+#include "servicelistfetcher.h"
 
 FTabWidget::FTabWidget(QWidget * parent) : QTabWidget(parent)
 {
@@ -450,6 +451,12 @@ void MainWindow::init(ReferenceModel *referenceModel, bool lockFiles) {
 	createZoomOptions(m_schematicWidget);
 	createZoomOptions(m_pcbWidget);
 
+	QSettings settings;
+
+	if(!settings.value("servicesList").isNull()) {
+		m_services = settings.value("servicesList").toStringList();
+	}
+
 	m_breadboardWidget->setToolbarWidgets(getButtonsForView(ViewLayer::BreadboardView));
 	m_schematicWidget->setToolbarWidgets(getButtonsForView(ViewLayer::SchematicView));
 	m_pcbWidget->setToolbarWidgets(getButtonsForView(ViewLayer::PCBView));
@@ -483,8 +490,6 @@ void MainWindow::init(ReferenceModel *referenceModel, bool lockFiles) {
 	if (m_fileProgressDialog != nullptr) {
 		m_fileProgressDialog->setValue(95);
 	}
-
-	QSettings settings;
 
 	if(!settings.value(m_settingsPrefix + "state").isNull()) {
 		restoreState(settings.value(m_settingsPrefix + "state").toByteArray());
@@ -522,6 +527,7 @@ void MainWindow::init(ReferenceModel *referenceModel, bool lockFiles) {
 	auto fProbeDebugConnectors = new DebugConnectorsProbe(m_breadboardGraphicsView, m_schematicGraphicsView, m_pcbGraphicsView);
 
 	m_projectProperties = QSharedPointer<ProjectProperties>(new ProjectProperties());
+	m_serviceListFetcher = QSharedPointer<ServiceListFetcher>(new ServiceListFetcher());
 //	m_breadboardGraphicsView->setProjectProperties(m_projectProperties);
 //	m_schematicGraphicsView->setProjectProperties(m_projectProperties);
 //	m_pcbGraphicsView->setProjectProperties(m_projectProperties);
@@ -927,17 +933,15 @@ SketchToolButton *MainWindow::createAutorouteButton(SketchAreaWidget *parent) {
 	return autorouteButton;
 }
 
-SketchToolButton *MainWindow::createOrderFabButton(SketchAreaWidget *parent) {
-	auto *orderFabButton = new SketchToolButton("Order", parent, m_orderFabAct);
-	orderFabButton->setText(tr("Fabricate"));
-	orderFabButton->setObjectName("orderFabButton");
-	orderFabButton->setEnabledIcon();
+void MainWindow::updateOrderFabMenu(SketchToolButton* orderFabButton) {
+	if (!orderFabButton) return;
 
-	QStringList serviceNames = SqliteReferenceModel().getAllServiceIconNames();
+	QStringList serviceNames = m_services;
+	serviceNames.sort();
 	serviceNames.removeIf([](const QString &serviceName) {
-	    return serviceName.contains("Fritzing", Qt::CaseInsensitive);
+		return serviceName.contains("Fritzing", Qt::CaseInsensitive);
 	});
-	QStringList backupServices{"Aisler", "PCBWay"};
+	QStringList backupServices{"Aisler"};
 
 	if (serviceNames.isEmpty()) {
 		serviceNames = backupServices;
@@ -945,17 +949,17 @@ SketchToolButton *MainWindow::createOrderFabButton(SketchAreaWidget *parent) {
 
 	QSettings settings;
 	QString currentService = settings.value("service", serviceNames.first()).toString();
-
 	if (!serviceNames.contains(currentService, Qt::CaseSensitive)) {
 		currentService = serviceNames.first();
 		settings.setValue("service", currentService);
 	}
 
-	QMenu *serviceMenu = new QMenu(orderFabButton);
-	QActionGroup *serviceActionGroup = new QActionGroup(orderFabButton);
+	QMenu* serviceMenu = orderFabButton->menu();
+	serviceMenu->clear();
 
+	QActionGroup* serviceActionGroup = new QActionGroup(this);
 	foreach(const QString &serviceName, serviceNames) {
-		QAction *serviceAction = new QAction(serviceName, orderFabButton);
+		QAction *serviceAction = new QAction(serviceName, this);
 		serviceAction->setCheckable(true);
 		if (currentService == serviceName) {
 			serviceAction->setChecked(true);
@@ -968,9 +972,17 @@ SketchToolButton *MainWindow::createOrderFabButton(SketchAreaWidget *parent) {
 			settings.setValue("service", serviceName);
 		});
 	}
+}
 
-	orderFabButton->setMenu(serviceMenu);
+SketchToolButton *MainWindow::createOrderFabButton(SketchAreaWidget *parent) {
+	auto *orderFabButton = new SketchToolButton("Order", parent, m_orderFabAct);
+	orderFabButton->setText(tr("Fabricate"));
+	orderFabButton->setObjectName("orderFabButton");
+	orderFabButton->setEnabledIcon();
+	orderFabButton->setMenu(new QMenu(orderFabButton)); // Initialize the menu
 	orderFabButton->setPopupMode(QToolButton::MenuButtonPopup);
+
+	updateOrderFabMenu(orderFabButton);
 
 	connect(orderFabButton, &SketchToolButton::entered, this, &MainWindow::orderFabHoverEnter);
 	connect(orderFabButton, &SketchToolButton::left, this, &MainWindow::orderFabHoverLeave);
@@ -3305,6 +3317,9 @@ ProgramWindow *MainWindow::programmingWidget() {
 }
 
 void MainWindow::orderFabHoverEnter() {
+	QObject::connect(m_serviceListFetcher.data(), &ServiceListFetcher::servicesFetched, this, &MainWindow::onServicesFetched);
+	m_serviceListFetcher->fetchServices();
+
 	if ((m_rolloverQuoteDialog != nullptr) && m_rolloverQuoteDialog->isVisible()) return;
 	QuoteDialog::setQuoteSucceeded(false);
 	QObject::connect(m_pcbGraphicsView, &PCBSketchWidget::fabQuoteFinishedSignal, this, &MainWindow::fireQuote);
@@ -3346,6 +3361,13 @@ void MainWindow::orderFabHoverLeave() {
 	if (m_rolloverQuoteDialog != nullptr) {
 		m_rolloverQuoteDialog->hide();
 	}
+}
+
+void MainWindow::onServicesFetched(const QList<QString>& services) {
+	m_services = services;
+	QSettings settings;
+	settings.setValue("servicesList", m_services);
+	updateOrderFabMenu(m_orderFabButton);
 }
 
 void MainWindow::initWelcomeView() {
