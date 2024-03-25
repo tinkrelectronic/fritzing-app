@@ -3317,8 +3317,13 @@ ProgramWindow *MainWindow::programmingWidget() {
 }
 
 void MainWindow::orderFabHoverEnter() {
-	QObject::connect(m_serviceListFetcher.data(), &ServiceListFetcher::servicesFetched, this, &MainWindow::onServicesFetched);
-	m_serviceListFetcher->fetchServices();
+	QSettings settings;
+	QVariant timestampVariant = settings.value("servicesListTimestamp");
+
+	if (!timestampVariant.isValid() || timestampVariant.toDateTime().addDays(14) < QDateTime::currentDateTime()) {
+		QObject::connect(m_serviceListFetcher.data(), &ServiceListFetcher::servicesFetched, this, &MainWindow::onServicesFetched);
+		m_serviceListFetcher->fetchServices();
+	}
 
 	if ((m_rolloverQuoteDialog != nullptr) && m_rolloverQuoteDialog->isVisible()) return;
 	QuoteDialog::setQuoteSucceeded(false);
@@ -3364,9 +3369,11 @@ void MainWindow::orderFabHoverLeave() {
 }
 
 void MainWindow::onServicesFetched(const QList<QString>& services) {
+	if (services.isEmpty()) return;
 	m_services = services;
 	QSettings settings;
 	settings.setValue("servicesList", m_services);
+	settings.setValue("servicesListTimestamp", QDateTime::currentDateTime());
 	updateOrderFabMenu(m_orderFabButton);
 }
 
