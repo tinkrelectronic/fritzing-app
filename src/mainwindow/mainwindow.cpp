@@ -78,7 +78,6 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 #include "../mainwindow/FProbeKeyPressEvents.h"
 #include "connectors/debugconnectors.h"
 #include "connectors/debugconnectorsprobe.h"
-#include "referencemodel/sqlitereferencemodel.h"
 #include "servicelistfetcher.h"
 
 FTabWidget::FTabWidget(QWidget * parent) : QTabWidget(parent)
