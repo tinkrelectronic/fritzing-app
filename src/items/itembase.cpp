@@ -1629,10 +1629,10 @@ bool ItemBase::collectExtraInfo(QWidget * parent, const QString & family, const 
 	QList<QPair<QString, QString>> collection;
 	ItemBase * targetItem(this);
 
-	if (prop.compare("chip label", Qt::CaseInsensitive) == 0) {
+	if (prop.compare("chip label", Qt::CaseInsensitive) == 0 || prop.compare("variant", Qt::CaseInsensitive) == 0) {
 		// Get a list of ModuleIDs with their associated values for the property 'prop'
 		// This should be the prefered method for all parts that get fully swapped.
-		// for now, we only do this for 'chip label'
+		// for now, we only do this for 'chip label' and 'variant'
 		collection = collectPartsOfFamilyWithProp(family, prop);
 		if (superpart()) {
 			targetItem = superpart();
