@@ -3394,7 +3394,8 @@ void MainWindow::initZoom() {
 	}
 
 	if (parts) {
-		m_currentGraphicsView->fitInWindow();
+		double newZoom = m_currentGraphicsView->fitInWindow();
+		m_zoomSlider->setValue(newZoom);
 	}
 
 	m_currentGraphicsView->setEverZoomed(true);
