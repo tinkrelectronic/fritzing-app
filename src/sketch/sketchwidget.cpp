@@ -8734,14 +8734,15 @@ void SketchWidget::collectAllNets(
 
 		for (int i = partConnectorItems->count() - 1; i >= 0; i--) {
 			bool shouldRemove = false;
+			auto * item = partConnectorItems->at(i)->attachedTo();
 
-			if (!partConnectorItems->at(i)->attachedTo()->isEverVisible()) {
-				if (!useSuperpart || partConnectorItems->at(i)->attachedTo()->subparts().isEmpty()) {
+			if (!item->isEverVisible()) {
+				if (!useSuperpart || item->subparts().isEmpty()) {
 					shouldRemove = true;
 				}
 			}
 
-			if (useSuperpart && !shouldRemove && partConnectorItems->at(i)->attachedTo()->superpart()) {
+			if (useSuperpart && !shouldRemove && item->superpart()) {
 				shouldRemove = true;
 			}
 
