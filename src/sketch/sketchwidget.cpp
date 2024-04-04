@@ -8692,6 +8692,7 @@ void SketchWidget::collectAllNets(
 		QList< QList<class ConnectorItem *>* > & allPartConnectorItems,
 		bool includeSingletons,
 		bool bothSides,
+		bool useSuperpart,
 		ViewGeometry::WireFlags skipFlags,
 		bool skipBuses)
 {
@@ -8732,7 +8733,19 @@ void SketchWidget::collectAllNets(
 		ConnectorItem::collectParts(connectorItems, *partConnectorItems, includeSymbols(), ViewLayer::NewTopAndBottom);
 
 		for (int i = partConnectorItems->count() - 1; i >= 0; i--) {
+			bool shouldRemove = false;
+
 			if (!partConnectorItems->at(i)->attachedTo()->isEverVisible()) {
+				if (!useSuperpart || partConnectorItems->at(i)->attachedTo()->subparts().isEmpty()) {
+					shouldRemove = true;
+				}
+			}
+
+			if (useSuperpart && !shouldRemove && partConnectorItems->at(i)->attachedTo()->superpart()) {
+				shouldRemove = true;
+			}
+
+			if (shouldRemove) {
 				partConnectorItems->removeAt(i);
 			}
 		}
@@ -9634,7 +9647,7 @@ void SketchWidget::showUnrouted() {
 
 	QList< QList< ConnectorItem *>* > allPartConnectorItems;
 	QHash<ConnectorItem *, int> indexer;
-	collectAllNets(indexer, allPartConnectorItems, false, routeBothSides());
+	collectAllNets(indexer, allPartConnectorItems, false, routeBothSides(), false);
 	QSet<ConnectorItem *> toShow;
 	Q_FOREACH (QList<ConnectorItem *> * connectorItems, allPartConnectorItems) {
 		ConnectorPairHash result;

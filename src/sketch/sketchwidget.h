@@ -261,6 +261,7 @@ public:
 			QList< QList<class ConnectorItem *>* > & allPartConnectorItems,
 			bool includeSingletons,
 			bool bothSides,
+			bool useSuperpart,
 			ViewGeometry::WireFlags skipFlag = ViewGeometry::NoFlag,
 			bool skipBuses = false);
 	virtual bool routeBothSides();

@@ -1431,7 +1431,7 @@ QString MainWindow::getSpiceNetlist(QString simulationName) {
 QString MainWindow::getSpiceNetlist(QString simulationName, QList< QList<class ConnectorItem *>* >& netList, QSet<class ItemBase *>& itemBases) {
 	QString output = simulationName + "\n";
 	QHash<ConnectorItem *, int> indexer;
-	this->m_schematicGraphicsView->collectAllNets(indexer, netList, true, false);
+	this->m_schematicGraphicsView->collectAllNets(indexer, netList, true, false, true);
 
 
 	//DebugDialog::debug("_______________");
@@ -1608,7 +1608,7 @@ QString MainWindow::exportIPC_D_356A() {
 
 	QHash<ConnectorItem *, int> indexer;
 	QList< QList<ConnectorItem *>* > netList;
-	this->m_pcbGraphicsView->collectAllNets(indexer, netList, true, m_pcbGraphicsView->boardLayers() > 1, skipFlags, skipBuses);
+	this->m_pcbGraphicsView->collectAllNets(indexer, netList, true, m_pcbGraphicsView->boardLayers() > 1, false, skipFlags, skipBuses);
 
 	QString ipc = getExportIPC_D_356A(board, basename, netList);
 	return ipc;
@@ -1647,7 +1647,7 @@ void MainWindow::exportIPC_D_356A_interactive() {
 void MainWindow::exportNetlist() {
 	QHash<ConnectorItem *, int> indexer;
 	QList< QList<ConnectorItem *>* > netList;
-	this->m_currentGraphicsView->collectAllNets(indexer, netList, true, m_currentGraphicsView->boardLayers() > 1);
+	this->m_currentGraphicsView->collectAllNets(indexer, netList, true, m_currentGraphicsView->boardLayers() > 1, false);
 
 	QDomDocument doc;
 	doc.setContent(QString("<?xml version='1.0' encoding='UTF-8'?>\n") + TextUtils::CreatedWithFritzingXmlComment);
