@@ -28,12 +28,12 @@ QHash<ViewLayer::ViewID, RatsnestColors *> RatsnestColors::m_viewList;
 QHash<QString, class RatsnestColor *> RatsnestColors::m_allNames;
 
 QColor ErrorColor(0, 0, 0);
-QColor TestColor(0, 0, 0);
+QColor TestColor(255, 105, 180);
 
 //////////////////////////////////////////////////////
 
 class RatsnestColor {
-	RatsnestColor(const QDomElement &);
+	RatsnestColor(const QDomElement &, bool sameColor);
 	~RatsnestColor();
 
 	bool matchColor(const QString &);
@@ -52,7 +52,7 @@ protected:
 
 //////////////////////////////////////////////////////
 
-RatsnestColor::RatsnestColor(const QDomElement & color) {
+RatsnestColor::RatsnestColor(const QDomElement & color, bool sameColor) {
 	m_name = color.attribute("name");
 	//DebugDialog::debug("color name " + m_name);
 	m_ratsnest.setNamedColor(color.attribute("ratsnest"));
@@ -60,12 +60,13 @@ RatsnestColor::RatsnestColor(const QDomElement & color) {
 	m_shadow = color.attribute("shadow");
 	QDomElement connector = color.firstChildElement("connector");
 	while (!connector.isNull()) {
-		m_connectorNames.append(connector.attribute("name"));
+		if (!sameColor)
+			m_connectorNames.append(connector.attribute("name"));
 		connector = connector.nextSiblingElement("connector");
 	}
 	QDomElement obsolete = color.firstChildElement("obsolete");
 	while (!obsolete.isNull()) {
-		m_obsoleteList << new RatsnestColor(obsolete);
+		m_obsoleteList << new RatsnestColor(obsolete, sameColor);
 		obsolete = obsolete.nextSiblingElement("obsolete");
 	}
 }
@@ -97,7 +98,7 @@ RatsnestColors::RatsnestColors(const QDomElement & view, bool sameColor)
 	m_index = 0;
 	QDomElement color = view.firstChildElement("color");
 	while (!color.isNull()) {
-		auto * ratsnestColor = new RatsnestColor(color);
+		auto * ratsnestColor = new RatsnestColor(color, sameColor);
 		m_ratsnestColorHash.insert(ratsnestColor->m_name, ratsnestColor);
 		m_ratsnestColorList.append(ratsnestColor);
 		Q_FOREACH (QString name, ratsnestColor->m_connectorNames) {
