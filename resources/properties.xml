@@ -139,7 +139,7 @@
 <property name="voltage" symbol="V" minValue="0" maxValue="1000" defaultValue="5" numeric="yes" editable="yes">
   <suffix suffix="DC2PowerModuleID"/>
   <suffix suffix="AC2PowerModuleID"/>
-  <suffix suffix="ACPowerSupplyModuleID"/>
+  <suffix suffix="SinePowerSupplyModuleID"/>
   <suffix suffix="DCPowerSupplyModuleID"/>
   <suffix suffix="TriangularPowerSupplyModuleID"/>
   <suffix suffix="SawtoothPowerSupplyModuleID"/>
@@ -149,7 +149,7 @@
 </property>
 
 <property name="amplitude" symbol="V" minValue="0" maxValue="1000" defaultValue="5" numeric="yes" editable="yes">
-  <suffix suffix="ACPowerSupplyModuleID"/>
+  <suffix suffix="SinePowerSupplyModuleID"/>
   <suffix suffix="TriangularPowerSupplyModuleID"/>
   <suffix suffix="SawtoothPowerSupplyModuleID"/>
   <menuItem value="3.3" />
@@ -170,11 +170,14 @@
 <property name="pulse width" symbol="s" minValue="0" maxValue="1000000" defaultValue="0.05" numeric="yes" editable="yes">
   <suffix suffix="PulsePowerSupplyModuleID"/>
 </property>
+<property name="duty cycle" symbol="%" minValue="0" maxValue="100" defaultValue="25" numeric="yes" editable="yes">
+  <suffix suffix="PWMPulsePowerSupplyModuleID"/>
+</property>
 <property name="rise time" symbol="s" minValue="0" maxValue="1" defaultValue="0.001" numeric="yes" editable="yes">
-  <suffix suffix="PulsePowerSupplyModuleID"/>
+  <suffix suffix="GenericPulsePowerSupplyModuleID"/>
 </property>
 <property name="fall time" symbol="s" minValue="0" maxValue="1" defaultValue="0.001" numeric="yes" editable="yes">
-  <suffix suffix="PulsePowerSupplyModuleID"/>
+  <suffix suffix="GenericPulsePowerSupplyModuleID"/>
 </property>
 <property name="number of pulses" symbol="" minValue="0" maxValue="1000000000000" defaultValue="0" numeric="yes" editable="yes">
   <suffix suffix="PulsePowerSupplyModuleID"/>
@@ -184,7 +187,8 @@
 
 <property name="frequency" symbol="Hz" minValue="0" maxValue="1000000" defaultValue="60" numeric="yes" editable="yes">
 	<suffix suffix="AC2PowerModuleID"/>
-	<suffix suffix="ACPowerSupplyModuleID"/>
+	<suffix suffix="SinePowerSupplyModuleID"/>
+	<suffix suffix="PulseGenericPowerSupplyModuleIDwerSupplyModuleID"/>
 	<menuItem value="10" />
 	<menuItem value="20" />
 	<menuItem value="50" />
@@ -193,21 +197,27 @@
 </property>
 
 <property name="offset voltage" symbol="V" minValue="0" maxValue="1000" defaultValue="0" numeric="yes" editable="yes">
-  <suffix suffix="ACPowerSupplyModuleID"/>
+  <suffix suffix="SinePowerSupplyModuleID"/>
   <suffix suffix="TriangularPowerSupplyModuleID"/>
   <suffix suffix="SawtoothPowerSupplyModuleID"/>
 </property>
 <property name="delay time" symbol="s" minValue="0" maxValue="100" defaultValue="0" numeric="yes" editable="yes">
-  <suffix suffix="ACPowerSupplyModuleID"/>
+  <suffix suffix="SinePowerSupplyModuleID"/>
   <suffix suffix="PulsePowerSupplyModuleID"/>
   <suffix suffix="TriangularPowerSupplyModuleID"/>
   <suffix suffix="SawtoothPowerSupplyModuleID"/>
 </property>
 <property name="damping factor" symbol="s-1" minValue="0" maxValue="10" defaultValue="0" numeric="yes" editable="yes">
-  <suffix suffix="ACPowerSupplyModuleID"/>
+  <suffix suffix="SinePowerSupplyModuleID"/>
 </property>
 <property name="phase" symbol="degrees" minValue="0" maxValue="360" defaultValue="0" numeric="yes" editable="yes">
-  <suffix suffix="ACPowerSupplyModuleID"/>
+  <suffix suffix="SinePowerSupplyModuleID"/>
+</property>
+<property name="internal resistance" symbol="&#937;" minValue="0" maxValue="1000000" defaultValue="0.1" numeric="yes" editable="yes">
+  <suffix suffix="PowerSupplyModuleID"/>
+  <suffix suffix="77c36646df552e9fe72f360837f556ccleg"/>
+  <suffix suffix="1000AFDF10011leg"/>
+  <suffix suffix="c7c8e292b3beec531de0c51f2576d329"/>
 </property>
 
 <property name="frequency" symbol="Hz" minValue="" maxValue="" defaultValue="16 MHz" numeric="no" editable="no">
