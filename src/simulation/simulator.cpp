@@ -341,9 +341,15 @@ void Simulator::simulate() {
 	std::cout << "Waiting for simulator thread to stop" <<std::endl;
 	int elapsedTime = 0, simTimeOut = 3000; // in ms
 	while (m_simulator->isBGThreadRunning() && elapsedTime < simTimeOut) {
-		QThread::usleep(1000);
+        auto timeInfo = m_simulator->getVecInfo(QString("time").toStdString());
+        QThread::usleep(100);
 		elapsedTime++;
-	}
+        //If this a transitory simulation and we have partial results, start the animation
+        if (m_simEndTime > 0 && timeInfo.size() > 0)
+            break;
+    }
+    std::cout << "-------- SIM END or TRANS SIM WITH PARTIAL RESULTS ------------" << std::endl;
+
 	if (elapsedTime >= simTimeOut) {
 		m_simulator->command("bg_halt");
 		stopSimulation();
@@ -371,7 +377,7 @@ void Simulator::simulate() {
 	}
 	std::cout << "No fatal error found, continuing..." <<std::endl;
 
-	m_simulator->command("bg_halt");
+    //m_simulator->command("bg_halt");
 
     //Delete the pointers
     foreach (QList<ConnectorItem *> * net, netList) {
@@ -394,7 +400,15 @@ void Simulator::simulate() {
 }
 
 void Simulator::showSimulationResults() {
-    if (m_currSimStep < m_simNumberOfSteps) {
+    if (m_currSimStep <= m_simNumberOfSteps) {
+        //Check that we have the sim results for this time step
+        auto timeInfo = m_simulator->getVecInfo(QString("time").toStdString());
+        std::cout << "Time showSimulationResults (" << timeInfo.size() << " points): ";
+        if (m_currSimStep > timeInfo.size())
+            return;
+
+        QElapsedTimer elapsedTimer;
+        elapsedTimer.start();
         removeSimItems();
         updateParts(itemBases, m_currSimStep);
 
@@ -405,10 +419,15 @@ void Simulator::showSimulationResults() {
         m_breadboardGraphicsView->setSimulatorMessage(simMessage);
         m_schematicGraphicsView->setSimulatorMessage(simMessage);
 
-
-
-
-        m_currSimStep++;
+        if (elapsedTimer.elapsed() < m_showResultsTimer->interval()) {
+            m_currSimStep++;
+        } else {
+            //Animation is going very slowly, skip some time steps
+            m_currSimStep += (unsigned int) (elapsedTimer.elapsed()/m_showResultsTimer->interval());
+            if (m_currSimStep > m_simNumberOfSteps)
+                m_currSimStep = m_simNumberOfSteps;
+        }
+        std::cout << "Time to perform the animation (" << elapsedTimer.elapsed() << " ms): ";
     } else {
         m_showResultsTimer->stop();
     }
