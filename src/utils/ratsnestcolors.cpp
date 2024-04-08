@@ -28,7 +28,7 @@ QHash<ViewLayer::ViewID, RatsnestColors *> RatsnestColors::m_viewList;
 QHash<QString, class RatsnestColor *> RatsnestColors::m_allNames;
 
 QColor ErrorColor(0, 0, 0);
-QColor TestColor(255, 105, 180);
+QColor TestColor(0, 255, 255);
 
 //////////////////////////////////////////////////////
 
