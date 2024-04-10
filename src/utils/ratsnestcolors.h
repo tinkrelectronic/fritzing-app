@@ -30,10 +30,10 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 class RatsnestColors {
 
 public:
-	RatsnestColors(const QDomElement &, bool sameColor);
+	RatsnestColors(const QDomElement &);
 	~RatsnestColors();
 
-	static void initNames(bool sameColor);
+	static void initNames(bool uniformColorForTesting);
 	static void cleanup();
 	static const QColor & netColor(ViewLayer::ViewID m_viewID);
 	static bool findConnectorColor(const QStringList & names, QColor & color);
@@ -52,8 +52,8 @@ protected:
 	int m_index;
 	QHash<QString, class RatsnestColor *> m_ratsnestColorHash;
 	QList<class RatsnestColor *> m_ratsnestColorList;
-	bool m_sameColor;
 
+	static bool m_uniformColorForTesting;
 	static QHash<ViewLayer::ViewID, RatsnestColors *> m_viewList;
 	static QHash<QString, class RatsnestColor *> m_allNames;
 };

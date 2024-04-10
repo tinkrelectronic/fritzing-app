@@ -33,8 +33,10 @@ QColor TestColor(0, 128, 128);
 //////////////////////////////////////////////////////
 
 class RatsnestColor {
-	RatsnestColor(const QDomElement &, bool sameColor);
+	RatsnestColor(const QDomElement &);
 	~RatsnestColor();
+
+	static void setUniformColorForTesting(bool uniformColorForTesting);
 
 	bool matchColor(const QString &);
 
@@ -48,11 +50,15 @@ protected:
 	QString m_shadow;
 	QStringList m_connectorNames;
 	QList<RatsnestColor *> m_obsoleteList;
+
+	static bool m_uniformColorForTesting;
 };
 
 //////////////////////////////////////////////////////
 
-RatsnestColor::RatsnestColor(const QDomElement & color, bool sameColor) {
+bool RatsnestColor::m_uniformColorForTesting = false;
+
+RatsnestColor::RatsnestColor(const QDomElement & color) {
 	m_name = color.attribute("name");
 	//DebugDialog::debug("color name " + m_name);
 	m_ratsnest.setNamedColor(color.attribute("ratsnest"));
@@ -61,13 +67,13 @@ RatsnestColor::RatsnestColor(const QDomElement & color, bool sameColor) {
 	QDomElement connector = color.firstChildElement("connector");
 	while (!connector.isNull()) {
 		// Ratsnest lines are drawn in random order. We use the same color for all lines to avoid random test results.
-		if (!sameColor)
+		if (!m_uniformColorForTesting)
 			m_connectorNames.append(connector.attribute("name"));
 		connector = connector.nextSiblingElement("connector");
 	}
 	QDomElement obsolete = color.firstChildElement("obsolete");
 	while (!obsolete.isNull()) {
-		m_obsoleteList << new RatsnestColor(obsolete, sameColor);
+		m_obsoleteList << new RatsnestColor(obsolete);
 		obsolete = obsolete.nextSiblingElement("obsolete");
 	}
 }
@@ -79,6 +85,9 @@ RatsnestColor::~RatsnestColor() {
 	m_obsoleteList.clear();
 }
 
+void RatsnestColor::setUniformColorForTesting(bool uniformColorForTesting) {
+	m_uniformColorForTesting = uniformColorForTesting;
+}
 bool RatsnestColor::matchColor(const QString & string) {
 	if (m_wire.compare(string, Qt::CaseInsensitive) == 0) return true;
 
@@ -91,15 +100,16 @@ bool RatsnestColor::matchColor(const QString & string) {
 
 //////////////////////////////////////////////////////
 
-RatsnestColors::RatsnestColors(const QDomElement & view, bool sameColor)
-	: m_sameColor(sameColor)
+bool RatsnestColors::m_uniformColorForTesting = false;
+
+RatsnestColors::RatsnestColors(const QDomElement & view)
 {
 	m_viewID = ViewLayer::idFromXmlName(view.attribute("name"));
 	m_backgroundColor.setNamedColor(view.attribute("background"));
 	m_index = 0;
 	QDomElement color = view.firstChildElement("color");
 	while (!color.isNull()) {
-		auto * ratsnestColor = new RatsnestColor(color, sameColor);
+		auto * ratsnestColor = new RatsnestColor(color);
 		m_ratsnestColorHash.insert(ratsnestColor->m_name, ratsnestColor);
 		m_ratsnestColorList.append(ratsnestColor);
 		Q_FOREACH (QString name, ratsnestColor->m_connectorNames) {
@@ -118,7 +128,10 @@ RatsnestColors::~RatsnestColors()
 	m_ratsnestColorList.clear();
 }
 
-void RatsnestColors::initNames(bool sameColor) {
+void RatsnestColors::initNames(bool uniformColorForTesting) {
+	m_uniformColorForTesting = uniformColorForTesting;
+	RatsnestColor::setUniformColorForTesting(uniformColorForTesting);
+
 	QFile file(":/resources/ratsnestcolors.xml");
 	if (!file.open(QIODevice::ReadOnly)) {
 		DebugDialog::debug("Unable to open :/resources/ratsnestcolors.xml");
@@ -143,7 +156,7 @@ void RatsnestColors::initNames(bool sameColor) {
 
 	QDomElement view = root.firstChildElement("view");
 	while (!view.isNull()) {
-		auto * ratsnestColors = new RatsnestColors(view, sameColor);
+		auto * ratsnestColors = new RatsnestColors(view);
 		m_viewList.insert(ratsnestColors->m_viewID, ratsnestColors);
 		view = view.nextSiblingElement("view");
 	}
@@ -165,7 +178,7 @@ const QColor & RatsnestColors::netColor(ViewLayer::ViewID viewID) {
 
 const QColor & RatsnestColors::getNextColor() {
 	if (m_ratsnestColorList.count() <= 0) return ErrorColor;
-	if (m_sameColor) return TestColor;
+	if (m_uniformColorForTesting) return TestColor;
 
 	int resetCount = 0;
 	while (true) {
