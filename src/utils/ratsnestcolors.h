@@ -53,7 +53,6 @@ protected:
 	QHash<QString, class RatsnestColor *> m_ratsnestColorHash;
 	QList<class RatsnestColor *> m_ratsnestColorList;
 
-	static bool m_isTestingEnabled;
 	static QHash<ViewLayer::ViewID, RatsnestColors *> m_viewList;
 	static QHash<QString, class RatsnestColor *> m_allNames;
 };

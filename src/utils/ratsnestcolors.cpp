@@ -100,8 +100,6 @@ bool RatsnestColor::matchColor(const QString & string) {
 
 //////////////////////////////////////////////////////
 
-bool RatsnestColors::m_isTestingEnabled = false;
-
 RatsnestColors::RatsnestColors(const QDomElement & view)
 {
 	m_viewID = ViewLayer::idFromXmlName(view.attribute("name"));
@@ -129,7 +127,6 @@ RatsnestColors::~RatsnestColors()
 }
 
 void RatsnestColors::initNames(bool isTestingEnabled) {
-	m_isTestingEnabled = isTestingEnabled;
 	RatsnestColor::setTesting(isTestingEnabled);
 
 	QFile file(":/resources/ratsnestcolors.xml");
@@ -178,7 +175,7 @@ const QColor & RatsnestColors::netColor(ViewLayer::ViewID viewID) {
 
 const QColor & RatsnestColors::getNextColor() {
 	if (m_ratsnestColorList.count() <= 0) return ErrorColor;
-	if (m_isTestingEnabled) return TestColor;
+	if (RatsnestColor::m_isTestingEnabled) return TestColor;
 
 	int resetCount = 0;
 	while (true) {
