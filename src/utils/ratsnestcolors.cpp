@@ -28,7 +28,7 @@ QHash<ViewLayer::ViewID, RatsnestColors *> RatsnestColors::m_viewList;
 QHash<QString, class RatsnestColor *> RatsnestColors::m_allNames;
 
 QColor ErrorColor(0, 0, 0);
-QColor TestColor(0, 255, 255);
+QColor TestColor(0, 128, 128);
 
 //////////////////////////////////////////////////////
 
@@ -60,6 +60,7 @@ RatsnestColor::RatsnestColor(const QDomElement & color, bool sameColor) {
 	m_shadow = color.attribute("shadow");
 	QDomElement connector = color.firstChildElement("connector");
 	while (!connector.isNull()) {
+		// Ratsnest lines are drawn in random order. We use the same color for all lines to avoid random test results.
 		if (!sameColor)
 			m_connectorNames.append(connector.attribute("name"));
 		connector = connector.nextSiblingElement("connector");
