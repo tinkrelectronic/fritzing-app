@@ -36,7 +36,7 @@ class RatsnestColor {
 	RatsnestColor(const QDomElement &);
 	~RatsnestColor();
 
-	static void setUniformColorForTesting(bool uniformColorForTesting);
+	static void activateUniformColorForTesting();
 
 	bool matchColor(const QString &);
 
@@ -85,8 +85,8 @@ RatsnestColor::~RatsnestColor() {
 	m_obsoleteList.clear();
 }
 
-void RatsnestColor::setUniformColorForTesting(bool uniformColorForTesting) {
-	m_uniformColorForTesting = uniformColorForTesting;
+void RatsnestColor::activateUniformColorForTesting() {
+	m_uniformColorForTesting = true;
 }
 bool RatsnestColor::matchColor(const QString & string) {
 	if (m_wire.compare(string, Qt::CaseInsensitive) == 0) return true;
@@ -130,7 +130,8 @@ RatsnestColors::~RatsnestColors()
 
 void RatsnestColors::initNames(bool uniformColorForTesting) {
 	m_uniformColorForTesting = uniformColorForTesting;
-	RatsnestColor::setUniformColorForTesting(uniformColorForTesting);
+	if (uniformColorForTesting)
+		RatsnestColor::activateUniformColorForTesting();
 
 	QFile file(":/resources/ratsnestcolors.xml");
 	if (!file.open(QIODevice::ReadOnly)) {
