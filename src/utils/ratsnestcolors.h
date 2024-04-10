@@ -33,7 +33,7 @@ public:
 	RatsnestColors(const QDomElement &);
 	~RatsnestColors();
 
-	static void initNames(bool uniformColorForTesting);
+	static void initNames(bool isTestingEnabled);
 	static void cleanup();
 	static const QColor & netColor(ViewLayer::ViewID m_viewID);
 	static bool findConnectorColor(const QStringList & names, QColor & color);
@@ -53,7 +53,7 @@ protected:
 	QHash<QString, class RatsnestColor *> m_ratsnestColorHash;
 	QList<class RatsnestColor *> m_ratsnestColorList;
 
-	static bool m_uniformColorForTesting;
+	static bool m_isTestingEnabled;
 	static QHash<ViewLayer::ViewID, RatsnestColors *> m_viewList;
 	static QHash<QString, class RatsnestColor *> m_allNames;
 };

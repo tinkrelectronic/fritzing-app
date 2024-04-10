@@ -36,7 +36,7 @@ class RatsnestColor {
 	RatsnestColor(const QDomElement &);
 	~RatsnestColor();
 
-	static void activateUniformColorForTesting();
+	static void setTesting(bool isTestingEnabled);
 
 	bool matchColor(const QString &);
 
@@ -51,12 +51,12 @@ protected:
 	QStringList m_connectorNames;
 	QList<RatsnestColor *> m_obsoleteList;
 
-	static bool m_uniformColorForTesting;
+	static bool m_isTestingEnabled;
 };
 
 //////////////////////////////////////////////////////
 
-bool RatsnestColor::m_uniformColorForTesting = false;
+bool RatsnestColor::m_isTestingEnabled = false;
 
 RatsnestColor::RatsnestColor(const QDomElement & color) {
 	m_name = color.attribute("name");
@@ -67,7 +67,7 @@ RatsnestColor::RatsnestColor(const QDomElement & color) {
 	QDomElement connector = color.firstChildElement("connector");
 	while (!connector.isNull()) {
 		// Ratsnest lines are drawn in random order. We use the same color for all lines to avoid random test results.
-		if (!m_uniformColorForTesting)
+		if (!m_isTestingEnabled)
 			m_connectorNames.append(connector.attribute("name"));
 		connector = connector.nextSiblingElement("connector");
 	}
@@ -85,8 +85,8 @@ RatsnestColor::~RatsnestColor() {
 	m_obsoleteList.clear();
 }
 
-void RatsnestColor::activateUniformColorForTesting() {
-	m_uniformColorForTesting = true;
+void RatsnestColor::setTesting(bool isTestingEnabled) {
+	m_isTestingEnabled = isTestingEnabled;
 }
 bool RatsnestColor::matchColor(const QString & string) {
 	if (m_wire.compare(string, Qt::CaseInsensitive) == 0) return true;
@@ -100,7 +100,7 @@ bool RatsnestColor::matchColor(const QString & string) {
 
 //////////////////////////////////////////////////////
 
-bool RatsnestColors::m_uniformColorForTesting = false;
+bool RatsnestColors::m_isTestingEnabled = false;
 
 RatsnestColors::RatsnestColors(const QDomElement & view)
 {
@@ -128,10 +128,9 @@ RatsnestColors::~RatsnestColors()
 	m_ratsnestColorList.clear();
 }
 
-void RatsnestColors::initNames(bool uniformColorForTesting) {
-	m_uniformColorForTesting = uniformColorForTesting;
-	if (uniformColorForTesting)
-		RatsnestColor::activateUniformColorForTesting();
+void RatsnestColors::initNames(bool isTestingEnabled) {
+	m_isTestingEnabled = isTestingEnabled;
+	RatsnestColor::setTesting(isTestingEnabled);
 
 	QFile file(":/resources/ratsnestcolors.xml");
 	if (!file.open(QIODevice::ReadOnly)) {
@@ -179,7 +178,7 @@ const QColor & RatsnestColors::netColor(ViewLayer::ViewID viewID) {
 
 const QColor & RatsnestColors::getNextColor() {
 	if (m_ratsnestColorList.count() <= 0) return ErrorColor;
-	if (m_uniformColorForTesting) return TestColor;
+	if (m_isTestingEnabled) return TestColor;
 
 	int resetCount = 0;
 	while (true) {
