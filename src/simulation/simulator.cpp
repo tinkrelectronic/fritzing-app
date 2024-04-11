@@ -246,7 +246,7 @@ void Simulator::simulate() {
 			m_simStepTime = (m_simEndTime-m_simStartTime)/m_simNumberOfSteps;
 		}
 
-		int timerInterval = TextUtils::convertFromPowerPrefixU(animationTimeStr, "")/m_simNumberOfSteps*1000;
+		int timerInterval = TextUtils::convertFromPowerPrefixU(animationTimeStr, "s")/m_simNumberOfSteps*1000;
 		m_showResultsTimer->setInterval(timerInterval);
 
 		//We have found at least one oscilloscope
