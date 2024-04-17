@@ -947,10 +947,10 @@ void MainWindow::updateOrderFabMenu(SketchToolButton* orderFabButton) {
 	}
 
 	QSettings settings;
-	QString currentService = settings.value("service", serviceNames.first()).toString();
+	QString currentService = settings.value("service").toString();
 	if (!serviceNames.contains(currentService, Qt::CaseSensitive)) {
-		currentService = serviceNames.first();
-		settings.setValue("service", currentService);
+		currentService.clear();
+		settings.remove("service");
 	}
 
 	QMenu* serviceMenu = orderFabButton->menu();
@@ -971,6 +971,13 @@ void MainWindow::updateOrderFabMenu(SketchToolButton* orderFabButton) {
 			settings.setValue("service", serviceName);
 		});
 	}
+
+	connect(serviceActionGroup, &QActionGroup::triggered, this, [](QAction* action) {
+		if (!action->isChecked()) {
+			QSettings settings;
+			settings.remove("service");
+		}
+	});
 }
 
 SketchToolButton *MainWindow::createOrderFabButton(SketchAreaWidget *parent) {
