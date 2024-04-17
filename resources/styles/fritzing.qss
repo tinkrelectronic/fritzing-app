@@ -2361,3 +2361,40 @@ QDialog QPushButton:on
 
 
 }
+
+QPrintDialog {
+    background-color: #d9d9d9;
+    color: #333333;
+}
+
+QPrintDialog QWidget {
+    background-color: #d9d9d9;
+    color: #333333;
+}
+
+QPrintDialog QLabel {
+    color: #333333;
+}
+
+QPrintDialog QComboBox {
+    background-color: #ffffff;
+    color: #333333;
+}
+
+QPrintDialog QCheckBox {
+    color: #333333;
+}
+
+QPrintDialog QPushButton {
+    background-color: #ececec;
+    color: #323232;
+}
+
+QPrintDialog QPushButton:hover {
+    background-color: #ffffff;
+}
+
+QPrintDialog QPushButton:pressed {
+    background-color: #666666;
+    color: #ffffff;
+}
