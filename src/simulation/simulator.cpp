@@ -387,7 +387,6 @@ void Simulator::simulate() {
 
 
     //The spice simulation has finished, iterate over each part being simulated and update it (if it is necessary).
-    removeSimItems();
     updateParts(itemBases, 0);
 
     //If this a transitory simulation, set the timer for the animation
