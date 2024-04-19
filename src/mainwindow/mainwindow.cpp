@@ -79,6 +79,7 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 #include "connectors/debugconnectors.h"
 #include "connectors/debugconnectorsprobe.h"
 #include "servicelistfetcher.h"
+#include "utils/uploadpair.h"
 
 FTabWidget::FTabWidget(QWidget * parent) : QTabWidget(parent)
 {
@@ -947,7 +948,17 @@ void MainWindow::updateOrderFabMenu(SketchToolButton* orderFabButton) {
 	}
 
 	QSettings settings;
+
 	QString currentService = settings.value("service").toString();
+
+	settings.beginGroup("sketches");
+	QVariant settingValue = settings.value(m_fwFilename);
+	settings.endGroup();
+	if (auto opt = settingValue.value<UploadPair>();
+		settingValue.isValid() && !settingValue.isNull()) {
+		currentService = std::move(opt.service);
+	}
+
 	if (!serviceNames.contains(currentService, Qt::CaseSensitive)) {
 		currentService.clear();
 		settings.remove("service");
