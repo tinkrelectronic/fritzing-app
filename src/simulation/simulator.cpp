@@ -249,7 +249,6 @@ void Simulator::simulate() {
 		int timerInterval = TextUtils::convertFromPowerPrefixU(animationTimeStr, "s")/m_simNumberOfSteps*1000;
 		m_showResultsTimer->setInterval(timerInterval);
 
-		//We have found at least one oscilloscope or the transient simulation was turned explicitely.
 		QString tranAnalysis = QString(".TRAN %1 %2 %3").arg(m_simStepTime).arg(m_simEndTime).arg(m_simStartTime);
 		spiceNetlist.replace(".OP", tranAnalysis);
 	}
