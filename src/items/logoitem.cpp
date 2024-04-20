@@ -21,7 +21,6 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 #include "logoitem.h"
 #include "../utils/graphicsutils.h"
 #include "../utils/textutils.h"
-#include "../utils/fmessagebox.h"
 #include "../fsvgrenderer.h"
 #include "../sketch/infographicsview.h"
 #include "../svg/svgfilesplitter.h"
