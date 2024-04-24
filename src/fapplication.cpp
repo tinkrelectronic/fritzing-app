@@ -369,7 +369,7 @@ int FApplication::init() {
 	//}
 
 	m_serviceType = ServiceType::NoService;
-	bool solidRatsnest = false;
+	bool isFTestingActive = false;
 
 	QList<int> toRemove;
 	for (int i = 0; i < m_arguments.length(); i++) {
@@ -408,7 +408,7 @@ int FApplication::init() {
 			DebugDialog::setEnabled(true);
 			std::shared_ptr<FTesting> fTesting = FTesting::getInstance();
 			fTesting->init();
-			solidRatsnest = true;
+			isFTestingActive = true;
 			toRemove << i;
 		}
 
@@ -595,8 +595,8 @@ int FApplication::init() {
 	MainWindow::initNames();
 	FSvgRenderer::initNames();
 	ViewLayer::initNames();
-	RatsnestColors::initNames(solidRatsnest);
-	Wire::initNames(solidRatsnest);
+	RatsnestColors::initNames(isFTestingActive);
+	Wire::initNames(isFTestingActive);
 	ItemBase::initNames();
 	ViewLayer::initNames();
 	Connector::initNames();
