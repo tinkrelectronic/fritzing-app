@@ -237,7 +237,7 @@ void Simulator::simulate() {
 
 	std::cout << "" << timeStepModeStr.toStdString() << " " << numStepsStr.toStdString() << " " << timeStepStr.toStdString()
 		  << " " << animationTimeStr.toStdString() << std::endl;
-	if (m_simEndTime > 0) {
+	if (m_simEndTime > 0 && m_mainWindow->isTransientSimulationEnabled()) {
 		if (timeStepModeStr.contains("true", Qt::CaseInsensitive)) {
 			m_simStepTime = TextUtils::convertFromPowerPrefixU(timeStepStr, "s");
 			m_simNumberOfSteps = (m_simEndTime-m_simStartTime)/m_simStepTime;
