@@ -3513,5 +3513,5 @@ void MainWindow::postKeyEvent(const QString & serializedKeys) {
 }
 
 bool MainWindow::isTransientSimulationEnabled() {
-	return m_isFTesting;
+	return m_isFTesting || DebugDialog::enabled();
 }
