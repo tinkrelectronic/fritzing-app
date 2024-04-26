@@ -237,6 +237,7 @@ const QString MainWindow::UntitledSketchName = "Untitled Sketch";
 int MainWindow::UntitledSketchIndex = 1;
 int MainWindow::CascadeFactorX = 21;
 int MainWindow::CascadeFactorY = 19;
+bool MainWindow::m_isFTesting = false;
 
 static constexpr int MainWindowDefaultWidth = 1024;
 static constexpr int MainWindowDefaultHeight = 768;
@@ -1090,6 +1091,7 @@ QWidget *MainWindow::createSimulationButton(SketchAreaWidget *parent) {
 	modeActionGroup->addAction(normalModeAct);
 	modeActionGroup->addAction(transientModeAct);
 	normalModeAct->setChecked(true);
+	transientModeAct->setEnabled(isTransientSimulationEnabled());
 	menu->addAction(normalModeAct);
 	menu->addAction(transientModeAct);
 	simulationButton->setMenu(menu);
@@ -3508,4 +3510,8 @@ void MainWindow::postKeyEvent(const QString & serializedKeys) {
 		QApplication::postEvent(QApplication::focusWidget(), new QKeyEvent(QEvent::KeyPress, keyCode, modFlags, key.at(0)));
 		QApplication::postEvent(QApplication::focusWidget(), new QKeyEvent(QEvent::KeyRelease, keyCode, modFlags, key.at(0)));
 	}
+}
+
+bool MainWindow::isTransientSimulationEnabled() {
+	return m_isFTesting;
 }

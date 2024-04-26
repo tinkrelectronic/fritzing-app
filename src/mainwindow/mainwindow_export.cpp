@@ -104,7 +104,7 @@ bool sortPartList(ItemBase * b1, ItemBase * b2) {
 
 /////////////////////////////////////////////////////////
 
-void MainWindow::initNames()
+void MainWindow::initNames(bool isFTesting)
 {
 	OtherKnownExtensions << jpgActionType << pdfActionType << pngActionType << svgActionType << bomActionType << bomCsvActionType << ipcActionType << netlistActionType << spiceNetlistActionType;
 
@@ -124,6 +124,7 @@ void MainWindow::initNames()
 	QSettings settings;
 	AutosaveEnabled = settings.value("autosaveEnabled", QString("%1").arg(AutosaveEnabled)).toBool();
 	AutosaveTimeoutMinutes = settings.value("autosavePeriod", QString("%1").arg(AutosaveTimeoutMinutes)).toInt();
+	m_isFTesting = isFTesting;
 }
 
 void MainWindow::print() {
