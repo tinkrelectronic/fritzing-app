@@ -33,7 +33,7 @@ public:
 	RatsnestColors(const QDomElement &);
 	~RatsnestColors();
 
-	static void initNames(bool isTestingEnabled);
+	static void initNames();
 	static void cleanup();
 	static const QColor & netColor(ViewLayer::ViewID m_viewID);
 	static bool findConnectorColor(const QStringList & names, QColor & color);

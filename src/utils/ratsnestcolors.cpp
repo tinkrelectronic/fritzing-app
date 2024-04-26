@@ -21,6 +21,7 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 #include "ratsnestcolors.h"
 #include "../debugdialog.h"
 #include "utils/misc.h"
+#include "testing/FTesting.h"
 
 #include <QFile>
 
@@ -126,8 +127,8 @@ RatsnestColors::~RatsnestColors()
 	m_ratsnestColorList.clear();
 }
 
-void RatsnestColors::initNames(bool isTestingEnabled) {
-	RatsnestColor::setTesting(isTestingEnabled);
+void RatsnestColors::initNames() {
+	RatsnestColor::setTesting(FTesting::getInstance()->enabled());
 
 	QFile file(":/resources/ratsnestcolors.xml");
 	if (!file.open(QIODevice::ReadOnly)) {
