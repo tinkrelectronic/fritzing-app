@@ -596,7 +596,7 @@ int FApplication::init() {
 	FSvgRenderer::initNames();
 	ViewLayer::initNames();
 	RatsnestColors::initNames(isFTestingActive);
-	Wire::initNames(isFTestingActive);
+	Wire::initNames();
 	ItemBase::initNames();
 	ViewLayer::initNames();
 	Connector::initNames();

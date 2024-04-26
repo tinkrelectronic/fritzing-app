@@ -172,7 +172,7 @@ public:
 	static double THIN_TRACE_WIDTH;
 
 public:
-	static void initNames(bool solidRatsnest);
+	static void initNames();
 	static void cleanup();
 	static QVector<qreal> TheDash;
 

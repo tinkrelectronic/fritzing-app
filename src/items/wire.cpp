@@ -75,6 +75,7 @@ later:
 #include "../utils/ratsnestcolors.h"
 #include "../layerattributes.h"
 #include "utils/misc.h"
+#include "testing/FTesting.h"
 
 #include <stdlib.h>
 
@@ -1265,13 +1266,13 @@ QString Wire::colorString() {
 	return m_colorName;
 }
 
-void Wire::initNames(bool solidRatsnest) {
+void Wire::initNames() {
 	if (colorNames.count() > 0) return;
 
 	TheDash.clear();
 	TheDash << 10 << 8;
 	RatDash.clear();
-	if (!solidRatsnest) {
+	if (!FTesting::getInstance()->enabled()) {
 		RatDash << 2 << 2;
 	}
 
