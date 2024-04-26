@@ -78,6 +78,7 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 #include "../mainwindow/FProbeKeyPressEvents.h"
 #include "connectors/debugconnectors.h"
 #include "connectors/debugconnectorsprobe.h"
+#include "testing/FTesting.h"
 #include "servicelistfetcher.h"
 #include "utils/uploadpair.h"
 
@@ -237,7 +238,6 @@ const QString MainWindow::UntitledSketchName = "Untitled Sketch";
 int MainWindow::UntitledSketchIndex = 1;
 int MainWindow::CascadeFactorX = 21;
 int MainWindow::CascadeFactorY = 19;
-bool MainWindow::m_isFTesting = false;
 
 static constexpr int MainWindowDefaultWidth = 1024;
 static constexpr int MainWindowDefaultHeight = 768;
@@ -3513,5 +3513,5 @@ void MainWindow::postKeyEvent(const QString & serializedKeys) {
 }
 
 bool MainWindow::isTransientSimulationEnabled() {
-	return m_isFTesting || DebugDialog::enabled();
+	return FTesting::getInstance()->enabled() || DebugDialog::enabled();
 }

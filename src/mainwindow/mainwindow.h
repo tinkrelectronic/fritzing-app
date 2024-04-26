@@ -225,7 +225,7 @@ public:
 	bool isTransientSimulationEnabled();
 
 public:
-	static void initNames(bool isFTesting);
+	static void initNames();
 	static MainWindow * newMainWindow(ReferenceModel *referenceModel, const QString & displayPath, bool showProgress, bool lockFiles, int initialTab);
 	static void setAutosavePeriod(int);
 	static void setAutosaveEnabled(bool);
@@ -993,7 +993,6 @@ protected:
 	static int CascadeFactorY;
 	static QRegularExpression GuidMatcher;
 	void exportIPC_D_356A_interactive();
-	static bool m_isFTesting;
 };
 
 #endif

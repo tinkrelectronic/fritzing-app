@@ -592,7 +592,7 @@ int FApplication::init() {
 
 	Q_INIT_RESOURCE(phoenixresources);
 
-	MainWindow::initNames(isFTestingActive);
+	MainWindow::initNames();
 	FSvgRenderer::initNames();
 	ViewLayer::initNames();
 	RatsnestColors::initNames(isFTestingActive);

@@ -45,6 +45,10 @@ void FTesting::init() {
 	m_initialized = true;
 }
 
+bool FTesting::enabled() {
+	return m_initialized;
+}
+
 void FTesting::addProbe(FProbe * probe)
 {
 	m_probeMap[probe->name()] = probe;
