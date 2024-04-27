@@ -2851,6 +2851,13 @@ void PCBSketchWidget::gotFabQuote(QNetworkReply * networkReply) {
 }
 
 void PCBSketchWidget::requestQuote() {
+	QSettings settings;
+	QString fabName = settings.value("service", "").toString();
+	if (fabName != "Aisler") {
+		qDebug() << fabName;
+		return;
+	}
+
 	int boardCount;
 	double width, height;
 	QString boardTitle;
