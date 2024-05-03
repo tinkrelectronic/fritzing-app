@@ -345,6 +345,9 @@
 	<suffix suffix="LEDModuleID"/>
 	<suffix suffix="SuperfluxModuleID"/>
 </property>
+<property name="max current" symbol="A" minValue="0" maxValue="1000" defaultValue="1.0" numeric="yes" editable="yes">
+  <suffix suffix="LabDCPowerSupplyModuleID"/>
+</property>
 
 <property name="power" symbol="W" minValue="0" maxValue="1000000000000" defaultValue="" numeric="yes" editable="yes">
 	<suffix suffix="ResistorModuleID"/>

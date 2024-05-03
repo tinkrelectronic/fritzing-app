@@ -263,7 +263,8 @@ void Simulator::simulate() {
 	std::cout << "Running m_simulator->command('reset'):" <<std::endl;
 	m_simulator->command("reset");
 	m_simulator->clearLog();
-
+    std::cout << "Loading codemodel analog.cm, which should be in the CWD:" <<std::endl;
+    m_simulator->command("codemodel ./analog.cm");
 	std::cout << "-----------------------------------" <<std::endl;
 	std::cout << "Running LoadNetlist:" <<std::endl;
 
@@ -938,6 +939,7 @@ double Simulator::getCurrent(unsigned long timeStep, ItemBase* part, QString sub
 	case 'f': //Current-controlled current source (CCCs)
 	case 'g': //Voltage-controlled current source (VCCS)
 	case 'h': //Current-controlled voltage source (CCVS)
+    case 'b': //Nonlinear dependent source (Behavioral Sources) (ASRC)
 	case 'i': //Current source
 		instanceStr.append("[i]");
 		break;
