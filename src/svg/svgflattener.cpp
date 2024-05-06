@@ -34,7 +34,7 @@ SvgFlattener::SvgFlattener() : SvgFileSplitter()
 
 SvgAttributesMap SvgFlattener::mergeSvgAttributes(const SvgAttributesMap & inherited_attributes, QDomElement & element) {
 	SvgAttributesMap attributes(inherited_attributes); // copy
-	QStringList attributeNames = {"stroke-width", "fill"};
+	QStringList attributeNames = {"stroke-width", "fill", "stroke"};
 	for (const auto &attr : attributeNames) {
 		if (element.hasAttribute(attr)) {
 			attributes[attr] = element.attribute(attr);
@@ -56,13 +56,16 @@ void SvgFlattener::applyAttributes(QDomElement &element, QTransform transform, c
 	} catch (std::out_of_range const&) {
 		// Expected, sometimes there is no stroke-width
 	}
-	try {
-		QString fill(attributes.at("fill"));
-		if (!fill.isEmpty()) {
-			element.setAttribute("fill", fill);
+
+	for (const QString& attr : {"fill", "stroke"}) {
+		try {
+			QString value(attributes.at(attr));
+			if (!value.isEmpty()) {
+				element.setAttribute(attr, value);
+			}
+		} catch (std::out_of_range const&) {
+			// Expected, sometimes the attribute is missing
 		}
-	} catch (std::out_of_range const&) {
-		// Expected, sometimes there is no fill
 	}
 }
 
