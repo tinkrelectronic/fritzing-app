@@ -48,6 +48,7 @@ void SvgFlattener::applyAttributes(QDomElement &element, QTransform transform, c
 		QString sw(attributes.at("stroke-width"));
 		bool ok;
 		double strokeWidth = sw.toDouble(&ok);
+		// When inheriting a stroke-width, we apply any additional transformations to account for scaling.
 		if (ok) {
 			QLineF line(0, 0, strokeWidth, 0);
 			QLineF newLine = transform.map(line);
