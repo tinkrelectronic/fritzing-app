@@ -767,14 +767,6 @@ QPointF FSvgRenderer::calcTerminalPoint(const QString & terminalId, const QRectF
 	if (!this->elementExists(terminalId)) {
 		DebugDialog::debug(
 			QString("missing expected terminal point element %1 in %2").arg(terminalId, m_filename));
-		if (DebugDialog::enabled()) {
-			FMessageBox::warning(nullptr , "Incomplete terminal",
-								 QString("Terminal ID %1 was referenced, but there is no matching "
-										 "terminal element in %2."
-										 "Please remove the ID from the FZP for an automatic "
-										 "terminal, or define one in the SVG.")
-									 .arg(terminalId, m_filename));
-		}
 		return terminalPoint;
 	}
 
