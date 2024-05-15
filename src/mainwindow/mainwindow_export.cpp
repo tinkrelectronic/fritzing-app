@@ -776,7 +776,7 @@ bool MainWindow::saveAsAux(const QString & fileName) {
 		if (!fileInfo.isWritable()) {
 			FMessageBox::warning(this, tr("Fritzing"),
 					     tr("Cannot write file %1:\n%2.")
-									 .arg(fileName, tr("File is not writable.")));
+									 .arg(fileName, tr("File is not writable")));
 			return false;
 		}
 	} else {
