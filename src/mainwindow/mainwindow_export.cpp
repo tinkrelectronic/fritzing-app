@@ -50,6 +50,7 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 #include "utils/folderutils.h"
 #include "utils/graphicsutils.h"
 #include "utils/textutils.h"
+#include "utils/fmessagebox.h"
 #include "version/version.h"
 
 
@@ -773,16 +774,16 @@ bool MainWindow::saveAsAux(const QString & fileName) {
 
 	if (fileInfo.exists()) {
 		if (!fileInfo.isWritable()) {
-			QMessageBox::warning(this, tr("Fritzing"),
+			FMessageBox::warning(this, tr("Fritzing"),
 					     tr("Cannot write file %1:\n%2.")
-					     .arg(fileName, "Write permission denied."));
+									 .arg(fileName, tr("File is not writable.")));
 			return false;
 		}
 	} else {
 		// If the file does not exist, check if we can create it
 		QFile file(fileName);
 		if (!file.open(QFile::WriteOnly | QFile::Text)) {
-			QMessageBox::warning(this, tr("Fritzing"),
+			FMessageBox::warning(this, tr("Fritzing"),
 					     tr("Cannot write file %1:\n%2.")
 					     .arg(fileName, file.errorString()));
 			return false;
