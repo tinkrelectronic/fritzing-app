@@ -769,15 +769,26 @@ void MainWindow::afterExport(bool removeBackground)
 
 
 bool MainWindow::saveAsAux(const QString & fileName) {
-	QFile file(fileName);
-	if (!file.open(QFile::WriteOnly | QFile::Text)) {
-		QMessageBox::warning(this, tr("Fritzing"),
-		                     tr("Cannot write file %1:\n%2.")
-							 .arg(fileName, file.errorString()));
-		return false;
-	}
+	QFileInfo fileInfo(fileName);
 
-	file.close();
+	if (fileInfo.exists()) {
+		if (!fileInfo.isWritable()) {
+			QMessageBox::warning(this, tr("Fritzing"),
+					     tr("Cannot write file %1:\n%2.")
+					     .arg(fileName, "Write permission denied."));
+			return false;
+		}
+	} else {
+		// If the file does not exist, check if we can create it
+		QFile file(fileName);
+		if (!file.open(QFile::WriteOnly | QFile::Text)) {
+			QMessageBox::warning(this, tr("Fritzing"),
+					     tr("Cannot write file %1:\n%2.")
+					     .arg(fileName, file.errorString()));
+			return false;
+		}
+		file.close();
+	}
 
 	setReadOnly(false);
 	//FritzingWindow::saveAsAux(fileName);
