@@ -940,7 +940,7 @@ ItemBase * SketchWidget::findItem(long id) {
 
 void SketchWidget::deleteItemForCommand(long id, bool deleteModelPart, bool doEmit, bool later) {
 	ItemBase * pitem = findItem(id);
-	DebugDialog::debug(QString("delete item (1) %1 %2 %3 %4").arg(id).arg(doEmit).arg(m_viewID).arg((long) pitem, 0, 16) );
+	// DebugDialog::debug(QString("delete item (1) %1 %2 %3 %4").arg(id).arg(doEmit).arg(m_viewID).arg((long) pitem, 0, 16) );
 	if (pitem) {
 		deleteItem(pitem, deleteModelPart, doEmit, later);
 	}
@@ -965,7 +965,7 @@ void SketchWidget::deleteItem(ItemBase * itemBase, bool deleteModelPart, bool do
 	// which is the old value of the boundingRect before the legs were deleted.
 
 	if (itemBase->hasRubberBandLeg()) {
-		DebugDialog::debug("kill rubberBand");
+		// DebugDialog::debug("kill rubberBand");
 		itemBase->killRubberBandLeg();
 	}
 

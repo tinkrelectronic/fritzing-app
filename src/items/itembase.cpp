@@ -150,7 +150,7 @@ ItemBase::~ItemBase() {
 
 	//m_simItem is a child of this object, it gets delated by the destructor
 	m_simItem = nullptr;
-	DebugDialog::debug(QString("deleted itembase %1").arg((qintptr)this, 0, 16));
+	// DebugDialog::debug(QString("deleted itembase %1").arg((qintptr)this, 0, 16));
 }
 
 void ItemBase::setTooltip() {
