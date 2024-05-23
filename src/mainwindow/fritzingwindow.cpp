@@ -49,7 +49,8 @@ FritzingWindow::FritzingWindow(QWidget * parent, Qt::WindowFlags f)
 
 FritzingWindow::~FritzingWindow() {
 	disconnect(m_undoStack, &WaitPushUndoStack::cleanChanged, this, &FritzingWindow::undoStackCleanChanged);
-	disconnect(m_closeAct, &QAction::triggered, this, &FritzingWindow::close);
+	if (m_closeAct)
+		disconnect(m_closeAct, &QAction::triggered, this, &FritzingWindow::close);
 }
 
 void FritzingWindow::initializeTitle(const QString &untitledFileName, int &untitledFileCount, QString fileExt) {
