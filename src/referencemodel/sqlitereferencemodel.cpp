@@ -960,8 +960,8 @@ bool SqliteReferenceModel::insertPart(ModelPart * modelPart, bool fullLoad) {
 		values = " :version, :replacedby, :fritzingversion, :author, :title, :label, :date, :description, :spice, :spicemodel, :taxonomy, :itemtype, :path";
 	}
 	else {
-		fields =  " core";
-		values = " :core";
+		fields =  " core, replacedby, itemtype";
+		values = " :core, :replacedby, :itemtype";
 	}
 	query.prepare(QString("INSERT INTO parts(moduleID, family, %1) VALUES (:moduleID, :family, %2)").arg(fields, values));
 	query.bindValue(":moduleID", modelPart->moduleID());
@@ -1008,6 +1008,8 @@ bool SqliteReferenceModel::insertPart(ModelPart * modelPart, bool fullLoad) {
 	}
 	else {
 		query.bindValue(":core", modelPart->isCore() ? "1" : "0");
+		query.bindValue(":replacedby", modelPart->replacedby());
+		query.bindValue(":itemtype", static_cast<int>(modelPart->itemType()));
 	}
 
 
