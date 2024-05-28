@@ -985,10 +985,13 @@ QWidget * PaletteItem::createHoleSettings(QWidget * parent, HoleSettings & holeS
 
 		gridLayout->addWidget(rbFrame, 0, 2, 2, 1, Qt::AlignVCenter);
 
+		QLocale cLocale(QLocale::C);
+		QLocale locale;
 		holeSettings.diameterEdit = new QLineEdit(subFrame);
 		holeSettings.diameterEdit->setMinimumHeight(RowHeight);
 		holeSettings.diameterValidator = new QDoubleValidator(holeSettings.diameterEdit);
 		holeSettings.diameterValidator->setNotation(QDoubleValidator::StandardNotation);
+		holeSettings.diameterValidator->setLocale(cLocale);
 		holeSettings.diameterEdit->setValidator(holeSettings.diameterValidator);
 		gridLayout->addWidget(holeSettings.diameterEdit, 0, 1);
 		holeSettings.diameterEdit->setObjectName("infoViewLineEdit");
@@ -1002,6 +1005,7 @@ QWidget * PaletteItem::createHoleSettings(QWidget * parent, HoleSettings & holeS
 		holeSettings.thicknessEdit->setMinimumHeight(RowHeight);
 		holeSettings.thicknessValidator = new QDoubleValidator(holeSettings.thicknessEdit);
 		holeSettings.thicknessValidator->setNotation(QDoubleValidator::StandardNotation);
+		holeSettings.thicknessValidator->setLocale(cLocale);
 		holeSettings.thicknessEdit->setValidator(holeSettings.thicknessValidator);
 		gridLayout->addWidget(holeSettings.thicknessEdit, 1, 1);
 		holeSettings.thicknessEdit->setObjectName("infoViewLineEdit");
@@ -1450,7 +1454,7 @@ void PaletteItem::changeThickness()
 {
 	if (changeThickness(m_holeSettings, sender())) {
 		auto * edit = qobject_cast<QLineEdit *>(sender());
-		QLocale locale;
+		QLocale locale(QLocale::C);
 		changeHoleSize(m_holeSettings.holeDiameter + "," + QString::number(locale.toDouble(edit->text())) + m_holeSettings.currentUnits());
 	}
 }
@@ -1472,7 +1476,7 @@ void PaletteItem::changeDiameter()
 {
 	if (changeDiameter(m_holeSettings, sender())) {
 		auto * edit = qobject_cast<QLineEdit *>(sender());
-		QLocale locale;
+		QLocale locale(QLocale::C);
 		changeHoleSize(QString::number(locale.toDouble(edit->text())) + m_holeSettings.currentUnits() + "," + m_holeSettings.ringThickness);
 
 	}
