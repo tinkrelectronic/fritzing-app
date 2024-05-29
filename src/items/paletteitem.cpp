@@ -1464,7 +1464,7 @@ bool PaletteItem::changeThickness(HoleSettings & holeSettings, QObject * sender)
 	auto * edit = qobject_cast<QLineEdit *>(sender);
 	if (edit == nullptr) return false;
 
-	QLocale locale;
+	QLocale locale(QLocale::C);
 	double newValue = locale.toDouble(edit->text());
 	QString temp = holeSettings.ringThickness;
 	temp.chop(2);
@@ -1487,7 +1487,7 @@ bool PaletteItem::changeDiameter(HoleSettings & holeSettings, QObject * sender)
 	auto * edit = qobject_cast<QLineEdit *>(sender);
 	if (edit == nullptr) return false;
 
-	QLocale locale;
+	QLocale locale(QLocale::C);
 	double newValue = locale.toDouble(edit->text());
 	QString temp = holeSettings.holeDiameter;
 	temp.chop(2);
