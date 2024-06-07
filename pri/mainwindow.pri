@@ -21,6 +21,7 @@ HEADERS += \
     src/mainwindow/FProbeDropByModuleID.h \
     src/mainwindow/FProbeKeyPressEvents.h \
     src/mainwindow/getspice.h \
+    src/mainwindow/fprobefocuswidget.h \
 
 SOURCES += \
 	src/mainwindow/fprobeactions.cpp \
@@ -34,3 +35,4 @@ SOURCES += \
     src/mainwindow/FProbeDropByModuleID.cpp \
     src/mainwindow/FProbeKeyPressEvents.cpp \
     src/mainwindow/getspice.cpp \
+    src/mainwindow/fprobefocuswidget.cpp \

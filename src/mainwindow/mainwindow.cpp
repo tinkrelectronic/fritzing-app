@@ -76,6 +76,7 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 #include "../simulation/FProbeStartSimulator.h"
 #include "../mainwindow/FProbeDropByModuleID.h"
 #include "../mainwindow/FProbeKeyPressEvents.h"
+#include "../mainwindow/fprobefocuswidget.h"
 #include "connectors/debugconnectors.h"
 #include "connectors/debugconnectorsprobe.h"
 #include "testing/FTesting.h"
@@ -521,6 +522,10 @@ void MainWindow::init(ReferenceModel *referenceModel, bool lockFiles) {
 	auto fProbeKey = new FProbeKeyPressEvents();
 
 	connect(fProbeKey, &FProbeKeyPressEvents::postKeyEvent, this, &MainWindow::postKeyEvent);
+
+	FProbeFocusWidget *focusWidgetProbe = new FProbeFocusWidget();
+
+	connect(focusWidgetProbe, &FProbeFocusWidget::focusWidget, this, &MainWindow::handleFocusWidget);
 
 #ifndef QT_NO_DEBUG
 	m_debugConnectors = new DebugConnectors(m_breadboardGraphicsView, m_schematicGraphicsView, m_pcbGraphicsView);
@@ -3509,6 +3514,15 @@ void MainWindow::postKeyEvent(const QString & serializedKeys) {
 
 		QApplication::postEvent(QApplication::focusWidget(), new QKeyEvent(QEvent::KeyPress, keyCode, modFlags, key.at(0)));
 		QApplication::postEvent(QApplication::focusWidget(), new QKeyEvent(QEvent::KeyRelease, keyCode, modFlags, key.at(0)));
+	}
+}
+
+void MainWindow::handleFocusWidget(const QString &objectName, int index)
+{
+	QList<QWidget*> widgets = findChildren<QWidget*>(objectName);
+	if (index >= 0 && index < widgets.size()) {
+		QWidget *targetWidget = widgets[index];
+		targetWidget->setFocus();
 	}
 }
 

@@ -266,6 +266,7 @@ public Q_SLOTS:
 	void showWelcomeView();
 	void putItemByModuleID(const QString & moduleID);
 	void postKeyEvent(const QString & serializedKeys);
+	void handleFocusWidget(const QString &objectName, int index);
 	void onServicesFetched(const QStringList& services);
 
 protected Q_SLOTS:
