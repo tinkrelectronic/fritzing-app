@@ -9034,7 +9034,7 @@ void SketchWidget::removeRatsnestSlot(QList<ConnectorEdge *> & cutSet, QUndoComm
 					this,
 					tr("Part Movement Notice"),
 					tr("To delete this connection, some parts need to be moved from their current positions.\n"
-					   "The parts will be moved automatically.")
+					   "The parts will be moved automatically. To see changes clearly use undo then redo.\n")
 					);
 	}
 
