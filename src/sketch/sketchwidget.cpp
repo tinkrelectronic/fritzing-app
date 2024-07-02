@@ -82,6 +82,7 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 #include "../items/schematicframe.h"
 #include "../utils/graphutils.h"
 #include "../utils/ratsnestcolors.h"
+#include "../utils/fmessagebox.h"
 #include "utils/duplicatetracker.h"
 
 /////////////////////////////////////////////////////////////////////
@@ -9026,6 +9027,15 @@ void SketchWidget::removeRatsnestSlot(QList<ConnectorEdge *> & cutSet, QUndoComm
 				detachItems.insert(ce->c0, ce->c1);
 			}
 		}
+	}
+
+	if (!detachItems.isEmpty()) {
+		FMessageBox::information(
+					this,
+					tr("Part Movement Notice"),
+					tr("To delete this connection, some parts need to be moved from their current positions.\n"
+					   "The parts will be moved automatically.")
+					);
 	}
 
 	Q_FOREACH (ConnectorItem * detacheeConnector, detachItems.keys()) {
