@@ -143,7 +143,7 @@ bool PaletteItemBase::itemMoved() {
 }
 
 void PaletteItemBase::moveItem(ViewGeometry & viewGeometry) {
-	this->setPos(viewGeometry.loc());
+	this->setLocation(viewGeometry.loc());
 	QList<ConnectorItem *> already;
 	updateConnections(false, already);
 }
