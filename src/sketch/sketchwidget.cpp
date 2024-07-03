@@ -205,7 +205,10 @@ SketchWidget::~SketchWidget() {
 
 void SketchWidget::restartPasteCount() {
 	m_pasteCount = 0;
-	m_pasteOffset = QPointF(20.0, -20.0) + QPointF(qAbs(QRandomGenerator::system()->generate() % 3000 / 100.0), -qAbs(QRandomGenerator::system()->generate() % 3000 / 100.0));
+	// Set the initial paste offset with a random component to avoid overlapping pasted items
+	m_pasteOffset = QPointF(20.0, -20.0)
+			+ QPointF(qAbs(QRandomGenerator::global()->generate() % 3000 / 100.0),
+				  -qAbs(QRandomGenerator::global()->generate() % 3000 / 100.0));
 }
 
 WaitPushUndoStack* SketchWidget::undoStack() {
@@ -562,7 +565,10 @@ void SketchWidget::loadFromModelParts(QList<ModelPart *> & modelParts, BaseComma
 
 		m_pasteCount = 0;
 		if (offsetPaste && !pasteInPlace) {
-			m_pasteOffset = QPointF(20.0, -20.0) + QPointF(QRandomGenerator::system()->generate() % 1000 / 100.0, QRandomGenerator::system()->generate() % 1000 / 100.0);
+			// Set the initial paste offset with a random component to avoid overlapping pasted items
+			m_pasteOffset = QPointF(20.0, -20.0)
+					+ QPointF(QRandomGenerator::global()->generate() % 1000 / 100.0,
+						  QRandomGenerator::global()->generate() % 1000 / 100.0);
 		}
 		this->scene()->clearSelection();
 		cleanUpWiresForCommand(false, nullptr);

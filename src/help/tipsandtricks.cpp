@@ -210,7 +210,7 @@ const QString & TipsAndTricks::randomTip() {
 	}
 	if (tipCount == 0) return ___emptyString___;
 
-	int ix = QRandomGenerator::system()->generate() % tipCount;
+	int ix = QRandomGenerator::global()->generate() % tipCount;
 	tipCount = 0;
 	Q_FOREACH (TipSet * tipSet, TipSets) {
 		int count = tipSet->tips.count();
