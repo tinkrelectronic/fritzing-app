@@ -881,6 +881,9 @@ void MainWindow::createEditMenuActions() {
 	m_redoAct->setShortcuts(QKeySequence::Redo);
 	m_redoAct->setText(tr("Redo"));
 
+	m_undoShortcut = new QShortcut(this);
+	m_redoShortcut = new QShortcut(this);
+
 	m_cutAct = new QAction(tr("&Cut"), this);
 	m_cutAct->setShortcut(QKeySequence::Cut);
 	m_cutAct->setStatusTip(tr("Cut selection"));
@@ -3930,6 +3933,29 @@ void MainWindow::onShareOnlineFinished() {
 		FMessageBox::critical(this, tr("Fritzing"), QString("Online sharing is currently not available."));
 	}
 	reply->deleteLater();
+}
+
+void MainWindow::disableUndoAction() {
+	m_undoAct->setShortcuts({});
+	m_redoAct->setShortcuts({});
+
+	// Set temporary shortcuts to show the disabled message
+	m_undoShortcut->setKey(QKeySequence::Undo);
+	m_redoShortcut->setKey(QKeySequence::Redo);
+}
+
+void MainWindow::enableUndoAction() {
+	// Clear the shortcuts from the warning shortcut
+	m_undoShortcut->setKey(QKeySequence());
+	m_redoShortcut->setKey(QKeySequence());
+
+	m_undoAct->setShortcuts(QKeySequence::Undo);
+	m_redoAct->setShortcuts(QKeySequence::Redo);
+}
+
+void MainWindow::notifyUndoRedoHotkeyDisactivation() {
+	QApplication::beep();
+	DebugDialog::debug("Undo/Redo action was blocked because arrow key timer is not yet finished.");
 }
 
 void MainWindow::selectAllObsolete() {

@@ -39,6 +39,7 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 #include <QStylePainter>
 #include <QPrinter>
 #include <QNetworkAccessManager>
+#include <QShortcut>
 
 #include "fritzingwindow.h"
 #include "sketchareawidget.h"
@@ -461,6 +462,9 @@ protected Q_SLOTS:
 	void updateWelcomeViewRecentList(bool doEmit = true);
 	virtual void initZoom();
 	void onShareOnlineFinished();
+	void disableUndoAction();
+	void enableUndoAction();
+	void notifyUndoRedoHotkeyDisactivation();
 
 protected:
 	void initSketchWidget(SketchWidget *);
@@ -659,6 +663,9 @@ protected:
 
 	QUndoGroup *m_undoGroup = nullptr;
 	QUndoView *m_undoView = nullptr;
+
+	QShortcut *m_undoShortcut;
+	QShortcut *m_redoShortcut;
 
 	QPointer<SketchAreaWidget> m_breadboardWidget;
 	QPointer<class BreadboardSketchWidget> m_breadboardGraphicsView;

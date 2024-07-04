@@ -5157,6 +5157,7 @@ void SketchWidget::keyReleaseEvent(QKeyEvent * event) {
 void SketchWidget::arrowTimerTimeout() {
 	m_movingByArrow = false;
 	checkMoved(false);
+	Q_EMIT enableUndoRedo();
 }
 
 void SketchWidget::keyPressEvent ( QKeyEvent * event ) {
@@ -5179,6 +5180,7 @@ void SketchWidget::keyPressEvent ( QKeyEvent * event ) {
 			break;
 		}
 		if (dx != 0 || dy != 0) {
+			Q_EMIT disableUndoRedo();
 			bool isRepeat = m_arrowTimer.isActive();
 			m_arrowTimer.stop();
 			ConnectorItem::clearEqualPotentialDisplay();
