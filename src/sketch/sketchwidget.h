@@ -450,7 +450,7 @@ protected:
 	                                   QString moduleID, ViewLayer::ViewLayerPlacement, ViewGeometry & viewGeometry, qint64 id,
 	                                   bool updateInfoView, long modelIndex, bool addSubparts, QUndoCommand *parent);
 	int selectAllItems(QSet<ItemBase *> & itemBases, const QString & msg);
-	bool moveByArrow(double dx, double dy, QKeyEvent * );
+	bool moveByArrow(double dx, double dy, QKeyEvent * , bool isRepeat = false);
 	double gridSizeInches();
 	virtual bool canAlignToTopLeft(ItemBase *);
 	virtual bool canAlignToCenter(ItemBase *);
