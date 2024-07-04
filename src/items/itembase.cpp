@@ -2353,6 +2353,7 @@ QHash<QString, QString> ItemBase::prepareProps(ModelPart * modelPart, bool wantD
 
 	// ensure family is first;
 	keys = props.keys();
+	std::sort(keys.begin(), keys.end());
 	keys.removeOne("family");
 	keys.push_front("family");
 
