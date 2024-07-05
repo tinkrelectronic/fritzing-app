@@ -5140,7 +5140,11 @@ void SketchWidget::changeConnectionSlot(long fromID, QString fromConnectorID,
 
 void SketchWidget::keyReleaseEvent(QKeyEvent * event) {
 	//DebugDialog::debug(QString("key release event %1").arg(event->isAutoRepeat()));
-	if (m_movingByArrow) {
+	if (m_movingByArrow &&
+			(event->key() == Qt::Key_Left ||
+			 event->key() == Qt::Key_Right ||
+			 event->key() == Qt::Key_Up ||
+			 event->key() == Qt::Key_Down)) {
 		m_autoScrollTimer.stop();
 		m_arrowTimer.start();
 		//DebugDialog::debug("key release event");
