@@ -86,7 +86,7 @@ inline ClipperLib::Path pointsToClipper(const QPointF *points, int pointCount, Q
 }
 
 inline ClipperLib::Path polygonToClipper(QPolygonF poly, const QTransform &matrix = QTransform()) {
-    return pointsToClipper(poly.data(), poly.size(), matrix);
+	return pointsToClipper(poly.data(), poly.size(), matrix);
 }
 
 inline ClipperLib::Paths polygonsToClipper(QList<QPolygonF> polys, const QTransform &matrix = QTransform()) {
@@ -136,37 +136,41 @@ inline QString clipperPathsToSVG(ClipperLib::Paths &paths, double clipperDPI, bo
 }
 
 inline void clipperPathsToSVGFile(ClipperLib::Paths &paths, double clipperDPI, QString fileName) {
-    std::ofstream file(fileName.toStdString().c_str());
-    file << clipperPathsToSVG(paths, clipperDPI).toStdString();
+	std::ofstream file(fileName.toStdString().c_str());
+	file << clipperPathsToSVG(paths, clipperDPI).toStdString();
 }
 
 inline QString imageToSVGPath(QImage &image, double res) {
-	ClipperLib::Paths vectorized;
+	// ClipperLib::Paths vectorized;
 	ClipperLib::Clipper cp;
 	ClipperLib::Paths lineSpans;
+
+	// bool isIndexed = (image.format() == QImage::Format_Indexed8);
+
 	for (int j = 0; j < image.height(); j++) {
 		bool previousPix = false;
 		int startIndex = 0;
 		for (int i = 0; i < image.width(); i++) {
 			bool pix = qGray(image.pixel(i, j)) != 0;
 			if (pix != previousPix || i == image.width() - 1) {
-				if (pix) {
+				if (pix ^ (i == image.width() - 1)) {
+					startIndex = i;
+				} else {
 					ClipperLib::Path span;
 					span << ClipperLib::IntPoint(startIndex, j)
-						 << ClipperLib::IntPoint(i + 1, j)
-						 << ClipperLib::IntPoint(i + 1, j + 1)
+						 << ClipperLib::IntPoint(i, j)
+						 << ClipperLib::IntPoint(i, j + 1)
 						 << ClipperLib::IntPoint(startIndex, j + 1);
+
 					lineSpans << span;
-					startIndex = 0;
-				} else {
-					startIndex = i;
 				}
 			}
 			previousPix = pix;
 		}
 	}
+
 	cp.AddPaths(lineSpans, ClipperLib::ptSubject, true);
-	cp.AddPaths(vectorized, ClipperLib::ptClip, true);
+	// cp.AddPaths(vectorized, ClipperLib::ptClip, true);
 	ClipperLib::Paths result;
 	cp.Execute(ClipperLib::ctUnion, result, ClipperLib::pftNonZero, ClipperLib::pftNonZero);
 	return clipperPathsToSVG(result, res, false);
