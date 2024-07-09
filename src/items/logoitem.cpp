@@ -31,6 +31,7 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 #include "../debugdialog.h"
 #include "../svg/clipperhelpers.h"
 #include "utils/misc.h"
+#include "utils/folderutils.h"
 
 #include <QHBoxLayout>
 #include <QVBoxLayout>
@@ -349,6 +350,26 @@ bool LogoItem::reloadImage(const QString & incomingSvg, const QSizeF & aspectRat
 	}
 }
 
+QImage applyThreshold(const QImage& image, int threshold)
+{
+	QImage thresholded(image.size(), QImage::Format_Indexed8);
+	QVector<QRgb> colorTable;
+	colorTable << qRgb(0, 0, 0) << qRgb(255, 255, 255);
+	thresholded.setColorTable(colorTable);
+
+	for (int y = 0; y < image.height(); ++y) {
+		for (int x = 0; x < image.width(); ++x) {
+			QColor color = image.pixelColor(x, y);			
+			int alpha = color.alpha();
+			int intensity = qGray(color.rgba()) * alpha / 255.0;
+			int value = intensity > threshold ? 1 : 0;
+			thresholded.setPixel(x, y, value);
+		}
+	}
+
+	return thresholded;
+}
+
 void LogoItem::loadImage(const QString & fileName, bool addName)
 {
 	QString svg;
@@ -422,23 +443,45 @@ void LogoItem::loadImage(const QString & fileName, bool addName)
 		}
 
 		svg = TextUtils::removeXMLEntities(domDocument.toString());
-	}
-	else {
+	} else {
 		QImage image(fileName);
 		if (image.isNull()) {
 			unableToLoad(fileName, tr("for unknown reasons--possibly the image file is corrupted"));
 			return;
 		}
+		qDebug() << "Image loaded successfully.";
+		qDebug() << "Image dimensions:" << image.width() << "x" << image.height();
+		qDebug() << "Image format:" << image.format();
+		qDebug() << "Image color depth:" << image.depth();
+		qDebug() << "Image has alpha channel:" << image.hasAlphaChannel();
+		qDebug() << "Image color count:" << image.colorCount();
+
+		double res = image.dotsPerMeterX() / GraphicsUtils::InchesPerMeter;
+		qDebug() << "Image resolution (DPI):" << res;
 
 		if (this->m_standardizeColors) {
-			image = image.convertToFormat(QImage::Format_Mono);
-			double res = image.dotsPerMeterX() / GraphicsUtils::InchesPerMeter;
-			QString path = imageToSVGPath(image, 1);
-			QString svgDoc = TextUtils::makeSVGHeader(1, res, image.width() / res, image.height() / res)
-					+"<g id='"+layerName()+"'>"
-					+ path
-					+"</g>"
-					+ "</svg>";
+			// Threshold and vectorize the raster image for PCB use
+			int threshold = 5;
+			QImage convertedImage = applyThreshold(image, threshold);
+			if (convertedImage.isNull()) {
+				qDebug() << "Failed to convert image format.";
+				unableToLoad(fileName, tr("failed to convert image format"));
+				return;
+			}
+
+#ifndef QT_NO_DEBUG
+			// Save the image for debugging
+			QString imagePath = FolderUtils::getTopLevelUserDataStorePath()
+						   + "/debug_standardized_image.png";
+			convertedImage.save(imagePath);
+			qDebug() << "Standardized image saved to " + imagePath;
+#endif
+			QString path = imageToSVGPath(convertedImage, res);
+			QString svgDoc = TextUtils::makeSVGHeader(1, res, convertedImage.width() / res, convertedImage.height() / res)
+							 + "<g id='" + layerName() + "'>"
+							 + path
+							 + "</g>"
+							 + "</svg>";
 			QDomDocument doc;
 			QStringList exceptions;
 			exceptions << "none" << "";
@@ -447,9 +490,23 @@ void LogoItem::loadImage(const QString & fileName, bool addName)
 			SvgFileSplitter::changeColors(element, toColor, exceptions);
 			TextUtils::mergeSvg(doc, svgDoc, layerName());
 			svg = TextUtils::mergeSvgFinish(doc);
-		}
-		else {
-			double res = image.dotsPerMeterX() / GraphicsUtils::InchesPerMeter;
+
+#ifndef QT_NO_DEBUG
+			// Save the vector image for debugging
+			QString svgImagePath = FolderUtils::getTopLevelUserDataStorePath()
+								   + "/debug_standardized_image.svg";
+			QFile svgFile(svgImagePath);
+			if (svgFile.open(QIODevice::WriteOnly)) {
+				QTextStream out(&svgFile);
+				out << svg;
+				svgFile.close();
+				qDebug() << "SVG saved as " + svgImagePath;
+			} else {
+				qDebug() << "Failed to save SVG as " + svgImagePath;
+			}
+#endif
+		} else {
+			// Embed the raster image for illustration
 			svg = TextUtils::makeSVGHeader(res, res, image.width(), image.height());
 			int ix = svg.lastIndexOf(">");
 			svg.replace(ix, 1, "xmlns:xlink='http://www.w3.org/1999/xlink'>");
