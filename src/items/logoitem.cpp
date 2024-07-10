@@ -449,22 +449,21 @@ void LogoItem::loadImage(const QString & fileName, bool addName)
 			unableToLoad(fileName, tr("for unknown reasons--possibly the image file is corrupted"));
 			return;
 		}
-		qDebug() << "Image loaded successfully.";
-		qDebug() << "Image dimensions:" << image.width() << "x" << image.height();
-		qDebug() << "Image format:" << image.format();
-		qDebug() << "Image color depth:" << image.depth();
-		qDebug() << "Image has alpha channel:" << image.hasAlphaChannel();
-		qDebug() << "Image color count:" << image.colorCount();
-
+		DebugDialog::debug("Image loaded successfully.", DebugDialog::Info);
+		DebugDialog::debug("Image dimensions: " + QString::number(image.width()) + " x " + QString::number(image.height()), DebugDialog::Info);
+		DebugDialog::debug("Image format: " + QString::number(image.format()), DebugDialog::Info);
+		DebugDialog::debug("Image color depth: " + QString::number(image.depth()), DebugDialog::Info);
+		DebugDialog::debug("Image has alpha channel: " + QString(image.hasAlphaChannel() ? "true" : "false"), DebugDialog::Info);
+		DebugDialog::debug("Image color count: " + QString::number(image.colorCount()), DebugDialog::Info);
 		double res = image.dotsPerMeterX() / GraphicsUtils::InchesPerMeter;
-		qDebug() << "Image resolution (DPI):" << res;
+		DebugDialog::debug("Image resolution (DPI): " + QString::number(res), DebugDialog::Info);
 
 		if (this->m_standardizeColors) {
 			// Threshold and vectorize the raster image for PCB use
 			int threshold = 5;
 			QImage convertedImage = applyThreshold(image, threshold);
 			if (convertedImage.isNull()) {
-				qDebug() << "Failed to convert image format.";
+				DebugDialog::debug("Failed to convert image format.", DebugDialog::Error);
 				unableToLoad(fileName, tr("failed to convert image format"));
 				return;
 			}
@@ -474,7 +473,7 @@ void LogoItem::loadImage(const QString & fileName, bool addName)
 			QString imagePath = FolderUtils::getTopLevelUserDataStorePath()
 						   + "/debug_standardized_image.png";
 			convertedImage.save(imagePath);
-			qDebug() << "Standardized image saved to " + imagePath;
+			DebugDialog::debug("Standardized image saved to " + imagePath, DebugDialog::Info);
 #endif
 			QString path = imageToSVGPath(convertedImage, res);
 			QString svgDoc = TextUtils::makeSVGHeader(1, res, convertedImage.width() / res, convertedImage.height() / res)
@@ -500,9 +499,9 @@ void LogoItem::loadImage(const QString & fileName, bool addName)
 				QTextStream out(&svgFile);
 				out << svg;
 				svgFile.close();
-				qDebug() << "SVG saved as " + svgImagePath;
+				DebugDialog::debug("SVG saved as " + svgImagePath, DebugDialog::Info);
 			} else {
-				qDebug() << "Failed to save SVG as " + svgImagePath;
+				DebugDialog::debug("Failed to save SVG as " + svgImagePath, DebugDialog::Error);
 			}
 #endif
 		} else {
