@@ -464,7 +464,6 @@ protected Q_SLOTS:
 	void onShareOnlineFinished();
 	void disableUndoAction();
 	void enableUndoAction();
-	void notifyUndoRedoHotkeyDisactivation();
 
 protected:
 	void initSketchWidget(SketchWidget *);
@@ -665,7 +664,6 @@ protected:
 	QUndoView *m_undoView = nullptr;
 
 	QShortcut *m_undoShortcut;
-	QShortcut *m_redoShortcut;
 
 	QPointer<SketchAreaWidget> m_breadboardWidget;
 	QPointer<class BreadboardSketchWidget> m_breadboardGraphicsView;

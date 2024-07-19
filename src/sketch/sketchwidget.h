@@ -576,6 +576,7 @@ Q_SIGNALS:
 	void routingCheckSignal();
 	void disableUndoRedo();
 	void enableUndoRedo();
+	void undoSignal();
 
 protected Q_SLOTS:
 	void itemAddedSlot(ModelPart *, ItemBase *, ViewLayer::ViewLayerPlacement, const ViewGeometry &, long id, SketchWidget * dropOrigin);
@@ -641,6 +642,7 @@ public Q_SLOTS:
 	void addSubpartForCommand(long id, long subpartid, bool doEmit);
 	void removeSubpartForCommand(long id, long subpartID, bool doEmit);
 	void packItemsForCommand(int columns, const QList<long> & ids, QUndoCommand *parent, bool doEmit);
+	void triggerArrowTimer();
 
 protected:
 	enum StatusConnectStatus {

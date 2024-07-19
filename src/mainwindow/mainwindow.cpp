@@ -559,7 +559,6 @@ MainWindow::~MainWindow()
 		FolderUtils::rmdir(m_fzzFolder);
 	}
 	delete m_undoShortcut;
-	delete m_redoShortcut;
 }
 
 void MainWindow::initLockedFiles(bool lockFiles) {
@@ -660,8 +659,13 @@ void MainWindow::connectPairs() {
 	connect(m_schematicGraphicsView, SIGNAL(setActiveConnectorItemSignal(ConnectorItem *)), this, SLOT(setActiveConnectorItem(ConnectorItem *)));
 	connect(m_pcbGraphicsView, SIGNAL(setActiveConnectorItemSignal(ConnectorItem *)), this, SLOT(setActiveConnectorItem(ConnectorItem *)));
 
-	connect(m_undoShortcut, &QShortcut::activated, this, &MainWindow::notifyUndoRedoHotkeyDisactivation);
-	connect(m_redoShortcut, &QShortcut::activated, this, &MainWindow::notifyUndoRedoHotkeyDisactivation);
+	connect(m_undoShortcut, &QShortcut::activated, m_breadboardGraphicsView, &SketchWidget::triggerArrowTimer);
+	connect(m_undoShortcut, &QShortcut::activated, m_schematicGraphicsView, &SketchWidget::triggerArrowTimer);
+	connect(m_undoShortcut, &QShortcut::activated, m_pcbGraphicsView, &SketchWidget::triggerArrowTimer);
+
+	connect(m_breadboardGraphicsView, &SketchWidget::undoSignal, m_undoAct, &QAction::trigger);
+	connect(m_schematicGraphicsView, &SketchWidget::undoSignal, m_undoAct, &QAction::trigger);
+	connect(m_pcbGraphicsView, &SketchWidget::undoSignal, m_undoAct, &QAction::trigger);
 
 	connect(m_breadboardGraphicsView, &SketchWidget::disableUndoRedo, this, &MainWindow::disableUndoAction);
 	connect(m_breadboardGraphicsView, &SketchWidget::enableUndoRedo, this, &MainWindow::enableUndoAction);

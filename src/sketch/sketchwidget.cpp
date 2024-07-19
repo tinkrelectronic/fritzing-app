@@ -5160,6 +5160,16 @@ void SketchWidget::arrowTimerTimeout() {
 	Q_EMIT enableUndoRedo();
 }
 
+void SketchWidget::triggerArrowTimer() {
+	if (m_arrowTimer.isActive()) {
+		m_arrowTimer.stop();
+		if (m_movingByArrow) {
+			arrowTimerTimeout();
+			Q_EMIT undoSignal();
+		}
+	}
+}
+
 void SketchWidget::keyPressEvent ( QKeyEvent * event ) {
 	if ((m_inFocus.length() == 0) && !m_movingByMouse) {
 		int dx = 0, dy = 0;
