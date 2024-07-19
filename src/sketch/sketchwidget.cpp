@@ -2163,8 +2163,8 @@ SelectItemCommand* SketchWidget::stackSelectionState(bool pushIt, QUndoCommand *
 
 bool SketchWidget::moveByArrow(double dx, double dy, QKeyEvent * event, bool isRepeat) {
 	bool rubberBandLegEnabled = false;
-	DebugDialog::debug(QString("move by arrow %1").arg(!event ? false : event->isAutoRepeat()));
-	if (!event || !(event->isAutoRepeat() || isRepeat)) {
+	DebugDialog::debug(QString("move by arrow %1").arg((!event || !isRepeat) ? false : true));
+	if (!event || !isRepeat) {
 		m_dragBendpointWire = nullptr;
 		clearHoldingSelectItem();
 		m_savedItems.clear();
@@ -5139,7 +5139,6 @@ void SketchWidget::changeConnectionSlot(long fromID, QString fromConnectorID,
 }
 
 void SketchWidget::keyReleaseEvent(QKeyEvent * event) {
-	//DebugDialog::debug(QString("key release event %1").arg(event->isAutoRepeat()));
 	if (m_movingByArrow &&
 			(event->key() == Qt::Key_Left ||
 			 event->key() == Qt::Key_Right ||
