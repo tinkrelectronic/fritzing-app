@@ -33,6 +33,78 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 #include <QtDebug>
 #include <QIcon>
 
+const QMap<QString, QString> DebugDialog::colorMap = {
+	{ "<RESET>", "\033[0m" },
+	{ "<BLACK>", "\033[30m" },
+	{ "<RED>", "\033[31m" },
+	{ "<GREEN>", "\033[32m" },
+	{ "<YELLOW>", "\033[33m" },
+	{ "<BLUE>", "\033[34m" },
+	{ "<MAGENTA>", "\033[35m" },
+	{ "<CYAN>", "\033[36m" },
+	{ "<WHITE>", "\033[37m" },
+	{ "<BRIGHT_BLACK>", "\033[38;5;8m" },
+	{ "<BRIGHT_RED>", "\033[38;5;9m" },
+	{ "<BRIGHT_GREEN>", "\033[38;5;10m" },
+	{ "<BRIGHT_YELLOW>", "\033[38;5;11m" },
+	{ "<BRIGHT_BLUE>", "\033[38;5;12m" },
+	{ "<BRIGHT_MAGENTA>", "\033[38;5;13m" },
+	{ "<BRIGHT_CYAN>", "\033[38;5;14m" },
+	{ "<BRIGHT_WHITE>", "\033[38;5;15m" },
+	{ "<DARK_RED>", "\033[38;5;52m" },
+	{ "<DARK_GREEN>", "\033[38;5;22m" },
+	{ "<DARK_YELLOW>", "\033[38;5;58m" },
+	{ "<DARK_BLUE>", "\033[38;5;18m" },
+	{ "<DARK_MAGENTA>", "\033[38;5;54m" },
+	{ "<DARK_CYAN>", "\033[38;5;23m" },
+	{ "<DARK_GRAY>", "\033[38;5;240m" },
+	{ "<LIGHT_RED>", "\033[38;5;210m" },
+	{ "<LIGHT_GREEN>", "\033[38;5;120m" },
+	{ "<LIGHT_YELLOW>", "\033[38;5;228m" },
+	{ "<LIGHT_BLUE>", "\033[38;5;153m" },
+	{ "<LIGHT_MAGENTA>", "\033[38;5;219m" },
+	{ "<LIGHT_CYAN>", "\033[38;5;159m" },
+	{ "<LIGHT_GRAY>", "\033[38;5;250m" },
+	{ "<ORANGE>", "\033[38;5;214m" },
+	{ "<PINK>", "\033[38;5;213m" },
+	{ "<PURPLE>", "\033[38;5;141m" },
+	{ "<BROWN>", "\033[38;5;94m" },
+	{ "<OLIVE>", "\033[38;5;100m" },
+	{ "<TEAL>", "\033[38;5;37m" },
+	{ "<NAVY>", "\033[38;5;17m" },
+	{ "<GOLD>", "\033[38;5;220m" },
+	{ "<SILVER>", "\033[38;5;250m" },
+	{ "<VIOLET>", "\033[38;5;177m" },
+	{ "<INDIGO>", "\033[38;5;93m" },
+	{ "<CORAL>", "\033[38;5;209m" },
+	{ "<TURQUOISE>", "\033[38;5;80m" },
+	{ "<MINT>", "\033[38;5;48m" },
+	{ "<LIME>", "\033[38;5;154m" },
+	{ "<PEACH>", "\033[38;5;216m" },
+	{ "<IVORY>", "\033[38;5;230m" },
+	{ "<MAROON>", "\033[38;5;88m" },
+	{ "<CHARCOAL>", "\033[38;5;235m" },
+	{ "<SLATE>", "\033[38;5;102m" },
+	{ "<FOREST>", "\033[38;5;28m" },
+	{ "<SKY>", "\033[38;5;111m" },
+	{ "<CHOCOLATE>", "\033[38;5;166m" },
+	{ "<CRIMSON>", "\033[38;5;160m" },
+	{ "<PLUM>", "\033[38;5;176m" },
+	{ "<PERIWINKLE>", "\033[38;5;147m" },
+	{ "<MUSTARD>", "\033[38;5;179m" },
+	{ "<SALMON>", "\033[38;5;209m" },
+	{ "<LAVENDER>", "\033[38;5;183m" },
+	{ "<EMERALD>", "\033[38;5;46m" },
+	{ "<JADE>", "\033[38;5;35m" },
+	{ "<RUBY>", "\033[38;5;124m" },
+	{ "<SAPPHIRE>", "\033[38;5;26m" },
+	{ "<AMBER>", "\033[38;5;214m" },
+	{ "<TOPAZ>", "\033[38;5;172m" },
+	{ "<AMETHYST>", "\033[38;5;134m" },
+};
+
+bool DebugDialog::coloringEnabled = false;
+
 DebugDialog* DebugDialog::singleton = nullptr;
 QFile DebugDialog::m_file;
 
@@ -174,7 +246,22 @@ void DebugDialog::debug(QString message, DebugLevel debugLevel, QObject * ancest
 		return;
 	}
 
-	qDebug() << message;
+	if (coloringEnabled) {
+		bool hasColor = false;
+		for (auto it = colorMap.constBegin(); it != colorMap.constEnd(); ++it) {
+			if (message.contains(it.key())) {
+				hasColor = true;
+				message.replace(it.key(), it.value());
+			}
+		}
+
+		if (hasColor) {
+			message.append(colorMap.value("<RESET>"));
+		}
+		qDebug().noquote() << message;
+	} else {
+		qDebug() << message;
+	}
 
 	if (m_file.open(QIODevice::Append | QIODevice::Text)) {
 		QTextStream out(&m_file);
@@ -323,4 +410,8 @@ QString DebugDialog::createKeyTag(const QKeyEvent *event) {
 	}
 
 	return QString("<kbd>%1</kbd>").arg(keyName);
+}
+
+void DebugDialog::setColoringEnabled(bool enabled) {
+	coloringEnabled = enabled;
 }

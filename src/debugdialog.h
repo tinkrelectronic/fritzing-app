@@ -63,6 +63,7 @@ public:
 	static void cleanup();
 	static void setEnabled(bool);
 	static bool enabled();
+	static void setColoringEnabled(bool enabled);
 
 	static QString createKeyTag(const QKeyEvent *event);
 protected:
@@ -73,6 +74,8 @@ protected:
 	static DebugDialog* singleton;
 	static QFile m_file;
 	static bool m_enabled;
+	static const QMap<QString, QString> colorMap;
+	static bool coloringEnabled;
 
 	QPointer<QTextEdit> m_textEdit;
 	DebugLevel m_debugLevel;
