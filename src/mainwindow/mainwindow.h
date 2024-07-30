@@ -266,7 +266,6 @@ public Q_SLOTS:
 	void oldSchematicsSlot(const QString & filename, bool & useOldSchematics);
 	void showWelcomeView();
 	void putItemByModuleID(const QString & moduleID);
-	void postKeyEvent(const QString & serializedKeys);
 	void handleFocusWidget(const QString &objectName, int index);
 	void onServicesFetched(const QStringList& services);
 
