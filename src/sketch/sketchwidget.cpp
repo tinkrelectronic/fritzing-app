@@ -3158,10 +3158,6 @@ void SketchWidget::moveItemsAux(QPointF scenePos, QPoint globalPos, bool checkAu
 			connectorItem->stretchBy(currentParentPos - buttonDownParentPos);
 		}
 
-		if (m_checkUnder.contains(itemBase)) {
-			findConnectorsUnder(itemBase);
-		}
-
 		/*
 				DebugDialog::debug(QString("scroll 2 lx:%1 ly:%2 cpx:%3 cpy:%4 qx:%5 qy:%6 px:%7 py:%8")
 				.arg(item->getViewGeometry().loc().x()).arg(item->getViewGeometry().loc().y())
@@ -3175,6 +3171,12 @@ void SketchWidget::moveItemsAux(QPointF scenePos, QPoint globalPos, bool checkAu
 
 	Q_FOREACH (Wire * wire, m_savedWires.keys()) {
 		wire->simpleConnectedMoved(m_savedWires.value(wire));
+	}
+
+	Q_FOREACH (ItemBase * itemBase, m_savedItems) {
+		if (m_checkUnder.contains(itemBase)) {
+			findConnectorsUnder(itemBase);
+		}
 	}
 
 	//DebugDialog::debug(QString("done move items %1").arg(QTime::currentTime().msec()) );
