@@ -436,7 +436,7 @@ void ModelPartShared::initConnectors() {
 	}
 
 	QDomElement buses = root.firstChildElement("buses");
-	if (!buses.isNull()) {
+	if (!buses.isNull() && !isSubpart) {
 		QDomElement busElement = buses.firstChildElement("bus");
 		while (!busElement.isNull()) {
 			auto * busShared = new BusShared(busElement, m_connectorSharedHash);
