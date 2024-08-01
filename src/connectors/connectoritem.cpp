@@ -1989,6 +1989,9 @@ ConnectorItem * ConnectorItem::findConnectorUnder(bool useTerminalPoint, bool al
 		if (!this->connectionIsAllowed(connectorItemUnder)) {
 			continue;
 		}
+		if (connectorItemUnder->attachedToItemType() == ModelPart::Wire && connectorItemUnder->connectedToItems().size() > 0) {
+			continue;
+		}
 		if (!allowAlready) {
 			if (connectorItemUnder->connectedToItems().contains(this)) {
 				continue;  // already connected
