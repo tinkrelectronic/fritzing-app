@@ -3384,6 +3384,8 @@ bool SketchWidget::checkMoved(bool wait)
 	m_moveDisconnectedFromFemale.clear();
 
 	QList<ConnectorItem *> restoreConnectorItems;
+	QSet<ConnectorItem *> connectedItems;
+
 	Q_FOREACH (ItemBase * item, m_savedItems) {
 		Q_FOREACH (ConnectorItem * fromConnectorItem, item->cachedConnectorItems()) {
 			if (item->itemType() == ModelPart::Wire) {
@@ -3396,10 +3398,13 @@ bool SketchWidget::checkMoved(bool wait)
 			if (toConnectorItem) {
 				toConnectorItem->connectorHover(item, false);
 				fromConnectorItem->setOverConnectorItem(nullptr);   // clean up
-				gotConnection = true;
-				extendChangeConnectionCommand(BaseCommand::CrossView, fromConnectorItem, toConnectorItem,
-											  ViewLayer::specFromID(toConnectorItem->attachedToViewLayerID()),
-											  true, parentCommand);
+				if (!connectedItems.contains(toConnectorItem)) {
+					gotConnection = true;
+					extendChangeConnectionCommand(BaseCommand::CrossView, fromConnectorItem, toConnectorItem,
+								      ViewLayer::specFromID(toConnectorItem->attachedToViewLayerID()),
+								      true, parentCommand);
+					connectedItems.insert(toConnectorItem);
+				}
 			}
 			restoreConnectorItems.append(fromConnectorItem);
 			fromConnectorItem->clearConnectorHover();
