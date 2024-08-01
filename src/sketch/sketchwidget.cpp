@@ -3386,8 +3386,12 @@ bool SketchWidget::checkMoved(bool wait)
 	QList<ConnectorItem *> restoreConnectorItems;
 	QSet<ConnectorItem *> connectedItems;
 
-	Q_FOREACH (ItemBase * item, m_savedItems) {
-		Q_FOREACH (ConnectorItem * fromConnectorItem, item->cachedConnectorItems()) {
+	QList<ItemBase*> saveditemList = m_savedItems.values();
+	std::sort(saveditemList.begin(), saveditemList.end(), [](const ItemBase * a, const ItemBase * b) {
+		return a->zValue() > b->zValue();
+	});
+	for (ItemBase * item: saveditemList) {
+		for (ConnectorItem * fromConnectorItem: item->cachedConnectorItems()) {
 			if (item->itemType() == ModelPart::Wire) {
 				if (fromConnectorItem->connectionsCount() > 0) {
 					continue;
