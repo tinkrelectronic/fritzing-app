@@ -42,7 +42,13 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 #include <qmath.h>
 #include <qnumeric.h>
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-copy"
+
 #include <svgpp/svgpp.hpp>
+
+#pragma GCC diagnostic pop
+
 
 QSet<QString> InstalledFonts::InstalledFontsList;
 QMultiHash<QString, QString> InstalledFonts::InstalledFontsNameMapper;   // family name to filename; SVG files seem to have to use filename
@@ -64,9 +70,9 @@ static const QString fontFamilyQuotesPattern = R"x(font-family(?:="|:)('[^']*')"
 static const QRegularExpression HexExpr("&#x[0-9a-fA-F];");   // &#x9; &#xa; &#xd;
 static const QRegularExpression Xmlns("xmlns=([\"|'])[^\"']*\\1");
 
-const ushort TextUtils::MicroSymbolCode = 181;
+const char16_t TextUtils::MicroSymbolCode = 181;
 const QString TextUtils::MicroSymbol = QString::fromUtf16(&MicroSymbolCode, 1);
-const ushort TextUtils::AltMicroSymbolCode = 956;
+const char16_t TextUtils::AltMicroSymbolCode = 956;
 const QString TextUtils::AltMicroSymbol = QString::fromUtf16(&AltMicroSymbolCode, 1);
 
 const QString TextUtils::AdobeIllustratorIdentifier = "Generator: Adobe Illustrator";
@@ -266,7 +272,7 @@ std::optional<double> TextUtils::convertToInches(const QString & s, bool isIllus
 }
 
 void TextUtils::chopNotDigits(QString & string) {
-	for (int ix = string.count() - 1; ix >= 0; ix--) {
+	for (int ix = string.length() - 1; ix >= 0; ix--) {
 		QChar ch = string.at(ix);
 		if (ch.isDigit()) return;
 		if (ch == '.') return;
@@ -951,7 +957,25 @@ struct Context
 
 QTransform TextUtils::transformStringToTransform(const QString & transform) {
 	Context context;
-	svgpp::value_parser<svgpp::tag::type::transform_list>::parse(svgpp::tag::attribute::transform(), context, transform.toStdString(), svgpp::tag::source::attribute());
+	// std::string s(transform.toStdString());
+	// svgpp::value_parser<svgpp::tag::type::transform_list>::parse(
+	// 		svgpp::tag::attribute::transform(),
+	// 		context,
+	// 		s,
+	// 		svgpp::tag::source::attribute()
+	// 	);
+
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-copy"
+
+	svgpp::value_parser<svgpp::tag::type::transform_list>::parse(
+		svgpp::tag::attribute::transform(),
+		context,
+		std::move(transform.toStdString()),
+		svgpp::tag::source::attribute()
+		);
+ #pragma GCC diagnostic pop
+
 	return context.m_transform;
 }
 

@@ -2,8 +2,8 @@
 
 message("Using fritzing svgpp detect script.")
 
-exists($$absolute_path($$PWD/../../svgpp-1.3.0)) {
-            SVGPPPATH = $$absolute_path($$PWD/../../svgpp-1.3.0)
+exists($$absolute_path($$PWD/../../svgpp)) {
+			SVGPPPATH = $$absolute_path($$PWD/../../svgpp)
             message("found svgpp in $${SVGPPPATH}")
         }
 
