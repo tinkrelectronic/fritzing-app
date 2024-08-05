@@ -1047,7 +1047,6 @@ void GerberGenerator::exportPickAndPlace(const QString & prefix, const QString &
 	}
 	stream << "\n";
 
-	int ix = 1;
 	Q_FOREACH (ItemBase * itemBase, itemBases) {
 		if (!itemBase->hasConnectors()) {
 			// Skip items like logos, images, ...
