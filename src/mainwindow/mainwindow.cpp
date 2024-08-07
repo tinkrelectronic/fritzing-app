@@ -702,6 +702,8 @@ void MainWindow::connectPairs() {
 
 	succeeded =  succeeded && (connect(m_pcbGraphicsView, SIGNAL(boardDeletedSignal()), this, SLOT(boardDeletedSlot())) != nullptr);
 
+	succeeded =  succeeded && (connect(m_pcbGraphicsView, SIGNAL(boardReaddedSignal()), this, SLOT(boardReaddedSlot())) != nullptr);
+
 	succeeded =  succeeded && (connect(qApp, SIGNAL(spaceBarIsPressedSignal(bool)), m_breadboardGraphicsView, SLOT(spaceBarIsPressedSlot(bool))) != nullptr);
 	succeeded =  succeeded && (connect(qApp, SIGNAL(spaceBarIsPressedSignal(bool)), m_schematicGraphicsView, SLOT(spaceBarIsPressedSlot(bool))) != nullptr);
 	succeeded =  succeeded && (connect(qApp, SIGNAL(spaceBarIsPressedSignal(bool)), m_pcbGraphicsView, SLOT(spaceBarIsPressedSlot(bool))) != nullptr);
@@ -3015,6 +3017,11 @@ void MainWindow::setReportMissingModules(bool b) {
 void MainWindow::boardDeletedSlot()
 {
 	activeLayerBottom();
+}
+
+void MainWindow::boardReaddedSlot()
+{
+	activeLayerBoth();
 }
 
 void MainWindow::cursorLocationSlot(double xinches, double yinches, double width, double height)

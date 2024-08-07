@@ -83,6 +83,7 @@ public:
 	void autorouterSettings();
 	void getViaSize(double & ringThickness, double & holeSize);
 	void deleteItem(ItemBase *, bool deleteModelPart, bool doEmit, bool later);
+	ItemBase * addItem(ModelPart *, ViewLayer::ViewLayerPlacement, BaseCommand::CrossViewType, const ViewGeometry &, long id, long modelIndex, AddDeleteItemCommand * originatingCommand);
 	double getTraceWidth();
 	virtual double getAutorouterTraceWidth();
 	void getBendpointWidths(class Wire *, double w, double & w1, double & w2, bool & negativeOffsetRect);
@@ -191,6 +192,7 @@ protected:
 Q_SIGNALS:
 	void subSwapSignal(SketchWidget *, ItemBase *, const QString & newModuleID, ViewLayer::ViewLayerPlacement, long & newID, QUndoCommand * parentCommand);
 	void boardDeletedSignal();
+	void boardReaddedSignal();
 	void groundFillSignal();
 	void copperFillSignal();
 	void groundFillOldSignal();

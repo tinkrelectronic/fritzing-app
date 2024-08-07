@@ -437,6 +437,7 @@ protected Q_SLOTS:
 	void setSticky();
 	void autorouterSettings();
 	void boardDeletedSlot();
+	void boardReaddedSlot();
 	void cursorLocationSlot(double, double, double=0.0, double=0.0);
 	void locationLabelClicked();
 	void swapSelectedMap(const QString & family, const QString & prop, QMap<QString, QString> & currPropsMap, ItemBase *);

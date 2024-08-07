@@ -83,7 +83,7 @@ public:
 
 	void pushCommand(QUndoCommand *, QObject * signalTarget);
 	class WaitPushUndoStack * undoStack();
-	ItemBase * addItem(ModelPart *, ViewLayer::ViewLayerPlacement, BaseCommand::CrossViewType, const ViewGeometry &, long id, long modelIndex, AddDeleteItemCommand * originatingCommand);
+	virtual ItemBase * addItem(ModelPart *, ViewLayer::ViewLayerPlacement, BaseCommand::CrossViewType, const ViewGeometry &, long id, long modelIndex, AddDeleteItemCommand * originatingCommand);
 	ItemBase * addItemForCommand(const QString & moduleID, ViewLayer::ViewLayerPlacement, BaseCommand::CrossViewType, const ViewGeometry &, long id, long modelIndex, AddDeleteItemCommand * originatingCommand);
 	void deleteItemForCommand(long id, bool deleteModelPart, bool doEmit, bool later);
 	virtual void deleteItem(ItemBase *, bool deleteModelPart, bool doEmit, bool later);
