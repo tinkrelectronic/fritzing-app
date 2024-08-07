@@ -90,6 +90,8 @@ PCBSketchWidget::PCBSketchWidget(ViewLayer::ViewID viewID, QWidget *parent)
 
 	new FProbeR1PosPCB(this);
 	new FProbeRPartLabel(this);
+
+	m_lastTraceWireWidth = Wire::STANDARD_TRACE_WIDTH;
 }
 
 void PCBSketchWidget::setWireVisible(Wire * wire)
@@ -1373,7 +1375,11 @@ ItemBase * PCBSketchWidget::addItem(ModelPart * modelPart, ViewLayer::ViewLayerP
 }
 
 double PCBSketchWidget::getTraceWidth() {
-	return Wire::STANDARD_TRACE_WIDTH;
+	return m_lastTraceWireWidth;
+}
+
+void PCBSketchWidget::setLastTraceWidth(double lastTraceWidth) {
+	m_lastTraceWireWidth = lastTraceWidth;
 }
 
 double PCBSketchWidget::getAutorouterTraceWidth() {

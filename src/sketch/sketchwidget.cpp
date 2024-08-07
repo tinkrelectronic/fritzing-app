@@ -6709,6 +6709,8 @@ void SketchWidget::changeWireWidthMils(const QString newWidthStr)
 
 	double trueWidth = GraphicsUtils::SVGDPI * newWidth / 1000.0;
 
+	setLastTraceWidth(trueWidth);
+
 	QList <Wire *> wires;
 	Q_FOREACH (QGraphicsItem * item, scene()->selectedItems()) {
 		Wire * wire = dynamic_cast<Wire *>(item);
@@ -9484,6 +9486,10 @@ const QString & SketchWidget::traceColor(ViewLayer::ViewLayerPlacement) {
 
 double SketchWidget::getTraceWidth() {
 	return 1;
+}
+
+void SketchWidget::setLastTraceWidth(double lastTraceWidth) {
+	Q_UNUSED(lastTraceWidth);
 }
 
 void SketchWidget::setAnyInRotation()

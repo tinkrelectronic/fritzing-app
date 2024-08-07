@@ -85,6 +85,7 @@ public:
 	void deleteItem(ItemBase *, bool deleteModelPart, bool doEmit, bool later);
 	ItemBase * addItem(ModelPart *, ViewLayer::ViewLayerPlacement, BaseCommand::CrossViewType, const ViewGeometry &, long id, long modelIndex, AddDeleteItemCommand * originatingCommand);
 	double getTraceWidth();
+	void setLastTraceWidth(double lastTraceWidth);
 	virtual double getAutorouterTraceWidth();
 	void getBendpointWidths(class Wire *, double w, double & w1, double & w2, bool & negativeOffsetRect);
 	double getSmallerTraceWidth(double minDim);
@@ -216,6 +217,7 @@ protected:
 	QPointer<class QuoteDialog> m_quoteDialog;
 	QPointer<class QuoteDialog> m_rolloverQuoteDialog;
 	QString m_partLabelFontFamily;
+	double m_lastTraceWireWidth;
 
 protected:
 	static QSizeF m_jumperItemSize;

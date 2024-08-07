@@ -497,6 +497,7 @@ protected:
 	bool checkUpdateRatsnest(QList<ConnectorItem *> & connectorItems);
 	void makeRatsnestViewGeometry(ViewGeometry & viewGeometry, ConnectorItem * source, ConnectorItem * dest);
 	virtual double getTraceWidth();
+	virtual void setLastTraceWidth(double lastTraceWidth);
 	virtual const QString & traceColor(ViewLayer::ViewLayerPlacement);
 	void createTrace(Wire * fromWire, const QString & commandString, ViewGeometry::WireFlag, bool useLastWireColor);
 	bool createOneTrace(Wire * wire, ViewGeometry::WireFlag flag, bool allowAny, QList<Wire *> & done, bool useLastWireColor, QUndoCommand * parentCommand);
