@@ -19,12 +19,11 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 ********************************************************************/
 
 #include "autoclosemessagebox.h"
-#include "../debugdialog.h"
-#include "../mainwindow/mainwindow.h"
+#include "mainwindow/mainwindow.h"
 
 constexpr auto Interval = 30;
 constexpr auto Steps = 7;
-constexpr auto Wait = 100;
+constexpr auto Wait = 133;
 
 AutoCloseMessageBox::AutoCloseMessageBox( QWidget * parent )
 	: QLabel(parent),
