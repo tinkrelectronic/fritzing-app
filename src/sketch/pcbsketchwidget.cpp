@@ -1363,11 +1363,11 @@ void PCBSketchWidget::deleteItem(ItemBase * itemBase, bool deleteModelPart, bool
 }
 
 ItemBase * PCBSketchWidget::addItem(ModelPart * modelPart, ViewLayer::ViewLayerPlacement viewLayerPlacement, BaseCommand::CrossViewType crossViewType, const ViewGeometry & viewGeometry, long id, long modelIndex, AddDeleteItemCommand * originatingCommand) {
-	bool noBoard = findBoard().count() == 0;
 	ItemBase * itemBase = SketchWidget::addItem(modelPart, viewLayerPlacement, crossViewType, viewGeometry, id, modelIndex, originatingCommand);
-	bool boardAdded = Board::isBoard(itemBase);
-	if (noBoard && boardAdded) {
-		Q_EMIT boardReaddedSignal();
+	if (Board::isBoard(itemBase)) {
+		if (findBoard().count() == 1) {
+			Q_EMIT boardReaddedSignal();
+		}
 	}
 	return itemBase;
 }
