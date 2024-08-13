@@ -550,20 +550,72 @@ void Simulator::drawSmoke(ItemBase* part) {
 }
 
 /**
- * Display a number in the screen of a multimeter. The message
- * is displayed in a 7-segments font.
- * @param[in] multimeter The part where the message is going to be displayed
+ * Returns a Qstring with the number to be shown in a 7-segments display.
  * @param[in] number The number to be displayed
+ * @param[out] textToDisplay The QString to be displayed
  */
-void Simulator::updateMultimeterScreen(ItemBase * multimeter, double number){
-	std::cout << "updateMultimeterScreen with number: " << number <<std::endl;
+QString Simulator::create7SegmentNumber(double number){
 	if (abs(number) < 1.0e-12)
 		number = 0.0; //Show 0.000 instead of 0.000p
 	QString textToDisplay = TextUtils::convertToPowerPrefix(number, 'f', 6);
 	int indexPoint = textToDisplay.indexOf('.');
 	textToDisplay = TextUtils::convertToPowerPrefix(number, 'f', 4 - indexPoint);
-	textToDisplay.replace('k', 'K');
-	updateMultimeterScreen(multimeter, textToDisplay);
+    textToDisplay.replace('k', 'K');
+    return textToDisplay;
+}
+
+/**
+ * Display current and voltage in the screen of a lab power supply. The message
+ * is displayed in a 7-segments font.
+ * @param[in] labPowerSupply The part where the message is going to be displayed
+ * @param[in] voltage The number to be displayed
+ * @param[in] current The number to be displayed
+ */
+void Simulator::updateLabPowerSupplyScreen(ItemBase * labPowerSupply, double voltage, double current){
+    std::cout << "update labPowerSupply with voltage: " << voltage << " and current " << current <<std::endl;
+    QString vString = create7SegmentNumber(voltage);
+    QString cString = create7SegmentNumber(current);
+
+    //The '.' does not occupy a position in the screen (is printed with the previous number)
+    //So, do not take them into account to fill with spaces
+    QString aux = QString(vString);
+    QString auxC = QString(cString);
+    aux.remove(QChar('.'));
+    std::cout << "msg size: " << vString.size() <<std::endl;
+    std::cout << "aux size: " << aux.size() <<std::endl;
+    if(aux.size() < 5) {
+        vString.prepend(QString(5-aux.size(),' '));
+    }
+    if(auxC.size() < 5) {
+        cString.prepend(QString(5-auxC.size(),' '));
+    }
+    vString.append("\n").append(cString);
+    std::cout << "msg is now: " << vString.toStdString() <<std::endl;
+    QGraphicsTextItem * bbScreen = new QGraphicsTextItem(vString, m_sch2bbItemHash.value(labPowerSupply));
+
+    QFont font("Segment16C", 10, QFont::Normal);
+    bbScreen->setFont(font);
+    //There are issues as the size of the text changes depending on the display settings in windows
+    //This hack scales the text to match the appropiate value
+    QRectF bbMultBoundingBox = m_sch2bbItemHash.value(labPowerSupply)->boundingRect();
+    QRectF bbBoundingBox = bbScreen->boundingRect();
+
+    //Set the text to be a 80% percent of the multimeter´s width and 50% in sch view
+    bbScreen->setScale((0.8*bbMultBoundingBox.width())/bbBoundingBox.width());
+
+
+    //Update the bounding box after scaling them
+    bbBoundingBox = bbScreen->mapRectToParent(bbScreen->boundingRect());
+
+
+    //Center the text
+    bbScreen->setPos(QPointF((bbMultBoundingBox.width()-bbBoundingBox.width())/2
+                             ,0.07*bbMultBoundingBox.height()));
+
+    bbScreen->setDefaultTextColor(QColor(48, 48, 48));
+    bbScreen->setZValue(std::numeric_limits<double>::max());
+
+    m_sch2bbItemHash.value(labPowerSupply)->addSimulationGraphicsItem(bbScreen);
 }
 
 /**
@@ -1212,9 +1264,15 @@ void Simulator::updateBattery(unsigned long timeStep, ItemBase * part) {
 	double current = getCurrent(timeStep, part); //current that the battery delivers
 	std::cout << "Battery: voltage=" << voltage << ", resistance=" << resistance  <<std::endl;
 	std::cout << "Battery: MaxCurr=" << maxCurrent << ", Curr=" << current  <<std::endl;
+
 	if (abs(current) > maxCurrent) {
 		drawSmoke(part);
 	}
+
+    if (part->moduleID().contains("LabDCPowerSupply")) {
+        maxCurrent = getMaxPropValue(part, "max current");
+        updateLabPowerSupplyScreen(part, voltage, current);
+    }
 }
 
 bool Simulator::isSimulating()
@@ -1371,8 +1429,8 @@ void Simulator::updateMultimeter(unsigned long timeStep, ItemBase * part) {
 		}
 		if(comProbe->connectedToWires() && vProbe->connectedToWires()) {
 			std::cout << "Multimeter (v_dc) connected with two terminals. " << std::endl;
-			double v = calculateVoltage(timeStep, vProbe, comProbe);
-			updateMultimeterScreen(part, v);
+            double v = calculateVoltage(timeStep, vProbe, comProbe);
+            updateMultimeterScreen(part, create7SegmentNumber(v));
 		}
 		return;
 	} else if (variant.compare("ammeter (dc)") == 0) {
@@ -1382,7 +1440,7 @@ void Simulator::updateMultimeter(unsigned long timeStep, ItemBase * part) {
 			updateMultimeterScreen(part, "ERR");
 			return;
 		}
-		updateMultimeterScreen(part, getCurrent(timeStep, part));
+        updateMultimeterScreen(part, create7SegmentNumber(getCurrent(timeStep, part)));
 		return;
 	} else if (variant.compare("ohmmeter") == 0) {
 		std::cout << "Ohmmeter found. " << std::endl;
@@ -1394,8 +1452,8 @@ void Simulator::updateMultimeter(unsigned long timeStep, ItemBase * part) {
 		double v = calculateVoltage(timeStep, vProbe, comProbe);
 		double a = getCurrent(timeStep, part);
 		double r = abs(v/a);
-		std::cout << "Ohmmeter: Volt: " << v <<", Curr: " << a <<", Ohm: " << r << std::endl;
-		updateMultimeterScreen(part, r);
+        std::cout << "Ohmmeter: Volt: " << v <<", Curr: " << a <<", Ohm: " << r << std::endl;
+        updateMultimeterScreen(part, create7SegmentNumber(r));
 		return;
 	}
 }

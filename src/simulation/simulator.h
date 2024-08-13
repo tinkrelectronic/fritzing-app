@@ -59,7 +59,8 @@ protected:
 	void updateParts(QSet<ItemBase *>, int);
 	void drawSmoke(ItemBase* part);
 	void updateMultimeterScreen(ItemBase *, QString);
-	void updateMultimeterScreen(ItemBase *, double);
+    void updateLabPowerSupplyScreen(ItemBase *, double, double);
+    QString create7SegmentNumber(double);
 	void removeSimItems();
 	void removeSimItems(QList<QGraphicsItem *>);
 	void greyOutNonSimParts(const QSet<class ItemBase *>&);
