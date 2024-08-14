@@ -236,8 +236,9 @@ void Simulator::simulate() {
 	QString timeStepStr = m_mainWindow->getProjectProperties()->getProjectProperty(ProjectPropertyKeySimulatorTimeStepS);
 	QString animationTimeStr = m_mainWindow->getProjectProperties()->getProjectProperty(ProjectPropertyKeySimulatorAnimationTimeS);
 
-	DebugDialog::stream() << "" << timeStepModeStr.toStdString() << " " << numStepsStr.toStdString() << " " << timeStepStr.toStdString()
-						  << " " << animationTimeStr.toStdString();
+    	DebugDialog::stream() << "timeStepModeStr: " << timeStepModeStr.toStdString() << ", numStepsStr: " << numStepsStr.toStdString()
+    		<< ", timeStepStr: " << timeStepStr.toStdString()
+        	<< ", animationTimeStr: " << animationTimeStr.toStdString() << std::endl;
 	if (m_simEndTime > 0 && m_mainWindow->isTransientSimulationEnabled()) {
 		if (timeStepModeStr.contains("true", Qt::CaseInsensitive)) {
 			m_simStepTime = TextUtils::convertFromPowerPrefixU(timeStepStr, "s");
@@ -247,8 +248,9 @@ void Simulator::simulate() {
 			m_simStepTime = (m_simEndTime-m_simStartTime)/m_simNumberOfSteps;
 		}
 
-		int timerInterval = TextUtils::convertFromPowerPrefixU(animationTimeStr, "s")/m_simNumberOfSteps*1000;
-		m_showResultsTimer->setInterval(timerInterval);
+        m_showResultsTimerInterval = TextUtils::convertFromPowerPrefixU(animationTimeStr, "s")/m_simNumberOfSteps*1000;
+        std::cout << "Animation timerInterval: " << m_showResultsTimerInterval << std::endl;
+        m_showResultsTimer->setInterval(m_showResultsTimerInterval);
 
 		QString tranAnalysis = QString(".TRAN %1 %2 %3").arg(m_simStepTime).arg(m_simEndTime).arg(m_simStartTime);
 		spiceNetlist.replace(".OP", tranAnalysis);
@@ -284,6 +286,8 @@ void Simulator::simulate() {
 	DebugDialog::stream() << "-----------------------------------";
 	DebugDialog::stream() << "Running m_simulator->command(bg_run):";
 	m_simulator->resetIsBGThreadRunning();
+    m_elapsedAnimationTimer.start();
+    m_elapsedSimTotalTimer.start();
 	m_simulator->command("bg_run");
 	DebugDialog::stream() << "-----------------------------------";
 	DebugDialog::stream() << "Generating a hash table to find the net of specific connectors:";
@@ -345,7 +349,7 @@ void Simulator::simulate() {
 		FMessageBox::warning(m_mainWindow, tr("Simulator Timeout"), tr("The spice simulator did not finish after %1 ms. Aborting simulation.").arg(simTimeOut));
 		return;
 	} else {
-		DebugDialog::stream() << "The spice simulator has finished.";
+		DebugDialog::stream() << "The spice simulator has finished. ElapsedTime: " << m_elapsedAnimationTimer.elapsed() <<std::endl;
 	}
 	DebugDialog::stream() << "-----------------------------------";
 
@@ -411,10 +415,13 @@ void Simulator::showSimulatorError(QWidget* parent, const QString& spiceNetlist,
 }
 
 void Simulator::showSimulationResults() {
+    std::cout << "showSimulationResults. m_currSimStep: " << m_currSimStep << ", m_simNumberOfSteps: " << m_simNumberOfSteps << std::endl;
 	if (m_currSimStep <= m_simNumberOfSteps) {
 		//Check that we have the sim results for this time step
 		auto timeInfo = m_simulator->getVecInfo(QString("time").toStdString());
-		std::cout << "Time showSimulationResults (" << timeInfo.size() << " points): ";
+        auto elapsedAnimationTime = m_elapsedAnimationTimer.elapsed();
+        m_elapsedAnimationTimer.restart();
+        std::cout << "Time between showSimulationResults (" << timeInfo.size() << " points). ElapsedTime " << elapsedAnimationTime << std::endl;
 		if (m_currSimStep > timeInfo.size())
 			return;
 
@@ -430,17 +437,27 @@ void Simulator::showSimulationResults() {
 		m_breadboardGraphicsView->setSimulatorMessage(simMessage);
 		m_schematicGraphicsView->setSimulatorMessage(simMessage);
 
-		if (elapsedTimer.elapsed() < m_showResultsTimer->interval()) {
-			m_currSimStep++;
-		} else {
-			//Animation is going very slowly, skip some time steps
-			m_currSimStep += (unsigned int) (elapsedTimer.elapsed()/m_showResultsTimer->interval());
-			if (m_currSimStep > m_simNumberOfSteps)
-				m_currSimStep = m_simNumberOfSteps;
-		}
-		std::cout << "Time to perform the animation (" << elapsedTimer.elapsed() << " ms): ";
+
+        if (elapsedAnimationTime > m_showResultsTimerInterval && m_currSimStep != m_simNumberOfSteps){
+            //showSimulationResults is not getting called as fast as it should, skip some steps
+            unsigned int theoreticalCurrSimStep = (unsigned int) (m_elapsedSimTotalTimer.elapsed()/ m_showResultsTimerInterval);
+            unsigned int estimatedExtraSteps = (unsigned int) (elapsedAnimationTime/m_showResultsTimerInterval);
+            m_currSimStep = theoreticalCurrSimStep + estimatedExtraSteps;
+            if (m_currSimStep > m_simNumberOfSteps)
+                m_currSimStep = m_simNumberOfSteps;
+            std::cout << "showSimulationResults is not getting called as fast as it should, skip some steps. elapsedAnimationTime: " <<
+                elapsedAnimationTime << "SimTotalTime" << m_elapsedSimTotalTimer.elapsed() << ", interval: " << m_showResultsTimer->interval() <<
+                ", skipping steps: " << estimatedExtraSteps << ", newSimTep: " << m_currSimStep <<  std::endl;
+        } else {
+            //Everything goes OK
+            m_currSimStep++;
+        }
+
+
+        std::cout << "Time to show the results of the animation (" << elapsedTimer.elapsed() << " ms): " << std::endl;
 	} else {
 		m_showResultsTimer->stop();
+        std::cout << "SIM END. Total time: " << m_elapsedSimTotalTimer.elapsed() << " ms): " << std::endl;
 	}
 
 }
