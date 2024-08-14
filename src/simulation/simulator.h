@@ -24,6 +24,7 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 #include "../mainwindow/mainwindow.h"
 #include "../items/itembase.h"
 #include "../simulation/ngspice_simulator.h"
+#include <QElapsedTimer>
 
 enum TransistorLeg { BASE, COLLECTOR, EMITER };
 
@@ -107,6 +108,9 @@ protected:
 
 	QTimer *m_simTimer, *m_showResultsTimer;
 	unsigned long m_currSimStep;
+    double m_showResultsTimerInterval;
+    QElapsedTimer m_elapsedAnimationTimer;
+    QElapsedTimer m_elapsedSimTotalTimer;
 
 	static constexpr int SimDelay = 200;
 	static constexpr double HarmfulNegativeVoltage = -0.5;
