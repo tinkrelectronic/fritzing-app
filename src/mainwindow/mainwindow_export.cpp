@@ -802,10 +802,15 @@ bool MainWindow::saveAsAux(const QString & fileName) {
 		file.close();
 	}
 
+	bool readOnly = m_readOnly;
 	setReadOnly(false);
 	//FritzingWindow::saveAsAux(fileName);
 
-	saveAsAuxAux(fileName);
+	bool ret = saveAsAuxAux(fileName);
+	if (!ret) {
+		setReadOnly(readOnly);
+		return false;
+	}
 	m_autosaveNeeded = false;
 	undoStackCleanChanged(true);
 
@@ -828,7 +833,7 @@ bool MainWindow::saveAsAux(const QString & fileName) {
 	return true;
 }
 
-void MainWindow::saveAsAuxAux(const QString & fileName) {
+bool MainWindow::saveAsAuxAux(const QString & fileName) {
 	QApplication::setOverrideCursor(Qt::WaitCursor);
 
 	connectStartSave(true);
@@ -844,19 +849,21 @@ void MainWindow::saveAsAuxAux(const QString & fileName) {
 	}
 
 	QString fzName = dir.absoluteFilePath(QFileInfo(fileName).completeBaseName() + FritzingSketchExtension);
-	m_sketchModel->save(fzName, false);
+	bool result = m_sketchModel->save(fzName, false);
 
-	saveLastTabList();
-
-	saveAsShareable(fileName, false);
+	if (result) {
+		saveLastTabList();
+		result = saveAsShareable(fileName, false);
+	}
 
 	connectStartSave(false);
 
 	QApplication::restoreOverrideCursor();
+
+	return result;
 }
 
-
-void MainWindow::saveAsShareable(const QString & path, bool saveModel)
+bool MainWindow::saveAsShareable(const QString & path, bool saveModel)
 {
 	QString filename = path;
 	QHash<QString, ModelPart *> saveParts;
@@ -871,15 +878,16 @@ void MainWindow::saveAsShareable(const QString & path, bool saveModel)
 
 		saveParts.insert(itemBase->moduleID(), itemBase->modelPart());
 	}
+	bool result = false;
 	if(alreadyHasExtension(filename, FritzingSketchExtension)) {
-		saveBundledNonAtomicEntity(filename, FritzingSketchExtension, this, saveParts.values(), false, m_fzzFolder, saveModel, true);
+		result = saveBundledNonAtomicEntity(filename, FritzingSketchExtension, this, saveParts.values(), false, m_fzzFolder, saveModel, true);
 	} else {
-		saveBundledNonAtomicEntity(filename, FritzingBundleExtension, this, saveParts.values(), false, m_fzzFolder, saveModel, true);
+		result = saveBundledNonAtomicEntity(filename, FritzingBundleExtension, this, saveParts.values(), false, m_fzzFolder, saveModel, true);
 	}
-
+	return result;
 }
 
-void MainWindow::saveBundledNonAtomicEntity(QString &filename, const QString &extension, Bundler *bundler, const QList<ModelPart*> &partsToSave, bool askForFilename, const QString & destFolderPath, bool saveModel, bool deleteLeftovers) {
+bool MainWindow::saveBundledNonAtomicEntity(QString &filename, const QString &extension, Bundler *bundler, const QList<ModelPart*> &partsToSave, bool askForFilename, const QString & destFolderPath, bool saveModel, bool deleteLeftovers) {
 	bool result;
 	QStringList names;
 
@@ -889,7 +897,7 @@ void MainWindow::saveBundledNonAtomicEntity(QString &filename, const QString &ex
 	                          ? FolderUtils::getSaveFileName(this, tr("Specify a file name"), path, tr("Fritzing (*%1)").arg(extension), &fileExt)
 	                          : filename;
 
-	if (bundledFileName.isEmpty()) return; // Cancel pressed
+	if (bundledFileName.isEmpty()) return false; // Cancel pressed
 
 	FileProgressDialog progress("Saving...", 0, this);
 
@@ -965,16 +973,17 @@ void MainWindow::saveBundledNonAtomicEntity(QString &filename, const QString &ex
 	}
 
 	if(!result) {
-		QMessageBox::warning(
+		FMessageBox::warning(
 		    this,
 		    tr("Fritzing"),
-		    tr("Unable to export %1 as shareable").arg(bundledFileName)
+		    tr("Unable to export %1 as shareable. Save failed. Please check if home and save dir are writeable and not full. ").arg(bundledFileName)
 		);
 	}
 
 	if (!dirToRemove.isEmpty()) {
 		FolderUtils::rmdir(dirToRemove);
 	}
+	return result;
 }
 
 
