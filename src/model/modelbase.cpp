@@ -436,7 +436,7 @@ bool ModelBase::addPart(ModelPart * modelPart, bool update) {
 }
 
 
-void ModelBase::save(const QString & fileName, bool asPart) {
+bool ModelBase::save(const QString & fileName, bool asPart) {
 	QFileInfo info(fileName);
 	QDir dir = info.absoluteDir();
 
@@ -444,16 +444,27 @@ void ModelBase::save(const QString & fileName, bool asPart) {
 	QFile file1(temp);
 	if (!file1.open(QFile::WriteOnly | QFile::Text)) {
 		FMessageBox::warning(nullptr, QObject::tr("Fritzing"),
-		                     QObject::tr("Cannot write file temp:\n%1\n%2\n%3.")
-		                     .arg(temp)
-		                     .arg(fileName)
-		                     .arg(file1.errorString())
+				     QObject::tr("Cannot write temp file. Save aborted. \n\nerror: %1\n\ntemp file: %2\n\ntarget file: %3.")
+				     .arg(file1.errorString())
+				     .arg(temp)
+				     .arg(fileName)
 		                    );
-		return;
+		return false;
 	}
 
 	QXmlStreamWriter streamWriter(&file1);
 	save(fileName, streamWriter, asPart);
+	file1.flush();
+	if (streamWriter.hasError() || file1.error() != QFile::NoError) {
+		FMessageBox::warning(nullptr, QObject::tr("Fritzing"),
+				     QObject::tr("Error while writing temp file. Save aborted. \n\nerror: %1\n\ntemp file: %2\n\ntarget file: %3.")
+				     .arg(file1.errorString())
+				     .arg(temp)
+				     .arg(fileName)
+				    );
+		file1.close();
+		return false;
+	}
 	file1.close();
 	QFile original(fileName);
 	if(original.exists() && !original.remove()) {
@@ -466,9 +477,10 @@ void ModelBase::save(const QString & fileName, bool asPart) {
 		    .arg(original.errorString())
 		    .arg(original.error())
 		);
-		return;
+		return false;
 	}
 	file1.rename(fileName);
+	return true;
 }
 
 void ModelBase::save(const QString & fileName, QXmlStreamWriter & streamWriter, bool asPart) {

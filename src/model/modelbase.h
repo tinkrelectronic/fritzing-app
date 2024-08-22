@@ -37,7 +37,7 @@ public:
 	virtual ModelPart* retrieveModelPart(const QString & moduleID);
 	virtual ModelPart * addModelPart(ModelPart * parent, ModelPart * copyChild);
 	bool loadFromFile(const QString & fileName, ModelBase* referenceModel, QList<ModelPart *> & modelParts, bool checkInstances);
-	void save(const QString & fileName, bool asPart);
+	bool save(const QString & fileName, bool asPart);
 	void save(const QString & fileName, class QXmlStreamWriter &, bool asPart);
 	virtual ModelPart * addPart(QString newPartPath, bool addToReference);
 	virtual bool addPart(ModelPart * modelPart, bool update);
