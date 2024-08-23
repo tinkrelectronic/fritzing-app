@@ -510,14 +510,14 @@ bool FolderUtils::createZipAndSaveTo(const QDir &dirToCompress, const QString &f
 		QFile::remove(filepath);
 	}
 	QFile file(tempZipFile);
-	FolderUtils::slamCopy(file, filepath);
+	bool result = FolderUtils::slamCopy(file, filepath);
 	file.remove();
 
 	if(zip.getZipError()!=0) {
 		qWarning("zip.close(): %d", zip.getZipError());
 		return false;
 	}
-	return true;
+	return result;
 }
 
 
