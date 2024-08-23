@@ -63,6 +63,7 @@ public:
 	static bool slamCopy(QFile &, const QString & dest);
 	static void showInFolder(const QString & path);
 	static void createUserDataStoreFolders();
+	static QString addToBasename(const QString &filePath, const QString &addition);
 
 protected:
 	FolderUtils();

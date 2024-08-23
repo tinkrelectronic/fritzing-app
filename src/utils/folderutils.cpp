@@ -505,19 +505,32 @@ bool FolderUtils::createZipAndSaveTo(const QDir &dirToCompress, const QString &f
 	zip.close();
 	QDir::setCurrent(currFolderBU);
 
+	QFile file(tempZipFile);
+	QString randSuffix = TextUtils::getRandText();
+	QString temporaryFilepathInTargetDir = addToBasename(filepath, randSuffix);
+	bool result = FolderUtils::slamCopy(file, temporaryFilepathInTargetDir);
+	if (!result) {
+		qWarning("Saving failed. Copying file to target dir failed.");
+		return false;
+	}
+
 	if(QFileInfo(filepath).exists()) {
 		// if we're here the usr has already accepted to overwrite
 		QFile::remove(filepath);
 	}
-	QFile file(tempZipFile);
-	bool result = FolderUtils::slamCopy(file, filepath);
+	QFile file2(temporaryFilepathInTargetDir);
+	result = file2.rename(filepath);
+	if (!result) {
+		qWarning("Saving failed. Renaming file to target file name failed.");
+		return false;
+	}
 	file.remove();
 
 	if(zip.getZipError()!=0) {
 		qWarning("zip.close(): %d", zip.getZipError());
 		return false;
 	}
-	return result;
+	return true;
 }
 
 
@@ -767,4 +780,14 @@ void FolderUtils::createUserDataStoreFolders() {
 			break;
 		}
 	}
+}
+
+QString FolderUtils::addToBasename(const QString &filePath, const QString &addition)
+{
+	QFileInfo fileInfo(filePath);
+	QString baseName = fileInfo.baseName();
+	QString suffix = fileInfo.completeSuffix();
+	QString path = fileInfo.path();
+
+	return QString("%1/%2%3.%4").arg(path, baseName, addition, suffix);
 }
