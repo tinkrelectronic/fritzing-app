@@ -770,17 +770,6 @@ void MainWindow::afterExport(bool removeBackground)
 
 
 bool MainWindow::saveAsAux(const QString & fileName) {
-	QDir dir(this->m_fzzFolder);
-	if (!dir.exists()) {
-		dir.mkpath(".");
-		if (!dir.exists()) {
-			FMessageBox::warning(this, tr("Fritzing"),
-					     tr("Saving aborted because temp folder %1 could not be created. Please check your filesystem permissions and writeability.")
-					     .arg(this->m_fzzFolder));
-			return false;
-		}
-	}
-
 	QFileInfo fileInfo(fileName);
 
 	if (fileInfo.exists()) {
