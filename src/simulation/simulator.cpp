@@ -249,8 +249,17 @@ void Simulator::simulate() {
 		}
 
         m_showResultsTimerInterval = TextUtils::convertFromPowerPrefixU(animationTimeStr, "s")/m_simNumberOfSteps*1000;
+        //A negative animation times, means real time
+        if (m_showResultsTimerInterval < 0)
+            m_showResultsTimerInterval = (m_simEndTime-m_simStartTime)/m_simNumberOfSteps*1000;
         std::cout << "Animation timerInterval: " << m_showResultsTimerInterval << std::endl;
         m_showResultsTimer->setInterval(m_showResultsTimerInterval);
+        if (m_showResultsTimerInterval < 10) {
+            //Do not block Fritzing with calls to animate the results. Leave some time to ngSpice. 100Hz for the rendering is OK.
+            m_showResultsTimer->setInterval(10);
+        }
+
+
 
 		QString tranAnalysis = QString(".TRAN %1 %2 %3").arg(m_simStepTime).arg(m_simEndTime).arg(m_simStartTime);
 		spiceNetlist.replace(".OP", tranAnalysis);
@@ -385,7 +394,7 @@ void Simulator::simulate() {
 
 	//If this a transitory simulation, set the timer for the animation
 	if (m_simEndTime > 0) {
-		m_currSimStep = 1;
+        m_previousRenderedStep = 0;
 		m_showResultsTimer->start();
 	}
 
@@ -415,47 +424,41 @@ void Simulator::showSimulatorError(QWidget* parent, const QString& spiceNetlist,
 }
 
 void Simulator::showSimulationResults() {
-    std::cout << "showSimulationResults. m_currSimStep: " << m_currSimStep << ", m_simNumberOfSteps: " << m_simNumberOfSteps << std::endl;
-	if (m_currSimStep <= m_simNumberOfSteps) {
-		//Check that we have the sim results for this time step
-		auto timeInfo = m_simulator->getVecInfo(QString("time").toStdString());
-        auto elapsedAnimationTime = m_elapsedAnimationTimer.elapsed();
-        m_elapsedAnimationTimer.restart();
-        std::cout << "Time between showSimulationResults (" << timeInfo.size() << " points). ElapsedTime " << elapsedAnimationTime << std::endl;
-		if (m_currSimStep > timeInfo.size())
-			return;
+    //Check that we have the sim results for this time step
+    auto timeInfo = m_simulator->getVecInfo(QString("time").toStdString());
+    auto elapsedAnimationTime = m_elapsedAnimationTimer.elapsed();
+    m_elapsedAnimationTimer.restart();
 
-		QElapsedTimer elapsedTimer;
-		elapsedTimer.start();
-		removeSimItems();
-		updateParts(itemBases, m_currSimStep);
+    //Calculate the time step to show
+    if (m_showResultsTimerInterval * m_simNumberOfSteps < 0.1) {
+        //Animation time is set to 0. Show simulation result asap
+        m_currSimStep = m_simNumberOfSteps;
+    } else {
+        m_currSimStep = (unsigned int) (m_elapsedSimTotalTimer.elapsed()/ m_showResultsTimerInterval);
+    }
 
-		double simTime = m_simStartTime + m_currSimStep * m_simStepTime;
+    if ( m_currSimStep > timeInfo.size())
+        m_currSimStep = timeInfo.size();
 
-		QString simMessage = QString::number(simTime, 'f', 3) + " s";
+    if (m_currSimStep == m_previousRenderedStep)
+        return;
+    m_previousRenderedStep = m_currSimStep;
 
-		m_breadboardGraphicsView->setSimulatorMessage(simMessage);
-		m_schematicGraphicsView->setSimulatorMessage(simMessage);
+    std::cout << "showSimulationResults. Time: " <<  m_elapsedSimTotalTimer.elapsed() <<
+        ", m_currSimStep: " << m_currSimStep << " simStepsAvailable " << timeInfo.size() << "/" << m_simNumberOfSteps << std::endl;
 
+    QElapsedTimer elapsedTimer;
+    elapsedTimer.start();
 
-        if (elapsedAnimationTime > m_showResultsTimerInterval && m_currSimStep != m_simNumberOfSteps){
-            //showSimulationResults is not getting called as fast as it should, skip some steps
-            unsigned int theoreticalCurrSimStep = (unsigned int) (m_elapsedSimTotalTimer.elapsed()/ m_showResultsTimerInterval);
-            unsigned int estimatedExtraSteps = (unsigned int) (elapsedAnimationTime/m_showResultsTimerInterval);
-            m_currSimStep = theoreticalCurrSimStep + estimatedExtraSteps;
-            if (m_currSimStep > m_simNumberOfSteps)
-                m_currSimStep = m_simNumberOfSteps;
-            std::cout << "showSimulationResults is not getting called as fast as it should, skip some steps. elapsedAnimationTime: " <<
-                elapsedAnimationTime << "SimTotalTime" << m_elapsedSimTotalTimer.elapsed() << ", interval: " << m_showResultsTimer->interval() <<
-                ", skipping steps: " << estimatedExtraSteps << ", newSimTep: " << m_currSimStep <<  std::endl;
-        } else {
-            //Everything goes OK
-            m_currSimStep++;
-        }
+    //Render current simulation step
+    removeSimItems();
+    updateParts(itemBases, m_currSimStep);
+    double simTime = m_simStartTime + m_currSimStep * m_simStepTime;
+    QString simMessage = QString::number(simTime, 'f', 3) + " s";
+    m_breadboardGraphicsView->setSimulatorMessage(simMessage);
+    m_schematicGraphicsView->setSimulatorMessage(simMessage);
 
-
-        std::cout << "Time to show the results of the animation (" << elapsedTimer.elapsed() << " ms): " << std::endl;
-	} else {
+    if (m_currSimStep >= m_simNumberOfSteps) {
 		m_showResultsTimer->stop();
         std::cout << "SIM END. Total time: " << m_elapsedSimTotalTimer.elapsed() << " ms): " << std::endl;
 	}
@@ -476,8 +479,10 @@ void Simulator::updateParts(QSet<ItemBase *> itemBases, int timeStep) {
 		part->setGraphicsEffect(nullptr);
 		m_sch2bbItemHash.value(part)->setGraphicsEffect(nullptr);
 
-		std::cout << "-----------------------------------" <<std::endl;
-		std::cout << "Instance Title: " << part->instanceTitle().toStdString() << std::endl;
+        if(m_debugSimResult) {
+            std::cout << "-----------------------------------" <<std::endl;
+            std::cout << "Instance Title: " << part->instanceTitle().toStdString() << std::endl;
+        }
 
 		QString family = part->family().toLower();
 
@@ -543,7 +548,7 @@ void Simulator::drawSmoke(ItemBase* part) {
 	QRectF schSmokeBoundingBox = schSmoke->boundingRect();
 	QRectF schPartBoundingBox = part->boundingRect();
 	QRectF bbSmokeBoundingBox = bbSmoke->boundingRect();
-	std::cout << "bbSmokeBoundingBox w and h: " << bbSmokeBoundingBox.width() << " " << bbSmokeBoundingBox.height() << std::endl;
+    //std::cout << "bbSmokeBoundingBox w and h: " << bbSmokeBoundingBox.width() << " " << bbSmokeBoundingBox.height() << std::endl;
 
 	double scaleWidth = bbPartBoundingBox.width()/schSmokeBoundingBox.width();
 	double scaleHeight = bbPartBoundingBox.height()/schSmokeBoundingBox.height();
@@ -792,9 +797,11 @@ std::vector<double> Simulator::voltageVector(ConnectorItem * c0) {
 }
 
 QString Simulator::generateSvgPath(std::vector<double> proveVector, std::vector<double> comVector, int currTimeStep, QString nameId, double simStartTime, double simTimeStep, double timePos, double timeScale, double verticalScale, double verOffset, double screenHeight, double screenWidth, QString color, QString strokeWidth ) {
-	std::cout << "OSCILLOSCOPE: pos " << timePos << ", timeScale: " << timeScale << std::endl;
-	std::cout << "OSCILLOSCOPE: VOLTAGE VALUES " << nameId.toStdString() << ": ";
-	QString svg;
+    if(m_debugSimResult) {
+        std::cout << "OSCILLOSCOPE: pos " << timePos << ", timeScale: " << timeScale << std::endl;
+        std::cout << "OSCILLOSCOPE: VOLTAGE VALUES " << nameId.toStdString() << ": ";
+    }
+    QString svg;
 	double screenOffset = 0;//132.87378;
 	//svg += QString("<rect x='%1' y='%1' width='%2' height='%3' stroke='red' stroke-width='%4'/>\n").arg(screenOffset).arg(screenWidth).arg(screenHeight).arg(strokeWidth);
 	if (!nameId.isEmpty())
@@ -810,7 +817,8 @@ QString Simulator::generateSvgPath(std::vector<double> proveVector, std::vector<
 	double oscEndTime = timePos + timeScale * 10;
 	double nSampleInScreen = (oscEndTime - timePos)/simTimeStep + 1;
 	double horScale = screenWidth/(nSampleInScreen-1);
-	std::cout << "OSCILLOSCOPE: nSampleInScreen " << nSampleInScreen << std::endl;
+    if (m_debugSimResult)
+        std::cout << "OSCILLOSCOPE: nSampleInScreen " << nSampleInScreen << std::endl;
 	int screenPoint = 0;
 	for (int vPoint = 0; vPoint <  points; vPoint++) {
 		if (currTimeStep < vPoint)
@@ -836,10 +844,7 @@ QString Simulator::generateSvgPath(std::vector<double> proveVector, std::vector<
 		screenPoint++;
 	}
 	svg += "' transform='translate(%1,%2)' stroke='"+ color + "' stroke-width='"+ strokeWidth + "' fill='none' /> \n"; //
-
-	std::cout << std::endl;
 	return svg;
-
 }
 
 /**
@@ -1186,9 +1191,10 @@ void Simulator::updateLED(unsigned long timeStep, ItemBase * part) {
 			// Just one LED
 			double curr = getCurrent(timeStep, part);
 			double maxCurr = getMaxPropValue(part, "current");
-
-			std::cout << "LED Current: " <<curr<<std::endl;
-			std::cout << "LED MaxCurrent: " <<maxCurr<<std::endl;
+            if(m_debugSimResult) {
+                std::cout << "LED Current: " <<curr<<std::endl;
+                std::cout << "LED MaxCurrent: " <<maxCurr<<std::endl;
+            }
 
 			LED* bbLed = dynamic_cast<LED *>(m_sch2bbItemHash.value(part));
 			bbLed->setBrightness(curr/maxCurr);
@@ -1239,8 +1245,10 @@ void Simulator::updateCapacitor(unsigned long timeStep, ItemBase * part) {
 
 	double maxV = getMaxPropValue(part, "voltage");
 	double v = calculateVoltage(timeStep, posLeg, negLeg);
-	std::cout << "MaxVoltage of the capacitor: " << maxV << std::endl;
-	std::cout << "Capacitor voltage is : " << QString("%1").arg(v).toStdString() << std::endl;
+    if(m_debugSimResult) {
+        std::cout << "MaxVoltage of the capacitor: " << maxV << std::endl;
+        std::cout << "Capacitor voltage is : " << QString("%1").arg(v).toStdString() << std::endl;
+    }
 
 	if (family.contains("bidirectional")) {
 		//This is a ceramic capacitor (or not polarized)
@@ -1262,7 +1270,9 @@ void Simulator::updateCapacitor(unsigned long timeStep, ItemBase * part) {
 void Simulator::updateResistor(unsigned long timeStep, ItemBase * part) {
 	double maxPower = getMaxPropValue(part, "power");
 	double power = getPower(timeStep, part);
-	std::cout << "Power: " << power <<std::endl;
+    if(m_debugSimResult) {
+        std::cout << "Power: " << power <<std::endl;
+    }
 	if (power > maxPower) {
 		drawSmoke(part);
 	}
@@ -1293,8 +1303,10 @@ void Simulator::updateBattery(unsigned long timeStep, ItemBase * part) {
 	double safetyMargin = 0.1; //TODO: This should be adjusted
 	double maxCurrent = voltage/resistance * safetyMargin;
 	double current = getCurrent(timeStep, part); //current that the battery delivers
-	std::cout << "Battery: voltage=" << voltage << ", resistance=" << resistance  <<std::endl;
-	std::cout << "Battery: MaxCurr=" << maxCurrent << ", Curr=" << current  <<std::endl;
+    if(m_debugSimResult) {
+        std::cout << "Battery: voltage=" << voltage << ", resistance=" << resistance  <<std::endl;
+        std::cout << "Battery: MaxCurr=" << maxCurrent << ", Curr=" << current  <<std::endl;
+    }
 
 	if (abs(current) > maxCurrent) {
 		drawSmoke(part);
@@ -1495,7 +1507,6 @@ void Simulator::updateMultimeter(unsigned long timeStep, ItemBase * part) {
  * @param[in] part An oscilloscope that is going to be checked and updated.
  */
 void Simulator::updateOscilloscope(unsigned long timeStep, ItemBase * part) {
-	std::cout << "updateOscilloscope: " << std::endl;
 	ConnectorItem * comProbe = nullptr, * v1Probe = nullptr, * v2Probe = nullptr, * v3Probe = nullptr, * v4Probe = nullptr;
 	QList<ConnectorItem *> probes = part->cachedConnectorItems();
 	foreach(ConnectorItem * ci, probes) {
@@ -1514,8 +1525,6 @@ void Simulator::updateOscilloscope(unsigned long timeStep, ItemBase * part) {
 	}
 	ConnectorItem * probesArray[4] = {v1Probe, v2Probe, v3Probe, v4Probe};
 
-
-	std::cout << "Oscilloscope probe v1 connected. " << std::endl;
 
 
 	//TODO: use convertFromPowerPrefixU
@@ -1687,15 +1696,11 @@ void Simulator::updateOscilloscope(unsigned long timeStep, ItemBase * part) {
 	QGraphicsSvgItem * bbGraph = new QGraphicsSvgItem(m_sch2bbItemHash.value(part));
 	QSvgRenderer *schGraphRender = new QSvgRenderer(schSvg.toUtf8());
 	QSvgRenderer *bbGraphRender = new QSvgRenderer(bbSvg.toUtf8());
-	if(schGraphRender->isValid())
-		std::cout << "SCH SVG Graph is VALID \n" << std::endl;
-	else
+    if(!schGraphRender->isValid())
 		std::cout << "SCH SVG Graph is NOT VALID \n" << std::endl;
 	//std::cout << "SCH SVG: " << schSvg.toStdString() << std::endl;
 
-	if(bbGraphRender->isValid())
-		std::cout << "BB SVG Graph is VALID \n" << std::endl;
-	else
+    if(!bbGraphRender->isValid())
 		std::cout << "BB SVG Graph is NOT VALID\n" << std::endl;
 	//std::cout << "BB SVG: " << bbSvg.toStdString() << std::endl;
 

@@ -521,7 +521,8 @@ QWidget *PrefsDialog::createProjectPropertiesForm() {
     simAnimationTimeEdit->setText(m_projectProperties->getProjectProperty(ProjectPropertyKeySimulatorAnimationTimeS));
     simAnimationTimeEdit->setFixedWidth(FORMLABELWIDTH * 2);
     simAnimationTimeEdit->setToolTip("This is the time used to animate the effects of a transitory simulation.\n"
-                                     "Set it to 0 if you do not want an animation.");
+                                     "Set it to 0 if you do not want an animation.\n"
+                                     "Set a negative number for real time.");
     layout->addWidget(simAnimationTimeEdit);
 
     projectPropertiesBox->setLayout(layout);

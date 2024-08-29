@@ -101,13 +101,14 @@ protected:
 
 	bool m_enabled = false;
 	bool m_transientSimulationEnabled = false;
+    bool m_debugSimResult = false;
 
 	QSet<ItemBase *> itemBases;
 	QHash<ItemBase *, ItemBase *> m_sch2bbItemHash;
 	QHash<ConnectorItem *, int> m_connector2netHash;
 
 	QTimer *m_simTimer, *m_showResultsTimer;
-	unsigned long m_currSimStep;
+    unsigned long m_currSimStep, m_previousRenderedStep;
     double m_showResultsTimerInterval;
     QElapsedTimer m_elapsedAnimationTimer;
     QElapsedTimer m_elapsedSimTotalTimer;
