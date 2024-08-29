@@ -886,7 +886,10 @@ bool MainWindow::saveBundledNonAtomicEntity(QString &filename, const QString &ex
 	                          ? FolderUtils::getSaveFileName(this, tr("Specify a file name"), path, tr("Fritzing (*%1)").arg(extension), &fileExt)
 	                          : filename;
 
-	if (bundledFileName.isEmpty()) return false; // Cancel pressed
+	if (bundledFileName.isEmpty()) {
+		DebugDialog::debug(QString("File save dialog was cancelled."));
+		return false; // Cancel pressed
+	}
 
 	FileProgressDialog progress("Saving...", 0, this);
 
