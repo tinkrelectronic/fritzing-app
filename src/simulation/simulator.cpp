@@ -921,6 +921,8 @@ double Simulator::getMaxPropValue(ItemBase *part, QString property) {
  */
 double Simulator::getPower(unsigned long timeStep, ItemBase* part, QString subpartName) {
 	//TODO: Handle devices that do not return the power
+    //TODO: This can cause a crash in ngspice if using a background thread that has not finished and using the callback SendData, see:
+    //https://sourceforge.net/p/ngspice/discussion/120973/thread/44c8e256c2/
 	QString instanceStr = part->instanceTitle().toLower();
 	instanceStr.append(subpartName.toLower());
 	instanceStr.prepend("@");
@@ -945,28 +947,38 @@ double Simulator::getCurrent(unsigned long timeStep, ItemBase* part, QString sub
 
 	QChar deviceType = getDeviceType(part);
 	//std::cout << "deviceType: " << deviceType.toLatin1() <<std::endl;
-	if (deviceType == instanceStr.at(0)) {
-		instanceStr.prepend(QString("@"));
-	} else {
-		//f. ex. Leds are DLED1 in ngpice and LED1 in Fritzing
-		instanceStr.prepend(QString("@%1").arg(deviceType));
-	}
+
 	switch (deviceType.toLatin1()) {
 	case 'd':
+        if (deviceType == instanceStr.at(0)) {
+            instanceStr.prepend(QString("@"));
+        } else {
+            //f. ex. Leds are DLED1 in ngpice and LED1 in Fritzing
+            instanceStr.prepend(QString("@%1").arg(deviceType));
+        }
 		instanceStr.append("[id]");
 		break;
 	case 'r': //resistors
 	case 'c': //capacitors
 	case 'l': //inductors
-	case 'v': //voltage sources
-	case 'e': //Voltage-controlled voltage source (VCVS)
-	case 'f': //Current-controlled current source (CCCs)
-	case 'g': //Voltage-controlled current source (VCCS)
-	case 'h': //Current-controlled voltage source (CCVS)
-    case 'b': //Nonlinear dependent source (Behavioral Sources) (ASRC)
-	case 'i': //Current source
+        if (deviceType == instanceStr.at(0)) {
+            instanceStr.prepend(QString("@"));
+        } else {
+            //f. ex. Leds are DLED1 in ngpice and LED1 in Fritzing
+            instanceStr.prepend(QString("@%1").arg(deviceType));
+        }
 		instanceStr.append("[i]");
 		break;
+    case 'e': //Voltage-controlled voltage source (VCVS)
+    case 'f': //Current-controlled current source (CCCs)
+    case 'g': //Voltage-controlled current source (VCCS)
+    case 'h': //Current-controlled voltage source (CCVS)
+    case 'b': //Nonlinear dependent source (Behavioral Sources) (ASRC)
+    case 'i': //Current source
+    case 'v': //voltage sources
+        //This is safer than using device parameters [i], see https://sourceforge.net/p/ngspice/discussion/120973/thread/44c8e256c2/
+        instanceStr.append("#branch");
+        break;
 	default:
 		//TODO: Add tr()
 		throw QString("Error getting the current of the device.The device type is not recognized. First letter is ").arg(deviceType);
@@ -1169,9 +1181,25 @@ void Simulator::removeItemsToBeSimulated(QList<QGraphicsItem*> & parts) {
  * @param[in] diode A part that is going to be checked and updated.
  */
 void Simulator::updateDiode(unsigned long timeStep, ItemBase * diode) {
+    //Better to calculate the power using the voltage and current.
+    //getPower uses the @dx[p] vector which may be not defined
 	double maxPower = getMaxPropValue(diode, "power");
-	double power = getPower(timeStep, diode);
-	if (power > maxPower) {
+    double current = getCurrent(timeStep, diode);
+    ConnectorItem * leg0 = nullptr, * leg1 = nullptr;
+    QList<ConnectorItem *> legs = diode->cachedConnectorItems();
+    leg0 = legs.at(0);
+    leg1 = legs.at(1);
+
+    if(!leg0 || !leg1 )
+        return;
+
+    double voltage = calculateVoltage(timeStep, leg0, leg1);
+    double power = abs(voltage)*abs(current);
+
+    if(m_debugSimResult) {
+        std::cout << "Diode Power: " << power << std::endl;
+    }
+    if (power > maxPower) {
 		drawSmoke(diode);
 	}
 }
@@ -1268,10 +1296,14 @@ void Simulator::updateCapacitor(unsigned long timeStep, ItemBase * part) {
  * @param[in] part A resistor that is going to be checked and updated.
  */
 void Simulator::updateResistor(unsigned long timeStep, ItemBase * part) {
+    //It is better to calculate the power using the current
+    //getPower uses the vector @rx[p], which may not be defined
 	double maxPower = getMaxPropValue(part, "power");
-	double power = getPower(timeStep, part);
+    double resistance = getMaxPropValue(part, "resistance");
+    double current = getCurrent(timeStep, part);
+    double power = resistance * pow(abs(current), 2);
     if(m_debugSimResult) {
-        std::cout << "Power: " << power <<std::endl;
+        std::cout << "Power: " << power << std::endl;
     }
 	if (power > maxPower) {
 		drawSmoke(part);
@@ -1284,10 +1316,14 @@ void Simulator::updateResistor(unsigned long timeStep, ItemBase * part) {
  * @param[in] part A potentiometer that is going to be checked and updated.
  */
 void Simulator::updatePotentiometer(unsigned long timeStep, ItemBase * part) {
+    //It is better to calculate the power using the current
+    //getPower uses the vector @rx[p], which may not be defined
 	double maxPower = getMaxPropValue(part, "power");
-	double powerA = getPower(timeStep, part, "A"); //power through resistor A
-	double powerB = getPower(timeStep, part, "B"); //power through resistor B
-	double power = powerA + powerB;
+    double currentA = getCurrent(timeStep, part, "A"); //power through resistor A
+    double currentB = getCurrent(timeStep, part, "B"); //power through resistor B
+    double resistance = getMaxPropValue(part, "resistance");
+    double knobStatus = getMaxPropValue(part, "knob status");
+    double power = resistance*knobStatus/100*pow(abs(currentA),2) + resistance*(100-knobStatus)/100*pow(abs(currentB),2);
 	if (power > maxPower) {
 		drawSmoke(part);
 	}
