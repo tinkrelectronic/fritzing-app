@@ -43,6 +43,7 @@ public:
 private:
 	void resetTimer();
 
+	void showSimulatorError(QWidget *parent, const QString &spiceNetlist, const std::shared_ptr<NgSpiceSimulator>& simulator);
 public slots:
 	void enable(bool);
 	void enableTransientSimulation(bool);

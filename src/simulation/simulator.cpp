@@ -272,15 +272,7 @@ void Simulator::simulate() {
 	if (QString::fromStdString(m_simulator->getLog(false)).toLower().contains("error") || // "error on line"
 			QString::fromStdString(m_simulator->getLog(true)).toLower().contains("warning")) { // "warning, can't find model"
 		//Ngspice found an error, do not continue
-		std::cout << "Error loading the netlist. Probably some SPICE field is wrong, check them." <<std::endl;
-		//TODO: Create copy to clipboard button o make this selectable ans resizeable!
-		FMessageBox::warning(nullptr, tr("Simulator Error"),
-								 tr("The simulator gave an error when loading the netlist. "
-									"Probably some SPICE field is wrong, please, check them.\n"
-									"If the parts are from the simulation bin, report the bug in GitHub.\n\nErrors:\n") +
-					   QString::fromStdString(m_simulator->getLog(false)) +
-					   QString::fromStdString(m_simulator->getLog(true)) +
-					   "\n\nNetlist:\n" + spiceNetlist);
+		showSimulatorError(nullptr, spiceNetlist, m_simulator);
 		stopSimulation();
 		return;
 	}
@@ -391,6 +383,28 @@ void Simulator::simulate() {
 		m_showResultsTimer->start();
 	}
 
+}
+
+void Simulator::showSimulatorError(QWidget* parent, const QString& spiceNetlist, const std::shared_ptr<NgSpiceSimulator>& simulator) {
+	FMessageBox* msgBox = FMessageBox::createCustom(
+		parent,
+		QMessageBox::Warning,
+		tr("Simulator Error"),
+		tr("The simulator gave an error when loading the netlist. "
+		   "Probably some SPICE field is wrong, please, check them.\n"
+		   "If the parts are from the simulation bin, report the bug in GitHub."),
+		QMessageBox::Ok
+		);
+
+	QString detailedText = tr("Errors:\n") +
+						   QString::fromStdString(simulator->getLog(false)) +
+						   QString::fromStdString(simulator->getLog(true)) +
+						   "\n\nNetlist:\n" + spiceNetlist;
+
+	msgBox->setDetailedText(detailedText);
+	msgBox->enableClipboardButton(true);
+	msgBox->exec();
+	delete msgBox;
 }
 
 void Simulator::showSimulationResults() {
