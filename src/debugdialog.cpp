@@ -415,3 +415,7 @@ QString DebugDialog::createKeyTag(const QKeyEvent *event) {
 void DebugDialog::setColoringEnabled(bool enabled) {
 	coloringEnabled = enabled;
 }
+
+DebugDialog::DebugStream DebugDialog::stream(DebugLevel level, QObject* ancestor) {
+	return DebugStream(level, ancestor);
+}

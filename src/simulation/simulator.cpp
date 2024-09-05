@@ -51,6 +51,7 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 #include "../items/symbolpaletteitem.h"
 #include "../items/perfboard.h"
 #include "../items/partlabel.h"
+#include "debugdialog.h"
 
 #include <ngspice/sharedspice.h>
 
@@ -179,7 +180,7 @@ void Simulator::stopSimulation() {
  */
 void Simulator::simulate() {
 	if (!m_enabled || !m_simulating) {
-		std::cout << "The simulator is not enabled or simulating" << std::endl;
+		DebugDialog::stream() << "The simulator is not enabled or simulating";
 		return;
 	}
 
@@ -213,7 +214,7 @@ void Simulator::simulate() {
 			//TODO: Use TextUtils::convertFromPowerPrefixU function
 			double time_div = TextUtils::convertFromPowerPrefix(item->getProperty("time/div"), "s");
 			double pos = TextUtils::convertFromPowerPrefix(item->getProperty("horizontal position"), "s");
-			std::cout << "Found oscilloscope: time/div: " << item->getProperty("time/div").toStdString() << " " << time_div << item->getProperty("horizontal position").toStdString() << " " << pos << std::endl;
+			DebugDialog::stream() << "Found oscilloscope: time/div: " << item->getProperty("time/div").toStdString() << " " << time_div << item->getProperty("horizontal position").toStdString() << " " << pos;
 			if (pos < m_simStartTime) {
 				m_simStartTime = pos;
 			}
@@ -235,8 +236,8 @@ void Simulator::simulate() {
 	QString timeStepStr = m_mainWindow->getProjectProperties()->getProjectProperty(ProjectPropertyKeySimulatorTimeStepS);
 	QString animationTimeStr = m_mainWindow->getProjectProperties()->getProjectProperty(ProjectPropertyKeySimulatorAnimationTimeS);
 
-	std::cout << "" << timeStepModeStr.toStdString() << " " << numStepsStr.toStdString() << " " << timeStepStr.toStdString()
-		  << " " << animationTimeStr.toStdString() << std::endl;
+	DebugDialog::stream() << "" << timeStepModeStr.toStdString() << " " << numStepsStr.toStdString() << " " << timeStepStr.toStdString()
+						  << " " << animationTimeStr.toStdString();
 	if (m_simEndTime > 0 && m_mainWindow->isTransientSimulationEnabled()) {
 		if (timeStepModeStr.contains("true", Qt::CaseInsensitive)) {
 			m_simStepTime = TextUtils::convertFromPowerPrefixU(timeStepStr, "s");
@@ -254,42 +255,42 @@ void Simulator::simulate() {
 	}
 
 
-	std::cout << "Netlist: " << spiceNetlist.toStdString() << std::endl;
+	DebugDialog::stream() << "Netlist: " << spiceNetlist.toStdString();
 
 	//std::cout << "-----------------------------------" <<std::endl;
-	std::cout << "Running command(remcirc):" <<std::endl;
+	DebugDialog::stream() << "Running command(remcirc):";
 	m_simulator->command("remcirc");
 	//std::cout << "-----------------------------------" <<std::endl;
-	std::cout << "Running m_simulator->command('reset'):" <<std::endl;
+	DebugDialog::stream() << "Running m_simulator->command('reset'):";
 	m_simulator->command("reset");
 	m_simulator->clearLog();
-    std::cout << "Loading codemodel analog.cm, which should be in the CWD:" <<std::endl;
+	DebugDialog::stream() << "Loading codemodel analog.cm, which should be in the CWD:";
 	m_simulator->command("codemodel ./lib/analog.cm");
-	std::cout << "-----------------------------------" <<std::endl;
-	std::cout << "Running LoadNetlist:" <<std::endl;
+	DebugDialog::stream() << "-----------------------------------";
+	DebugDialog::stream() << "Running LoadNetlist:";
 
 	m_simulator->loadCircuit(spiceNetlist.toStdString());
 
 	if (QString::fromStdString(m_simulator->getLog(false)).toLower().contains("error") || // "error on line"
-			QString::fromStdString(m_simulator->getLog(true)).toLower().contains("warning")) { // "warning, can't find model"
+		QString::fromStdString(m_simulator->getLog(true)).toLower().contains("warning")) { // "warning, can't find model"
 		//Ngspice found an error, do not continue
 		showSimulatorError(nullptr, spiceNetlist, m_simulator);
 		stopSimulation();
 		return;
 	}
-	std::cout << "-----------------------------------" <<std::endl;
-	std::cout << "Running command(listing):" <<std::endl;
+	DebugDialog::stream() << "-----------------------------------";
+	DebugDialog::stream() << "Running command(listing):";
 	m_simulator->command("listing");
-	std::cout << "-----------------------------------" <<std::endl;
-	std::cout << "Running m_simulator->command(bg_run):" <<std::endl;
+	DebugDialog::stream() << "-----------------------------------";
+	DebugDialog::stream() << "Running m_simulator->command(bg_run):";
 	m_simulator->resetIsBGThreadRunning();
 	m_simulator->command("bg_run");
-	std::cout << "-----------------------------------" <<std::endl;
-	std::cout << "Generating a hash table to find the net of specific connectors:" <<std::endl;
+	DebugDialog::stream() << "-----------------------------------";
+	DebugDialog::stream() << "Generating a hash table to find the net of specific connectors:";
 	//While the spice simulator runs, we will perform some tasks:
 
 	//Generate a hash table to find the net of specific connectors
-	std::cout << "Generate a hash table to find the net of specific connectors" <<std::endl;
+	DebugDialog::stream() << "Generate a hash table to find the net of specific connectors";
 	m_connector2netHash.clear();
 	for (int i=0; i<netList.size(); i++) {
 		QList<ConnectorItem *> * net = netList.at(i);
@@ -297,11 +298,11 @@ void Simulator::simulate() {
 			m_connector2netHash.insert(ci, i);
 		}
 	}
-	std::cout << "-----------------------------------" <<std::endl;
-	std::cout << "Generating a hash table to find the breadboard parts from parts in the schematic view:" <<std::endl;
+	DebugDialog::stream() << "-----------------------------------";
+	DebugDialog::stream() << "Generating a hash table to find the breadboard parts from parts in the schematic view:";
 
 	//Generate a hash table to find the breadboard parts from parts in the schematic view
-	std::cout << "Generate a hash table to find the breadboard parts from parts in the schematic view" <<std::endl;
+	DebugDialog::stream() << "Generate a hash table to find the breadboard parts from parts in the schematic view";
 	m_sch2bbItemHash.clear();
 	foreach (ItemBase* schPart, itemBases) {
 		foreach (QGraphicsItem * bbItem, m_breadboardGraphicsView->scene()->items()) {
@@ -312,21 +313,21 @@ void Simulator::simulate() {
 			}
 		}
 	}
-	std::cout << "-----------------------------------" <<std::endl;
-	std::cout << "Removing the items added by the simulator last time it run (smoke, displayed text in multimeters, etc.):" <<std::endl;
+	DebugDialog::stream() << "-----------------------------------";
+	DebugDialog::stream() << "Removing the items added by the simulator last time it run (smoke, displayed text in multimeters, etc.):";
 
 	//Removes the items added by the simulator last time it run (smoke, displayed text in multimeters, etc.)
-	std::cout << "removeSimItems(itemBases);" <<std::endl;
+	DebugDialog::stream() << "removeSimItems(itemBases);";
 	removeSimItems();
-	std::cout << "-----------------------------------" <<std::endl;
-	std::cout << "If there are parts that are not being simulated, grey them out:" <<std::endl;
+	DebugDialog::stream() << "-----------------------------------";
+	DebugDialog::stream() << "If there are parts that are not being simulated, grey them out:";
 
 	//If there are parts that are not being simulated, grey them out
-	std::cout << "greyOutNonSimParts(itemBases);" <<std::endl;
+	DebugDialog::stream() << "greyOutNonSimParts(itemBases);";
 	greyOutNonSimParts(itemBases);
-	std::cout << "-----------------------------------" <<std::endl;
+	DebugDialog::stream() << "-----------------------------------";
 
-	std::cout << "Waiting for simulator thread to stop" <<std::endl;
+	DebugDialog::stream() << "Waiting for simulator thread to stop";
 	int elapsedTime = 0, simTimeOut = 3000; // in ms
 	while (m_simulator->isBGThreadRunning() && elapsedTime < simTimeOut) {
 		auto timeInfo = m_simulator->getVecInfo(QString("time").toStdString());
@@ -336,7 +337,7 @@ void Simulator::simulate() {
 		if (m_simEndTime > 0 && timeInfo.size() > 0)
 			break;
 	}
-	std::cout << "-------- SIM END or TRANS SIM WITH PARTIAL RESULTS ------------" << std::endl;
+	DebugDialog::stream() << "-------- SIM END or TRANS SIM WITH PARTIAL RESULTS ------------";
 
 	if (elapsedTime >= simTimeOut) {
 		m_simulator->command("bg_halt");
@@ -344,26 +345,26 @@ void Simulator::simulate() {
 		FMessageBox::warning(m_mainWindow, tr("Simulator Timeout"), tr("The spice simulator did not finish after %1 ms. Aborting simulation.").arg(simTimeOut));
 		return;
 	} else {
-		std::cout << "The spice simulator has finished." <<std::endl;
+		DebugDialog::stream() << "The spice simulator has finished.";
 	}
-	std::cout << "-----------------------------------" <<std::endl;
+	DebugDialog::stream() << "-----------------------------------";
 
 	if (m_simulator->errorOccured() ||
-			QString::fromStdString(m_simulator->getLog(true)).toLower().contains("there aren't any circuits loaded")) {
+		QString::fromStdString(m_simulator->getLog(true)).toLower().contains("there aren't any circuits loaded")) {
 		//Ngspice found an error, do not continue
-		std::cout << "Fatal error found, stopping the simulation." <<std::endl;
+		DebugDialog::stream() << "Fatal error found, stopping the simulation.";
 		removeSimItems();
 		QWidget * tempWidget = new QWidget();
 		QMessageBox::warning(tempWidget, tr("Simulator Error"),
-				     tr("The simulator gave an error when trying to simulate this circuit. "
-					"Please, check the wiring and try again. \n\nErrors:\n") +
-				     QString::fromStdString(m_simulator->getLog(false)) +
-				     QString::fromStdString(m_simulator->getLog(true)) +
-				     "\n\nNetlist:\n" + spiceNetlist);
+							 tr("The simulator gave an error when trying to simulate this circuit. "
+								"Please, check the wiring and try again. \n\nErrors:\n") +
+								 QString::fromStdString(m_simulator->getLog(false)) +
+								 QString::fromStdString(m_simulator->getLog(true)) +
+								 "\n\nNetlist:\n" + spiceNetlist);
 		delete tempWidget;
 		return;
 	}
-	std::cout << "No fatal error found, continuing..." <<std::endl;
+	DebugDialog::stream() << "No fatal error found, continuing...";
 
 	//m_simulator->command("bg_halt");
 
@@ -385,6 +386,7 @@ void Simulator::simulate() {
 	}
 
 }
+
 
 void Simulator::showSimulatorError(QWidget* parent, const QString& spiceNetlist, const std::shared_ptr<NgSpiceSimulator>& simulator) {
 	FMessageBox* msgBox = FMessageBox::createCustom(
