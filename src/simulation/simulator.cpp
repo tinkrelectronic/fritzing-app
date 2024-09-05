@@ -264,7 +264,7 @@ void Simulator::simulate() {
 	m_simulator->command("reset");
 	m_simulator->clearLog();
     std::cout << "Loading codemodel analog.cm, which should be in the CWD:" <<std::endl;
-    m_simulator->command("codemodel ./analog.cm");
+	m_simulator->command("codemodel ./lib/analog.cm");
 	std::cout << "-----------------------------------" <<std::endl;
 	std::cout << "Running LoadNetlist:" <<std::endl;
 
