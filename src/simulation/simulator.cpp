@@ -267,11 +267,8 @@ void Simulator::simulate() {
 
 
 	DebugDialog::stream() << "Netlist: " << spiceNetlist.toStdString();
-
-	//std::cout << "-----------------------------------" <<std::endl;
 	DebugDialog::stream() << "Running command(remcirc):";
 	m_simulator->command("remcirc");
-	//std::cout << "-----------------------------------" <<std::endl;
 	DebugDialog::stream() << "Running m_simulator->command('reset'):";
 	m_simulator->command("reset");
 	m_simulator->clearLog();
@@ -285,7 +282,10 @@ void Simulator::simulate() {
 	if (QString::fromStdString(m_simulator->getLog(false)).toLower().contains("error") || // "error on line"
 		QString::fromStdString(m_simulator->getLog(true)).toLower().contains("warning")) { // "warning, can't find model"
 		//Ngspice found an error, do not continue
-		showSimulatorError(nullptr, spiceNetlist, m_simulator);
+        QString errorHint = tr("The simulator gave an error when loading the netlist. "
+                               "Probably some SPICE field is wrong, please, check them.\n"
+                               "If the parts are from the simulation bin, report the bug in GitHub.");
+        showSimulatorError(nullptr, errorHint, spiceNetlist, m_simulator);
 		stopSimulation();
 		return;
 	}
@@ -367,14 +367,10 @@ void Simulator::simulate() {
 		//Ngspice found an error, do not continue
 		DebugDialog::stream() << "Fatal error found, stopping the simulation.";
 		removeSimItems();
-		QWidget * tempWidget = new QWidget();
-		QMessageBox::warning(tempWidget, tr("Simulator Error"),
-							 tr("The simulator gave an error when trying to simulate this circuit. "
-								"Please, check the wiring and try again. \n\nErrors:\n") +
-								 QString::fromStdString(m_simulator->getLog(false)) +
-								 QString::fromStdString(m_simulator->getLog(true)) +
-								 "\n\nNetlist:\n" + spiceNetlist);
-		delete tempWidget;
+        QString errorHint = tr("The simulator gave an error when trying to simulate this circuit. "
+                                "Please, check the wiring and try again.");
+        showSimulatorError(nullptr, errorHint, spiceNetlist, m_simulator);
+        stopSimulation();
 		return;
 	}
 	DebugDialog::stream() << "No fatal error found, continuing...";
@@ -401,14 +397,12 @@ void Simulator::simulate() {
 }
 
 
-void Simulator::showSimulatorError(QWidget* parent, const QString& spiceNetlist, const std::shared_ptr<NgSpiceSimulator>& simulator) {
+void Simulator::showSimulatorError(QWidget* parent, const QString& errorHint, const QString& spiceNetlist, const std::shared_ptr<NgSpiceSimulator>& simulator) {
 	FMessageBox* msgBox = FMessageBox::createCustom(
 		parent,
 		QMessageBox::Warning,
 		tr("Simulator Error"),
-		tr("The simulator gave an error when loading the netlist. "
-		   "Probably some SPICE field is wrong, please, check them.\n"
-		   "If the parts are from the simulation bin, report the bug in GitHub."),
+        errorHint,
 		QMessageBox::Ok
 		);
 
@@ -444,8 +438,8 @@ void Simulator::showSimulationResults() {
         return;
     m_previousRenderedStep = m_currSimStep;
 
-    std::cout << "showSimulationResults. Time: " <<  m_elapsedSimTotalTimer.elapsed() <<
-        ", m_currSimStep: " << m_currSimStep << " simStepsAvailable " << timeInfo.size() << "/" << m_simNumberOfSteps << std::endl;
+    DebugDialog::stream() << "showSimulationResults. Time: " <<  m_elapsedSimTotalTimer.elapsed() <<
+        ", m_currSimStep: " << m_currSimStep << " simStepsAvailable " << timeInfo.size() << "/" << m_simNumberOfSteps;
 
     QElapsedTimer elapsedTimer;
     elapsedTimer.start();
@@ -460,7 +454,7 @@ void Simulator::showSimulationResults() {
 
     if (m_currSimStep >= m_simNumberOfSteps) {
 		m_showResultsTimer->stop();
-        std::cout << "SIM END. Total time: " << m_elapsedSimTotalTimer.elapsed() << " ms): " << std::endl;
+        DebugDialog::stream() << "SIM END. Total time: " << m_elapsedSimTotalTimer.elapsed() << " ms): ";
 	}
 
 }
@@ -480,8 +474,8 @@ void Simulator::updateParts(QSet<ItemBase *> itemBases, int timeStep) {
 		m_sch2bbItemHash.value(part)->setGraphicsEffect(nullptr);
 
         if(m_debugSimResult) {
-            std::cout << "-----------------------------------" <<std::endl;
-            std::cout << "Instance Title: " << part->instanceTitle().toStdString() << std::endl;
+            DebugDialog::stream() << "-----------------------------------" ;
+            DebugDialog::stream() << "Instance Title: " << part->instanceTitle().toStdString();
         }
 
 		QString family = part->family().toLower();
@@ -548,7 +542,6 @@ void Simulator::drawSmoke(ItemBase* part) {
 	QRectF schSmokeBoundingBox = schSmoke->boundingRect();
 	QRectF schPartBoundingBox = part->boundingRect();
 	QRectF bbSmokeBoundingBox = bbSmoke->boundingRect();
-    //std::cout << "bbSmokeBoundingBox w and h: " << bbSmokeBoundingBox.width() << " " << bbSmokeBoundingBox.height() << std::endl;
 
 	double scaleWidth = bbPartBoundingBox.width()/schSmokeBoundingBox.width();
 	double scaleHeight = bbPartBoundingBox.height()/schSmokeBoundingBox.height();
@@ -607,7 +600,7 @@ QString Simulator::create7SegmentNumber(double number){
  * @param[in] current The number to be displayed
  */
 void Simulator::updateLabPowerSupplyScreen(ItemBase * labPowerSupply, double voltage, double current){
-    std::cout << "update labPowerSupply with voltage: " << voltage << " and current " << current <<std::endl;
+    DebugDialog::stream() << "update labPowerSupply with voltage: " << voltage << " and current " << current;
     QString vString = create7SegmentNumber(voltage);
     QString cString = create7SegmentNumber(current);
 
@@ -616,8 +609,6 @@ void Simulator::updateLabPowerSupplyScreen(ItemBase * labPowerSupply, double vol
     QString aux = QString(vString);
     QString auxC = QString(cString);
     aux.remove(QChar('.'));
-    std::cout << "msg size: " << vString.size() <<std::endl;
-    std::cout << "aux size: " << aux.size() <<std::endl;
     if(aux.size() < 5) {
         vString.prepend(QString(5-aux.size(),' '));
     }
@@ -625,7 +616,6 @@ void Simulator::updateLabPowerSupplyScreen(ItemBase * labPowerSupply, double vol
         cString.prepend(QString(5-auxC.size(),' '));
     }
     vString.append("\n").append(cString);
-    std::cout << "msg is now: " << vString.toStdString() <<std::endl;
     QGraphicsTextItem * bbScreen = new QGraphicsTextItem(vString, m_sch2bbItemHash.value(labPowerSupply));
 
     QFont font("Segment16C", 10, QFont::Normal);
@@ -665,12 +655,9 @@ void Simulator::updateMultimeterScreen(ItemBase * multimeter, QString msg){
 	//So, do not take them into account to fill with spaces
 	QString aux = QString(msg);
 	aux.remove(QChar('.'));
-	std::cout << "msg size: " << msg.size() <<std::endl;
-	std::cout << "aux size: " << aux.size() <<std::endl;
 	if(aux.size() < 5) {
 		msg.prepend(QString(5-aux.size(),' '));
 	}
-	std::cout << "msg is now: " << msg.toStdString() <<std::endl;
 	QGraphicsTextItem * bbScreen = new QGraphicsTextItem(msg, m_sch2bbItemHash.value(multimeter));
 	QGraphicsTextItem * schScreen = new QGraphicsTextItem(msg, multimeter);
 	schScreen->setPos(QPointF(10,10));
@@ -765,8 +752,8 @@ double Simulator::calculateVoltage(unsigned long timeStep, ConnectorItem * c0, C
 
 	QString net0str = QString("v(%1)").arg(net0);
 	QString net1str = QString("v(%1)").arg(net1);
-	//std::cout << "net0str: " << net0str.toStdString() <<std::endl;
-	//std::cout << "net1str: " << net1str.toStdString() <<std::endl;
+    //DebugDialog::stream() << "net0str: " << net0str.toStdString();
+    //DebugDialog::stream() << "net1str: " << net1str.toStdString();
 
 	double volt0 = 0.0, volt1 = 0.0;
 	if (net0 != 0) {
@@ -798,13 +785,12 @@ std::vector<double> Simulator::voltageVector(ConnectorItem * c0) {
 
 QString Simulator::generateSvgPath(std::vector<double> proveVector, std::vector<double> comVector, int currTimeStep, QString nameId, double simStartTime, double simTimeStep, double timePos, double timeScale, double verticalScale, double verOffset, double screenHeight, double screenWidth, QString color, QString strokeWidth ) {
     if(m_debugSimResult) {
-        std::cout << "OSCILLOSCOPE: pos " << timePos << ", timeScale: " << timeScale << std::endl;
-        std::cout << "OSCILLOSCOPE: VOLTAGE VALUES " << nameId.toStdString() << ": ";
+        DebugDialog::stream() << "OSCILLOSCOPE: pos " << timePos << ", timeScale: " << timeScale;
+        DebugDialog::stream() << "OSCILLOSCOPE: VOLTAGE VALUES " << nameId.toStdString() << ": ";
     }
     QString svg;
 	double screenOffset = 0;//132.87378;
-	//svg += QString("<rect x='%1' y='%1' width='%2' height='%3' stroke='red' stroke-width='%4'/>\n").arg(screenOffset).arg(screenWidth).arg(screenHeight).arg(strokeWidth);
-	if (!nameId.isEmpty())
+    if (!nameId.isEmpty())
 		svg += QString("<path id='%1' d='").arg(nameId);
 	else
 		svg += QString("<path d='");
@@ -818,7 +804,7 @@ QString Simulator::generateSvgPath(std::vector<double> proveVector, std::vector<
 	double nSampleInScreen = (oscEndTime - timePos)/simTimeStep + 1;
 	double horScale = screenWidth/(nSampleInScreen-1);
     if (m_debugSimResult)
-        std::cout << "OSCILLOSCOPE: nSampleInScreen " << nSampleInScreen << std::endl;
+        DebugDialog::stream() << "OSCILLOSCOPE: nSampleInScreen " << nSampleInScreen;
 	int screenPoint = 0;
 	for (int vPoint = 0; vPoint <  points; vPoint++) {
 		if (currTimeStep < vPoint)
@@ -840,7 +826,7 @@ QString Simulator::generateSvgPath(std::vector<double> proveVector, std::vector<
 		} else {
 			svg.append("L " + QString::number(screenPoint*horScale + screenOffset, 'f', 3) + " " + QString::number(vPos, 'f', 3) + " ");
 		}
-		//std::cout <<" ("<< time << "): " << voltage << ' ';
+        //DebugDialog::stream() <<" ("<< time << "): " << voltage << ' ';
 		screenPoint++;
 	}
 	svg += "' transform='translate(%1,%2)' stroke='"+ color + "' stroke-width='"+ strokeWidth + "' fill='none' /> \n"; //
@@ -878,7 +864,7 @@ QChar Simulator::getDeviceType (ItemBase* part) {
 	}
 	QString msg = QString("Error getting the device type. The type is not recognized. Part=%1, Spice line=%2").arg(part->instanceTitle(), part->spice());
 	//TODO: Add tr()
-	std::cout << msg.toStdString() << std::endl;
+    DebugDialog::stream() << msg;
 	throw msg.toStdString();
 	return QChar('0');
 }
@@ -946,7 +932,7 @@ double Simulator::getCurrent(unsigned long timeStep, ItemBase* part, QString sub
 	instanceStr.append(subpartName.toLower());
 
 	QChar deviceType = getDeviceType(part);
-	//std::cout << "deviceType: " << deviceType.toLatin1() <<std::endl;
+    //DebugDialog::stream() << "deviceType: " << deviceType.toLatin1();
 
 	switch (deviceType.toLatin1()) {
 	case 'd':
@@ -1197,7 +1183,7 @@ void Simulator::updateDiode(unsigned long timeStep, ItemBase * diode) {
     double power = abs(voltage)*abs(current);
 
     if(m_debugSimResult) {
-        std::cout << "Diode Power: " << power << std::endl;
+        DebugDialog::stream() << "Diode Power: " << power;
     }
     if (power > maxPower) {
 		drawSmoke(diode);
@@ -1220,8 +1206,8 @@ void Simulator::updateLED(unsigned long timeStep, ItemBase * part) {
 			double curr = getCurrent(timeStep, part);
 			double maxCurr = getMaxPropValue(part, "current");
             if(m_debugSimResult) {
-                std::cout << "LED Current: " <<curr<<std::endl;
-                std::cout << "LED MaxCurrent: " <<maxCurr<<std::endl;
+                DebugDialog::stream() << "LED Current: " << curr;
+                DebugDialog::stream() << "LED MaxCurrent: " << maxCurr;
             }
 
 			LED* bbLed = dynamic_cast<LED *>(m_sch2bbItemHash.value(part));
@@ -1238,8 +1224,8 @@ void Simulator::updateLED(unsigned long timeStep, ItemBase * part) {
 			double curr = std::max({currR, currG, currB});
 			double maxCurr = getMaxPropValue(part, "current");
 
-			std::cout << "LED Current (R, G, B): " << currR << " " << currG << " " << currB <<std::endl;
-			std::cout << "LED MaxCurrent: " << maxCurr << std::endl;
+            DebugDialog::stream() << "LED Current (R, G, B): " << currR << " " << currG << " " << currB ;
+            DebugDialog::stream() << "LED MaxCurrent: " << maxCurr;
 
 			LED* bbLed = dynamic_cast<LED *>(m_sch2bbItemHash.value(part));
 			bbLed->setBrightnessRGB(currR/maxCurr, currG/maxCurr, currB/maxCurr);
@@ -1274,8 +1260,8 @@ void Simulator::updateCapacitor(unsigned long timeStep, ItemBase * part) {
 	double maxV = getMaxPropValue(part, "voltage");
 	double v = calculateVoltage(timeStep, posLeg, negLeg);
     if(m_debugSimResult) {
-        std::cout << "MaxVoltage of the capacitor: " << maxV << std::endl;
-        std::cout << "Capacitor voltage is : " << QString("%1").arg(v).toStdString() << std::endl;
+        DebugDialog::stream() << "MaxVoltage of the capacitor: " << maxV;
+        DebugDialog::stream() << "Capacitor voltage is : " << QString("%1").arg(v).toStdString();
     }
 
 	if (family.contains("bidirectional")) {
@@ -1303,7 +1289,7 @@ void Simulator::updateResistor(unsigned long timeStep, ItemBase * part) {
     double current = getCurrent(timeStep, part);
     double power = resistance * pow(abs(current), 2);
     if(m_debugSimResult) {
-        std::cout << "Power: " << power << std::endl;
+        DebugDialog::stream() << "Power: " << power;
     }
 	if (power > maxPower) {
 		drawSmoke(part);
@@ -1340,8 +1326,8 @@ void Simulator::updateBattery(unsigned long timeStep, ItemBase * part) {
 	double maxCurrent = voltage/resistance * safetyMargin;
 	double current = getCurrent(timeStep, part); //current that the battery delivers
     if(m_debugSimResult) {
-        std::cout << "Battery: voltage=" << voltage << ", resistance=" << resistance  <<std::endl;
-        std::cout << "Battery: MaxCurr=" << maxCurrent << ", Curr=" << current  <<std::endl;
+        DebugDialog::stream() << "Battery: voltage=" << voltage << ", resistance=" << resistance;
+        DebugDialog::stream() << "Battery: MaxCurr=" << maxCurrent << ", Curr=" << current;
     }
 
 	if (abs(current) > maxCurrent) {
@@ -1368,7 +1354,7 @@ void Simulator::updateIRSensor(unsigned long timeStep, ItemBase * part) {
 	double maxV = getMaxPropValue(part, "voltage (max)");
 	double minV = getMaxPropValue(part, "voltage (min)");
 	double maxIout = getMaxPropValue(part, "max output current");
-	std::cout << "IR sensor VCC range: " << maxV << " " << minV << std::endl;
+    DebugDialog::stream() << "IR sensor VCC range: " << maxV << " " << minV;
 	ConnectorItem *gnd(nullptr);
 	ConnectorItem *vcc(nullptr);
 	ConnectorItem *out(nullptr);
@@ -1397,8 +1383,8 @@ void Simulator::updateIRSensor(unsigned long timeStep, ItemBase * part) {
 		//analogue sensor (modelled by a voltage source and a resistor)
 		i = getCurrent(timeStep, part, "a"); //voltage applied to the motor
 	}
-	std::cout << "IR sensor Max Iout: " << maxIout << ", current Iout " << i << std::endl;
-	std::cout << "IR sensor Max V: " << maxV << ", current V " << v << std::endl;
+    DebugDialog::stream() << "IR sensor Max Iout: " << maxIout << ", current Iout " << i;
+    DebugDialog::stream() << "IR sensor Max V: " << maxV << ", current V " << v;
 	if (v > maxV || v < HarmfulNegativeVoltage || abs(i) > maxIout) {
 		drawSmoke(part);
 		return;
@@ -1414,7 +1400,7 @@ void Simulator::updateIRSensor(unsigned long timeStep, ItemBase * part) {
 void Simulator::updateDcMotor(unsigned long timeStep, ItemBase * part) {
 	double maxV = getMaxPropValue(part, "voltage (max)");
 	double minV = getMaxPropValue(part, "voltage (min)");
-	std::cout << "Motor1: " << std::endl;
+    DebugDialog::stream() << "Motor1: ";
 	ConnectorItem *terminal1 = nullptr, *terminal2 = nullptr;
 	QList<ConnectorItem *> probes = part->cachedConnectorItems();
 	foreach(ConnectorItem * ci, probes) {
@@ -1430,7 +1416,7 @@ void Simulator::updateDcMotor(unsigned long timeStep, ItemBase * part) {
 		return;
 	}
 	if (abs(v) >= minV) {
-		std::cout << "motor rotates " << std::endl;
+        DebugDialog::stream() << "motor rotates ";
 		QGraphicsSvgItem * bbRotate;
 		QGraphicsSvgItem * schRotate;
 		QString image;
@@ -1494,44 +1480,44 @@ void Simulator::updateMultimeter(unsigned long timeStep, ItemBase * part) {
 		return;
 
 	if(comProbe->connectedToWires() && vProbe->connectedToWires() && aProbe->connectedToWires()) {
-		std::cout << "Multimeter (v_dc) connected with three terminals. " << std::endl;
+        DebugDialog::stream() << "Multimeter (v_dc) connected with three terminals. ";
 		updateMultimeterScreen(part, "ERR");
 		return;
 	}
 
 	if (variant.compare("voltmeter (dc)") == 0) {
-		std::cout << "Multimeter (v_dc) found. " << std::endl;
+        DebugDialog::stream() << "Multimeter (v_dc) found. ";
 		if(aProbe->connectedToWires()) {
-			std::cout << "Multimeter (v_dc) has the current terminal connected. " << std::endl;
+            DebugDialog::stream() << "Multimeter (v_dc) has the current terminal connected. ";
 			updateMultimeterScreen(part, "ERR");
 			return;
 		}
 		if(comProbe->connectedToWires() && vProbe->connectedToWires()) {
-			std::cout << "Multimeter (v_dc) connected with two terminals. " << std::endl;
+            DebugDialog::stream() << "Multimeter (v_dc) connected with two terminals. ";
             double v = calculateVoltage(timeStep, vProbe, comProbe);
             updateMultimeterScreen(part, create7SegmentNumber(v));
 		}
 		return;
 	} else if (variant.compare("ammeter (dc)") == 0) {
-		std::cout << "Multimeter (c_dc) found. " << std::endl;
+        DebugDialog::stream() << "Multimeter (c_dc) found. ";
 		if(vProbe->connectedToWires()) {
-			std::cout << "Multimeter (c_dc) has the voltage terminal connected. " << std::endl;
+            DebugDialog::stream() << "Multimeter (c_dc) has the voltage terminal connected. ";
 			updateMultimeterScreen(part, "ERR");
 			return;
 		}
         updateMultimeterScreen(part, create7SegmentNumber(getCurrent(timeStep, part)));
 		return;
 	} else if (variant.compare("ohmmeter") == 0) {
-		std::cout << "Ohmmeter found. " << std::endl;
+        DebugDialog::stream() << "Ohmmeter found. ";
 		if(aProbe->connectedToWires()) {
-			std::cout << "Ohmmeter has the current terminal connected. " << std::endl;
+            DebugDialog::stream() << "Ohmmeter has the current terminal connected. ";
 			updateMultimeterScreen(part, "ERR");
 			return;
 		}
 		double v = calculateVoltage(timeStep, vProbe, comProbe);
 		double a = getCurrent(timeStep, part);
 		double r = abs(v/a);
-        std::cout << "Ohmmeter: Volt: " << v <<", Curr: " << a <<", Ohm: " << r << std::endl;
+        DebugDialog::stream() << "Ohmmeter: Volt: " << v <<", Curr: " << a <<", Ohm: " << r;
         updateMultimeterScreen(part, create7SegmentNumber(r));
 		return;
 	}
@@ -1556,7 +1542,7 @@ void Simulator::updateOscilloscope(unsigned long timeStep, ItemBase * part) {
 		return;
 
 	if(!v1Probe->connectedToWires() && !v2Probe->connectedToWires() && !v3Probe->connectedToWires() && !v4Probe->connectedToWires()) {
-		std::cout << "Oscilloscope does not have any wire connected to the probe terminals. " << std::endl;
+        DebugDialog::stream() << "Oscilloscope does not have any wire connected to the probe terminals. ";
 		return;
 	}
 	ConnectorItem * probesArray[4] = {v1Probe, v2Probe, v3Probe, v4Probe};
@@ -1733,12 +1719,10 @@ void Simulator::updateOscilloscope(unsigned long timeStep, ItemBase * part) {
 	QSvgRenderer *schGraphRender = new QSvgRenderer(schSvg.toUtf8());
 	QSvgRenderer *bbGraphRender = new QSvgRenderer(bbSvg.toUtf8());
     if(!schGraphRender->isValid())
-		std::cout << "SCH SVG Graph is NOT VALID \n" << std::endl;
-	//std::cout << "SCH SVG: " << schSvg.toStdString() << std::endl;
+        DebugDialog::stream() << "SCH SVG Graph is NOT VALID \n";
 
     if(!bbGraphRender->isValid())
-		std::cout << "BB SVG Graph is NOT VALID\n" << std::endl;
-	//std::cout << "BB SVG: " << bbSvg.toStdString() << std::endl;
+        DebugDialog::stream() << "BB SVG Graph is NOT VALID\n";
 
 	schGraph->setSharedRenderer(schGraphRender);
 	schGraph->setZValue(std::numeric_limits<double>::max());
