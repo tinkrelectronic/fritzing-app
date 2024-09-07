@@ -79,6 +79,13 @@ public:
 			return *this;
 		}
 
+		DebugStream& operator<<(std::ostream& (*manip)(std::ostream&)) {
+			if (manip == static_cast<std::ostream& (*)(std::ostream&)>(std::endl)) {
+				m_buffer += "\n";
+			}
+			return *this;
+		}
+
 	private:
 		QString m_buffer;
 		DebugDialog::DebugLevel m_level;
