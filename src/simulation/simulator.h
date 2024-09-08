@@ -44,7 +44,7 @@ public:
 private:
 	void resetTimer();
 
-    void showSimulatorError(QWidget *parent, const QString &errorHint, const QString &spiceNetlist, const std::shared_ptr<NgSpiceSimulator>& simulator);
+	void showSimulatorError(QWidget *parent, const QString &errorHint, const QString &spiceNetlist, const std::shared_ptr<NgSpiceSimulator>& simulator);
 public slots:
 	void enable(bool);
 	void enableTransientSimulation(bool);
@@ -61,8 +61,8 @@ protected:
 	void updateParts(QSet<ItemBase *>, int);
 	void drawSmoke(ItemBase* part);
 	void updateMultimeterScreen(ItemBase *, QString);
-    void updateLabPowerSupplyScreen(ItemBase *, double, double);
-    QString create7SegmentNumber(double);
+	void updateLabPowerSupplyScreen(ItemBase *, double, double);
+	QString create7SegmentNumber(double);
 	void removeSimItems();
 	void removeSimItems(QList<QGraphicsItem *>);
 	void greyOutNonSimParts(const QSet<class ItemBase *>&);
@@ -101,17 +101,17 @@ protected:
 
 	bool m_enabled = false;
 	bool m_transientSimulationEnabled = false;
-    bool m_debugSimResult = false;
+	bool m_debugSimResult = false;
 
 	QSet<ItemBase *> itemBases;
 	QHash<ItemBase *, ItemBase *> m_sch2bbItemHash;
 	QHash<ConnectorItem *, int> m_connector2netHash;
 
 	QTimer *m_simTimer, *m_showResultsTimer;
-    unsigned long m_currSimStep, m_previousRenderedStep;
-    double m_showResultsTimerInterval;
-    QElapsedTimer m_elapsedAnimationTimer;
-    QElapsedTimer m_elapsedSimTotalTimer;
+	unsigned long m_currSimStep, m_previousRenderedStep;
+	double m_showResultsTimerInterval;
+	QElapsedTimer m_elapsedAnimationTimer;
+	QElapsedTimer m_elapsedSimTotalTimer;
 
 	static constexpr int SimDelay = 200;
 	static constexpr double HarmfulNegativeVoltage = -0.5;

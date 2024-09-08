@@ -253,7 +253,7 @@ public:
 	double retrieveZoom();
 	void initGrid();
 	virtual double defaultGridSizeInches();
-    void setSimulatorMessage(QString);
+	void setSimulatorMessage(QString);
 	void clearPasteOffset();
 	virtual ViewLayer::ViewLayerPlacement defaultViewLayerPlacement(ModelPart *);
 	void collectAllNets(
