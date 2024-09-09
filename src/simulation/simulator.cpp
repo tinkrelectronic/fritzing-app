@@ -273,7 +273,7 @@ void Simulator::simulate() {
 	m_simulator->command("reset");
 	m_simulator->clearLog();
 	DebugDialog::stream() << "Loading codemodel analog.cm, which should be in the CWD:";
-	m_simulator->command("codemodel ./lib/analog.cm");
+	m_simulator->command("codemodel ./lib/ngspice/analog.cm");
 	DebugDialog::stream() << "-----------------------------------";
 	DebugDialog::stream() << "Running LoadNetlist:";
 
