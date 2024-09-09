@@ -57,48 +57,51 @@ std::shared_ptr<NgSpiceSimulator> NgSpiceSimulator::getInstance() {
 NgSpiceSimulator::~NgSpiceSimulator() {
 }
 
-void NgSpiceSimulator::init() {
-	if (m_isInitialized) return;
+void NgSpiceSimulator::init()
+{
+	if (m_isInitialized)
+		return;
 
 	m_library.setFileName("ngspice");
 	m_library.load();
 
-	QStringList libPaths = QStringList({ QCoreApplication::applicationDirPath()
-			})
-			// TODO Not sure if we can place the library there on macOS
-			+ QStandardPaths::standardLocations(QStandardPaths::AppLocalDataLocation);
+	QStringList libPaths = QCoreApplication::libraryPaths();
+	if (DebugDialog::enabled()) {
+		DebugDialog::debug("Searching for ngspice in the following directories:");
+		for (const auto& path : libPaths) {
+			DebugDialog::debug("  " + path);
+		}
+	}
 
-	if( !m_library.isLoaded() ) {         // fallback custom paths
-	#ifdef Q_OS_LINUX
+	if (!m_library.isLoaded()) {
+#ifdef Q_OS_LINUX
 		const QString libName = "libngspice.so";
-	#elif defined Q_OS_MACOS
+#elif defined Q_OS_MACOS
 		const QString libName = "libngspice.0.dylib";
-	#elif defined Q_OS_WIN
+#elif defined Q_OS_WIN
 		const QString libName = "ngspice.dll";
-	#endif
-		DebugDialog::debug("Couldn't load ngspice " + m_library.errorString());
-		for( const auto& path : libPaths ) {
-			QFileInfo library(QString(path + "/" + libName));
-			DebugDialog::debug("Try path " + library.absoluteFilePath());
-			if(!library.canonicalFilePath().isEmpty()) {
+#endif
+
+		for (const auto& path : libPaths) {
+			QFileInfo library(path + "/" + libName);
+			if (!library.canonicalFilePath().isEmpty()) {
 				m_library.setFileName(library.canonicalFilePath());
 				m_library.load();
-				if( m_library.isLoaded() ) {		
+				if (m_library.isLoaded()) {
 					break;
-				} else {
-					DebugDialog::debug("Couldn't load ngspice " + m_library.errorString());
-					throw std::runtime_error( "Error loading ngspice shared library" );			
 				}
 			}
 		}
 	}
 
 	if (!m_library.isLoaded()) {
-		DebugDialog::debug("Could not find ngspice.");
-		return;
+		throw std::runtime_error("Error loading ngspice shared library: "
+								 + m_library.errorString().toStdString());
 	}
-	DebugDialog::debug("Loaded ngspice " + m_library.fileName());
 
+	if (DebugDialog::enabled()) {
+		DebugDialog::debug("Loaded ngspice: " + m_library.fileName());
+	}
 
 	setErrorTitle(std::nullopt);
 
@@ -106,6 +109,7 @@ void NgSpiceSimulator::init() {
 	for (auto & symbol: symbols) {
 		m_handles[symbol] = (void *) m_library.resolve(symbol.c_str());
 	}
+
 	std::string previousLocale = setlocale(LC_NUMERIC, nullptr);
 	setlocale(LC_NUMERIC, "C");
 	GET_FUNC(ngSpice_Init)(&SendCharFunc, &SendStatFunc, &ControlledExitFunc, nullptr, nullptr, &BGThreadRunningFunc, nullptr);
@@ -114,6 +118,7 @@ void NgSpiceSimulator::init() {
 	m_isBGThreadRunning = true;
 	m_isInitialized = true;
 }
+
 
 void NgSpiceSimulator::resetIsBGThreadRunning() {
 	m_isBGThreadRunning = true;
