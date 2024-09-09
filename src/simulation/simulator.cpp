@@ -272,11 +272,11 @@ void Simulator::simulate() {
 	DebugDialog::stream() << "Running m_simulator->command('reset'):";
 	m_simulator->command("reset");
 	m_simulator->clearLog();
-	DebugDialog::stream() << "Loading codemodel analog.cm, which should be in the CWD:";
-	m_simulator->command("codemodel ./lib/ngspice/analog.cm");
+	// DebugDialog::stream() << "Loading codemodel analog.cm, which should be in the CWD:";
+	// m_simulator->command("codemodel ./usr/lib/ngspice/analog.cm");
+
 	DebugDialog::stream() << "-----------------------------------";
 	DebugDialog::stream() << "Running LoadNetlist:";
-
 	m_simulator->loadCircuit(spiceNetlist.toStdString());
 
 	if (QString::fromStdString(m_simulator->getLog(false)).toLower().contains("error") || // "error on line"

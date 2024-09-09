@@ -62,18 +62,15 @@ void NgSpiceSimulator::init()
 	if (m_isInitialized)
 		return;
 
-	m_library.setFileName("ngspice");
-	m_library.load();
-
-	QStringList libPaths = QCoreApplication::libraryPaths();
-	if (DebugDialog::enabled()) {
-		DebugDialog::debug("Searching for ngspice in the following directories:");
-		for (const auto& path : libPaths) {
-			DebugDialog::debug("  " + path);
-		}
-	}
-
+	QString ngspiceDir("invalid");
 	if (!m_library.isLoaded()) {
+		QStringList libPaths = QCoreApplication::libraryPaths();
+		if (DebugDialog::enabled()) {
+			DebugDialog::debug("Searching for ngspice in the following directories:");
+			for (const auto& path : libPaths) {
+				DebugDialog::debug("  " + path);
+			}
+		}
 #ifdef Q_OS_LINUX
 		const QString libName = "libngspice.so";
 #elif defined Q_OS_MACOS
@@ -81,26 +78,26 @@ void NgSpiceSimulator::init()
 #elif defined Q_OS_WIN
 		const QString libName = "ngspice.dll";
 #endif
-
 		for (const auto& path : libPaths) {
 			QFileInfo library(path + "/" + libName);
 			if (!library.canonicalFilePath().isEmpty()) {
 				m_library.setFileName(library.canonicalFilePath());
 				m_library.load();
 				if (m_library.isLoaded()) {
+					ngspiceDir = library.absolutePath();
 					break;
 				}
 			}
 		}
-	}
-
-	if (!m_library.isLoaded()) {
-		throw std::runtime_error("Error loading ngspice shared library: "
-								 + m_library.errorString().toStdString());
-	}
-
-	if (DebugDialog::enabled()) {
-		DebugDialog::debug("Loaded ngspice: " + m_library.fileName());
+		if (!m_library.isLoaded()) {
+			DebugDialog::debug("Error loading ngspice shared library: " + m_library.errorString());
+			throw std::runtime_error("Error loading ngspice shared library: "
+									 + m_library.errorString().toStdString());
+		}
+	} else {
+		QFileInfo loadedLibrary(m_library.fileName());
+		ngspiceDir = loadedLibrary.absolutePath();
+		DebugDialog::debug("ngspice already loaded: " + loadedLibrary.absoluteFilePath());
 	}
 
 	setErrorTitle(std::nullopt);
@@ -117,6 +114,15 @@ void NgSpiceSimulator::init()
 
 	m_isBGThreadRunning = true;
 	m_isInitialized = true;
+
+	QString analogCmPath = ngspiceDir + "/ngspice/analog.cm";
+	if (QFileInfo::exists(analogCmPath)) {
+		DebugDialog::stream() << "Loading codemodel analog.cm from: " << analogCmPath;
+		command("codemodel " + analogCmPath.toStdString());
+	} else {
+		DebugDialog::stream() << "Warning: analog.cm not found at " << analogCmPath;
+	}
+
 }
 
 
@@ -147,12 +153,12 @@ void NgSpiceSimulator::loadCircuit(const std::string& netList) {
 }
 
 void NgSpiceSimulator::command(const std::string& command) {
-	if (!m_isInitialized) {
-		init();
-	}
-	if (!m_isInitialized) {
-		return;
-	}
+	// if (!m_isInitialized) {
+	// 	init();
+	// }
+	// if (!m_isInitialized) {
+	// 	return;
+	// }
 	m_isInitialized = !errorOccured();
 	if (!m_isInitialized) {
 		init();
