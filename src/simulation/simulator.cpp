@@ -1282,14 +1282,25 @@ void Simulator::updateCapacitor(unsigned long timeStep, ItemBase * part) {
  * @param[in] part A resistor that is going to be checked and updated.
  */
 void Simulator::updateResistor(unsigned long timeStep, ItemBase * part) {
-	//It is better to calculate the power using the current
-	//getPower uses the vector @rx[p], which may not be defined
 	double maxPower = getMaxPropValue(part, "power");
-	double resistance = getMaxPropValue(part, "resistance");
 	double current = getCurrent(timeStep, part);
-	double power = resistance * pow(abs(current), 2);
+
+	// Get the voltage across the resistor
+	ConnectorItem *terminal1 = nullptr, *terminal2 = nullptr;
+	QList<ConnectorItem *> terminals = part->cachedConnectorItems();
+	foreach(ConnectorItem * ci, terminals) {
+		if(ci->connectorSharedName().toLower().compare("pin 0") == 0) terminal1 = ci;
+		if(ci->connectorSharedName().toLower().compare("pin 1") == 0) terminal2 = ci;
+	}
+	if(!terminal1 || !terminal2) return;
+
+	double voltage = calculateVoltage(timeStep, terminal1, terminal2);
+
+	// Calculate power using voltage and current
+	double power = abs(voltage * current);
+
 	if(m_debugSimResult) {
-		DebugDialog::stream() << "Power: " << power;
+		DebugDialog::stream() << "Resistor Power: " << power;
 	}
 	if (power > maxPower) {
 		drawSmoke(part);
