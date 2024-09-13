@@ -1307,7 +1307,7 @@ void Simulator::updatePotentiometer(unsigned long timeStep, ItemBase * part) {
 	double maxPower = getMaxPropValue(part, "power");
 	double currentA = getCurrent(timeStep, part, "A"); //power through resistor A
 	double currentB = getCurrent(timeStep, part, "B"); //power through resistor B
-	double resistance = getMaxPropValue(part, "resistance");
+	double resistance = getMaxPropValue(part, "maximum resistance");
 	double knobStatus = getMaxPropValue(part, "knob status");
 	double power = resistance*knobStatus/100*pow(abs(currentA),2) + resistance*(100-knobStatus)/100*pow(abs(currentB),2);
 	if (power > maxPower) {
