@@ -29,6 +29,8 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 #include <QCoreApplication>
 #include <QStandardPaths>
 #include <QFileInfo>
+#include <QDir>
+
 #include "debugdialog.h"
 
 // Macro for serializing variable/function name into a string.
@@ -65,6 +67,19 @@ void NgSpiceSimulator::init()
 	QString ngspiceDir("invalid");
 	if (!m_library.isLoaded()) {
 		QStringList libPaths = QCoreApplication::libraryPaths();
+
+#ifdef Q_OS_LINUX
+		QString appDir = QCoreApplication::applicationDirPath();
+
+		if (appDir.endsWith("/usr/bin")) {
+			QString libPath = appDir.left(appDir.length() - 4) + "/lib";
+			if (QDir(libPath).exists()) {
+				libPaths.prepend(libPath);
+			}
+		}
+#endif // Q_OS_LINUX
+
+
 		if (DebugDialog::enabled()) {
 			DebugDialog::debug("Searching for ngspice in the following directories:");
 			for (const auto& path : libPaths) {
