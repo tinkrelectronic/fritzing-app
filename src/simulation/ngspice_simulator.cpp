@@ -40,7 +40,15 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 #define GET_FUNC(func) std::function<decltype(func)>((decltype(func)*) m_handles[STRFY(func)])
 
 // Macro for getting pointer to duplicated string for use in ngspice library function and automatically deleting the duplicate after the function call via unique_ptr.
-#define UNIQ(str) std::unique_ptr<char>(strdup(str.c_str())).get()
+#include <memory>
+#include <string>
+#include <cstring>
+
+#define UNIQ(str) ([&]() {\
+	auto ptr = std::make_unique<char[]>(str.size() + 1);\
+	std::strcpy(ptr.get(), str.c_str());\
+	return ptr.release();\
+})()
 
 NgSpiceSimulator::NgSpiceSimulator()
 	: m_isInitialized(false)
@@ -153,19 +161,25 @@ void NgSpiceSimulator::loadCircuit(const std::string& netList) {
 	std::stringstream stream(netList);
 	std::string component;
 	std::vector<char *> components;
-	std::vector<std::any> garbageCollector;
+	std::vector<std::shared_ptr<char>> garbageCollector;
 
 	while(std::getline(stream, component)) {
-		std::shared_ptr<char> shared(strdup(component.c_str()));
+		auto shared = std::shared_ptr<char>(new char[component.size() + 1],
+											std::default_delete<char[]>());
+		std::strncpy(shared.get(), component.c_str(), component.size());
+		shared.get()[component.size()] = '\0';  // Ensure null termination
 		components.push_back(shared.get());
 		garbageCollector.push_back(shared);
 	}
 	components.push_back(nullptr);
+
 	std::string previousLocale = setlocale(LC_NUMERIC, nullptr);
 	setlocale(LC_NUMERIC, "C");
 	GET_FUNC(ngSpice_Circ)(components.data());
 	setlocale(LC_NUMERIC, previousLocale.c_str());
 }
+
+
 
 void NgSpiceSimulator::command(const std::string& command) {
 	// if (!m_isInitialized) {
