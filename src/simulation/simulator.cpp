@@ -962,6 +962,9 @@ double Simulator::getCurrent(unsigned long timeStep, ItemBase* part, QString sub
 	case 'b': //Nonlinear dependent source (Behavioral Sources) (ASRC)
 	case 'i': //Current source
 	case 'v': //voltage sources
+		if (deviceType != instanceStr.at(0)) {
+			instanceStr.prepend(QString(deviceType));
+		}
 		//This is safer than using device parameters [i], see https://sourceforge.net/p/ngspice/discussion/120973/thread/44c8e256c2/
 		instanceStr.append("#branch");
 		break;
