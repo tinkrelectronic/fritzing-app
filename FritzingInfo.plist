@@ -27,9 +27,9 @@ You should have received a copy of the GNU General Public License
         <key>CFBundleExecutable</key>
         <string>Fritzing</string>
         <key>CFBundleGetInfoString</key>
-		<string>Fritzing 1.0.3</string>
+		<string>Fritzing 1.0.4</string>
         <key>CFBundleShortVersionString</key>
-		<string>1.0.3</string>
+		<string>1.0.4</string>
         <key>CFBundleVersion</key>
 		<string>104347</string>
         <key>CFBundleIconFile</key>
@@ -41,6 +41,8 @@ You should have received a copy of the GNU General Public License
         <key>CFBundleSignature</key>
         <string>FRtz</string>
         <key>CFBundleDocumentTypes</key>
+        <key>LSMinimumSystemVersion</key>
+        <string>11.0</string>
         <array>
             <dict>
                 <key>CFBundleTypeExtensions</key>
