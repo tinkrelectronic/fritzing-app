@@ -1868,7 +1868,7 @@ Wire * PCBSketchWidget::createTempWireForDragging(Wire * fromWire, ModelPart * w
 	}
 	else {
 		wire->setColorString(fromWire->colorString(), fromWire->opacity(), false);
-		wire->setWireWidth(fromWire->width(), this, fromWire->hoverStrokeWidth());
+		wire->setWireWidth(fromWire->width(), this, getWireStrokeWidth(wire, fromWire->width()));
 	}
 
 	return wire;
