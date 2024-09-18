@@ -1989,7 +1989,9 @@ ConnectorItem * ConnectorItem::findConnectorUnder(bool useTerminalPoint, bool al
 		if (!this->connectionIsAllowed(connectorItemUnder)) {
 			continue;
 		}
-		if (connectorItemUnder->attachedToItemType() == ModelPart::Wire && connectorItemUnder->connectedToItems().size() > 0) {
+		if (
+			this->attachedToItemType() != ModelPart::Wire && // still allow wires to connect to bendpoints / big dots
+			connectorItemUnder->attachedToItemType() == ModelPart::Wire && connectorItemUnder->connectedToItems().size() > 0) {
 			continue;
 		}
 		if (!allowAlready) {
