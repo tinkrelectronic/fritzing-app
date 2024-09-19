@@ -40,8 +40,8 @@ void VirtualWire::setWireWidth(double width,
 							   InfoGraphicsView *infoGraphicsView,
 							   double hoverStrokeWidth)
 {
-	m_wireWidth = width * 15;
-	Wire::setWireWidth(width * 15, infoGraphicsView, hoverStrokeWidth * 2);
+	m_wireWidth = width;
+	Wire::setWireWidth(m_wireWidth, infoGraphicsView, hoverStrokeWidth);
 }
 
 void VirtualWire::paint (QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget ) {
@@ -49,8 +49,9 @@ void VirtualWire::paint (QPainter * painter, const QStyleOptionGraphicsItem * op
 
 	// m_hoverCount = m_connectorHoverCount = 0;			// kills any highlighting
 	qreal currentScale = painter->worldTransform().m11();
-	m_adjustedHoverStrokeWidth = m_hoverStrokeWidth / currentScale;
-	m_adjustedWidth = m_wireWidth / currentScale;
+	double minScale = qMax(currentScale, 6.0);
+	m_adjustedHoverStrokeWidth = m_hoverStrokeWidth / minScale;
+	m_adjustedWidth = m_wireWidth / minScale;
 	m_pen.setWidthF(m_adjustedWidth);
 	Wire::paint(painter, option, widget);
 }

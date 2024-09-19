@@ -2232,19 +2232,19 @@ SketchWidget {
 PCBSketchWidget {
 	qproperty-gridColor: rgba(150,200,250,20);
 	qproperty-ratsnestOpacity: 1.0;
-	qproperty-ratsnestWidth: 0.5;
+	qproperty-ratsnestWidth: 3.5;
 }
 
 BreadboardSketchWidget {
 	qproperty-gridColor: rgba(0,50,100,20);
 	qproperty-ratsnestOpacity: 1.0;
-	qproperty-ratsnestWidth: 1.0;
+	qproperty-ratsnestWidth: 5.0;
 }
 
 SchematicSketchWidget {
 	qproperty-gridColor: rgba(0,50,100,20);
 	qproperty-ratsnestOpacity: 1.0;
-	qproperty-ratsnestWidth: 0.5;
+	qproperty-ratsnestWidth: 2.5;
 }
 
 
