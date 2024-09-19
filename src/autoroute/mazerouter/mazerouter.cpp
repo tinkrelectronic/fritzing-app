@@ -3058,7 +3058,7 @@ void MazeRouter::optimizeTraces(QList<int> & order, QMultiHash<int, QList< QPoin
 					if (bundle.count() == 0) continue;
 					if (ViewLayer::specFromID(bundle.at(0)->viewLayerID()) != layerSpec) continue;
 
-					pen.setWidthF((bundle.at(0)->width() + m_keepoutPixels + m_keepoutPixels) * OptimizeFactor);
+					pen.setWidthF((bundle.at(0)->wireWidth() + m_keepoutPixels + m_keepoutPixels) * OptimizeFactor);
 					painter.setPen(pen);
 					Q_FOREACH (TraceWire * traceWire, bundle) {
 						if (traceWire == nullptr) continue;
@@ -3181,7 +3181,7 @@ void MazeRouter::reducePoints(QList<QPointF> & points, QPointF topLeft, QList<Tr
 #ifndef QT_NO_DEBUG
 	//int inc = 0;
 #endif
-	double width = bundle.at(0)->width() * OptimizeFactor;
+	double width = bundle.at(0)->wireWidth() * OptimizeFactor;
 	for (int separation = endIndex - startIndex; separation > 1; separation--) {
 		for (int ix = 0; ix < points.count() - separation; ix++) {
 			QPointF p1 = (points.at(ix) - topLeft) * OptimizeFactor;

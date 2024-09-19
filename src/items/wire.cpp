@@ -1219,7 +1219,7 @@ void Wire::setWireWidth(double width, InfoGraphicsView * infoGraphicsView, doubl
 	update();
 }
 
-double Wire::width() {
+double Wire::wireWidth() {
 	return m_pen.widthF();
 }
 

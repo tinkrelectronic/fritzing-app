@@ -1293,7 +1293,7 @@ void CleanUpWiresCommand::addTrace(SketchWidget * sketchWidget, Wire * wire)
 	m_sketchWidgets.insert(sketchWidget);
 
 	addSubCommand(new WireColorChangeCommand(sketchWidget, wire->id(), wire->colorString(), wire->colorString(), wire->opacity(), wire->opacity(), nullptr));
-	addSubCommand(new WireWidthChangeCommand(sketchWidget, wire->id(), wire->width(), wire->width(), nullptr));
+	addSubCommand(new WireWidthChangeCommand(sketchWidget, wire->id(), wire->wireWidth(), wire->wireWidth(), nullptr));
 
 	Q_FOREACH (ConnectorItem * toConnectorItem, wire->connector0()->connectedToItems()) {
 		addSubCommand(new ChangeConnectionCommand(sketchWidget, BaseCommand::CrossView, toConnectorItem->attachedToID(), toConnectorItem->connectorSharedID(),

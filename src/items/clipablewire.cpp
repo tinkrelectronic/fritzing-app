@@ -451,7 +451,7 @@ bool ClipableWire::insideSpoke(ClipableWire * wire, QPointF scenePos)
 {
 	QLineF l = wire->line();
 	QLineF normal = l.normalVector();
-	normal.setLength(wire->width() / 2.0);
+	normal.setLength(wire->wireWidth() / 2.0);
 	double parallelogram[4][2];
 	parallelogram[0][XCOORD] = normal.p2().x();
 	parallelogram[0][YCOORD] = normal.p2().y();

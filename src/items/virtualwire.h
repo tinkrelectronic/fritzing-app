@@ -37,7 +37,7 @@ public:
 	void setColorWasNamed(bool);
 	bool colorWasNamed();
 	virtual QPainterPath shape() const;
-	virtual double width();
+	virtual double wireWidth();
 
 protected:
 	void paint (QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget );

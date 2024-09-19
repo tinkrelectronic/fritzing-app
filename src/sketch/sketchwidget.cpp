@@ -3900,7 +3900,7 @@ void SketchWidget::dragWireChanged(Wire* wire, ConnectorItem * fromOnWire, Conne
 	}
 	else {
 		new WireColorChangeCommand(this, wire->id(), m_bendpointWire->colorString(), m_bendpointWire->colorString(), m_bendpointWire->opacity(), m_bendpointWire->opacity(), parentCommand);
-		new WireWidthChangeCommand(this, wire->id(), m_bendpointWire->width(), m_bendpointWire->width(), parentCommand);
+		new WireWidthChangeCommand(this, wire->id(), m_bendpointWire->wireWidth(), m_bendpointWire->wireWidth(), parentCommand);
 		if (m_bendpointWire->banded()) {
 			new SetPropCommand(this, wire->id(), "banded", "Yes", "Yes", true, parentCommand);
 		}
@@ -5348,7 +5348,7 @@ void SketchWidget::prepDeleteProps(ItemBase * itemBase, long id, const QString &
 	case ModelPart::Wire:
 	{
 		Wire * wire = qobject_cast<Wire *>(itemBase);
-		new WireWidthChangeCommand(this, id, wire->width(), wire->width(), parentCommand);
+		new WireWidthChangeCommand(this, id, wire->wireWidth(), wire->wireWidth(), parentCommand);
 		new WireColorChangeCommand(this, id, wire->colorString(), wire->colorString(), wire->opacity(), wire->opacity(), parentCommand);
 	}
 	return;
@@ -5724,7 +5724,7 @@ void SketchWidget::wireSplitSlot(Wire* wire, QPointF newPos, QPointF oldPos, con
 	new AddItemCommand(this, crossView, ModuleIDNames::WireModuleIDName, wire->viewLayerPlacement(), vg, newID, true, -1, parentCommand);
 	new CheckStickyCommand(this, crossView, newID, false, CheckStickyCommand::RemoveOnly, parentCommand);
 	new WireColorChangeCommand(this, newID, wire->colorString(), wire->colorString(), wire->opacity(), wire->opacity(), parentCommand);
-	new WireWidthChangeCommand(this, newID, wire->width(), wire->width(), parentCommand);
+	new WireWidthChangeCommand(this, newID, wire->wireWidth(), wire->wireWidth(), parentCommand);
 	if (wire->banded()) {
 		new SetPropCommand(this, newID, "banded", "Yes", "Yes", true, parentCommand);
 	}
@@ -6744,7 +6744,7 @@ void SketchWidget::changeWireWidthMils(const QString newWidthStr)
 			new WireWidthChangeCommand(
 			    this,
 			    subWire->id(),
-			    subWire->width(),
+			    subWire->wireWidth(),
 			    trueWidth,
 			    parentCommand);
 		}
@@ -7668,13 +7668,13 @@ QString SketchWidget::makeWireSVG(Wire * wire, QPointF offset, double dpi, doubl
 
 		if (wire->banded()) {
 			dashed = true;
-			shadow += makeWireSVGAux(wire, wire->width(), "white", offset, dpi, printerScale, blackOnly, false);
+			shadow += makeWireSVGAux(wire, wire->wireWidth(), "white", offset, dpi, printerScale, blackOnly, false);
 		}
 	}
 
 
 
-	return shadow + makeWireSVGAux(wire, wire->width(), wire->hexString(), offset, dpi, printerScale, blackOnly, dashed);
+	return shadow + makeWireSVGAux(wire, wire->wireWidth(), wire->hexString(), offset, dpi, printerScale, blackOnly, dashed);
 }
 
 QString SketchWidget::makeWireSVGAux(Wire * wire, double width, const QString & color, QPointF offset, double dpi, double printerScale, bool blackOnly, bool dashed)
@@ -9200,7 +9200,7 @@ Wire * SketchWidget::createTempWireForDragging(Wire * fromWire, ModelPart * wire
 	}
 	Wire * wire = qobject_cast<Wire *>(addItemAuxTemp(wireModel, spec, viewGeometry, ItemBase::getNextID(), true, m_viewID, true));
 	if (fromWire) {
-		wire->setWireWidth(fromWire->width(), this, fromWire->width() + 4.0);
+		wire->setWireWidth(fromWire->wireWidth(), this, fromWire->wireWidth() + 4.0);
 	}
 	return wire;
 }

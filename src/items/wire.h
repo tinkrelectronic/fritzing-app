@@ -114,7 +114,7 @@ public:
 	const QColor & color();
 	virtual void setWireWidth(double width, InfoGraphicsView *, double hoverStrokeWidth);
 	void setPenWidth(double width, InfoGraphicsView *, double hoverStrokeWidth);
-	virtual double width();
+	virtual double wireWidth();
 	double shadowWidth();
 	double mils();
 	void setExtras(QDomElement &, InfoGraphicsView *);

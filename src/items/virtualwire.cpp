@@ -56,7 +56,7 @@ void VirtualWire::paint (QPainter * painter, const QStyleOptionGraphicsItem * op
 	Wire::paint(painter, option, widget);
 }
 
-double VirtualWire::width()
+double VirtualWire::wireWidth()
 {
 	return m_wireWidth;
 }
