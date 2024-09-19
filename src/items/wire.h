@@ -112,9 +112,9 @@ public:
 	double opacity();
 	void setOpacity(double opacity);
 	const QColor & color();
-	void setWireWidth(double width, InfoGraphicsView *, double hoverStrokeWidth);
+	virtual void setWireWidth(double width, InfoGraphicsView *, double hoverStrokeWidth);
 	void setPenWidth(double width, InfoGraphicsView *, double hoverStrokeWidth);
-	double width();
+	virtual double width();
 	double shadowWidth();
 	double mils();
 	void setExtras(QDomElement &, InfoGraphicsView *);

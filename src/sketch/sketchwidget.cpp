@@ -9193,11 +9193,16 @@ void SketchWidget::setItemDropOffsetForCommand(long id, QPointF offset)
 
 Wire * SketchWidget::createTempWireForDragging(Wire * fromWire, ModelPart * wireModel, ConnectorItem * connectorItem, ViewGeometry & viewGeometry, ViewLayer::ViewLayerPlacement spec)
 {
-	Q_UNUSED(fromWire);
+	// Q_UNUSED(fromWire);
+
 	if (spec == ViewLayer::UnknownPlacement) {
 		spec = wireViewLayerPlacement(connectorItem);
 	}
-	return qobject_cast<Wire *>(addItemAuxTemp(wireModel, spec, viewGeometry, ItemBase::getNextID(), true, m_viewID, true));
+	Wire * wire = qobject_cast<Wire *>(addItemAuxTemp(wireModel, spec, viewGeometry, ItemBase::getNextID(), true, m_viewID, true));
+	if (fromWire) {
+		wire->setWireWidth(fromWire->width(), this, fromWire->width() + 4.0);
+	}
+	return wire;
 }
 
 void SketchWidget::prereleaseTempWireForDragging(Wire*)

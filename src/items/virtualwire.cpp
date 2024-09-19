@@ -36,11 +36,66 @@ VirtualWire::VirtualWire( ModelPart * modelPart, ViewLayer::ViewID viewID,  cons
 VirtualWire::~VirtualWire() {
 }
 
+void VirtualWire::setWireWidth(double width,
+							   InfoGraphicsView *infoGraphicsView,
+							   double hoverStrokeWidth)
+{
+	m_wireWidth = width * 15;
+	Wire::setWireWidth(width * 15, infoGraphicsView, hoverStrokeWidth * 2);
+}
+
 void VirtualWire::paint (QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget ) {
 	if (m_hidden) return;
 
-	m_hoverCount = m_connectorHoverCount = 0;			// kills any highlighting
+	// m_hoverCount = m_connectorHoverCount = 0;			// kills any highlighting
+	qreal currentScale = painter->worldTransform().m11();
+	m_adjustedHoverStrokeWidth = m_hoverStrokeWidth / currentScale;
+	m_adjustedWidth = m_wireWidth / currentScale;
+	m_pen.setWidthF(m_adjustedWidth);
 	Wire::paint(painter, option, widget);
+}
+
+double VirtualWire::width()
+{
+	return m_wireWidth;
+}
+
+void VirtualWire::paintHover(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+{
+	Q_UNUSED(widget);
+	Q_UNUSED(option);
+	// qreal currentScale = painter->worldTransform().m11();
+	// m_adjustedHoverStrokeWidth = m_hoverStrokeWidth / currentScale;
+
+	painter->save();
+	if ((m_connectorHoverCount > 0 && !(m_dragEnd || m_dragCurve)) || m_connectorHoverCount2 > 0) {
+		painter->setOpacity(.50);
+		painter->fillPath(this->shape(), QBrush(ConnectorHoverColor));
+	}
+	else {
+		painter->setOpacity(HoverOpacity);
+		painter->fillPath(this->shape(), QBrush(HoverColor));
+	}
+	painter->restore();
+}
+
+QPainterPath VirtualWire::shape() const
+{
+	QPainterPath path;
+	// if (m_squashShape) return path;
+	if (m_line == QLineF()) {
+		return path;
+	}
+
+	path.moveTo(m_line.p1());
+	path.lineTo(m_line.p2());
+
+	QPainterPathStroker ps(m_pen);
+	ps.setWidth(m_adjustedHoverStrokeWidth);
+	ps.setDashPattern(Qt::SolidLine);
+
+	QPainterPath p = ps.createStroke(path);
+	return p;
 }
 
 void VirtualWire::connectionChange(ConnectorItem * onMe, ConnectorItem * onIt, bool connect) {
@@ -121,7 +176,3 @@ bool VirtualWire::colorWasNamed() {
 	return m_colorWasNamed;
 }
 
-QPainterPath VirtualWire::shape() const
-{
-	return shapeAux(m_hoverStrokeWidth);
-}

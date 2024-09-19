@@ -36,10 +36,13 @@ public:
 	void tempRemoveAllConnections();
 	void setColorWasNamed(bool);
 	bool colorWasNamed();
-	QPainterPath shape() const;
+	virtual QPainterPath shape() const;
+	virtual double width();
 
 protected:
 	void paint (QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget );
+	void paintHover(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
+
 	void mousePressEvent(QGraphicsSceneMouseEvent *event);
 	void connectionChange(ConnectorItem * onMe, ConnectorItem * onIt, bool connect);
 	class FSvgRenderer * setUpConnectors(class ModelPart *, ViewLayer::ViewID);
@@ -49,9 +52,15 @@ protected:
 public:
 	static const double ShapeWidthExtra;
 
+	virtual void setWireWidth(double width, InfoGraphicsView *infoGraphicsView, double hoverStrokeWidth);
+
 protected:
 	bool m_colorWasNamed;
 
+private:
+	double m_adjustedHoverStrokeWidth;
+	double m_wireWidth;
+	qreal m_adjustedWidth;
 };
 
 #endif
