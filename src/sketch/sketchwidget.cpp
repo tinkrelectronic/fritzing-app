@@ -3089,7 +3089,7 @@ QString SketchWidget::makeMoveSVG(double printerScale, double dpi, QPointF & off
 	Q_FOREACH (ItemBase * itemBase, m_savedItems.values()) {
 		Wire * wire = qobject_cast<Wire *>(itemBase);
 		if (wire) {
-			outputSVG.append(makeWireSVG(wire, offset, dpi, printerScale, true));
+			outputSVG.append(wire->makeWireSVG(offset, dpi, printerScale, true));
 		}
 		else {
 			outputSVG.append(TextUtils::makeRectSVG(itemBase->sceneBoundingRect(), offset, dpi, printerScale));
@@ -7633,7 +7633,7 @@ QString SketchWidget::renderToSVG(RenderThing & renderThing, QList<QGraphicsItem
 			//		);
 			//}
 
-			QString wireSvg = makeWireSVG(wire, offset, renderThing.dpi, renderThing.printerScale, renderThing.blackOnly);
+			QString wireSvg = wire->makeWireSVG(offset, renderThing.dpi, renderThing.printerScale, renderThing.blackOnly);
 			wireSvg = QString("<g partID='%1'>%2</g>").arg(wire->id()).arg(wireSvg);
 			outputSVG.append(wireSvg);
 			renderThing.empty = false;
@@ -7658,39 +7658,6 @@ void SketchWidget::extraRenderSvgStep(ItemBase * itemBase, QPointF offset, doubl
 	Q_UNUSED(printerScale);
 	Q_UNUSED(outputSvg);
 }
-
-QString SketchWidget::makeWireSVG(Wire * wire, QPointF offset, double dpi, double printerScale, bool blackOnly)
-{
-	QString shadow;
-	bool dashed = false;
-	if (wire->hasShadow()) {
-		shadow = makeWireSVGAux(wire, wire->shadowWidth(), wire->shadowHexString(), offset, dpi, printerScale, blackOnly, false);
-
-		if (wire->banded()) {
-			dashed = true;
-			shadow += makeWireSVGAux(wire, wire->wireWidth(), "white", offset, dpi, printerScale, blackOnly, false);
-		}
-	}
-
-
-
-	return shadow + makeWireSVGAux(wire, wire->wireWidth(), wire->hexString(), offset, dpi, printerScale, blackOnly, dashed);
-}
-
-QString SketchWidget::makeWireSVGAux(Wire * wire, double width, const QString & color, QPointF offset, double dpi, double printerScale, bool blackOnly, bool dashed)
-{
-	if (wire->isCurved()) {
-		QPolygonF poly = wire->sceneCurve(offset);
-		return TextUtils::makeCubicBezierSVG(poly, width, color, dpi, printerScale, blackOnly, dashed, Wire::TheDash);
-	}
-	else {
-		QLineF line = wire->getPaintLine();
-		QPointF p1 = wire->scenePos() + line.p1() - offset;
-		QPointF p2 = wire->scenePos() + line.p2() - offset;
-		return TextUtils::makeLineSVG(p1, p2, width, color, dpi, printerScale, blackOnly, dashed, Wire::TheDash);
-	}
-}
-
 
 void SketchWidget::drawBackground( QPainter * painter, const QRectF & rect )
 {
@@ -9193,8 +9160,6 @@ void SketchWidget::setItemDropOffsetForCommand(long id, QPointF offset)
 
 Wire * SketchWidget::createTempWireForDragging(Wire * fromWire, ModelPart * wireModel, ConnectorItem * connectorItem, ViewGeometry & viewGeometry, ViewLayer::ViewLayerPlacement spec)
 {
-	// Q_UNUSED(fromWire);
-
 	if (spec == ViewLayer::UnknownPlacement) {
 		spec = wireViewLayerPlacement(connectorItem);
 	}

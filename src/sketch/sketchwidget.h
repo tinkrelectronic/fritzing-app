@@ -460,8 +460,6 @@ protected:
 	void copyDrop();
 	void dropItemEvent(QDropEvent *event);
 	virtual QString checkDroppedModuleID(const QString & moduleID);
-	QString makeWireSVG(Wire * wire, QPointF offset, double dpi, double printerscale, bool blackOnly);
-	QString makeWireSVGAux(Wire * wire, double width, const QString & color, QPointF offset, double dpi, double printerScale, bool blackOnly, bool dashed);
 
 	QString makeMoveSVG(double printerScale, double dpi, QPointF & offset);
 	void prepDeleteProps(ItemBase * itemBase, long id, const QString & newModuleID, QMap<QString, QString> & propsMap, QUndoCommand * parentCommand);

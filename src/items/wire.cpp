@@ -75,6 +75,7 @@ later:
 #include "../utils/ratsnestcolors.h"
 #include "../layerattributes.h"
 #include "utils/misc.h"
+#include "utils/textutils.h"
 #include "testing/FTesting.h"
 
 #include <stdlib.h>
@@ -365,6 +366,45 @@ void Wire::paintHover(QPainter *painter, const QStyleOptionGraphicsItem *option,
 		painter->fillPath(this->hoverShape(), QBrush(HoverColor));
 	}
 	painter->restore();
+}
+
+QString Wire::makeWireSVG(QPointF offset, double dpi, double printerScale, bool blackOnly)
+{
+	return makeWireSVGAux(offset, dpi, printerScale, blackOnly, 1.0);
+}
+
+QString Wire::makeWireSVGAux(QPointF offset, double dpi, double printerScale, bool blackOnly, double scale)
+{
+	QString result;
+	bool dashed = false;
+	double wireWidth = this->wireWidth() * scale;
+	double shadowWidth = this->shadowWidth() * scale;
+
+	if (hasShadow()) {
+		result += makeWireSVGLine(shadowWidth, shadowHexString(), offset, dpi, printerScale, blackOnly, false);
+
+		if (banded()) {
+			dashed = true;
+			result += makeWireSVGLine(wireWidth, "white", offset, dpi, printerScale, blackOnly, false);
+		}
+	}
+
+	result += makeWireSVGLine(wireWidth, hexString(), offset, dpi, printerScale, blackOnly, dashed);
+	return result;
+}
+
+QString Wire::makeWireSVGLine(double width, const QString & color, QPointF offset, double dpi, double printerScale, bool blackOnly, bool dashed)
+{
+	if (isCurved()) {
+		QPolygonF poly = sceneCurve(offset);
+		return TextUtils::makeCubicBezierSVG(poly, width, color, dpi, printerScale, blackOnly, dashed, Wire::TheDash);
+	}
+	else {
+		QLineF line = getPaintLine();
+		QPointF p1 = scenePos() + line.p1() - offset;
+		QPointF p2 = scenePos() + line.p2() - offset;
+		return TextUtils::makeLineSVG(p1, p2, width, color, dpi, printerScale, blackOnly, dashed, Wire::TheDash);
+	}
 }
 
 QPainterPath Wire::hoverShape() const

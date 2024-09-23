@@ -38,6 +38,7 @@ public:
 	bool colorWasNamed();
 	virtual QPainterPath shape() const;
 	virtual double wireWidth();
+	virtual QString makeWireSVG(QPointF offset, double dpi, double printerScale, bool blackOnly);
 
 protected:
 	void paint (QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget );

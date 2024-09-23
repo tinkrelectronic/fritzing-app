@@ -47,13 +47,17 @@ void VirtualWire::setWireWidth(double width,
 void VirtualWire::paint (QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget ) {
 	if (m_hidden) return;
 
-	// m_hoverCount = m_connectorHoverCount = 0;			// kills any highlighting
 	qreal currentScale = painter->worldTransform().m11();
 	double minScale = qMax(currentScale, 6.0);
 	m_adjustedHoverStrokeWidth = m_hoverStrokeWidth / minScale;
 	m_adjustedWidth = m_wireWidth / minScale;
 	m_pen.setWidthF(m_adjustedWidth);
 	Wire::paint(painter, option, widget);
+}
+
+QString VirtualWire::makeWireSVG(QPointF offset, double dpi, double printerScale, bool blackOnly)
+{
+	return makeWireSVGAux(offset, dpi, printerScale, blackOnly, 0.1);
 }
 
 double VirtualWire::wireWidth()
