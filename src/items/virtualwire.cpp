@@ -69,18 +69,11 @@ void VirtualWire::paintHover(QPainter *painter, const QStyleOptionGraphicsItem *
 {
 	Q_UNUSED(widget);
 	Q_UNUSED(option);
-	// qreal currentScale = painter->worldTransform().m11();
-	// m_adjustedHoverStrokeWidth = m_hoverStrokeWidth / currentScale;
 
 	painter->save();
-	if ((m_connectorHoverCount > 0 && !(m_dragEnd || m_dragCurve)) || m_connectorHoverCount2 > 0) {
-		painter->setOpacity(.50);
-		painter->fillPath(this->shape(), QBrush(ConnectorHoverColor));
-	}
-	else {
-		painter->setOpacity(HoverOpacity);
-		painter->fillPath(this->shape(), QBrush(HoverColor));
-	}
+	painter->setOpacity(HoverOpacity);
+	painter->fillPath(this->shape(), QBrush(HoverColor));
+
 	painter->restore();
 }
 
