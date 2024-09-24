@@ -22,7 +22,7 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 #include "../connectors/connectoritem.h"
 #include "../model/modelpart.h"
 
-const double VirtualWire::ShapeWidthExtra = 4;
+ const double VirtualWire::ShapeWidthExtra = 3.0;
 
 VirtualWire::VirtualWire( ModelPart * modelPart, ViewLayer::ViewID viewID,  const ViewGeometry & viewGeometry, long id, QMenu * itemMenu  )
 	: ClipableWire(modelPart, viewID,  viewGeometry,  id, itemMenu, false)
