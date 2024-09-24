@@ -170,8 +170,13 @@ void FileProgressDialog::loadingInstancesSlot(class ModelBase *, QDomElement & i
 
 	int count = instances.childNodes().count();
 
-	// * 3 comes from: once for model part load, once for list view, once for icon view
-	m_binLoadingInc = m_binLoadingChunk / (double) (m_binLoadingCount * 3 * count);
+	if (count == 0) {
+		// Set a small increment to show some progress
+		m_binLoadingInc = m_binLoadingChunk / (double) (m_binLoadingCount * 3);
+	} else {
+		// Original calculation
+		m_binLoadingInc = m_binLoadingChunk / (double) (m_binLoadingCount * 3 * count);
+	}
 }
 
 void FileProgressDialog::loadingInstanceSlot(class ModelBase *, QDomElement & instance)
