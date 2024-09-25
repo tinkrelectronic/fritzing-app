@@ -383,17 +383,17 @@
     <message>
         <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="716"/>
         <source>Confirmation</source>
-        <translation type="unfinished"></translation>
+        <translation>Bestätigung</translation>
     </message>
     <message>
         <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="717"/>
         <source>The &apos;Contributed Parts&apos; bin has been replaced with &apos;My Parts&apos; since Fritzing 0.7.12.</source>
-        <translation type="unfinished"></translation>
+        <translation>Der &apos;Contributed Parts&apos;-Behälter wurde seit Fritzing 0.7.12 durch &apos;Meine Teile&apos; ersetzt.</translation>
     </message>
     <message>
         <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="718"/>
         <source>Would you like Fritzing to move the parts over?</source>
-        <translation type="unfinished"></translation>
+        <translation>Möchtest du, dass Fritzing die Bauteile verschiebt?</translation>
     </message>
     <message>
         <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="938"/>
@@ -1318,7 +1318,7 @@ Hintergrund: Grün = ok, Rot = falscher Wert, Grau = aktueller Wert</translation
     <message>
         <location filename="../src/utils/fmessagebox.cpp" line="95"/>
         <source>Copy to Clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>In die Zwischenablage kopieren</translation>
     </message>
 </context>
 <context>
@@ -1331,23 +1331,23 @@ Hintergrund: Grün = ok, Rot = falscher Wert, Grau = aktueller Wert</translation
     <message>
         <location filename="../src/dialogs/fabuploaddialog.ui" line="69"/>
         <source>Get your board fabricated effortlessly!</source>
-        <translation type="unfinished"></translation>
+        <translation>Lassen Sie Ihre Platine fertigen!</translation>
     </message>
     <message>
         <location filename="../src/dialogs/fabuploaddialog.ui" line="105"/>
         <source>Upload your design now to see a preview. Review it, and once satisfied, proceed to order for manufacturing.</source>
-        <translation type="unfinished"></translation>
+        <translation>Lade dein Design jetzt hoch, um eine Vorschau zu sehen. Überprüfe es, und wenn du zufrieden bist, fahre mit der Bestellung zur Herstellung fort.</translation>
     </message>
     <message>
         <location filename="../src/dialogs/fabuploaddialog.ui" line="146"/>
         <source>Checking for fab...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Auf Fabriksuche...</translation>
     </message>
     <message>
         <location filename="../src/dialogs/fabuploaddialog.ui" line="205"/>
         <location filename="../src/dialogs/fabuploaddialog.ui" line="372"/>
         <source>&amp;Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Abbrechen</translation>
     </message>
     <message>
         <location filename="../src/dialogs/fabuploaddialog.ui" line="237"/>
@@ -1377,12 +1377,12 @@ Hintergrund: Grün = ok, Rot = falscher Wert, Grau = aktueller Wert</translation
     <message>
         <location filename="../src/dialogs/fabuploaddialog.cpp" line="161"/>
         <source>Fritzing</source>
-        <translation type="unfinished">Fritzing</translation>
+        <translation>Fritzing</translation>
     </message>
     <message>
         <location filename="../src/dialogs/fabuploaddialog.cpp" line="161"/>
         <source>Error: </source>
-        <translation type="unfinished"></translation>
+        <translation>Fehler: </translation>
     </message>
 </context>
 <context>
@@ -1936,12 +1936,12 @@ Du kannst auch per rechten Mausklick einen Verbinder als &quot;Saat&quot; für d
     <message>
         <location filename="../src/utils/folderutils.cpp" line="776"/>
         <source>Move Your Custom Parts</source>
-        <translation type="unfinished"></translation>
+        <translation>Verschiebe deine benutzerdefinierten Bauteile</translation>
     </message>
     <message>
         <location filename="../src/utils/folderutils.cpp" line="777"/>
         <source>&lt;p&gt;Please move your custom-made parts and bins from the old location:&lt;br/&gt;&lt;br/&gt;&lt;em&gt;%1&lt;/em&gt;&lt;br/&gt;&lt;br/&gt;to the new Fritzing documents folder at:&lt;br/&gt;&lt;br/&gt;&lt;em&gt;%2&lt;/em&gt;&lt;br/&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Bitte verschiebe deine selbst erstellten Bauteile und Behälter vom alten Speicherort:&lt;br/&gt;&lt;br/&gt;&lt;em&gt;%1&lt;/em&gt;&lt;br/&gt;&lt;br/&gt;in den neuen Fritzing-Dokumenten-Ordner unter:&lt;br/&gt;&lt;br/&gt;&lt;em&gt;%2&lt;/em&gt;&lt;br/&gt;&lt;br/&gt;</translation>
     </message>
 </context>
 <context>
@@ -2018,7 +2018,7 @@ Du kannst auch per rechten Mausklick einen Verbinder als &quot;Saat&quot; für d
     <message>
         <location filename="../src/items/logoitem.cpp" line="467"/>
         <source>failed to convert image format</source>
-        <translation type="unfinished"></translation>
+        <translation>Fehler beim Konvertieren des Bildformats</translation>
     </message>
 </context>
 <context>
@@ -2252,12 +2252,12 @@ Du kannst auch per rechten Mausklick einen Verbinder als &quot;Saat&quot; für d
     <message>
         <location filename="../src/mainwindow/mainwindow.cpp" line="1107"/>
         <source>Normal Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Normaler Modus</translation>
     </message>
     <message>
         <location filename="../src/mainwindow/mainwindow.cpp" line="1108"/>
         <source>Transient Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Transienter Modus</translation>
     </message>
     <message>
         <location filename="../src/mainwindow/mainwindow.cpp" line="1129"/>
@@ -2267,12 +2267,12 @@ Du kannst auch per rechten Mausklick einen Verbinder als &quot;Saat&quot; für d
     <message>
         <location filename="../src/mainwindow/mainwindow.cpp" line="1143"/>
         <source>Simulation Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Simulationsmodus</translation>
     </message>
     <message>
         <location filename="../src/mainwindow/mainwindow.cpp" line="1144"/>
         <source>Transient simulation mode is a beta feature.</source>
-        <translation type="unfinished"></translation>
+        <translation>Der transiente Simulationsmodus ist eine Betafunktion.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow/mainwindow.cpp" line="1577"/>
@@ -2601,12 +2601,12 @@ Du kannst auch per rechten Mausklick einen Verbinder als &quot;Saat&quot; für d
     <message>
         <location filename="../src/mainwindow/mainwindow_export.cpp" line="779"/>
         <source>File is not writable</source>
-        <translation type="unfinished"></translation>
+        <translation>Datei ist nicht schreibbar</translation>
     </message>
     <message>
         <location filename="../src/mainwindow/mainwindow_export.cpp" line="971"/>
         <source>Unable to export %1 as shareable. Save failed. Please check if home and save dir are writeable and not full. </source>
-        <translation type="unfinished"></translation>
+        <translation>%1 konnte nicht zum Teilen exportiert werden. Speichern fehlgeschlagen. Bitte überprüfe, ob das Home- und das Speicherverzeichnis schreibbar und nicht voll sind. </translation>
     </message>
     <message>
         <location filename="../src/mainwindow/mainwindow_export.cpp" line="984"/>
@@ -3305,27 +3305,27 @@ Du kannst auch per rechten Mausklick einen Verbinder als &quot;Saat&quot; für d
     <message>
         <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2877"/>
         <source>Choose Ground Fill Seed(s)...</source>
-        <translation>Saat für Massefüllung wählen...</translation>
+        <translation>Starter für Massefüllung wählen...</translation>
     </message>
     <message>
         <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2881"/>
         <source>Set Ground Fill Seed</source>
-        <translation>Als Saat für Massefüllung setzen</translation>
+        <translation>Als Start für Massefüllung setzen</translation>
     </message>
     <message>
         <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2882"/>
         <source>Treat this connector and its connections as a &apos;ground&apos; during ground fill.</source>
-        <translation>Diesen Verbinder und seine Verbindungen als &quot;Masse&quot; bei der Massefüllung belegen.</translation>
+        <translation>Diesen Stecker und seine Verbindungen bei der Massefüllung als &quot;Masse&quot; behandeln.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2886"/>
         <source>Clear Ground Fill Seeds</source>
-        <translation>Massefüllung-Saat zurücksetzen</translation>
+        <translation>Startpunkte der Massefüllung zurücksetzen</translation>
     </message>
     <message>
         <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2887"/>
         <source>Clear ground fill seeds--enable copper fill only.</source>
-        <translation>Saat für Massefüllung zurücksetzen und normale Kupferfüllung aktivieren.</translation>
+        <translation>Startpunkte für Massefüllung zurücksetzen und normale Kupferfüllung aktivieren.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2890"/>
@@ -3340,7 +3340,7 @@ Du kannst auch per rechten Mausklick einen Verbinder als &quot;Saat&quot; für d
     <message>
         <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2894"/>
         <source>Design Rules Check (DRC)</source>
-        <translation>Entwurfsregelprüfung (DRC)</translation>
+        <translation>Prüfung der Designregeln (DRC)</translation>
     </message>
     <message>
         <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2895"/>
