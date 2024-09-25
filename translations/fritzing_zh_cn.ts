@@ -129,7 +129,7 @@
     <message>
         <location filename="../src/help/aboutbox.cpp" line="100"/>
         <source>Jenny Chowdhury, Lionel Michel, Fabian Althaus, Jannis Leidel, </source>
-        <translation type="unfinished"></translation>
+        <translation>Jenny Chowdhury, Lionel Michel, Fabian Althaus, Jannis Leidel, </translation>
     </message>
     <message>
         <location filename="../src/help/aboutbox.cpp" line="115"/>
@@ -139,42 +139,42 @@
     <message>
         <location filename="../src/help/aboutbox.cpp" line="130"/>
         <source>Spanish: </source>
-        <translation type="unfinished"></translation>
+        <translation>西班牙语： </translation>
     </message>
     <message>
         <location filename="../src/help/aboutbox.cpp" line="123"/>
         <source>Italian: </source>
-        <translation type="unfinished"></translation>
+        <translation>意大利语： </translation>
     </message>
     <message>
         <location filename="../src/help/aboutbox.cpp" line="126"/>
         <source>Portuguese (European): </source>
-        <translation type="unfinished"></translation>
+        <translation>葡萄牙语（欧洲）： </translation>
     </message>
     <message>
         <location filename="../src/help/aboutbox.cpp" line="127"/>
         <source>Portuguese (Brazilian): </source>
-        <translation type="unfinished"></translation>
+        <translation>葡萄牙语（巴西）： </translation>
     </message>
     <message>
         <location filename="../src/help/aboutbox.cpp" line="117"/>
         <source>Chinese (Simplified): </source>
-        <translation type="unfinished"></translation>
+        <translation>中文（简体）： </translation>
     </message>
     <message>
         <location filename="../src/help/aboutbox.cpp" line="124"/>
         <source>Japanese: </source>
-        <translation type="unfinished"></translation>
+        <translation>日语 </translation>
     </message>
     <message>
         <location filename="../src/help/aboutbox.cpp" line="128"/>
         <source>Russian: </source>
-        <translation type="unfinished"></translation>
+        <translation>俄语： </translation>
     </message>
     <message>
         <location filename="../src/help/aboutbox.cpp" line="120"/>
         <source>Dutch: </source>
-        <translation type="unfinished"></translation>
+        <translation>荷兰语： </translation>
     </message>
     <message>
         <location filename="../src/help/aboutbox.cpp" line="119"/>
