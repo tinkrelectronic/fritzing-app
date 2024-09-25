@@ -254,12 +254,12 @@
     <message>
         <location filename="../src/help/aboutbox.cpp" line="101"/>
         <source>Bryant Mairs, Uleshka Asher, Daniel Tzschentke, and Kjell Morgenstern</source>
-        <translation type="unfinished"></translation>
+        <translation>Bryant Mairs, Uleshka Asher, Daniel Tzschentke, and Kjell Morgenstern</translation>
     </message>
     <message>
         <location filename="../src/help/aboutbox.cpp" line="105"/>
         <source>Special thanks go out to: </source>
-        <translation type="unfinished"></translation>
+        <translation>特别感谢： </translation>
     </message>
     <message>
         <location filename="../src/help/aboutbox.cpp" line="146"/>
@@ -274,7 +274,7 @@
     <message>
         <location filename="../src/help/aboutbox.cpp" line="124"/>
         <source>, Siti Aishah Abdul Raouf</source>
-        <translation type="unfinished"></translation>
+        <translation>, Siti Aishah Abdul Raouf</translation>
     </message>
 </context>
 <context>
