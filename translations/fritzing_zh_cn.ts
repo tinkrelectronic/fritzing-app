@@ -244,12 +244,12 @@
     <message>
         <location filename="../src/help/aboutbox.cpp" line="132"/>
         <source>Ukrainian: </source>
-        <translation type="unfinished"></translation>
+        <translation>乌克兰语： </translation>
     </message>
     <message>
         <location filename="../src/help/aboutbox.cpp" line="132"/>
         <source>Yelyzaveta Chyhryna</source>
-        <translation type="unfinished"></translation>
+        <translation>Yelyzaveta Chyhryna</translation>
     </message>
     <message>
         <location filename="../src/help/aboutbox.cpp" line="101"/>
