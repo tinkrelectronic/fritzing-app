@@ -214,27 +214,27 @@
     <message>
         <location filename="../src/help/aboutbox.cpp" line="117"/>
         <source>Yuelin and Ninjia</source>
-        <translation type="unfinished"></translation>
+        <translation>Yuelin和Ninjia</translation>
     </message>
     <message>
         <location filename="../src/help/aboutbox.cpp" line="118"/>
         <source>Chinese (Traditional): </source>
-        <translation type="unfinished"></translation>
+        <translation>中文（简体）： </translation>
     </message>
     <message>
         <location filename="../src/help/aboutbox.cpp" line="118"/>
         <source>Robert Lee</source>
-        <translation type="unfinished"></translation>
+        <translation>Robert Lee</translation>
     </message>
     <message>
         <location filename="../src/help/aboutbox.cpp" line="124"/>
         <source>Hiroshi Suzuki</source>
-        <translation type="unfinished"></translation>
+        <translation>Hiroshi Suzuki</translation>
     </message>
     <message>
         <location filename="../src/help/aboutbox.cpp" line="125"/>
         <source>Jinbuhm Kim</source>
-        <translation type="unfinished"></translation>
+        <translation>Jinbuhm Kim</translation>
     </message>
     <message>
         <location filename="../src/help/aboutbox.cpp" line="67"/>
