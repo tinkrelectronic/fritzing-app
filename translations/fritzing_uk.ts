@@ -4,333 +4,269 @@
 <context>
     <name>AboutBox</name>
     <message>
-        <source>&lt;a href=&quot;http://www.fritzing.org&quot;&gt;www.fritzing.org&lt;/a&gt;</source>
-        <translation type="obsolete">&lt;a href=&quot;http://www.fritzing.org&quot;&gt;www.fritzing.org&lt;/a&gt;</translation>
-    </message>
-    <message>
-        <location filename="../src/help/aboutbox.cpp" line="202"/>
+        <location filename="../src/help/aboutbox.cpp" line="203"/>
         <source>&lt;b&gt;GNU GPL v3 on the code and CreativeCommons:BY-SA on the rest</source>
         <translation>&lt;b&gt;GNU GPL v3 на код та CreativeCommons:BY-SA на решту</translation>
     </message>
     <message>
-        <source>&lt;b&gt;2007-%1 Fritzing&lt;/b&gt;</source>
-        <translation type="vanished">&lt;b&gt;2007-%1 Fritzing&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <location filename="../src/help/aboutbox.cpp" line="94"/>
+        <location filename="../src/help/aboutbox.cpp" line="95"/>
         <source>Fritzing is made by: </source>
         <translation>Fritzing створено: </translation>
     </message>
     <message>
-        <location filename="../src/help/aboutbox.cpp" line="95"/>
+        <location filename="../src/help/aboutbox.cpp" line="96"/>
         <source>Prof. Reto Wettach, Andr&amp;eacute; Kn&amp;ouml;rig, Myriel Milicevic, </source>
         <translation>професором Reto Wettach, Andr&amp;eacute; Kn&amp;ouml;rig, Myriel Milicevic, </translation>
     </message>
     <message>
-        <location filename="../src/help/aboutbox.cpp" line="96"/>
+        <location filename="../src/help/aboutbox.cpp" line="97"/>
         <source>Zach Eveland, Dirk van Oosterbosch, </source>
         <translation>Zach Eveland, Dirk van Oosterbosch, </translation>
     </message>
     <message>
-        <location filename="../src/help/aboutbox.cpp" line="97"/>
+        <location filename="../src/help/aboutbox.cpp" line="98"/>
         <source>Jonathan Cohen, Marcus Paeschke, Omer Yosha, </source>
         <translation>Jonathan Cohen, Marcus Paeschke, Omer Yosha, </translation>
     </message>
     <message>
-        <location filename="../src/help/aboutbox.cpp" line="98"/>
+        <location filename="../src/help/aboutbox.cpp" line="99"/>
         <source>Travis Robertson, Stefan Hermann, Brendan Howell, </source>
         <translation>Travis Robertson, Stefan Hermann, Brendan Howell, </translation>
     </message>
     <message>
-        <location filename="../src/help/aboutbox.cpp" line="99"/>
+        <location filename="../src/help/aboutbox.cpp" line="100"/>
         <source>Mariano Crowe, Johannes Landstorfer, </source>
         <translation>Mariano Crowe, Johannes Landstorfer, </translation>
     </message>
     <message>
-        <location filename="../src/help/aboutbox.cpp" line="100"/>
+        <location filename="../src/help/aboutbox.cpp" line="101"/>
         <source>Jenny Chowdhury, Lionel Michel, Fabian Althaus, Jannis Leidel, </source>
         <translation>Jenny Chowdhury, Lionel Michel, Fabian Althaus, Jannis Leidel, </translation>
     </message>
     <message>
-        <source>Bryant Mairs, Uleshka Asher, and Daniel Tzschentke. </source>
-        <translation type="obsolete">Bryant Mairs, Uleshka Asher, and Daniel Tzschentke. </translation>
-    </message>
-    <message>
-        <source>Special thanks goes out to: </source>
-        <translation type="vanished">Особлива подяка: </translation>
-    </message>
-    <message>
-        <location filename="../src/help/aboutbox.cpp" line="106"/>
+        <location filename="../src/help/aboutbox.cpp" line="107"/>
         <source>Jussi &amp;Auml;ngeslev&amp;auml;, Massimo Banzi, Ayah Bdeir, </source>
         <translation>Jussi &amp;Auml;ngeslev&amp;auml;, Massimo Banzi, Ayah Bdeir, </translation>
     </message>
     <message>
-        <location filename="../src/help/aboutbox.cpp" line="107"/>
+        <location filename="../src/help/aboutbox.cpp" line="108"/>
         <source>Durrell Bishop, David Cuartielles, Fabian Hemmert, </source>
         <translation>Durrell Bishop, David Cuartielles, Fabian Hemmert, </translation>
     </message>
     <message>
-        <location filename="../src/help/aboutbox.cpp" line="108"/>
+        <location filename="../src/help/aboutbox.cpp" line="109"/>
         <source>Gero Herkenrath, Jeff Hoefs, Tom Hulbert, </source>
         <translation>Gero Herkenrath, Jeff Hoefs, Tom Hulbert, </translation>
     </message>
     <message>
-        <location filename="../src/help/aboutbox.cpp" line="109"/>
+        <location filename="../src/help/aboutbox.cpp" line="110"/>
         <source>Tom Igoe, Hans-Peter Kadel, Till Savelkoul, </source>
         <translation>Tom Igoe, Hans-Peter Kadel, Till Savelkoul, </translation>
     </message>
     <message>
-        <location filename="../src/help/aboutbox.cpp" line="110"/>
+        <location filename="../src/help/aboutbox.cpp" line="111"/>
         <source>Jan Sieber, Yaniv Steiner, Olaf Val, </source>
         <translation>Jan Sieber, Yaniv Steiner, Olaf Val, </translation>
     </message>
     <message>
-        <location filename="../src/help/aboutbox.cpp" line="111"/>
+        <location filename="../src/help/aboutbox.cpp" line="112"/>
         <source>Michaela Vieser and Julia Werner.</source>
         <translation>Michaela Vieser та Julia Werner.</translation>
     </message>
     <message>
-        <location filename="../src/help/aboutbox.cpp" line="115"/>
+        <location filename="../src/help/aboutbox.cpp" line="116"/>
         <source>Thanks for the translations go out to: </source>
         <translation>Подяка за переклад: </translation>
     </message>
     <message>
-        <location filename="../src/help/aboutbox.cpp" line="117"/>
+        <location filename="../src/help/aboutbox.cpp" line="118"/>
         <source>Yuelin and Ninjia</source>
         <translation>Yuelin and Ninjia</translation>
     </message>
     <message>
-        <location filename="../src/help/aboutbox.cpp" line="118"/>
+        <location filename="../src/help/aboutbox.cpp" line="119"/>
         <source>Chinese (Traditional): </source>
         <translation>Китайська (традиційна): </translation>
     </message>
     <message>
-        <location filename="../src/help/aboutbox.cpp" line="118"/>
+        <location filename="../src/help/aboutbox.cpp" line="119"/>
         <source>Robert Lee</source>
         <translation>Robert Lee</translation>
     </message>
     <message>
-        <location filename="../src/help/aboutbox.cpp" line="124"/>
+        <location filename="../src/help/aboutbox.cpp" line="125"/>
         <source>Hiroshi Suzuki</source>
         <translation>Hiroshi Suzuki</translation>
     </message>
     <message>
-        <location filename="../src/help/aboutbox.cpp" line="124"/>
+        <location filename="../src/help/aboutbox.cpp" line="125"/>
         <source>, Siti Aishah Abdul Raouf</source>
         <translation>, Сіті Айша Абдул Рауф</translation>
     </message>
     <message>
-        <location filename="../src/help/aboutbox.cpp" line="125"/>
+        <location filename="../src/help/aboutbox.cpp" line="126"/>
         <source>Jinbuhm Kim</source>
         <translation>Jinbuhm Kim</translation>
     </message>
     <message>
-        <location filename="../src/help/aboutbox.cpp" line="130"/>
+        <location filename="../src/help/aboutbox.cpp" line="131"/>
         <source>Spanish: </source>
         <translation>Іспанська: </translation>
     </message>
     <message>
-        <location filename="../src/help/aboutbox.cpp" line="137"/>
+        <location filename="../src/help/aboutbox.cpp" line="138"/>
         <source>Fritzing is made possible with funding from the MWFK Brandenburg, the sponsorship of the Design Department of Bauhaus-University Weimar, IxDS, an anonymous donor, Parallax, Picaxe, Sparkfun, from the PCB Fab AISLER, and each paid download.</source>
         <translation>Fritzing став можливим завдяки фінансуванню MWFK Brandenburg, спонсорській підтримці кафедри дизайну Веймарського університету Баугауз, IxDS, анонімного донора, Parallax, Picaxe, Sparkfun, від PCB Fab AISLER та кожному платному завантаженню.</translation>
     </message>
     <message>
-        <location filename="../src/help/aboutbox.cpp" line="146"/>
+        <location filename="../src/help/aboutbox.cpp" line="147"/>
         <source>Special thanks go out to all the students and alpha testers who were brave enough to give Fritzing a test spin.</source>
         <translation>Особлива подяка всім студентам та альфа-тестувальникам, які мали сміливість випробувати Fritzing.</translation>
     </message>
     <message>
-        <location filename="../src/help/aboutbox.cpp" line="150"/>
+        <location filename="../src/help/aboutbox.cpp" line="151"/>
         <source>LGPLv3</source>
         <translation>LGPLv3</translation>
     </message>
     <message>
-        <location filename="../src/help/aboutbox.cpp" line="151"/>
+        <location filename="../src/help/aboutbox.cpp" line="152"/>
         <source>GPLv2 with linking exception</source>
         <translation>GPLv2 with linking exception</translation>
     </message>
     <message>
-        <location filename="../src/help/aboutbox.cpp" line="152"/>
+        <location filename="../src/help/aboutbox.cpp" line="153"/>
         <source>Boost License 1.0</source>
         <translation>Boost License 1.0</translation>
     </message>
     <message>
-        <location filename="../src/help/aboutbox.cpp" line="153"/>
+        <location filename="../src/help/aboutbox.cpp" line="154"/>
         <source>Modified BSD License</source>
         <translation>Modified BSD License</translation>
     </message>
     <message>
-        <location filename="../src/help/aboutbox.cpp" line="154"/>
+        <location filename="../src/help/aboutbox.cpp" line="155"/>
         <source>BSD License</source>
         <translation>BSD License</translation>
     </message>
     <message>
-        <location filename="../src/help/aboutbox.cpp" line="155"/>
+        <location filename="../src/help/aboutbox.cpp" line="156"/>
         <source>PNG Reference Library License version 2</source>
         <translation>PNG Reference Library License version 2</translation>
     </message>
     <message>
-        <location filename="../src/help/aboutbox.cpp" line="156"/>
+        <location filename="../src/help/aboutbox.cpp" line="157"/>
         <source>Dual OpenSSL and SSLeay License</source>
         <translation>Dual OpenSSL and SSLeay License</translation>
     </message>
     <message>
-        <location filename="../src/help/aboutbox.cpp" line="157"/>
+        <location filename="../src/help/aboutbox.cpp" line="158"/>
         <source>zlib License</source>
         <translation>zlib License</translation>
     </message>
     <message>
-        <location filename="../src/help/aboutbox.cpp" line="160"/>
+        <location filename="../src/help/aboutbox.cpp" line="161"/>
         <source>The following libraries are used by Fritzing:</source>
         <translation>У Fritzing використовуються наступні бібліотеки:</translation>
     </message>
     <message>
-        <location filename="../src/help/aboutbox.cpp" line="123"/>
+        <location filename="../src/help/aboutbox.cpp" line="124"/>
         <source>Italian: </source>
         <translation>Італійська: </translation>
     </message>
     <message>
-        <location filename="../src/help/aboutbox.cpp" line="126"/>
+        <location filename="../src/help/aboutbox.cpp" line="127"/>
         <source>Portuguese (European): </source>
         <translation>Португальська (европейська): </translation>
     </message>
     <message>
-        <location filename="../src/help/aboutbox.cpp" line="127"/>
+        <location filename="../src/help/aboutbox.cpp" line="128"/>
         <source>Portuguese (Brazilian): </source>
         <translation>Португальська (бразильська): </translation>
     </message>
     <message>
-        <location filename="../src/help/aboutbox.cpp" line="117"/>
+        <location filename="../src/help/aboutbox.cpp" line="118"/>
         <source>Chinese (Simplified): </source>
         <translation>Китайська (спрощена): </translation>
     </message>
     <message>
-        <location filename="../src/help/aboutbox.cpp" line="124"/>
+        <location filename="../src/help/aboutbox.cpp" line="125"/>
         <source>Japanese: </source>
         <translation>Японська: </translation>
     </message>
     <message>
-        <location filename="../src/help/aboutbox.cpp" line="128"/>
+        <location filename="../src/help/aboutbox.cpp" line="129"/>
         <source>Russian: </source>
         <translation>Російська: </translation>
     </message>
     <message>
-        <location filename="../src/help/aboutbox.cpp" line="120"/>
+        <location filename="../src/help/aboutbox.cpp" line="121"/>
         <source>Dutch: </source>
         <translation>Нідерландська: </translation>
     </message>
     <message>
-        <location filename="../src/help/aboutbox.cpp" line="214"/>
+        <location filename="../src/help/aboutbox.cpp" line="215"/>
         <source>&lt;b&gt;Copyright %1 Fritzing GmbH&lt;/b&gt;</source>
         <translation>&lt;b&gt;Авторське право %1 Fritzing GmbH&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/help/aboutbox.cpp" line="101"/>
+        <location filename="../src/help/aboutbox.cpp" line="102"/>
         <source>Bryant Mairs, Uleshka Asher, Daniel Tzschentke, and Kjell Morgenstern</source>
         <translation>Брайант Мейрс, Улешка Ашер, Даніель Цшенке та К&apos;єлл Моргенштерн</translation>
     </message>
     <message>
-        <location filename="../src/help/aboutbox.cpp" line="105"/>
+        <location filename="../src/help/aboutbox.cpp" line="106"/>
         <source>Special thanks go out to: </source>
         <translation>Особлива подяка: </translation>
     </message>
     <message>
-        <location filename="../src/help/aboutbox.cpp" line="119"/>
+        <location filename="../src/help/aboutbox.cpp" line="120"/>
         <source>Czech: </source>
         <translation>Чеська: </translation>
     </message>
     <message>
-        <location filename="../src/help/aboutbox.cpp" line="125"/>
+        <location filename="../src/help/aboutbox.cpp" line="126"/>
         <source>Korean: </source>
         <translation>Корейська: </translation>
     </message>
     <message>
-        <location filename="../src/help/aboutbox.cpp" line="129"/>
+        <location filename="../src/help/aboutbox.cpp" line="130"/>
         <source>Slovak: </source>
         <translation>Словацька: </translation>
     </message>
     <message>
-        <location filename="../src/help/aboutbox.cpp" line="122"/>
+        <location filename="../src/help/aboutbox.cpp" line="123"/>
         <source>Greek: </source>
         <translation>Грецька: </translation>
     </message>
     <message>
-        <location filename="../src/help/aboutbox.cpp" line="121"/>
+        <location filename="../src/help/aboutbox.cpp" line="122"/>
         <source>French: </source>
         <translation>Французька: </translation>
     </message>
     <message>
-        <location filename="../src/help/aboutbox.cpp" line="131"/>
+        <location filename="../src/help/aboutbox.cpp" line="132"/>
         <source>Turkish: </source>
         <translation>Турецька: </translation>
     </message>
     <message>
-        <location filename="../src/help/aboutbox.cpp" line="116"/>
+        <location filename="../src/help/aboutbox.cpp" line="117"/>
         <source>Bulgarian: </source>
         <translation>Болгарська: </translation>
     </message>
     <message>
-        <location filename="../src/help/aboutbox.cpp" line="67"/>
+        <location filename="../src/help/aboutbox.cpp" line="68"/>
         <source>Version %1.%2.%3 &lt;br&gt;&lt;small&gt;(%4%5 %6) %7 [Qt %8]&lt;/small&gt;</source>
         <translation>Версія %1.%2.%3 &lt;br&gt;&lt;small&gt;(%4%5 %6) %7 [Qt %8]&lt;/small&gt;</translation>
     </message>
     <message>
-        <source>&lt;a href=&quot;https://www.fritzing.org&quot;&gt;www.fritzing.org&lt;/a&gt;</source>
-        <translation type="vanished">&lt;a href=&quot;https://www.fritzing.org&quot;&gt;www.fritzing.org&lt;/a&gt;</translation>
-    </message>
-    <message>
-        <source>Bryant Mairs, Uleshka Asher, Daniel Tzschentke, </source>
-        <translation type="vanished">Bryant Mairs, Uleshka Asher, Daniel Tzschentke, </translation>
-    </message>
-    <message>
-        <source>and Kjell Morgenstern </source>
-        <translation type="vanished">та Kjell Morgenstern </translation>
-    </message>
-    <message>
-        <location filename="../src/help/aboutbox.cpp" line="132"/>
+        <location filename="../src/help/aboutbox.cpp" line="133"/>
         <source>Ukrainian: </source>
         <translation>Українська: </translation>
     </message>
     <message>
-        <location filename="../src/help/aboutbox.cpp" line="132"/>
+        <location filename="../src/help/aboutbox.cpp" line="133"/>
         <source>Yelyzaveta Chyhryna</source>
         <translation>Єлизавета Чигрина</translation>
-    </message>
-    <message>
-        <source>Fritzing is made possible with funding from the </source>
-        <translation type="vanished">Створення Fritzing стало можливим завдяки фінансуванню </translation>
-    </message>
-    <message>
-        <source>MWFK Brandenburg, the sponsorship of the Design </source>
-        <translation type="vanished">MWFK Brandenburg, підтримці дизайнерського </translation>
-    </message>
-    <message>
-        <source>Department of Bauhaus-University Weimar, </source>
-        <translation type="vanished">факультету веймарського університету Баухаус, </translation>
-    </message>
-    <message>
-        <source>IxDS, an anonymous donor, Parallax, Picaxe, Sparkfun, </source>
-        <translation type="vanished">IxDS, анонімному дарувальнику, Parallax, Picaxe, Sparkfun, </translation>
-    </message>
-    <message>
-        <source>and from each purchase of a Fritzing Starter Kit or a PCB from Fritzing Fab.</source>
-        <translation type="vanished">і завдяки кожній купівлі набору Fritzing Starter та друкованих плат Fritzing Fab.</translation>
-    </message>
-    <message>
-        <source>Special thanks goes out as well to all the students </source>
-        <translation type="vanished">Окрема подяка також всім студентам </translation>
-    </message>
-    <message>
-        <source>and alpha testers who were brave enough to give </source>
-        <translation type="vanished">та альфа тестувальникам, які були досить хоробрими, щоб провести </translation>
-    </message>
-    <message>
-        <source>Fritzing a test spin. </source>
-        <translation type="vanished">тестовий прогін Fritzing. </translation>
-    </message>
-    <message>
-        <source>&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;</source>
-        <translation type="obsolete">&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;</translation>
     </message>
 </context>
 <context>
@@ -430,248 +366,243 @@
 <context>
     <name>BinManager</name>
     <message>
-        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="105"/>
+        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="106"/>
         <source>Parts</source>
         <translation>Набір деталей</translation>
     </message>
     <message>
-        <source>BinManager::setDirtyTab: Couldn&apos;t set the bin &apos;%1&apos; as dirty</source>
-        <translation type="vanished">Керування набором::setDirtyTab: Неможливо задати набір &apos;%1&apos; як чорнетку</translation>
-    </message>
-    <message>
-        <source>BinManager::updateTitle: Couldn&apos;t set the bin &apos;%1&apos; as dirty</source>
-        <translation type="vanished">Керування набором::updateTitle::Неможливо задати набір &apos;%1&apos; як чорнетку</translation>
-    </message>
-    <message>
-        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="384"/>
+        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="385"/>
         <source>New bin (%1)</source>
         <translation>Новий набір (%1)</translation>
     </message>
     <message>
-        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="395"/>
+        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="396"/>
         <source>Select a Fritzing Parts Bin file to open</source>
         <translation>Виберіть набір деталей Fritzing для відкриття</translation>
     </message>
     <message>
-        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="397"/>
+        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="398"/>
         <source>Fritzing Bin Files (*%1 *%2);;Fritzing Bin (*%1);;Fritzing Shareable Bin (*%2)</source>
         <translation>Файл набору Fritzing (*%1 *%2);;Набір Fritzing (*%1);;Спільний набір Fritzing (*%2)</translation>
     </message>
     <message>
-        <source>Cannot set a NULL bin as the current one</source>
-        <translation type="vanished">Неможливо задати пустий набір як поточний</translation>
+        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="716"/>
+        <source>Confirmation</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="916"/>
+        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="717"/>
+        <source>The &apos;Contributed Parts&apos; bin has been replaced with &apos;My Parts&apos; since Fritzing 0.7.12.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="718"/>
+        <source>Would you like Fritzing to move the parts over?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="938"/>
         <source>Searching...</source>
         <translation>Пошук...</translation>
     </message>
     <message>
-        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="990"/>
+        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1012"/>
         <source>Bin</source>
         <translation>Набір</translation>
     </message>
     <message>
-        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="992"/>
+        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1014"/>
         <source>Import...</source>
         <translation>Імпорт...</translation>
     </message>
     <message>
-        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="993"/>
+        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1015"/>
         <source>Load a Fritzing part (.fzpz), or a Fritzing parts bin (.fzb, .fzbz)</source>
         <translation>Завантажити деталь Fritzing (.fzpz), або набір деталей Fritzing (.fzb, .fzbz)</translation>
     </message>
     <message>
-        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="996"/>
+        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1018"/>
         <source>New Bin...</source>
         <translation>Новий набір...</translation>
     </message>
     <message>
-        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="997"/>
+        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1019"/>
         <source>Create a new parts bin</source>
         <translation>Створити новий набір деталей</translation>
     </message>
     <message>
-        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1000"/>
+        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1022"/>
         <source>Close Bin</source>
         <translation>Закрити набір</translation>
     </message>
     <message>
-        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1001"/>
+        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1023"/>
         <source>Close parts bin</source>
         <translation>Закрити набір деталей</translation>
     </message>
     <message>
-        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1004"/>
+        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1026"/>
         <source>Delete Bin</source>
         <translation>Видалити набір</translation>
     </message>
     <message>
-        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1005"/>
+        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1027"/>
         <source>Delete parts bin</source>
         <translation>Видалити набір деталей</translation>
     </message>
     <message>
-        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1008"/>
+        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1030"/>
         <source>Save Bin</source>
         <translation>Зберегти набір</translation>
     </message>
     <message>
-        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1009"/>
+        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1031"/>
         <source>Save parts bin</source>
         <translation>Зберегти набір деталей</translation>
     </message>
     <message>
-        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1012"/>
+        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1034"/>
         <source>Save Bin As...</source>
         <translation>Зберегти набір як...</translation>
     </message>
     <message>
-        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1013"/>
+        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1035"/>
         <source>Save parts bin as...</source>
         <translation>Зберегти набір деталей як...</translation>
     </message>
     <message>
-        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1016"/>
+        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1038"/>
         <source>Export Bin...</source>
         <translation>Експортувати набір...</translation>
     </message>
     <message>
-        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1017"/>
+        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1039"/>
         <source>Save parts bin in compressed format...</source>
         <translation>Зберегти набір деталей у стисненому вигляді...</translation>
     </message>
     <message>
-        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1020"/>
+        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1042"/>
         <source>Rename Bin...</source>
         <translation>Перейменувати набір...</translation>
     </message>
     <message>
-        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1021"/>
+        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1043"/>
         <source>Rename parts bin...</source>
         <translation>Перейменувати набір деталей...</translation>
     </message>
     <message>
-        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1024"/>
+        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1046"/>
         <source>Copy to Sketch</source>
         <translation>Скопіювати на схему</translation>
     </message>
     <message>
-        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1025"/>
+        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1047"/>
         <source>Copy all the parts in the bin to a sketch</source>
         <translation>Скопіювати всі деталі з набору на схему</translation>
     </message>
     <message>
-        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1028"/>
+        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1050"/>
         <source>Copy all to Sketch</source>
         <translation>Скопіювати все на схему</translation>
     </message>
     <message>
-        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1029"/>
+        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1051"/>
         <source>Copy all loaded parts to the sketch</source>
         <translation>Скопіювати всі завантажені деталі на схему</translation>
     </message>
     <message>
-        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1032"/>
+        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1054"/>
         <source>Show Bin in List View</source>
         <translation>Показати набір у переліку</translation>
     </message>
     <message>
-        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1034"/>
+        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1056"/>
         <source>Display parts as a list</source>
         <translation>Показати набір деталей у вигляді переліку</translation>
     </message>
     <message>
-        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1037"/>
+        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1059"/>
         <source>Show Bin in Icon View</source>
         <translation>Показати у вигляді значків</translation>
     </message>
     <message>
-        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1039"/>
+        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1061"/>
         <source>Display parts as icons</source>
         <translation>Показати набір деталей у вигляді значків</translation>
     </message>
     <message>
-        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1060"/>
+        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1082"/>
         <source>Edit Part (new parts editor)...</source>
         <translation>Редагувати деталь (редактор деталей)...</translation>
     </message>
     <message>
-        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1061"/>
+        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1083"/>
         <source>Export Part...</source>
         <translation>Експортувати деталь...</translation>
     </message>
     <message>
-        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1062"/>
+        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1084"/>
         <source>Remove Part</source>
         <translation>Видалити деталь</translation>
     </message>
     <message>
-        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1063"/>
+        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1085"/>
         <source>Find Part in Sketch</source>
         <translation>Знайти деталь на схемі</translation>
     </message>
     <message>
-        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1106"/>
+        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1128"/>
         <source>Delete bin</source>
         <translation>Видалити набір</translation>
     </message>
     <message>
-        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1107"/>
+        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1129"/>
         <source>Do you really want to delete bin &apos;%1&apos;?  This action cannot be undone.</source>
         <translation>Ви справді бажаєте видалити набір &apos;%1&apos;? Цю дію неможливо скасувати.</translation>
     </message>
     <message>
-        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1159"/>
+        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1181"/>
         <source>Read-only bin</source>
         <translation>Набір лише для читання</translation>
     </message>
     <message>
-        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1159"/>
+        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1181"/>
         <source>This bin cannot be renamed.</source>
         <translation>Цей набір неможливо перейменувати.</translation>
     </message>
     <message>
-        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1166"/>
+        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1188"/>
         <source>Rename bin</source>
         <translation>Перейменувати набір</translation>
     </message>
     <message>
-        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1167"/>
+        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1189"/>
         <source>Please choose a name for the bin:</source>
         <translation>Будь ласка, введіть назву набору:</translation>
     </message>
     <message>
-        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1237"/>
-        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1243"/>
+        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1259"/>
+        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1265"/>
         <source>Remove from Bin</source>
         <translation>Видалити з набору</translation>
     </message>
     <message>
-        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1237"/>
+        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1259"/>
         <source>Unable to remove part &apos;%1&apos;--it is in use in a sketch</source>
         <translation>Не вдалось видалити деталь &apos;%1&apos; — вона використовується у схемі</translation>
     </message>
     <message>
-        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1341"/>
+        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1363"/>
         <source>Select a Fritzing file to open</source>
         <translation>Виберіть файл Fritzing, який потрібно відкрити</translation>
     </message>
     <message>
-        <source>Remove from bin</source>
-        <translation type="vanished">Видалити з набору</translation>
-    </message>
-    <message>
-        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1244"/>
+        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1266"/>
         <source>Do you really want to remove &apos;%1&apos; from the bin? This operation cannot be undone.</source>
         <translation>Ви справді бажаєте видалити набір &apos;%1&apos;? Цю дію неможливо скасувати.</translation>
     </message>
     <message>
-        <source>Select a Fritzing File to Open</source>
-        <translation type="vanished">Виберіть файл Fritzing для відкриття</translation>
-    </message>
-    <message>
-        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1343"/>
+        <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1365"/>
         <source>Fritzing Files (*%1 *%2 *%3);;Fritzing Part (*%1);;Fritzing Bin (*%2);;Fritzing Shareable Bin (*%3)</source>
         <translation>Файли Fritzing (*%1 *%2 *%3);; Деталь Fritzing (*%1);;Набір Fritzing (*%2);;Спільний набір Fritzing (*%3)</translation>
     </message>
@@ -679,7 +610,7 @@
 <context>
     <name>Board</name>
     <message>
-        <location filename="../src/items/resizableboard.cpp" line="83"/>
+        <location filename="../src/items/resizableboard.cpp" line="84"/>
         <source>
 
 A custom board svg typically has one or two silkscreen layers and one board layer.
@@ -690,7 +621,7 @@ A custom board svg typically has one or two silkscreen layers and one board laye
 </translation>
     </message>
     <message>
-        <location filename="../src/items/resizableboard.cpp" line="84"/>
+        <location filename="../src/items/resizableboard.cpp" line="85"/>
         <source>Have a look at the circle_pcb.svg file in your Fritzing installation folder at parts/svg/core/pcb/.
 
 </source>
@@ -699,117 +630,117 @@ A custom board svg typically has one or two silkscreen layers and one board laye
 </translation>
     </message>
     <message>
-        <location filename="../src/items/resizableboard.cpp" line="120"/>
+        <location filename="../src/items/resizableboard.cpp" line="121"/>
         <source>one layer (single-sided)</source>
         <translation>одношарова (одностороння)</translation>
     </message>
     <message>
-        <location filename="../src/items/resizableboard.cpp" line="123"/>
+        <location filename="../src/items/resizableboard.cpp" line="124"/>
         <source>two layers (double-sided)</source>
         <translation>двошарова (двостороння)</translation>
     </message>
     <message>
-        <location filename="../src/items/resizableboard.cpp" line="205"/>
+        <location filename="../src/items/resizableboard.cpp" line="206"/>
         <source>image file</source>
         <translation>файл зображення</translation>
     </message>
     <message>
-        <location filename="../src/items/resizableboard.cpp" line="224"/>
+        <location filename="../src/items/resizableboard.cpp" line="225"/>
         <source>load image file</source>
         <translation>завантажити файл зображення</translation>
     </message>
     <message>
-        <location filename="../src/items/resizableboard.cpp" line="287"/>
+        <location filename="../src/items/resizableboard.cpp" line="288"/>
         <source>Images</source>
         <translation>Зображення</translation>
     </message>
     <message>
-        <location filename="../src/items/resizableboard.cpp" line="301"/>
+        <location filename="../src/items/resizableboard.cpp" line="302"/>
         <source>Select an image file to load</source>
         <translation>Оберіть файл зображення для завантаження</translation>
     </message>
     <message>
-        <location filename="../src/items/resizableboard.cpp" line="325"/>
+        <location filename="../src/items/resizableboard.cpp" line="326"/>
         <source>due to an xml problem: %1 line:%2 column:%3</source>
         <translation>через проблему з XML: %1 рядок: %2 колонка: %3</translation>
     </message>
     <message>
-        <location filename="../src/items/resizableboard.cpp" line="331"/>
+        <location filename="../src/items/resizableboard.cpp" line="332"/>
         <source>because the xml is not correctly formatted</source>
         <translation>тому що xml сформовано неправильно</translation>
     </message>
     <message>
-        <location filename="../src/items/resizableboard.cpp" line="363"/>
+        <location filename="../src/items/resizableboard.cpp" line="364"/>
         <source>the &lt;board&gt; element contains no shape elements</source>
         <translation>елемент &lt;плата&gt; не містить обрису елементів</translation>
     </message>
     <message>
-        <location filename="../src/items/resizableboard.cpp" line="373"/>
+        <location filename="../src/items/resizableboard.cpp" line="374"/>
         <source>because there are multiple &lt;board&gt; layers</source>
         <translation>тому що є декілька шарів &lt;плати&gt;</translation>
     </message>
     <message>
-        <location filename="../src/items/resizableboard.cpp" line="378"/>
+        <location filename="../src/items/resizableboard.cpp" line="379"/>
         <source>because there are multiple &lt;silkscreen&gt; layers</source>
         <translation>тому що є декілька шарів &lt;позначок&gt;</translation>
     </message>
     <message>
-        <location filename="../src/items/resizableboard.cpp" line="383"/>
+        <location filename="../src/items/resizableboard.cpp" line="384"/>
         <source>because there are multiple &lt;silkscreen0&gt; layers</source>
         <translation>тому що є декілька шарів &lt;позначок0&gt;</translation>
     </message>
     <message>
-        <location filename="../src/items/resizableboard.cpp" line="388"/>
+        <location filename="../src/items/resizableboard.cpp" line="389"/>
         <source>because there is no &lt;board&gt; layer</source>
         <translation>тому що відсутній шар з &lt;платою&gt;</translation>
     </message>
     <message>
-        <location filename="../src/items/resizableboard.cpp" line="393"/>
+        <location filename="../src/items/resizableboard.cpp" line="394"/>
         <source>the svg contains no shape elements</source>
         <translation>SVG не містить обрисів елементів</translation>
     </message>
     <message>
-        <location filename="../src/items/resizableboard.cpp" line="398"/>
+        <location filename="../src/items/resizableboard.cpp" line="399"/>
         <source>but the pcb itself will have no silkscreen layer</source>
         <translation>але друкована плата не містить шару позначок</translation>
     </message>
     <message>
-        <location filename="../src/items/resizableboard.cpp" line="403"/>
+        <location filename="../src/items/resizableboard.cpp" line="404"/>
         <source>the svg doesn&apos;t fit the custom board format</source>
         <translation>SVG не відповідає формату користувацької плати</translation>
     </message>
     <message>
-        <location filename="../src/items/resizableboard.cpp" line="435"/>
+        <location filename="../src/items/resizableboard.cpp" line="436"/>
         <source>&lt;b&gt;The custom shape has been loaded, and you will see the new board shortly.&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;</source>
         <translation>&lt;b&gt;Користувацький обрис було завантажено, і ви скоро побачите нову плату.&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/items/resizableboard.cpp" line="436"/>
+        <location filename="../src/items/resizableboard.cpp" line="437"/>
         <source>Before actual PCB production we recommend that you test your custom shape by using the &apos;File &gt; Export for Production &gt; Extended Gerber&apos; option. </source>
         <translation>Перед виготовленням друкованої плати ми рекомендуємо перевірити створений обрис за допомогою опції &apos;Файл &gt; Експорт для виготовлення &gt; опція Extended Gerber&apos;. </translation>
     </message>
     <message>
-        <location filename="../src/items/resizableboard.cpp" line="437"/>
+        <location filename="../src/items/resizableboard.cpp" line="438"/>
         <source>Check the resulting contour file with a Gerber-viewer application to make sure the shape came out as expected.&lt;br/&gt;&lt;br/&gt;</source>
         <translation>Перевірте отриманий обрис плати за допомогою Gerber-переглядача, і переконайтесь, що все вийшло як очікувалось.&lt;br/&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/items/resizableboard.cpp" line="439"/>
+        <location filename="../src/items/resizableboard.cpp" line="440"/>
         <source>The rest of this message concerns &apos;cutouts&apos;. </source>
         <translation>Решта цього повідомлення стосується &apos;вирізів&apos;. </translation>
     </message>
     <message>
-        <location filename="../src/items/resizableboard.cpp" line="440"/>
+        <location filename="../src/items/resizableboard.cpp" line="441"/>
         <source>These are circular or irregularly-shaped holes that you can optionally incorporate into a custom PCB shape.&lt;br/&gt;&lt;br/&gt;</source>
         <translation>Це круглі, або неправильної форми, отвори, які, за необхідності, можна додавати до розробленої друкованої плати.&lt;br/&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/items/resizableboard.cpp" line="442"/>
+        <location filename="../src/items/resizableboard.cpp" line="443"/>
         <source>&lt;b&gt;The custom shape has no cutouts.&lt;/b&gt;</source>
         <translation>&lt;b&gt;Розроблений обрис не містить вирізів.&lt;/b&gt;</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/items/resizableboard.cpp" line="445"/>
+        <location filename="../src/items/resizableboard.cpp" line="446"/>
         <source>&lt;b&gt;The custom shape has %n cutouts.&lt;/b&gt;</source>
         <translation>
             <numerusform>&lt;b&gt;Розроблений обрис містить %n виріз&lt;/b&gt;</numerusform>
@@ -818,37 +749,37 @@ A custom board svg typically has one or two silkscreen layers and one board laye
         </translation>
     </message>
     <message>
-        <location filename="../src/items/resizableboard.cpp" line="447"/>
+        <location filename="../src/items/resizableboard.cpp" line="448"/>
         <source>&lt;br/&gt;However, the cutouts may not be formatted correctly.</source>
         <translation>&lt;br/&gt;Проте, вирізи неможливо правильно сформувати.</translation>
     </message>
     <message>
-        <location filename="../src/items/resizableboard.cpp" line="450"/>
+        <location filename="../src/items/resizableboard.cpp" line="451"/>
         <source>&lt;br/&gt;&lt;br/&gt;If you intended your custom shape to have cutouts and you did not get the expected result, </source>
         <translation>&lt;br/&gt;&lt;br/&gt;Якщо ви хотіли додати вирізи до зробленого обрису, і не отримали бажаного результату, </translation>
     </message>
     <message>
-        <location filename="../src/items/resizableboard.cpp" line="451"/>
+        <location filename="../src/items/resizableboard.cpp" line="452"/>
         <source>it is because Fritzing requires that you make cutouts using a shape &apos;subtraction&apos; or &apos;difference&apos; operation in your vector graphics editor.</source>
         <translation>то це через те, що Fritzing для створення вирізів вимагає використовувати операції &apos;віднімання&apos; або &apos;вирізання&apos; у вашому редакторі векторної графіки.</translation>
     </message>
     <message>
-        <location filename="../src/items/resizableboard.cpp" line="519"/>
+        <location filename="../src/items/resizableboard.cpp" line="520"/>
         <source>Unable to load</source>
         <translation>Не вдалось завантажити</translation>
     </message>
     <message>
-        <location filename="../src/items/resizableboard.cpp" line="520"/>
+        <location filename="../src/items/resizableboard.cpp" line="521"/>
         <source>Unable to load image from %1 %2</source>
         <translation>Не вдалось завантажити зображення з %1 %2</translation>
     </message>
     <message>
-        <location filename="../src/items/resizableboard.cpp" line="527"/>
+        <location filename="../src/items/resizableboard.cpp" line="528"/>
         <source>Can load, but</source>
         <translation>Можна завантажити, але</translation>
     </message>
     <message>
-        <location filename="../src/items/resizableboard.cpp" line="528"/>
+        <location filename="../src/items/resizableboard.cpp" line="529"/>
         <source>The image from %1 can be loaded, but %2
 Use the file?</source>
         <translation>Це зображення з %1 можна завантажити, окрім %2
@@ -858,7 +789,7 @@ Use the file?</source>
 <context>
     <name>BoardLogoItem</name>
     <message>
-        <location filename="../src/items/logoitem.cpp" line="1132"/>
+        <location filename="../src/items/logoitem.cpp" line="1188"/>
         <source>shape</source>
         <translation>обрис</translation>
     </message>
@@ -866,18 +797,18 @@ Use the file?</source>
 <context>
     <name>BreadboardLogoItem</name>
     <message>
-        <location filename="../src/items/logoitem.cpp" line="942"/>
-        <location filename="../src/items/logoitem.cpp" line="965"/>
+        <location filename="../src/items/logoitem.cpp" line="998"/>
+        <location filename="../src/items/logoitem.cpp" line="1021"/>
         <source>color</source>
         <translation>колір</translation>
     </message>
     <message>
-        <location filename="../src/items/logoitem.cpp" line="945"/>
+        <location filename="../src/items/logoitem.cpp" line="1001"/>
         <source>Set text color</source>
         <translation>Задати колір тексту</translation>
     </message>
     <message>
-        <location filename="../src/items/logoitem.cpp" line="959"/>
+        <location filename="../src/items/logoitem.cpp" line="1015"/>
         <source>Select text color</source>
         <translation>Виберіть колір тексту</translation>
     </message>
@@ -902,17 +833,17 @@ Background: Green = ok, Red = incorrect value, Grey = current value</source>
 <context>
     <name>ConnectorItem</name>
     <message>
-        <location filename="../src/connectors/connectoritem.cpp" line="2634"/>
+        <location filename="../src/connectors/connectoritem.cpp" line="2666"/>
         <source>Add bendpoint</source>
         <translation>Додати опорну точку</translation>
     </message>
     <message>
-        <location filename="../src/connectors/connectoritem.cpp" line="2638"/>
+        <location filename="../src/connectors/connectoritem.cpp" line="2670"/>
         <source>Straighten curve</source>
         <translation>Випрямити криву</translation>
     </message>
     <message>
-        <location filename="../src/connectors/connectoritem.cpp" line="2660"/>
+        <location filename="../src/connectors/connectoritem.cpp" line="2692"/>
         <source>Remove bendpoint</source>
         <translation>Видалити опорну точку</translation>
     </message>
@@ -1263,7 +1194,7 @@ Background: Green = ok, Red = incorrect value, Grey = current value</source>
 <context>
     <name>DebugDialog</name>
     <message>
-        <location filename="../src/debugdialog.cpp" line="69"/>
+        <location filename="../src/debugdialog.cpp" line="141"/>
         <source>for debugging</source>
         <translation>для налагодження</translation>
     </message>
@@ -1289,7 +1220,7 @@ Background: Green = ok, Red = incorrect value, Grey = current value</source>
 <context>
     <name>Dip</name>
     <message>
-        <location filename="../src/items/dip.cpp" line="53"/>
+        <location filename="../src/items/dip.cpp" line="54"/>
         <source>chip label</source>
         <translation>позначка мікросхеми</translation>
     </message>
@@ -1316,44 +1247,44 @@ Background: Green = ok, Red = incorrect value, Grey = current value</source>
 <context>
     <name>FApplication</name>
     <message>
-        <location filename="../src/fapplication.cpp" line="1724"/>
-        <location filename="../src/fapplication.cpp" line="1732"/>
-        <location filename="../src/fapplication.cpp" line="1735"/>
+        <location filename="../src/fapplication.cpp" line="1706"/>
+        <location filename="../src/fapplication.cpp" line="1714"/>
+        <location filename="../src/fapplication.cpp" line="1717"/>
         <source>Fritzing failure</source>
         <translation>Помилка Fritzing</translation>
     </message>
     <message>
-        <location filename="../src/fapplication.cpp" line="1725"/>
+        <location filename="../src/fapplication.cpp" line="1707"/>
         <source>Fritzing caught an exception %1 from %2 in event %3</source>
         <translation>Fritzing отримав виключення %1 з %2 у події %3</translation>
     </message>
     <message>
-        <location filename="../src/fapplication.cpp" line="1732"/>
+        <location filename="../src/fapplication.cpp" line="1714"/>
         <source>Fritzing caught an exception from %1 in event %2: %3</source>
         <translation>Fritzing отримав виключення з %1 у події %2: %3</translation>
     </message>
     <message>
-        <location filename="../src/fapplication.cpp" line="1735"/>
+        <location filename="../src/fapplication.cpp" line="1717"/>
         <source>Fritzing caught an exception from %1 in event %2</source>
         <translation>Fritzing отримав виключення з %1 у події %2</translation>
     </message>
     <message>
-        <location filename="../src/fapplication.cpp" line="1863"/>
+        <location filename="../src/fapplication.cpp" line="1845"/>
         <source>Please specify an .fzz file name to save to (cancel will delete the backup)</source>
         <translation>Будь ласка, вкажіть ім’я файлу .fzz для зберігання (скасування видалить резервну копію)</translation>
     </message>
     <message>
-        <location filename="../src/fapplication.cpp" line="1863"/>
+        <location filename="../src/fapplication.cpp" line="1845"/>
         <source>Fritzing (*%1)</source>
         <translation>Fritzing (*%1)</translation>
     </message>
     <message>
-        <location filename="../src/fapplication.cpp" line="2140"/>
+        <location filename="../src/fapplication.cpp" line="2122"/>
         <source>Regenerate parts database?</source>
         <translation>Відновити базу даних деталей?</translation>
     </message>
     <message>
-        <location filename="../src/fapplication.cpp" line="2141"/>
+        <location filename="../src/fapplication.cpp" line="2123"/>
         <source>Regenerating the parts database will take some minutes and you will have to restart Fritzing
 
 </source>
@@ -1362,30 +1293,34 @@ Background: Green = ok, Red = incorrect value, Grey = current value</source>
 </translation>
     </message>
     <message>
-        <location filename="../src/fapplication.cpp" line="2142"/>
+        <location filename="../src/fapplication.cpp" line="2124"/>
         <source>Would you like to regenerate the parts database?
 </source>
         <translation>Бажаєте відновити базу даних деталей?
 </translation>
     </message>
     <message>
-        <location filename="../src/fapplication.cpp" line="2144"/>
+        <location filename="../src/fapplication.cpp" line="2126"/>
         <source>This option is usefull if you modify the parts database on your own. If you want to recover from an error, you may be better off downloading the latest Fritzing release.</source>
         <translation>Цей параметр корисний, якщо ви самостійно змінюєте базу даних деталей. Якщо ви хочете відновити помилку, можливо, краще завантажити останню версію Fritzing.</translation>
     </message>
     <message>
-        <location filename="../src/fapplication.cpp" line="2150"/>
+        <location filename="../src/fapplication.cpp" line="2132"/>
         <source>Regenerate</source>
         <translation>Відновити</translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation type="vanished">Скасувати</translation>
-    </message>
-    <message>
-        <location filename="../src/fapplication.cpp" line="2159"/>
+        <location filename="../src/fapplication.cpp" line="2141"/>
         <source>Regenerating parts database...</source>
         <translation>Відновлення бази даних деталей...</translation>
+    </message>
+</context>
+<context>
+    <name>FMessageBox</name>
+    <message>
+        <location filename="../src/utils/fmessagebox.cpp" line="95"/>
+        <source>Copy to Clipboard</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1394,18 +1329,6 @@ Background: Green = ok, Red = incorrect value, Grey = current value</source>
         <location filename="../src/dialogs/fabuploaddialog.ui" line="19"/>
         <source>Fritzing Fab Upload</source>
         <translation>Fritzing Fab Upload</translation>
-    </message>
-    <message>
-        <source>Get your board fabricated this week!</source>
-        <translation type="vanished">Виготовте свою дошку цього тижня!</translation>
-    </message>
-    <message>
-        <source>Upload it now to get a preview rendered by AISLER. Review, and if you like it, order it and get it manufactured in two days.</source>
-        <translation type="vanished">Завантажте його зараз, щоб отримати попередній перегляд від AISLER. Перегляньте, якщо сподобалось, замовте та отримайте виготовлення за два дні.</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">Скасувати</translation>
     </message>
     <message>
         <location filename="../src/dialogs/fabuploaddialog.ui" line="69"/>
@@ -1467,20 +1390,20 @@ Background: Green = ok, Red = incorrect value, Grey = current value</source>
 <context>
     <name>FabUploadProgress</name>
     <message>
-        <location filename="../src/dialogs/fabuploadprogress.cpp" line="178"/>
-        <location filename="../src/dialogs/fabuploadprogress.cpp" line="192"/>
-        <location filename="../src/dialogs/fabuploadprogress.cpp" line="200"/>
-        <location filename="../src/dialogs/fabuploadprogress.cpp" line="253"/>
+        <location filename="../src/dialogs/fabuploadprogress.cpp" line="181"/>
+        <location filename="../src/dialogs/fabuploadprogress.cpp" line="211"/>
+        <location filename="../src/dialogs/fabuploadprogress.cpp" line="221"/>
+        <location filename="../src/dialogs/fabuploadprogress.cpp" line="274"/>
         <source>Fritzing</source>
         <translation>Fritzing</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/fabuploadprogress.cpp" line="179"/>
+        <location filename="../src/dialogs/fabuploadprogress.cpp" line="182"/>
         <source>Could not connect to Fritzing fab.</source>
         <translation>Не вдалося підключитися до Fritzing fab.</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/fabuploadprogress.cpp" line="200"/>
+        <location filename="../src/dialogs/fabuploadprogress.cpp" line="221"/>
         <source>Error processing the project. The factory says: %1</source>
         <translation>Помилка обробки проекту. Фабрика видає: %1</translation>
     </message>
@@ -1507,89 +1430,56 @@ Background: Green = ok, Red = incorrect value, Grey = current value</source>
         <source>The &lt;b&gt;PCB View&lt;/b&gt; is where you layout the components on a physical PCB (Printed Circuit Board).&lt;br/&gt;&lt;br/&gt;PCBs can be made at home or in a small lab using DIY etching processes. They also can be sent to professional PCB manufacturing services for more precise fabrication. &lt;br/&gt;&lt;table&gt;&lt;tr&gt;&lt;td&gt;The first thing you will need is a board to place your parts on. There should already be one in your sketch, but if not, drag in the board icon from the Parts Bin. The icon matches the image to the right: &lt;/td&gt;&lt;td&gt;&lt;img src=&quot;:resources/parts/svg/core/icon/rectangle_pcb.svg&quot; /&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;br/&gt;&lt;br/&gt;To lay out your PCB, arrange all the components so they fit nicely on the board. Then try to shift them around to minimize the length and confusion of connections. You can also resize rectangular boards. &lt;br/&gt;&lt;table&gt;&lt;tr&gt;&lt;td&gt;Once the parts are sorted out, you connect them with copper traces. You can drag out a trace from individual connections or use the autorouter to generate them. The Autoroute button is at the bottom of the window. The button matches the image to the right:&lt;/td&gt;&lt;td&gt;&lt;img src=&quot;:resources/images/icons/toolbarAutorouteEnabled_icon.png&quot; /&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</source>
         <translation>&lt;b&gt; ФДП Вид &lt;/b&gt; - це розташування компонентів на фізичній друкованій платі (ФДП) &lt;br/&gt; &lt;br/&gt; ФДП можна виготовити вдома або в невеликій лабораторії, використовуючи процеси травлення DIY . Вони також можуть бути відправлені до професійних служб виготовлення друкованих плат для більш точного вироблення. &lt;br/&gt; &lt;table&gt;&lt;tr&gt; &lt;td&gt; Перше, що вам знадобиться - це дошка, на яку потрібно розмістити свої деталі. У вашому нарисі вже має бути одна, але якщо ні, перетягніть значок дошки із розділу Набір деталей. Значок відповідає зображенню праворуч:&lt;/td&gt;&lt;td&gt;&lt;img src=&quot;:resources/parts/svg/core/icon/rectangle_pcb.svg&quot; /&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;br/&gt;&lt;br/&gt;Щоб викласти вашу фізичну друковану плату, розташуйте всі компоненти так, щоб вони добре вмістилися на платі. Потім спробуйте змістити їх навколо, щоб мінімізувати тривалість і плутанину з&apos;єднань. Ви також можете змінити розміри прямокутних дощок. &lt;br/&gt; &lt;table&gt;&lt;tr&gt; &lt;td&gt; Після того як деталі розібрані, з&apos;єднайте їх з мідними доріжками. Ви можете перетягнути доріжку із окремих з&apos;єднувачів або скористатися авторетуром для їх створення. Кнопка Автонаправлення знаходиться внизу вікна. Кнопка відповідає зображенню праворуч:&lt;/td&gt;&lt;td&gt;&lt;img src=&quot;:resources/images/icons/toolbarAutorouteEnabled_icon.png&quot; /&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</translation>
     </message>
-    <message>
-        <source>The &lt;b&gt;PCB View&lt;/b&gt; is where you layout the components will  on a physical PCB (Printed Circuit Board).&lt;br/&gt;&lt;br/&gt;PCBs can be made at home or in a small lab using DIY etching processes. They also can be sent to professional PCB manufacturing services for more precise fabrication. &lt;br/&gt;&lt;table&gt;&lt;tr&gt;&lt;td&gt;The first thing you will need is a board to place your parts on. There should already be one in your sketch, but if not, drag in the board icon from the Parts Bin. The icon matches the image to the right: &lt;/td&gt;&lt;td&gt;&lt;img src=&quot;:resources/parts/svg/core/icon/rectangle_pcb.svg&quot; /&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;br/&gt;&lt;br/&gt;To lay out your PCB, arrange all the components so they fit nicely on the board. Then try to shift them around to minimize the length and confusion of connections. You can also resize rectangular boards. &lt;br/&gt;&lt;table&gt;&lt;tr&gt;&lt;td&gt;Once the parts are sorted out, you connect them with copper traces. You can drag out a trace from individual connections or use the autorouter to generate them. The Autoroute button is at the bottom of the window. The button matches the image to the right:&lt;/td&gt;&lt;td&gt;&lt;img src=&quot;:resources/images/icons/toolbarAutorouteEnabled_icon.png&quot; /&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</source>
-        <translation type="vanished">&lt;b&gt; ФДП Вид &lt;/b&gt; - це розташування компонентів на фізичній друкованій платі (ФДП) &lt;br/&gt; &lt;br/&gt; ФДП можна виготовити вдома або в невеликій лабораторії, використовуючи процеси травлення DIY . Вони також можуть бути відправлені до професійних служб виготовлення друкованих плат для більш точного вироблення. &lt;br/&gt; &lt;table&gt;&lt;tr&gt; &lt;td&gt; Перше, що вам знадобиться - це дошка, на яку потрібно розмістити свої деталі. У вашому нарисі вже має бути одна, але якщо ні, перетягніть значок дошки із розділу Набір деталей. Значок відповідає зображенню праворуч:&lt;/td&gt;&lt;td&gt;&lt;img src=&quot;:resources/parts/svg/core/icon/rectangle_pcb.svg&quot; /&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;br/&gt;&lt;br/&gt;Щоб викласти вашу фізичну друковану плату, розташуйте всі компоненти так, щоб вони добре вмістилися на платі. Потім спробуйте змістити їх навколо, щоб мінімізувати тривалість і плутанину з&apos;єднань. Ви також можете змінити розміри прямокутних дощок. &lt;br/&gt; &lt;table&gt;&lt;tr&gt; &lt;td&gt; Після того як деталі розібрані, з&apos;єднайте їх з мідними доріжками. Ви можете перетягнути доріжку із окремих з&apos;єднувачів або скористатися авторетуром для їх створення. Кнопка Автонаправлення знаходиться внизу вікна. Кнопка відповідає зображенню праворуч:&lt;/td&gt;&lt;td&gt;&lt;img src=&quot;:resources/images/icons/toolbarAutorouteEnabled_icon.png&quot; /&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</translation>
-    </message>
-</context>
-<context>
-    <name>FolderUtils</name>
-    <message>
-        <location filename="../src/utils/folderutils.cpp" line="766"/>
-        <source>Moving your custom parts</source>
-        <translation>Переміщення ваших виготовлених деталей</translation>
-    </message>
-    <message>
-        <location filename="../src/utils/folderutils.cpp" line="767"/>
-        <source>&lt;p&gt;Your custom-made parts and bins are moved from the hidden app data folder to your fritzing documents folder at &lt;br/&gt;&lt;br/&gt;&lt;em&gt;%1&lt;/em&gt;&lt;br/&gt;&lt;br/&gt;This way, we hope to make it easier for you to find and edit them manually.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Ваші виготовлені на замовлення деталі та набори переміщуються із прихованої папки даних програми у вашу папку з документами fritzing у &lt;br/&gt;&lt;br/&gt;&lt;em&gt;%1&lt;/em&gt;&lt;br/&gt;&lt;br/&gt;Ми сподіваємось полегшити їх пошук і редагування вручну. &lt;/p&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;p&gt;Your custom-made parts and bins are moved from the hidden app data folder to your fritzing documents folder at &lt;br/&gt;&lt;br/&gt;&lt;em&gt;%1&lt;/em&gt;&lt;br/&gt;&lt;br/&gt;This way we hope to make it easier for you to find and edit them manually.&lt;/p&gt;</source>
-        <translation type="vanished">&lt;p&gt;Ваші виготовлені на замовлення деталі та набори переміщуються із прихованої папки даних програми у вашу папку з документами fritzing у &lt;br/&gt;&lt;br/&gt;&lt;em&gt;%1&lt;/em&gt;&lt;br/&gt;&lt;br/&gt;Ми сподіваємось полегшити їх пошук і редагування вручну. &lt;/p&gt;</translation>
-    </message>
 </context>
 <context>
     <name>FritzingWindow</name>
     <message>
-        <location filename="../src/mainwindow/fritzingwindow.cpp" line="63"/>
+        <location filename="../src/mainwindow/fritzingwindow.cpp" line="71"/>
         <source>&amp;Close Window</source>
         <translation>&amp;Закрити вікно</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/fritzingwindow.cpp" line="64"/>
+        <location filename="../src/mainwindow/fritzingwindow.cpp" line="72"/>
         <source>Ctrl+W</source>
         <translation>Ctrl+W</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/fritzingwindow.cpp" line="65"/>
+        <location filename="../src/mainwindow/fritzingwindow.cpp" line="73"/>
         <source>Close the current sketch</source>
         <translation>Закрити поточний нарис</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/fritzingwindow.cpp" line="70"/>
+        <location filename="../src/mainwindow/fritzingwindow.cpp" line="78"/>
         <source>%1 - %2</source>
         <translation>%1 — %2</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/fritzingwindow.cpp" line="124"/>
+        <location filename="../src/mainwindow/fritzingwindow.cpp" line="132"/>
         <source>Specify a file name</source>
         <translation>Вкажіть ім’я файлу</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/fritzingwindow.cpp" line="215"/>
+        <location filename="../src/mainwindow/fritzingwindow.cpp" line="223"/>
         <source>Save...</source>
         <translation>Збереження...</translation>
     </message>
     <message>
-        <source>Save</source>
-        <translation type="vanished">Зберегти</translation>
-    </message>
-    <message>
-        <source>Don&apos;t Save</source>
-        <translation type="vanished">Не зберігати</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">Скасувати</translation>
-    </message>
-    <message>
-        <location filename="../src/mainwindow/fritzingwindow.cpp" line="221"/>
+        <location filename="../src/mainwindow/fritzingwindow.cpp" line="229"/>
         <source>Ctrl+D</source>
         <translation>Ctrl+D</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/fritzingwindow.cpp" line="229"/>
+        <location filename="../src/mainwindow/fritzingwindow.cpp" line="237"/>
         <source>Save &quot;%1&quot;</source>
         <translation>Зберегти &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/fritzingwindow.cpp" line="230"/>
+        <location filename="../src/mainwindow/fritzingwindow.cpp" line="238"/>
         <source>Do you want to save the changes you made in the document &quot;%1&quot;?</source>
         <translation>Ви бажаєте зберегти зроблені зміни у документі &quot;%1&quot;?</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/fritzingwindow.cpp" line="231"/>
+        <location filename="../src/mainwindow/fritzingwindow.cpp" line="239"/>
         <source>Your changes will be lost if you don&apos;t save them.</source>
         <translation>Всі зміни буде втрачено, якщо ви не збережете їх.</translation>
     </message>
@@ -1645,74 +1535,62 @@ It is also possible to choose a connector as a ground fill seed by right-clickin
 <context>
     <name>HtmlInfoView</name>
     <message>
-        <location filename="../src/infoview/htmlinfoview.cpp" line="141"/>
+        <location filename="../src/infoview/htmlinfoview.cpp" line="142"/>
         <source>Change the part label here</source>
         <translation>Змінити позначку деталі</translation>
     </message>
     <message>
-        <source>Part breadboard view image</source>
-        <translation type="vanished">Зображення деталі на Макетній платі</translation>
-    </message>
-    <message>
-        <source>Part schematic view image</source>
-        <translation type="vanished">Зображення деталі на Схемі</translation>
-    </message>
-    <message>
-        <source>Part pcb view image</source>
-        <translation type="vanished">Зображення деталі на ДП</translation>
-    </message>
-    <message>
-        <location filename="../src/infoview/htmlinfoview.cpp" line="248"/>
+        <location filename="../src/infoview/htmlinfoview.cpp" line="249"/>
         <source>Part version number</source>
         <translation>Номер версії деталі</translation>
     </message>
     <message>
-        <location filename="../src/infoview/htmlinfoview.cpp" line="172"/>
+        <location filename="../src/infoview/htmlinfoview.cpp" line="173"/>
         <source>Placement</source>
         <translation>Розміщення</translation>
     </message>
     <message>
-        <location filename="../src/infoview/htmlinfoview.cpp" line="182"/>
+        <location filename="../src/infoview/htmlinfoview.cpp" line="183"/>
         <source>pcb layer</source>
         <translation>шар друкованої плати</translation>
     </message>
     <message>
-        <location filename="../src/infoview/htmlinfoview.cpp" line="212"/>
+        <location filename="../src/infoview/htmlinfoview.cpp" line="213"/>
         <source>Properties</source>
         <translation>Властивості</translation>
     </message>
     <message>
-        <location filename="../src/infoview/htmlinfoview.cpp" line="224"/>
+        <location filename="../src/infoview/htmlinfoview.cpp" line="225"/>
         <source>SPICE</source>
         <translation>SPICE</translation>
     </message>
     <message>
-        <location filename="../src/infoview/htmlinfoview.cpp" line="233"/>
+        <location filename="../src/infoview/htmlinfoview.cpp" line="234"/>
         <source>Tags</source>
         <translation>Ключові слова</translation>
     </message>
     <message>
-        <location filename="../src/infoview/htmlinfoview.cpp" line="257"/>
+        <location filename="../src/infoview/htmlinfoview.cpp" line="258"/>
         <source>Connections</source>
         <translation>З’єднання</translation>
     </message>
     <message>
-        <location filename="../src/infoview/htmlinfoview.cpp" line="270"/>
+        <location filename="../src/infoview/htmlinfoview.cpp" line="271"/>
         <source>connection</source>
         <translation>з’єдн.</translation>
     </message>
     <message>
-        <location filename="../src/infoview/htmlinfoview.cpp" line="277"/>
+        <location filename="../src/infoview/htmlinfoview.cpp" line="278"/>
         <source>name</source>
         <translation>назва</translation>
     </message>
     <message>
-        <location filename="../src/infoview/htmlinfoview.cpp" line="284"/>
+        <location filename="../src/infoview/htmlinfoview.cpp" line="285"/>
         <source>type</source>
         <translation>тип</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/infoview/htmlinfoview.cpp" line="384"/>
+        <location filename="../src/infoview/htmlinfoview.cpp" line="385"/>
         <source>connected to %n item(s)</source>
         <translation>
             <numerusform>підключено до %n деталі</numerusform>
@@ -1721,72 +1599,72 @@ It is also possible to choose a connector as a ground fill seed by right-clickin
         </translation>
     </message>
     <message>
-        <location filename="../src/infoview/htmlinfoview.cpp" line="421"/>
+        <location filename="../src/infoview/htmlinfoview.cpp" line="422"/>
         <source>(autoroutable)</source>
         <translation>(саморозведення)</translation>
     </message>
     <message>
-        <location filename="../src/infoview/htmlinfoview.cpp" line="422"/>
+        <location filename="../src/infoview/htmlinfoview.cpp" line="423"/>
         <source>Wire</source>
         <translation>Провідник</translation>
     </message>
     <message>
-        <location filename="../src/infoview/htmlinfoview.cpp" line="425"/>
+        <location filename="../src/infoview/htmlinfoview.cpp" line="426"/>
         <source>Ratsnest wire</source>
         <translation>Навісний монтаж</translation>
     </message>
     <message>
-        <location filename="../src/infoview/htmlinfoview.cpp" line="428"/>
+        <location filename="../src/infoview/htmlinfoview.cpp" line="429"/>
         <source>Trace wire %1</source>
         <translation>Розведення доріжки %1</translation>
     </message>
     <message>
-        <location filename="../src/infoview/htmlinfoview.cpp" line="698"/>
+        <location filename="../src/infoview/htmlinfoview.cpp" line="699"/>
         <source>No SPICE information. This part will not be simulated.</source>
         <translation>Немає інформації про SPICE. Ця частина не буде симулюватися.</translation>
     </message>
     <message>
-        <location filename="../src/infoview/htmlinfoview.cpp" line="744"/>
+        <location filename="../src/infoview/htmlinfoview.cpp" line="745"/>
         <source>v. %1 %2</source>
         <translation>версія %1 %2</translation>
     </message>
     <message>
-        <location filename="../src/infoview/htmlinfoview.cpp" line="744"/>
+        <location filename="../src/infoview/htmlinfoview.cpp" line="745"/>
         <source>obsolete</source>
         <translation>застаріле</translation>
     </message>
     <message>
-        <location filename="../src/infoview/htmlinfoview.cpp" line="976"/>
+        <location filename="../src/infoview/htmlinfoview.cpp" line="977"/>
         <source>Locked</source>
         <translation>Заблокувати</translation>
     </message>
     <message>
-        <location filename="../src/infoview/htmlinfoview.cpp" line="978"/>
+        <location filename="../src/infoview/htmlinfoview.cpp" line="979"/>
         <source>Change the locked state of the part in this view. A locked part can&apos;t be moved.</source>
         <translation>Розблокуйте деталь на цьому виді. Заблоковану деталь не можна переміщувати.</translation>
     </message>
     <message>
-        <location filename="../src/infoview/htmlinfoview.cpp" line="984"/>
+        <location filename="../src/infoview/htmlinfoview.cpp" line="985"/>
         <source>Sticky</source>
         <translation>Липкий</translation>
     </message>
     <message>
-        <location filename="../src/infoview/htmlinfoview.cpp" line="986"/>
+        <location filename="../src/infoview/htmlinfoview.cpp" line="987"/>
         <source>Change the &quot;sticky&quot; state of the part in this view. When a sticky part is moved, objects on top of it also move.</source>
         <translation>Змініть &quot;прилипання&quot; деталі у цьому виді. Коли липка деталь переміщується, прилиплі об’єкти також переміщуються.</translation>
     </message>
     <message>
-        <location filename="../src/infoview/htmlinfoview.cpp" line="996"/>
+        <location filename="../src/infoview/htmlinfoview.cpp" line="997"/>
         <source>location</source>
         <translation>положення</translation>
     </message>
     <message>
-        <location filename="../src/infoview/htmlinfoview.cpp" line="1046"/>
+        <location filename="../src/infoview/htmlinfoview.cpp" line="1047"/>
         <source>rotation</source>
         <translation>обертання</translation>
     </message>
     <message>
-        <location filename="../src/infoview/htmlinfoview.cpp" line="1068"/>
+        <location filename="../src/infoview/htmlinfoview.cpp" line="1069"/>
         <source>degrees</source>
         <translation>градуси</translation>
     </message>
@@ -1794,247 +1672,243 @@ It is also possible to choose a connector as a ground fill seed by right-clickin
 <context>
     <name>ItemBase</name>
     <message>
-        <location filename="../src/items/itembase.cpp" line="217"/>
+        <location filename="../src/items/itembase.cpp" line="220"/>
         <source>family</source>
         <translation>сімейство</translation>
     </message>
     <message>
-        <location filename="../src/items/itembase.cpp" line="218"/>
+        <location filename="../src/items/itembase.cpp" line="221"/>
         <source>type</source>
         <translation>тип</translation>
     </message>
     <message>
-        <location filename="../src/items/itembase.cpp" line="219"/>
+        <location filename="../src/items/itembase.cpp" line="222"/>
         <source>model</source>
         <translation>модель</translation>
     </message>
     <message>
-        <location filename="../src/items/itembase.cpp" line="220"/>
+        <location filename="../src/items/itembase.cpp" line="223"/>
         <source>size</source>
         <translation>розмір</translation>
     </message>
     <message>
-        <location filename="../src/items/itembase.cpp" line="221"/>
+        <location filename="../src/items/itembase.cpp" line="224"/>
         <source>color</source>
         <translation>колір</translation>
     </message>
     <message>
-        <location filename="../src/items/itembase.cpp" line="222"/>
+        <location filename="../src/items/itembase.cpp" line="225"/>
         <source>resistance</source>
         <translation>опір</translation>
     </message>
     <message>
-        <location filename="../src/items/itembase.cpp" line="223"/>
+        <location filename="../src/items/itembase.cpp" line="226"/>
         <source>capacitance</source>
         <translation>ємність</translation>
     </message>
     <message>
-        <location filename="../src/items/itembase.cpp" line="224"/>
+        <location filename="../src/items/itembase.cpp" line="227"/>
         <source>inductance</source>
         <translation>індуктивність</translation>
     </message>
     <message>
-        <location filename="../src/items/itembase.cpp" line="225"/>
+        <location filename="../src/items/itembase.cpp" line="228"/>
         <source>voltage</source>
         <translation>напруга</translation>
     </message>
     <message>
-        <location filename="../src/items/itembase.cpp" line="226"/>
+        <location filename="../src/items/itembase.cpp" line="229"/>
         <source>current</source>
         <translation>струм</translation>
     </message>
     <message>
-        <location filename="../src/items/itembase.cpp" line="227"/>
+        <location filename="../src/items/itembase.cpp" line="230"/>
         <source>power</source>
         <translation>потужність</translation>
     </message>
     <message>
-        <location filename="../src/items/itembase.cpp" line="228"/>
-        <location filename="../src/items/itembase.cpp" line="240"/>
+        <location filename="../src/items/itembase.cpp" line="231"/>
+        <location filename="../src/items/itembase.cpp" line="243"/>
         <source>pin spacing</source>
         <translation>відстань між штирками</translation>
     </message>
     <message>
-        <location filename="../src/items/itembase.cpp" line="229"/>
+        <location filename="../src/items/itembase.cpp" line="232"/>
         <source>rated power</source>
         <translation>номінальна потужність</translation>
     </message>
     <message>
-        <location filename="../src/items/itembase.cpp" line="230"/>
+        <location filename="../src/items/itembase.cpp" line="233"/>
         <source>rated voltage</source>
         <translation>номінальна напруга</translation>
     </message>
     <message>
-        <location filename="../src/items/itembase.cpp" line="231"/>
+        <location filename="../src/items/itembase.cpp" line="234"/>
         <source>rated current</source>
         <translation>номінальний струм</translation>
     </message>
     <message>
-        <location filename="../src/items/itembase.cpp" line="232"/>
+        <location filename="../src/items/itembase.cpp" line="235"/>
         <source>version</source>
         <translation>версія</translation>
     </message>
     <message>
-        <location filename="../src/items/itembase.cpp" line="233"/>
+        <location filename="../src/items/itembase.cpp" line="236"/>
         <source>package</source>
         <translation>корпус</translation>
     </message>
     <message>
-        <location filename="../src/items/itembase.cpp" line="234"/>
+        <location filename="../src/items/itembase.cpp" line="237"/>
         <source>shape</source>
         <translation>обрис</translation>
     </message>
     <message>
-        <location filename="../src/items/itembase.cpp" line="235"/>
+        <location filename="../src/items/itembase.cpp" line="238"/>
         <source>form</source>
         <translation>вид корпусу</translation>
     </message>
     <message>
-        <location filename="../src/items/itembase.cpp" line="236"/>
+        <location filename="../src/items/itembase.cpp" line="239"/>
         <source>part number</source>
         <translation>номер деталі</translation>
     </message>
     <message>
-        <location filename="../src/items/itembase.cpp" line="237"/>
+        <location filename="../src/items/itembase.cpp" line="240"/>
         <source>maximum resistance</source>
         <translation>найбільший опір</translation>
     </message>
     <message>
-        <location filename="../src/items/itembase.cpp" line="238"/>
+        <location filename="../src/items/itembase.cpp" line="241"/>
         <source>pins</source>
         <translation>штирки</translation>
     </message>
     <message>
-        <location filename="../src/items/itembase.cpp" line="239"/>
+        <location filename="../src/items/itembase.cpp" line="242"/>
         <source>spacing</source>
         <translation>відстань</translation>
     </message>
     <message>
-        <location filename="../src/items/itembase.cpp" line="241"/>
+        <location filename="../src/items/itembase.cpp" line="244"/>
         <source>frequency</source>
         <translation>частота</translation>
     </message>
     <message>
-        <location filename="../src/items/itembase.cpp" line="242"/>
+        <location filename="../src/items/itembase.cpp" line="245"/>
         <source>processor</source>
         <translation>процесор</translation>
     </message>
     <message>
-        <location filename="../src/items/itembase.cpp" line="243"/>
+        <location filename="../src/items/itembase.cpp" line="246"/>
         <source>variant</source>
         <translation>варіант</translation>
     </message>
     <message>
-        <location filename="../src/items/itembase.cpp" line="244"/>
+        <location filename="../src/items/itembase.cpp" line="247"/>
         <source>layers</source>
         <translation>шари</translation>
     </message>
     <message>
-        <location filename="../src/items/itembase.cpp" line="245"/>
+        <location filename="../src/items/itembase.cpp" line="248"/>
         <source>tolerance</source>
         <translation>припустиме відхилення</translation>
     </message>
     <message>
-        <location filename="../src/items/itembase.cpp" line="246"/>
+        <location filename="../src/items/itembase.cpp" line="249"/>
         <source>descr</source>
         <translation>опис</translation>
     </message>
     <message>
-        <location filename="../src/items/itembase.cpp" line="247"/>
+        <location filename="../src/items/itembase.cpp" line="250"/>
         <source>filename</source>
         <translation>ім’я файлу</translation>
     </message>
     <message>
-        <location filename="../src/items/itembase.cpp" line="248"/>
+        <location filename="../src/items/itembase.cpp" line="251"/>
         <source>title</source>
         <translation>назва</translation>
     </message>
     <message>
-        <location filename="../src/items/itembase.cpp" line="249"/>
+        <location filename="../src/items/itembase.cpp" line="252"/>
         <source>date</source>
         <translation>дата</translation>
     </message>
     <message>
-        <location filename="../src/items/itembase.cpp" line="250"/>
+        <location filename="../src/items/itembase.cpp" line="253"/>
         <source>rev</source>
         <translation>ревізія</translation>
     </message>
     <message>
-        <location filename="../src/items/itembase.cpp" line="251"/>
+        <location filename="../src/items/itembase.cpp" line="254"/>
         <source>sheet</source>
         <translation>аркуш</translation>
     </message>
     <message>
-        <location filename="../src/items/itembase.cpp" line="252"/>
+        <location filename="../src/items/itembase.cpp" line="255"/>
         <source>project</source>
         <translation>проект</translation>
     </message>
     <message>
-        <location filename="../src/items/itembase.cpp" line="253"/>
+        <location filename="../src/items/itembase.cpp" line="256"/>
         <source>banded</source>
         <translation>смугастий</translation>
     </message>
     <message>
-        <location filename="../src/items/itembase.cpp" line="254"/>
+        <location filename="../src/items/itembase.cpp" line="257"/>
         <source>top</source>
         <translation>верх</translation>
     </message>
     <message>
-        <location filename="../src/items/itembase.cpp" line="255"/>
+        <location filename="../src/items/itembase.cpp" line="258"/>
         <source>bottom</source>
         <translation>низ</translation>
     </message>
     <message>
-        <location filename="../src/items/itembase.cpp" line="256"/>
+        <location filename="../src/items/itembase.cpp" line="259"/>
         <source>copper bottom</source>
         <translation>мідний низ</translation>
     </message>
     <message>
-        <location filename="../src/items/itembase.cpp" line="257"/>
+        <location filename="../src/items/itembase.cpp" line="260"/>
         <source>copper top</source>
         <translation>мідний верх</translation>
     </message>
     <message>
-        <location filename="../src/items/itembase.cpp" line="258"/>
+        <location filename="../src/items/itembase.cpp" line="261"/>
         <source>silkscreen bottom</source>
         <translation>шар позначок знизу</translation>
     </message>
     <message>
-        <location filename="../src/items/itembase.cpp" line="259"/>
+        <location filename="../src/items/itembase.cpp" line="262"/>
         <source>silkscreen top</source>
         <translation>шар позначок зверху</translation>
     </message>
     <message>
-        <location filename="../src/items/itembase.cpp" line="260"/>
+        <location filename="../src/items/itembase.cpp" line="263"/>
         <source>mn</source>
         <translation>мн</translation>
     </message>
     <message>
-        <location filename="../src/items/itembase.cpp" line="261"/>
+        <location filename="../src/items/itembase.cpp" line="264"/>
         <source>mpn</source>
         <translation>mpn</translation>
     </message>
     <message>
-        <location filename="../src/items/itembase.cpp" line="267"/>
+        <location filename="../src/items/itembase.cpp" line="270"/>
         <source>Part</source>
         <translation>Деталь</translation>
     </message>
     <message>
-        <location filename="../src/items/itembase.cpp" line="1303"/>
+        <location filename="../src/items/itembase.cpp" line="1306"/>
         <source>model part problem</source>
         <translation>проблема з моделю деталі</translation>
     </message>
     <message>
-        <location filename="../src/items/itembase.cpp" line="1326"/>
+        <location filename="../src/items/itembase.cpp" line="1329"/>
         <source>file &apos;%1&apos; for title:&apos;%2&apos; and moduleID:&apos;%3&apos; not found</source>
         <translation>файл &apos;%1&apos; для title:&apos;%2&apos; та moduleID:&apos;%3&apos; не знайдено</translation>
     </message>
     <message>
-        <source>file for %1 %2 not found</source>
-        <translation type="vanished">файл %1 %2 не знайдено</translation>
-    </message>
-    <message>
-        <location filename="../src/items/itembase.cpp" line="1429"/>
+        <location filename="../src/items/itembase.cpp" line="1432"/>
         <source>unable to create renderer for svg %1</source>
         <translation>не вдалось відобразити SVG %1</translation>
     </message>
@@ -2058,6 +1932,19 @@ It is also possible to choose a connector as a ground fill seed by right-clickin
         <location filename="../src/dock/layerpalette.cpp" line="31"/>
         <source>show all layers</source>
         <translation>показати всі шари</translation>
+    </message>
+</context>
+<context>
+    <name>Legacy</name>
+    <message>
+        <location filename="../src/utils/folderutils.cpp" line="776"/>
+        <source>Move Your Custom Parts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/utils/folderutils.cpp" line="777"/>
+        <source>&lt;p&gt;Please move your custom-made parts and bins from the old location:&lt;br/&gt;&lt;br/&gt;&lt;em&gt;%1&lt;/em&gt;&lt;br/&gt;&lt;br/&gt;to the new Fritzing documents folder at:&lt;br/&gt;&lt;br/&gt;&lt;em&gt;%2&lt;/em&gt;&lt;br/&gt;&lt;br/&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2086,364 +1973,374 @@ It is also possible to choose a connector as a ground fill seed by right-clickin
 <context>
     <name>LogoItem</name>
     <message>
-        <location filename="../src/items/logoitem.cpp" line="245"/>
-        <location filename="../src/items/logoitem.cpp" line="656"/>
+        <location filename="../src/items/logoitem.cpp" line="246"/>
+        <location filename="../src/items/logoitem.cpp" line="712"/>
         <source>text</source>
         <translation>текст</translation>
     </message>
     <message>
-        <location filename="../src/items/logoitem.cpp" line="269"/>
+        <location filename="../src/items/logoitem.cpp" line="270"/>
         <source>shape</source>
         <translation>обрис</translation>
     </message>
     <message>
-        <location filename="../src/items/logoitem.cpp" line="347"/>
+        <location filename="../src/items/logoitem.cpp" line="348"/>
         <source>due to a rendering error</source>
         <translation>через помилку в поданні</translation>
     </message>
     <message>
-        <location filename="../src/items/logoitem.cpp" line="361"/>
+        <location filename="../src/items/logoitem.cpp" line="382"/>
         <source>because the svg is empty</source>
         <translation>тому що SVG порожній</translation>
     </message>
     <message>
-        <location filename="../src/items/logoitem.cpp" line="366"/>
+        <location filename="../src/items/logoitem.cpp" line="387"/>
         <source>because this appears to be a SVG file exported from CorelDRAW without choosing the &apos;presentation attributes&apos; setting</source>
         <translation>можливо тому, що при експорті до SVG з CorelDRAW не було обрано опцію &apos;presentation attributes&apos;</translation>
     </message>
     <message>
-        <location filename="../src/items/logoitem.cpp" line="380"/>
+        <location filename="../src/items/logoitem.cpp" line="401"/>
         <source>due to an xml problem: %1 line:%2 column:%3</source>
         <translation>через проблему з XML: %1 рядок:%2 стовпчик:%3</translation>
     </message>
     <message>
-        <location filename="../src/items/logoitem.cpp" line="386"/>
+        <location filename="../src/items/logoitem.cpp" line="407"/>
         <source>because the file has no root element</source>
         <translation>тому що файл не має основного елементу</translation>
     </message>
     <message>
-        <location filename="../src/items/logoitem.cpp" line="391"/>
+        <location filename="../src/items/logoitem.cpp" line="412"/>
         <source>because the file has no &lt;svg&gt; element</source>
         <translation>тому що файл не має &lt;svg&gt; елементу</translation>
     </message>
     <message>
-        <location filename="../src/items/logoitem.cpp" line="429"/>
+        <location filename="../src/items/logoitem.cpp" line="449"/>
         <source>for unknown reasons--possibly the image file is corrupted</source>
         <translation>з невідомих причин — можливо файл зображення пошкоджений</translation>
     </message>
     <message>
-        <source>Unable to display</source>
-        <translation type="vanished">Не вдається відобразити</translation>
-    </message>
-    <message>
-        <source>Unable to display image from %1</source>
-        <translation type="vanished">Не вдається відобразити зображення з %1</translation>
+        <location filename="../src/items/logoitem.cpp" line="467"/>
+        <source>failed to convert image format</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="335"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="342"/>
         <source>Ctrl+R</source>
         <comment>Rotate Clockwise</comment>
         <translatorcomment>Повернути за годинниковою стрілкою</translatorcomment>
         <translation>Ctrl+R</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="337"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="344"/>
         <source>Alt+Ctrl+R</source>
         <comment>Rotate Clockwise</comment>
         <translatorcomment>Повернути за годинниковою стрілкою</translatorcomment>
         <translation>Alt+Ctrl+R</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="339"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="346"/>
         <source>Meta+Ctrl+R</source>
         <comment>Rotate Clockwise</comment>
         <translatorcomment>Повернути за годинниковою стрілкою</translatorcomment>
         <translation>Meta+Ctrl+R</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="342"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="349"/>
         <source>Shift+Ctrl+R</source>
         <comment>Rotate Counterclockwise</comment>
         <translatorcomment>Повернути проти годинникової стрілки</translatorcomment>
         <translation>Shift+Ctrl+R</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="344"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="351"/>
         <source>Alt+Shift+Ctrl+R</source>
         <comment>Rotate Counterclockwise</comment>
         <translatorcomment>Повернути проти годинникової стрілки</translatorcomment>
         <translation>Alt+Shift+Ctrl+R</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="346"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="353"/>
         <source>Meta+Shift+Ctrl+R</source>
         <comment>Rotate Counterclockwise</comment>
         <translatorcomment>Повернути проти годинникової стрілки</translatorcomment>
         <translation>Meta+Shift+Ctrl+R</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="349"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="356"/>
         <source>Shift+Ctrl+Tab</source>
         <comment>Toggle Active Layer</comment>
         <translatorcomment>Переключення активного шару</translatorcomment>
         <translation>Shift+Ctrl+Tab</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="562"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="577"/>
         <source>Breadboard</source>
         <translation>Монтажна плата</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="571"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="586"/>
         <source>Schematic</source>
         <translation>Схема</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="580"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="595"/>
         <source>PCB</source>
         <translation>Друкована плата</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="880"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="913"/>
         <source>Click to highlight unconnected parts</source>
         <translation>Натисніть для виділення роз’єднаних деталей</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="893"/>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="1348"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="926"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="1350"/>
         <source>Rotate</source>
         <translation>Обернути</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="901"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="934"/>
         <source>Share</source>
         <translation>Поширити</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="911"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="944"/>
         <source>Flip</source>
         <translation>Віддзеркалити</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="919"/>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2785"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="952"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2787"/>
         <source>Autoroute</source>
         <translation>Розведення</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="927"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="1018"/>
         <source>Fabricate</source>
         <translation>Виготовити</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="947"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="1043"/>
         <source>Both Layers</source>
         <translation>Обидва шари</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="952"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="1048"/>
         <source>Bottom Layer</source>
         <translation>Нижній шар</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="957"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="1053"/>
         <source>Top Layer</source>
         <translation>Верхній шар</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="974"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="1070"/>
         <source>View from Above</source>
         <translation>Вигляд зверху</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="981"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="1077"/>
         <source>View from Below</source>
         <translation>Вигляд знизу</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="991"/>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="942"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="1087"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="945"/>
         <source>Add a note</source>
         <translation>Примітка</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="1007"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="1103"/>
         <source>Simulate</source>
         <translation>Імітувати</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="1016"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="1107"/>
+        <source>Normal Mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="1108"/>
+        <source>Transient Mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="1129"/>
         <source>Stop</source>
         <translation>Зупинити</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="1043"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="1143"/>
+        <source>Simulation Mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="1144"/>
+        <source>Transient simulation mode is a beta feature.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="1171"/>
         <source>Export for PCB</source>
         <translation>Експорт ДП</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="1136"/>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="142"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="1264"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="144"/>
         <source>Ready</source>
         <translation>Готовий</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="1327"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="1455"/>
         <source>Save %1</source>
         <translation>Зберегти %1</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="1430"/>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="1448"/>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="1501"/>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="1691"/>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="1740"/>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="1756"/>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="1776"/>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="1784"/>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="1798"/>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="1811"/>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="1821"/>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="1842"/>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="1857"/>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="1867"/>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="1932"/>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="2509"/>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="162"/>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="167"/>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="605"/>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="640"/>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="773"/>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="946"/>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1062"/>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1350"/>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1606"/>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1611"/>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1759"/>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1764"/>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="237"/>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="248"/>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="308"/>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2515"/>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2698"/>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3020"/>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3025"/>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3313"/>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3318"/>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3353"/>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3358"/>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3923"/>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3937"/>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4080"/>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4304"/>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4310"/>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4492"/>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4497"/>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4509"/>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4514"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="1558"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="1576"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="1629"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="1819"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="1868"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="1884"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="1904"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="1912"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="1926"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="1939"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="1949"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="1970"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="1985"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="1995"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="2060"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="2638"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="164"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="169"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="607"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="642"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="777"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="786"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="970"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1087"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1375"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1647"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1652"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1800"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1805"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="238"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="249"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="309"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2517"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2700"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3022"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3027"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3315"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3320"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3355"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3360"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3932"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3962"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4105"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4329"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4335"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4517"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4522"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4534"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4539"/>
         <source>Fritzing</source>
         <translation>Fritzing</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="1431"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="1559"/>
         <source>Unable to open &apos;%1&apos;: %2</source>
         <translation>Не вдалось відкрити &apos;%1&apos;: %2</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="1449"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="1577"/>
         <source>No Sketch found in &apos;%1&apos;</source>
         <translation>Не знайдено нарис у &apos;%1&apos;</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="1502"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="1630"/>
         <source>unable to parse fzp in %1. line: %2 column: %3 error: %4</source>
         <translation>неможливо проаналізувати fzp у %1. рядок: %2 стовпець: %3 помилка: %4</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="1692"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="1820"/>
         <source>Unable to open shareable &apos;%1&apos;: %2</source>
         <translation>Не вдалось відкрити спільне &apos;%1&apos;: %2</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="1843"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="1971"/>
         <source>Unable to open shareable part &apos;%1&apos;: %2</source>
         <translation>Не вдалось відкрити спільну деталь &apos;%1&apos;: %2</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="1822"/>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="1868"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="1950"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="1996"/>
         <source>Unable to load part from &apos;%1&apos;</source>
         <translation>Не вдалось завантажити деталь з &apos;%1&apos;</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="1741"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="1869"/>
         <source>Local part &apos;%1&apos; incomplete, only &apos;%2&apos; layers.</source>
         <translation>Локальна частина &apos;%1&apos; неповна, лише &apos;%2&apos; шарів.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="1757"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="1885"/>
         <source>View &apos;%1&apos; should be prefixed with &apos;%2/&apos;. Trying to continue.</source>
         <translation>Вид &apos;%1&apos; має бути доповнений префіксом &apos;%2/&apos;. Намагаємося продовжити.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="1777"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="1905"/>
         <source>Could not copy subfile &apos;%1&apos; to &apos;%2&apos;</source>
         <translation>Не вдалося скопіювати підфайл &apos;%1&apos; до &apos;%2&apos;</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="1785"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="1913"/>
         <source>Local part &apos;%1&apos; incomplete, subfile not found &apos;%2&apos;</source>
         <translation>Локальна частина &apos;%1&apos; неповна, підфайл не знайдено &apos;%2&apos;</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="1799"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="1927"/>
         <source>Unable to open local part &apos;%1&apos;</source>
         <translation>Не вдалося відкрити локальну частину &apos;%1&apos;</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="1897"/>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="865"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="2025"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="886"/>
         <source>Specify a file name</source>
         <translation>Вкажіть ім’я файлу</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="1899"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="2027"/>
         <source>Fritzing Part (*%1)</source>
         <translation>Деталь Fritzing (*%1)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="1933"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="2061"/>
         <source>Unable to export %1 to shareable sketch</source>
         <translation>Не вдалось експортувати %1 до спільного нарису</translation>
     </message>
     <message>
-        <source>MainWindow::moveToPartsFolder mainwindow missing</source>
-        <translation type="vanished">ГоловнеВікно::переміститиДоПапкиДеталей головневікно відсутнє</translation>
-    </message>
-    <message>
-        <source>There is already a part with id &apos;%1&apos; loaded into Fritzing.</source>
-        <translation type="vanished">Деталь з ідентифікатором &apos;%1&apos; вже було завантажено до Fritzing.</translation>
-    </message>
-    <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="1326"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="1454"/>
         <source>Do you want to keep the imported parts?</source>
         <translation>Бажаєте зберегти імпортовані деталі?</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="2114"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="2242"/>
         <source>No connections to route</source>
         <translation>Відсутнє з’єднання з доріжкою</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="2117"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="2245"/>
         <source>Routing completed</source>
         <translation>Розведення завершено</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/mainwindow/mainwindow.cpp" line="2120"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="2248"/>
         <source>Routing completed using %n jumper part(s)</source>
         <translation>
             <numerusform>Розведення завершено завдяки %n перемичці</numerusform>
@@ -2452,7 +2349,7 @@ It is also possible to choose a connector as a ground fill seed by right-clickin
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/mainwindow/mainwindow.cpp" line="2123"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="2251"/>
         <source>%1 of %2 nets routed - %n connector(s) still to be routed</source>
         <translation>
             <numerusform>%1 з %2 ланцюжок розведено — ще %n контакт потребує розведення</numerusform>
@@ -2461,577 +2358,567 @@ It is also possible to choose a connector as a ground fill seed by right-clickin
         </translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="2144"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="2272"/>
         <source>%1 - [%2]</source>
         <translation>%1 — [%2]</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="2251"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="2379"/>
         <source>No copper top layer</source>
         <translation>Верхній шар не мідний</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="2252"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="2380"/>
         <source>The copper top (copper 1) layer is not available on a one-sided board.  Please switch the board to double-sided or choose the copper bottom (copper 0) layer.</source>
         <translation>Верхній мідний шар (copper 1) неможливий на односторонній платі. Будь ласка, зробіть плату двосторонньою, або оберіть нижній мідний шар (copper 0).</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="2330"/>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4018"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="2458"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4043"/>
         <source>Sorry!</source>
         <translation>Вибачте!</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="2331"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="2459"/>
         <source>No part with those characteristics.
 We&apos;re working to avoid this message, and only let you choose between properties that do exist</source>
         <translation>Немає деталей з такими озаками.
 Ми працюємо над тим, щоб уникнути цього повідомлення, і дозволити обирати лише ті властивості, що справді існують</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="2343"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="2471"/>
         <source>No exactly matching part found; Fritzing chose the closest match.</source>
         <translation>Немає повністю відповідних деталей; Fritzing обрав найближчий відповідник.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="2380"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="2508"/>
         <source>Change to single layer pcb</source>
         <translation>Змінити на односторонню плату</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="2380"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="2508"/>
         <source>Change to two layer pcb</source>
         <translation>Змінити на двосторонню плату</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="2413"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="2541"/>
         <source>Swapped %1 with module %2</source>
         <translation>Поміняти %1 з вузлом %2</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="2446"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="2574"/>
         <source>Change image to %2</source>
         <translation>Змінити зображення на %2</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="2510"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="2639"/>
         <source>Svg %1 is missing a &apos;%2&apos; layer. For more information on how to create a custom board shape, see the tutorial at &lt;a href=&apos;http://fritzing.org/learning/tutorials/designing-pcb/pcb-custom-shape/&apos;&gt;http://fritzing.org/learning/tutorials/designing-pcb/pcb-custom-shape/&lt;/a&gt;.</source>
         <translation>У SVG %1 відсутній шар &apos;%2&apos;. Для отримання додаткової інформації про створення власних обрисів плат, дивіться підручник &lt;a href=&apos;http://fritzing.org/learning/tutorials/designing-pcb/pcb-custom-shape/&apos;&gt;http://fritzing.org/learning/tutorials/designing-pcb/pcb-custom-shape/&lt;/a&gt;.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="2548"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="2677"/>
         <source>loading %1</source>
         <translation>завантажується %1</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="2557"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="2686"/>
         <source>Loading...</source>
         <translation>Завантаження...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="2563"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="2692"/>
         <source>new sketch</source>
         <translation>новий нарис</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="2615"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="2744"/>
         <source>Schematic conversion</source>
         <translation>Схема перетворення</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="2616"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="2745"/>
         <source>Saving this sketch will convert it to the new schematic graphics standard. Go ahead and convert?</source>
         <translation>Збереження цього нарису потребує його перетворення у новий графічний стандарт схем. Продовжити перетворення?</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="2726"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="2855"/>
         <source>Backing up &apos;%1&apos;</source>
         <translation>Резервне копіювання &apos;%1&apos;</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="2821"/>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="865"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="2950"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="886"/>
         <source>Fritzing (*%1)</source>
         <translation>Fritzing (*%1)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="2822"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="2951"/>
         <source>Fritzing uncompressed (*%1)</source>
         <translation>Нестисненний Fritzing (*%1)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="2877"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="3006"/>
         <source>Unrouted connections</source>
         <translation>Нерозведені з’єднання</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="2878"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="3007"/>
         <source>There are no unrouted connections in this view.</source>
         <translation>На цьому виді немає нерозведених з’єднань.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="2928"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="3062"/>
         <source>(x,y)=(%1, %2) %3</source>
         <translation>(x,y)=(%1, %2) %3</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="2933"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="3067"/>
         <source>(x, y)=(%1, %2)	(width, height)=(%3, %4) %5</source>
         <translation>(x, y)=(%1, %2)	(width, height)=(%3, %4) %5</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="3219"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="3353"/>
         <source>Code</source>
         <translation>Код</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="3274"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="3429"/>
         <source>Welcome</source>
         <translation>Ласкаво просимо</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_dock.cpp" line="61"/>
+        <location filename="../src/mainwindow/mainwindow_dock.cpp" line="63"/>
         <source>Inspector</source>
         <translation>Інспектор</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_dock.cpp" line="63"/>
+        <location filename="../src/mainwindow/mainwindow_dock.cpp" line="65"/>
         <source>Undo History</source>
         <translation>Очистити Історію</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_dock.cpp" line="66"/>
+        <location filename="../src/mainwindow/mainwindow_dock.cpp" line="68"/>
         <source>Layers</source>
         <translation>Шари</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_dock.cpp" line="194"/>
+        <location filename="../src/mainwindow/mainwindow_dock.cpp" line="196"/>
         <source>Couldn&apos;t get the dock widget</source>
         <translation>Не вдалось отримати пристосунок</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="115"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="117"/>
         <source>PDF (*.pdf)</source>
         <translation>PDF (*.pdf)</translation>
     </message>
     <message>
-        <source>PostScript (*.ps)</source>
-        <translation type="obsolete">PostScript (*.ps)</translation>
-    </message>
-    <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="116"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="118"/>
         <source>PNG Image (*.png)</source>
         <translation>зображення PNG (*.png)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="117"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="119"/>
         <source>JPEG Image (*.jpg)</source>
         <translation>зображення JPEG (*.jpg)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="118"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="120"/>
         <source>SVG Image (*.svg)</source>
         <translation>зображення SVG (*.svg)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="119"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="121"/>
         <source>BoM Text File (*.html)</source>
         <translation>Текстовий файл BoM (*.html)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="120"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="122"/>
         <source>BoM CSV File (*.csv)</source>
         <translation>Файл CSV BoM (*.csv)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="121"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="123"/>
         <source>IPC-D-356 File (*.ipc)</source>
         <translation>Файл IPC-D-356 (*.ipc)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="140"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="142"/>
         <source>Printing...</source>
         <translation>Друк...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="163"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="165"/>
         <source>Your sketch does not have a board yet! Please add a PCB in order to export etchable.</source>
         <translation>Ваш нарис досі не містить плати! Будь ласка, додайте ДП для експорту витравки.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="168"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="170"/>
         <source>Etchable export can only handle one board at a time--please select the board you want to export.</source>
         <translation>Експорт витравки може працювати лише з однією платою в один момент часу — будь ласка, оберіть плату яку ви бажаєте експортувати.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="177"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="179"/>
         <source>All traces have not yet been routed.</source>
         <translation>Всі доріжки ще не розведені.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="178"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="180"/>
         <source>Do you want to proceed anyway?</source>
         <translation>Все одно бажаєте продовжити?</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="180"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="182"/>
         <source>Proceed</source>
         <translation>Продовжити</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="181"/>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4119"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="183"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4144"/>
         <source>Cancel</source>
         <translation>Скасувати</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="197"/>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1769"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="199"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1810"/>
         <source>Choose a folder for exporting</source>
         <translation>Обрати теку для експорту</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="334"/>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="548"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="336"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="550"/>
         <source>Sketch exported</source>
         <translation>Нарис експортується</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="527"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="529"/>
         <source>Export...</source>
         <translation>Експорт...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="546"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="548"/>
         <source>Exporting...</source>
         <translation>Експорт...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="605"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="607"/>
         <source>Unable to save %1</source>
         <translation>Не вдалось зберегти %1</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="640"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="642"/>
         <source>Cannot print to %1</source>
         <translation>Неможливо надрукувати %1</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="774"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="778"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="787"/>
         <source>Cannot write file %1:
 %2.</source>
         <translation>Неможливо записати файл %1:
 %2.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="788"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="779"/>
+        <source>File is not writable</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="806"/>
         <source>Saved &apos;%1&apos;</source>
         <translation>Збереження &apos;%1&apos;</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="947"/>
-        <source>Unable to export %1 as shareable</source>
-        <translation>Не вдалось експортувати %1 як спільне</translation>
-    </message>
-    <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="959"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="984"/>
         <source>&amp;Save</source>
         <translation>Зберегти (&amp;S)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="960"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="985"/>
         <source>Ctrl+S</source>
         <translation>Ctrl+S</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="961"/>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="966"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="986"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="991"/>
         <source>Save the current sketch</source>
         <translation>Зберегти поточний нарис</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="964"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="989"/>
         <source>&amp;Save As...</source>
         <translation>Зберегти як (&amp;S)...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="965"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="990"/>
         <source>Shift+Ctrl+S</source>
         <translation>Shift+Ctrl+S</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="969"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="994"/>
         <source>Share online...</source>
         <translation>Поширити в мережі...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="970"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="995"/>
         <source>Post a project to the Fritzing website</source>
         <translation>Опублікувати проект на сторінці Fritzing</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="973"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="998"/>
         <source>JPG...</source>
         <translation>JPG...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="975"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1000"/>
         <source>Export the visible area of the current sketch as a JPG image</source>
         <translation>Експортувати видиму частину поточного нарису як зображення JPG</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="978"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1003"/>
         <source>PNG...</source>
         <translation>PNG...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="980"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1005"/>
         <source>Export the visible area of the current sketch as a PNG image</source>
         <translation>Експортувати видиму частину поточного нарису як зображення PNG</translation>
     </message>
     <message>
-        <source>PostScript...</source>
-        <translation type="obsolete">PostScript...</translation>
-    </message>
-    <message>
-        <source>Export the visible area of the current sketch as a PostScript image</source>
-        <translation type="obsolete">Експортувати видиму частину поточного нарису як зображення PostScript</translation>
-    </message>
-    <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="983"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1008"/>
         <source>PDF...</source>
         <translation>PDF...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="985"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1010"/>
         <source>Export the visible area of the current sketch as a PDF image</source>
         <translation>Експортувати видиму частину поточного нарису як зображення PDF</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="988"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1013"/>
         <source>SVG...</source>
         <translation>SVG...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="990"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1015"/>
         <source>Export the current sketch as an SVG image</source>
         <translation>Експортувати поточний нарис як зображення SVG</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="993"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1018"/>
         <source>List of parts (&amp;Bill of Materials)...</source>
         <translation>перелік деталей (опис матеріалів) (&amp;B)...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="995"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1020"/>
         <source>Save a Bill of Materials (BoM)/Shopping List as html</source>
         <translation>Зберегти список матеріалів (BoM)/список покупок у форматі html</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="998"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1023"/>
         <source>List of parts (&amp;Bill of Materials) as CSV</source>
         <translation>Перелік деталей (&amp;Відомість матеріалів) у форматі CSV</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1000"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1025"/>
         <source>Save a Bill of Materials (BoM)/Shopping List as text</source>
         <translation>Зберегти опис матеріалів/перелік покупок у вигляді тексту</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1003"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1028"/>
         <source>IPC-D-356A netlist</source>
         <translation>Список мереж IPC-D-356A</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1005"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1030"/>
         <source>Save a netlist in IPC-D-356A format</source>
         <translation>Збережіть список мереж у форматі IPC-D-356A</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1008"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1033"/>
         <source>XML Netlist...</source>
         <translation>таблицю з’єднань XML...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1010"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1035"/>
         <source>Save a netlist in XML format</source>
         <translation>Зберегти таблицю з’єднань у форматі XML</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1013"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1038"/>
         <source>SPICE Netlist...</source>
         <translation>таблицю з’єднань SPICE...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1015"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1040"/>
         <source>Save a netlist in SPICE format</source>
         <translation>Зберегти таблицю з’єднань у форматі SPICE</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1018"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1043"/>
         <source>Eagle...</source>
         <translation>Eagle...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1020"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1045"/>
         <source>Export the current sketch to Eagle CAD</source>
         <translation>Експортувати поточний нарис до Eagle CAD</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1023"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1048"/>
         <source>Extended Gerber (RS-274X)...</source>
         <translation>Extended Gerber (RS-274X)...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1025"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1050"/>
         <source>Export the current sketch to Extended Gerber format (RS-274X) for professional PCB production</source>
         <translation>Експортувати поточний нарис до Extended Gerber (RS-274X), для професійного виготовлення ДП</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1028"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1053"/>
         <source>Etchable (PDF)...</source>
         <translation>Витравка (PDF)...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1029"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1054"/>
         <source>Export the current sketch to PDF for DIY PCB production (photoresist)</source>
         <translation>Експортувати поточний нарис до PDF, для саморобного виробництва ДП (фоторезист)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1033"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1058"/>
         <source>Etchable (SVG)...</source>
         <translation>Витравка (SVG)...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1034"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1059"/>
         <source>Export the current sketch to SVG for DIY PCB production (photoresist)</source>
         <translation>Експортувати поточний нарис до SVG, для саморобного виробництва ДП (фоторезист)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1043"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1068"/>
         <source>&amp;Print...</source>
         <translation>Друкувати (&amp;P)...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1044"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1069"/>
         <source>Ctrl+P</source>
         <translation>Ctrl+P</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1045"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1070"/>
         <source>Print the current view</source>
         <translation>Надрукувати поточний вид</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1053"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1078"/>
         <source>This will soon provide an export of your Fritzing sketch to the EAGLE layout software. If you&apos;d like to have more exports to your favourite EDA tool, please let us know, or contribute.</source>
         <translation>Це скоро дозволить експортувати ваші нариси Fritzing до EAGLE. Якщо ви бажаєте отримати більше варіантів експорту до ваших улюблених АПЕВ — будь ласка, сповістіть нас, або зробіть свій внесок.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1118"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1143"/>
         <source>Export SVG...</source>
         <translation>Експорт SVG...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1234"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1259"/>
         <source>Export Bill of Materials (BoM) as CSV</source>
         <translation>Експортуйте опис матеріалів (BoM) як CSV</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1315"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1340"/>
         <source>Export Bill of Materials (BoM)...</source>
         <translation>Експорт номенклатури матеріалів (BoM)...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1235"/>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1316"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1260"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1341"/>
         <source>Unable to save BOM file, but the text is on the clipboard.</source>
         <translation>Не вдалось зберегти файл опису матеріалів, але текст у буфері обміну.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1380"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="971"/>
+        <source>Unable to export %1 as shareable. Save failed. Please check if home and save dir are writeable and not full. </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1405"/>
         <source>Export SPICE Netlist...</source>
         <translation>Експорт SPICE Netlist...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1607"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1648"/>
         <source>Your sketch does not have a board yet!  Please add a PCB in order to export to IPC netlist.</source>
         <translation>Ваш ескіз ще не має плати!  Будь ласка, додайте друковану плату, щоб експортувати в список мереж IPC.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1612"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1653"/>
         <source>IPC netlist export can only handle one board at a time--please select the board you want to export.</source>
         <translation>Експорт IPC-списків мереж може обробляти лише одну плату за раз - будь ласка, виберіть плату, яку ви хочете експортувати.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1620"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1661"/>
         <source>Export IPC-D-356...</source>
         <translation>Експорт IPC-D-356...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1622"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1663"/>
         <source>Unable to save IPC file.</source>
         <translation>Не вдалося зберегти IPC-файл.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1622"/>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1705"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1663"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1746"/>
         <source>But the content was copied to the clipboard.</source>
         <translation>Але вміст було скопійовано в буфер обміну.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1703"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1744"/>
         <source>Export Netlist...</source>
         <translation>Експорт Netlist...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1705"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1746"/>
         <source>Unable to save netlist file.</source>
         <translation>Не вдалося зберегти файл списку мереж.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1760"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1801"/>
         <source>Your sketch does not have a board yet!  Please add a PCB in order to export to Gerber.</source>
         <translation>Ваш нарис не містить плати! Будь ласка, додайте ДП для експорту у Gerber.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1765"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1806"/>
         <source>Gerber export can only handle one board at a time--please select the board you want to export.</source>
         <translation>Експорт у Gerber можливий лише для однієї плати в один момент часу — будь ласка, оберіть плату для експорту.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1790"/>
+        <location filename="../src/mainwindow/mainwindow_export.cpp" line="1828"/>
         <source>Sketch exported to Gerber</source>
         <translation>Нарис експортується у Gerber</translation>
     </message>
     <message>
-        <source>Select a Fritzing File to Open</source>
-        <translation type="vanished">Виберіть файл Fritzing для відкривання</translation>
-    </message>
-    <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="161"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="162"/>
         <source>Fritzing Files (*%1 *%2 *%3 *%4 *%5);;Fritzing (*%1);;Fritzing Shareable (*%2);;Fritzing Part (*%3);;Fritzing Bin (*%4);;Fritzing Shareable Bin (*%5)</source>
         <translation>Файли Fritzing (*%1 *%2 *%3 *%4 *%5);;Fritzing (*%1);;Fritzing Спільне (*%2);;Fritzing Деталь (*%3);;Fritzing Набір (*%4);;Fritzing Спільний набір (*%5)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="238"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="239"/>
         <source>Cannot find file %1.</source>
         <translation>Неможливо знайти файл %1.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="249"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="250"/>
         <source>Cannot read file  1 %1:
 %2.</source>
         <translation>Неможливо прочитати файл 1 %1:
 %2.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="265"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="266"/>
         <source>Revert?</source>
         <translation>Повернути?</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="266"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="267"/>
         <source>This operation can not be undone--you will lose all of your changes.
 
 Go ahead and revert?</source>
@@ -3040,264 +2927,256 @@ Go ahead and revert?</source>
 Продовжити і розвернути?</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="308"/>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2698"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="309"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2700"/>
         <source>File &apos;%1&apos; not found</source>
         <translation>Файл &apos;%1 не знайдено</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3690"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3699"/>
         <source>Convert</source>
         <translation>Перетворити</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3691"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3700"/>
         <source>Read-only</source>
         <translation>Лише для читання</translation>
     </message>
     <message>
-        <source>directly loading parts</source>
-        <translation type="vanished">безпосередньо завантажені деталі</translation>
-    </message>
-    <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="368"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="369"/>
         <source>loading %1 (model)</source>
         <translation>завантажується %1 (макет)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="411"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="412"/>
         <source>loading %1 (breadboard)</source>
         <translation>завантажується %1 (монтажна плата)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="420"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="421"/>
         <source>loading %1 (pcb)</source>
         <translation>завантажується %1 (друкована плата)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="430"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="431"/>
         <source>loading %1 (schematic)</source>
         <translation>завантажується %1 (схема)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="643"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="644"/>
         <source>New</source>
         <translation>Створити</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="644"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="645"/>
         <source>Ctrl+N</source>
         <translation>Ctrl+N</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="645"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="646"/>
         <source>Create a new sketch</source>
         <translation>Створити новий нарис</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="648"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="649"/>
         <source>&amp;Open...</source>
         <translation>Відкрити (&amp;O)...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="649"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="650"/>
         <source>Ctrl+O</source>
         <translation>Ctrl+O</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="650"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="651"/>
         <source>Open a Fritzing sketch (.fzz, .fz), or load a Fritzing part (.fzpz), or a Fritzing parts bin (.fzb, .fzbz)</source>
         <translation>Відкрити нарис Fritzing (.fzz, .fz), або завантажити деталь Fritzing (.fzpz), або набір деталей Fritzing (.fzb, .fzbz)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="653"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="654"/>
         <source>Revert</source>
         <translation>Перевідкрити</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="654"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="655"/>
         <source>Reload the sketch</source>
         <translation>Перезавантажити нарис</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="668"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="669"/>
         <source>Shell launch %1</source>
         <translation>Запуск оболонки %1</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="673"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="674"/>
         <source>throw test exception</source>
         <translation>створити тест винятків</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="674"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="675"/>
         <source>throw a fake exception to see what happens</source>
         <translation>створити підробний виняток, щоб побачити що відбувається</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="678"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="679"/>
         <source>&amp;Quit</source>
         <translation>Вихід (&amp;Q)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="679"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="680"/>
         <source>Ctrl+Q</source>
         <translation>Ctrl+Q</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="680"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="681"/>
         <source>Quit the application</source>
         <translation>Вихід із програми</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="687"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="688"/>
         <source>&amp;Open Example</source>
         <translation>Приклади (&amp;O)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="718"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="719"/>
         <source>All</source>
         <translation>Різне</translation>
     </message>
     <message>
-        <source>MainWindow::populateMenuWithIndex: couldn&apos;t load example with id=&apos;%1&apos;</source>
-        <translation type="vanished">ГоловнеВікно::заповнитиМенюЗІнексом::неможливо завантажити приклад з ідентифікатором=&apos;%1&apos;</translation>
-    </message>
-    <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="822"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="823"/>
         <source>&amp;Open Recent Files</source>
         <translation>Останні файли (&amp;O)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="856"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="857"/>
         <source>&amp;%1 %2</source>
         <translation>&amp;%1 %2</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="875"/>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="877"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="876"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="878"/>
         <source>Undo</source>
         <translation>Відмінити</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="879"/>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="881"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="880"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="882"/>
         <source>Redo</source>
         <translation>Повернути</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="883"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="886"/>
         <source>&amp;Cut</source>
         <translation>Вирізати (&amp;C)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="885"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="888"/>
         <source>Cut selection</source>
         <translation>Вирізати вибране</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="888"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="891"/>
         <source>&amp;Copy</source>
         <translation>Копіювати (&amp;C)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="890"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="893"/>
         <source>Copy selection</source>
         <translation>Копіювати вибране</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="893"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="896"/>
         <source>&amp;Paste</source>
         <translation>Вставити (&amp;P)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="895"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="898"/>
         <source>Paste clipboard contents</source>
         <translation>Вставити вміст буфера обміну</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="898"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="901"/>
         <source>Paste in Place</source>
         <translation>Вставити на місце</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="900"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="903"/>
         <source>Paste clipboard contents in place</source>
         <translation>Вставити вміст буфера обміну на місце</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="903"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="906"/>
         <source>&amp;Duplicate</source>
         <translation>Дублювати (&amp;D)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="904"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="907"/>
         <source>Ctrl+D</source>
         <translation>Ctrl+D</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="905"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="908"/>
         <source>Duplicate selection</source>
         <translation>Дублювати вибране</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="908"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="911"/>
         <source>&amp;Delete</source>
         <translation>Видалити (&amp;D)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="909"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="912"/>
         <source>Delete selection</source>
         <translation>Видалити вибране</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="917"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="920"/>
         <source>Delete Minus</source>
         <translation>Видалити деталь без провідника</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="918"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="921"/>
         <source>Delete selection without attached wires</source>
         <translation>Видалити вибране без підключених провідників</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="925"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="928"/>
         <source>&amp;Delete Wire</source>
         <translation>Видалити провідник (&amp;D)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="929"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="932"/>
         <source>Delete Wire up to bendpoints</source>
         <translation>Видалити провідник до опорних точок</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="932"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="935"/>
         <source>&amp;Select All</source>
         <translation>Вибрати все (&amp;S)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="934"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="937"/>
         <source>Select all elements</source>
         <translation>Вибрати всі складові</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="937"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="940"/>
         <source>&amp;Deselect</source>
         <translation>Зняти виділення (&amp;D)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="938"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="941"/>
         <source>Deselect</source>
         <translation>Зняти виділення</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="941"/>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3162"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="944"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3164"/>
         <source>Add Note</source>
         <translation>Додати примітку</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="945"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="948"/>
         <source>&amp;Preferences...</source>
         <translation>Уподобання (&amp;P)...</translation>
     </message>
@@ -3307,77 +3186,77 @@ Go ahead and revert?</source>
         <translation>Показати вікно Про програму</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="952"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="955"/>
         <source>Edit (new parts editor)</source>
         <translation>Редагувати (новий Редактор деталей)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="953"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="956"/>
         <source>Open the new parts editor on an existing part</source>
         <translation>Відкрити новий Редактор деталей на існуючій деталі</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="1390"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="1392"/>
         <source>&amp;Add to bin...</source>
         <translation>Додати до набору (&amp;A)...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="1391"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="1393"/>
         <source>Add selected part to bin</source>
         <translation>Додати виділену деталь до набору</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="956"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="959"/>
         <source>Disconnect All Wires</source>
         <translation>Відключити всі провідники</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="957"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="960"/>
         <source>Disconnect all wires connected to this connector</source>
         <translation>Відключити всі сполучення до цього роз’єму</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="961"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="964"/>
         <source>Update InfoView on hover</source>
         <translation>Оновити Вид інформації при наведенні</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="968"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="971"/>
         <source>Export Normalized SVG</source>
         <translation>Експортувати упорядкований SVG</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="969"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="972"/>
         <source>Export 1000 dpi SVG of this part in this view</source>
         <translation>Експорт 1000 т/дюйм SVG деталі у цьому виді</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="972"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="975"/>
         <source>Export Normalized Flattened SVG</source>
         <translation>Експорт упорядкованого злитого SVG</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="973"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="976"/>
         <source>Export 1000 dpi Flattened SVG of this part in this view</source>
         <translation>Експорт 1000 т/дюйм злитого SVG у цій деталі у цьому виді</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="976"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="979"/>
         <source>Dump all parts</source>
         <translation>Скинути всі деталі</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="977"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="980"/>
         <source>Debug dump all parts in this view</source>
         <translation>Налагодити скидання всіх деталей у цьому виді</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="980"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="983"/>
         <source>Test Connectors</source>
         <translation>Перевірити роз’єми</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="981"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="984"/>
         <source>Connect all connectors to a single test part</source>
         <translation>Підключити всі роз’єми до випробуваної деталі</translation>
     </message>
@@ -3598,7 +3477,7 @@ Go ahead and revert?</source>
     </message>
     <message>
         <location filename="../src/mainwindow/mainwindow_menu.cpp" line="1092"/>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3214"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3216"/>
         <source>Add Bendpoint</source>
         <translation>Додати опорну точку</translation>
     </message>
@@ -3676,7 +3555,7 @@ Go ahead and revert?</source>
     </message>
     <message>
         <location filename="../src/mainwindow/mainwindow_menu.cpp" line="1121"/>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="1990"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="1992"/>
         <source>Hide part silkscreen</source>
         <translation>Приховати деталь шару позначок</translation>
     </message>
@@ -3951,14 +3830,6 @@ Go ahead and revert?</source>
         <translation>Відкрити довідку Fritzing</translation>
     </message>
     <message>
-        <source>Donate to Fritzing</source>
-        <translation type="vanished">Віддячити Fritzing</translation>
-    </message>
-    <message>
-        <source>Open Fritzing donation web page</source>
-        <translation type="vanished">Відкрити сторінку віддячення Fritzing</translation>
-    </message>
-    <message>
         <location filename="../src/mainwindow/mainwindow_menu.cpp" line="1285"/>
         <source>Online Projects Gallery</source>
         <translation>Галерея проектів у мережі</translation>
@@ -4050,58 +3921,58 @@ Go ahead and revert?</source>
         <translation>Показати довідку Редактора деталей у переглядачі</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="1399"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="1401"/>
         <source>&amp;File</source>
         <translation>Файл (&amp;F)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="1417"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="1419"/>
         <source>&amp;Export</source>
         <translation>Експортувати (&amp;E)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="1451"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="1453"/>
         <source>as Image</source>
         <translation>як зображення</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="1458"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="1460"/>
         <source>for Production</source>
         <translation>для виготовлення</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="1468"/>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2749"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="1470"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2751"/>
         <source>&amp;Edit</source>
         <translation>Редагування (&amp;E)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="1493"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="1495"/>
         <source>&amp;Part</source>
         <translation>Деталь (&amp;P)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="1358"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="1360"/>
         <source>Raise and Lower</source>
         <translation>Підняти та опустити</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="159"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="160"/>
         <source>Select a Fritzing file to open</source>
         <translation>Виберіть файл Fritzing, який потрібно відкрити</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="177"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="178"/>
         <source>;;Fritzing Unbundled Part (*%1)</source>
         <translation>;;Відокремлена частина Fritzing (*%1)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="899"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="902"/>
         <source>Ctrl+Shift+V</source>
         <translation>Ctrl+Shift+V</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="946"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="949"/>
         <source>Edit the application&apos;s preferences</source>
         <translation>Редагування налаштувань програми</translation>
     </message>
@@ -4176,599 +4047,591 @@ Go ahead and revert?</source>
         <translation>fritzing.org</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="1378"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="1380"/>
         <source>Align</source>
         <translation>Вирівняти</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="1534"/>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2731"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="1536"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2733"/>
         <source>&amp;View</source>
         <translation>Вид (&amp;V)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="1565"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="1567"/>
         <source>&amp;Window</source>
         <translation>Вікно (&amp;W)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="1575"/>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="1615"/>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="1628"/>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2761"/>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2769"/>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2777"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="1577"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="1617"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="1630"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2763"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2771"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2779"/>
         <source>&amp;Routing</source>
         <translation>Розведення (&amp;R)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="1581"/>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2855"/>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3326"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="1583"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2857"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3328"/>
         <source>Ground Fill</source>
         <translation>Заповнення</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="1642"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="1644"/>
         <source>&amp;Help</source>
         <translation>Довідка (&amp;H)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="1816"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="1818"/>
         <source>Move to bottom layer</source>
         <translation>Перемістити на нижній шар</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="1819"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="1821"/>
         <source>Move to top layer</source>
         <translation>Перемістити на верхній шар</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="1871"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="1873"/>
         <source>Delete Ratsnest Line</source>
         <translation>Видалити лінію навісного монтажу</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="1874"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="1876"/>
         <source>Delete Wire</source>
         <translation>Видалити провідник</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="1923"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="1925"/>
         <source>Hide part label</source>
         <translation>Приховати позначку деталі</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="1923"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="1925"/>
         <source>Show part label</source>
         <translation>Показати позначку деталі</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="1990"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="1992"/>
         <source>Show part silkscreen</source>
         <translation>Показати шар позначкок деталі</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2127"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2129"/>
         <source>Delete</source>
         <translation>Видалити</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2196"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2198"/>
         <source>top and bottom</source>
         <translation>верх та низ</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2199"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2201"/>
         <source>bottom</source>
         <translation>низ</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2201"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2203"/>
         <source>top</source>
         <translation>верх</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2203"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2205"/>
         <source>Ground Fill (%1)</source>
         <translation>Заповнення зі спільним заземлення (%1)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2204"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2206"/>
         <source>Copper Fill (%1)</source>
         <translation>Мідне заповнення (%1)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2211"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2213"/>
         <source>Old Ground Fill (%1)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2212"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2214"/>
         <source>Old Copper Fill (%1)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2295"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2297"/>
         <source>Actual Size</source>
         <translation>Дійсний розмір</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2296"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2298"/>
         <source>It doesn&apos;t seem to be possible to automatically determine the actual physical size of the monitor, so &apos;actual size&apos; as currently implemented is only a guess. Your best bet would be to drag out a ruler part, then place a real (physical) ruler on top and zoom until they match up.</source>
         <translation>Немає можливості автоматично визначити дійсний розмір монітора, тому &apos;дійсний розмір&apos; є лише припущенням. Але ви можете розмістити справжню лінійку поверх віртуальної, і скорегувати розмір останньої.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2511"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2513"/>
         <source>Page Setup</source>
         <translation>Установки сторінки</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2516"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2518"/>
         <source>Sorry, &quot;%1&quot; has not been implemented yet</source>
         <translation>На жаль, &quot;%1&quot; ще не реалізовано</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2733"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2735"/>
         <source>View</source>
         <translation>Вид</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2751"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2753"/>
         <source>Edit</source>
         <translation>Редагувати</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2763"/>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2771"/>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2779"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2765"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2773"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2781"/>
         <source>Routing</source>
         <translation>Розведення</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2786"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2788"/>
         <source>Autoroute connections...</source>
         <translation>Розвести з’єднання...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2787"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2789"/>
         <source>Shift+Ctrl+A</source>
         <translation>Shift+Ctrl+A</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2793"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2795"/>
         <source>&amp;Create trace from ratsnest</source>
         <translation>Створити доріжку з навісного монтажу (&amp;C)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2794"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2796"/>
         <source>Create a trace from the ratsnest line</source>
         <translation>Створити доріжку з лінії навісного монтажу</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2797"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2799"/>
         <source>&amp;Create wire from ratsnest</source>
         <translation>Створити провідник з навісного монтажу (&amp;C)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2798"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2800"/>
         <source>Create a wire from the ratsnest line</source>
         <translation>Створити провідник з лінії навісного монтажу</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2802"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2804"/>
         <source>Do not autoroute</source>
         <translation>Не розводити</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2803"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2805"/>
         <source>When autorouting, do not rip up this trace wire, via, or jumper item</source>
         <translation>При саморозведенні не розривати цю доріжку, отвір чи перемичку</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2809"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2811"/>
         <source>Move to other side of the board</source>
         <translation>Перемістити на інший бік плати</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2810"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2812"/>
         <source>Move selected traces to the other side of the board (note: the &apos;first&apos; trace will be moved and the rest will follow to the same side)</source>
         <translation>Перемістити вибрані доріжки на другий бік плати (увага: коли &apos;перша&apos; доріжка переміститься, решта перейдуть за нею)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2815"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2817"/>
         <source>Show unrouted</source>
         <translation>Показати нерозведене</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2816"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2818"/>
         <source>Highlight all unrouted connectors</source>
         <translation>Підсвітити всі нерозведені роз’єми</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2819"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2821"/>
         <source>Select All Traces</source>
         <translation>Вибрати всі доріжки</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2820"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2822"/>
         <source>Select all trace wires</source>
         <translation>Вибрати всі провідні доріжки</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2823"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2825"/>
         <source>Select All Wires</source>
         <translation>Вибрати всі провідники</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2824"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2826"/>
         <source>Select all wires</source>
         <translation>Вибрати всі провідники</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2827"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2829"/>
         <source>Select All CopperFill</source>
         <translation>Вибрати все мідне заповнення</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2828"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2830"/>
         <source>Select all copper fill items</source>
         <translation>Вибрати всі елементи мідного заповнення</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2831"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2833"/>
         <source>Force Update Routing Status and Ratsnests</source>
         <translation>Примусово оновити стан розведення та навісний монтаж</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2832"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2834"/>
         <source>Recalculate routing status and ratsnest wires (in case the auto-update isn&apos;t working correctly)</source>
         <translation>Перерахувати стан розведення та провідників навісного монтажу (у разі, якщо самооновлення не працює належним чином)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2835"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2837"/>
         <source>Select All &quot;Don&apos;t Autoroute&quot; Traces</source>
         <translation>Вибрати всі &quot;не саморозвідні&quot; доріжки</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2836"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2838"/>
         <source>Select all trace wires excluded from autorouting</source>
         <translation>Вибрати всі провідні доріжки, виключені з саморозведення</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2839"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2841"/>
         <source>Select All Autoroutable Traces</source>
         <translation>Вибрати всі саморозвідні доріжки</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2840"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2842"/>
         <source>Select all trace wires that can be changed during autorouting</source>
         <translation>Вибрати всі провідні доріжки, які можна змінити саморозведенням</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2843"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2845"/>
         <source>Select All Jumpers</source>
         <translation>Вибрати всі перемички</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2844"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2846"/>
         <source>Select all jumper item parts</source>
         <translation>Вибрати всі перемички деталей</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2847"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2849"/>
         <source>Select All Vias</source>
         <translation>Вибрати всі отвори</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2848"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2850"/>
         <source>Select all via parts</source>
         <translation>Вибрати всі отвори деталей</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2851"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2853"/>
         <source>Tidy Wires</source>
         <translation>Прибрати провідники</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2852"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2854"/>
         <source>Tidy selected wires</source>
         <translation>Прибрати вибрані провідники</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2856"/>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2860"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2858"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2862"/>
         <source>Fill empty regions of the copper layer--fill will include all traces connected to a GROUND</source>
         <translation>Заповнити порожню площу мідного шару — разом із доріжками, сполученими з заземленням</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2859"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2861"/>
         <source>Old Ground Fill</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2863"/>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3326"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2865"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3328"/>
         <source>Copper Fill</source>
         <translation>Мідне заповнення</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2864"/>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2868"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2866"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2870"/>
         <source>Fill empty regions of the copper layer--not including traces connected to a GROUND</source>
         <translation>Заповнити порожню площю мідного шару — за виключенням доріжок, що сполучені із заземленням</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2867"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2869"/>
         <source>Old Copper Fill</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2871"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2873"/>
         <source>Remove Copper Fill</source>
         <translation>Видалити мідне заповнення</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2872"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2874"/>
         <source>Remove the copper fill</source>
         <translation>Видалити мідне заповнення</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2875"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2877"/>
         <source>Choose Ground Fill Seed(s)...</source>
         <translation>Вибрати затравку(ки) спільного заземлення...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2876"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2878"/>
         <source>Fill empty regions of the copper layer--fill will include all traces connected to the seeds</source>
         <translation>Заповнити порожню площу мідного шару — разом із доріжками, сполученими з затравками</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2879"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2881"/>
         <source>Set Ground Fill Seed</source>
         <translation>Задати затравки спільного заземлення</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2880"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2882"/>
         <source>Treat this connector and its connections as a &apos;ground&apos; during ground fill.</source>
         <translation>Розглядати цей роз’єм та ці з’єднання як &apos;землю&apos; під час заповнення зі спільним заземленням.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2884"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2886"/>
         <source>Clear Ground Fill Seeds</source>
         <translation>Очистити затравки спільного заземлення</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2885"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2887"/>
         <source>Clear ground fill seeds--enable copper fill only.</source>
         <translation>Очистити затравки спільного заземлення — дозволити лише заповнення міддю.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2888"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2890"/>
         <source>Set Ground Fill Keepout...</source>
         <translation>Задати проміжок для спільного заземлення...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2889"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2891"/>
         <source>Set the minimum distance between ground fill and traces or connectors</source>
         <translation>Задати найменшу відстань між заповненням зі спільним заземленням та доріжками або роз’ємами</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2892"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2894"/>
         <source>Design Rules Check (DRC)</source>
         <translation>Перевірка проектних норм (ППН)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2893"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2895"/>
         <source>Highlights any parts that are too close together for safe board production</source>
         <translation>Підсвітити деталі, що знаходяться надто близько одна до одної для надійного виробництва плати</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2894"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2896"/>
         <source>Shift+Ctrl+D</source>
         <translation>Shift+Ctrl+D</translation>
     </message>
     <message>
-        <source>Check Loaded Traces</source>
-        <translation type="vanished">Перевірити завантажені доріжки</translation>
-    </message>
-    <message>
-        <source>Select any traces where the screen location doesn&apos;t match the actual location. Only needed for sketches autorouted with version 0.7.10 or earlier</source>
-        <translation type="vanished">Вибрати доріжки, розташування яких на екрані не відповідає дійсному розташуванню. Необхідне лише для версії 0.7.10, та більш давніх</translation>
-    </message>
-    <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2897"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2899"/>
         <source>Autorouter/DRC settings...</source>
         <translation>Налаштування саморозведення та ППН...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2898"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2900"/>
         <source>Set autorouting parameters including keepout...</source>
         <translation>Задати параметри саморозведення, включно з проміжками...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2901"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2903"/>
         <source>Fritzing Fab Quote...</source>
         <translation>Цитати Fritzing Fab...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2902"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2904"/>
         <source>How much would it cost to produce a PCB from this sketch with Fritzing Fab</source>
         <translation>Скільки буде коштувати виготовлення друкованої плати з цього нарису на виробництві Fritzing</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2909"/>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2915"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2911"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2917"/>
         <source>View from below</source>
         <translation>Вид знизу</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2910"/>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2916"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2912"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2918"/>
         <source>View the PCB from the bottom layers upwards</source>
         <translation>Вигляд друкованої плати знизу</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2920"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2922"/>
         <source>View from above</source>
         <translation>Вид зверху</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2921"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2923"/>
         <source>View the PCB from the top layers downwards</source>
         <translation>Вигляд друкованої плати зверху</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2925"/>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2926"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2927"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2928"/>
         <source>Set both copper layers clickable</source>
         <translation>Зробити обидва мідні шари натискними</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2927"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2929"/>
         <source>Shift+Ctrl+3</source>
         <translation>Shift+Ctrl+3</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2931"/>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2932"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2933"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2934"/>
         <source>Set copper top layer clickable</source>
         <translation>Зробити верхній мідний шар натискним</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2933"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2935"/>
         <source>Shift+Ctrl+2</source>
         <translation>Shift+Ctrl+2</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2937"/>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2938"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2939"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2940"/>
         <source>Set copper bottom layer clickable</source>
         <translation>Зробити нижній мідний шар натискним</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2939"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2941"/>
         <source>Shift+Ctrl+1</source>
         <translation>Shift+Ctrl+1</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2952"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2954"/>
         <source>Copper Top and Copper Bottom layers are both active</source>
         <translation>Зробити верхній та нижній мідні шари активними</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2964"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2966"/>
         <source>Copper Top layer is active</source>
         <translation>Верхній мідний шар активний</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2976"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2978"/>
         <source>Copper Bottom layer is active</source>
         <translation>Нижній мідний шар активний</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3005"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3007"/>
         <source>Order a PCB...</source>
         <translation>Замовити друковану плату...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3006"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3008"/>
         <source>Order a PCB created from your sketch--from fabulous Fritzing Fab</source>
         <translation>Замовити друковану плату, створену з вашого нарису — від неймовірної Fritzing Fab</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3021"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3023"/>
         <source>Your sketch does not have a board yet!  Please add a PCB in order to use the autorouter.</source>
         <translation>Ваш нарис не містить плати! Будь ласка, додайте ДП для використання саморозведення.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3026"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3028"/>
         <source>Please select the board you want to autoroute. The autorouter can only handle one board at a time.</source>
         <translation>Будь ласка, виберіть плату для саморозведення. Саморозведення можливе лише для однієї плати за раз.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3031"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3033"/>
         <source>Autorouting...</source>
         <translation>Саморозведення...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3036"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3038"/>
         <source>Autorouting Progress...</source>
         <translation>Здійснюється саморозведення...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3124"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3126"/>
         <source>jumpers</source>
         <translation>перемички</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3128"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3130"/>
         <source>copperfill</source>
         <translation>мідне заповнення</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3132"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3134"/>
         <source>vias</source>
         <translation>отвори</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3206"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3208"/>
         <source>Remove Bendpoint</source>
         <translation>Видалити опорні точки</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3314"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3316"/>
         <source>Your sketch does not have a board yet!  Please add a PCB in order to use ground or copper fill.</source>
         <translation>Ваш нарис не містить плати! Будь ласка, додайте ДП для використання заповнення із заземленям, або мідного заповнення.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3319"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3321"/>
         <source>Please select a PCB--copper fill only works for one board at a time.</source>
         <translation>Будь ласка, оберіть ДП — обробка мідного заповнення можлива лише для однієї плати в один момент часу.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3324"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3326"/>
         <source>Generating %1 fill...</source>
         <translation>Створення %1 заповнення...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3324"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3326"/>
         <source>ground</source>
         <translation>заземленого</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3324"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3326"/>
         <source>copper</source>
         <translation>мідного</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3354"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3356"/>
         <source>Your sketch does not have a board yet!  Please add a PCB in order to remove copper fill.</source>
         <translation>Ваш Нарис не містить плати! Будь ласка, додайте ДП для видалення мідного заповнення.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3359"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3361"/>
         <source>Please select a PCB--ground fill operations only work on a one board at a time.</source>
         <translation>Будь ласка, оберіть ДП — обробка заповнення зі спільним заземленням можлива лише для однієї плати в один момент часу.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3382"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3384"/>
         <source>Remove copper fill</source>
         <translation>Видалити мідне заповнення</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3445"/>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3504"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3453"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3512"/>
         <source>&amp;Wire Color</source>
         <translation>Колір провідника (&amp;W)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3678"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3687"/>
         <source>Schematic view update</source>
         <translation>Оновити вид схеми</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3679"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3688"/>
         <source>There is a new graphics standard for schematic-view part images, beginning with version 0.8.6.
 
 </source>
@@ -4777,41 +4640,41 @@ Go ahead and revert?</source>
 </translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3680"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3689"/>
         <source>Would you like to convert &apos;%1&apos; to the new standard now or open the file read-only?
 </source>
         <translation>Ви бажаєте перетворити &apos;%1&apos; у новий стандарт зараз, чи відкрити файл лише для читання?
 </translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3683"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3692"/>
         <source>The conversion process will not modify &apos;%1&apos;, until you save the file. </source>
         <translation>Перетворення не змінить &apos;%1&apos;, доки ви не збережете файл. </translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3685"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3694"/>
         <source>You will have to rearrange parts and connections in schematic view, as the sizes of most part images will have changed. Consider using the Autorouter to clean up traces. </source>
         <translation>Вам доведеться переставити деталі та з’єднання у виді схеми, коли розміри зображень деяких деталей беду змінено. Розгляньте можливість використання саморозведення для очищення доріжок. </translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3687"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3696"/>
         <source>Note that any custom parts will not be converted. A tool for converting &apos;rectangular&apos; schematic images is available in the Parts Editor.</source>
         <translation>Зверніть увагу, що жодну саморобну деталь не буде перетворено. Інструмент для перетворення &apos;прямокутних&apos; зображень схем доступний у редакторі деталей.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3842"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3851"/>
         <source>Launch %1...</source>
         <translation>Запуск %1...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3937"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3962"/>
         <source>No outdated parts found.
 All your parts are up-to-date.</source>
         <translation>Не знайдено застарілих деталей.
 Всі ваші деталі сучасні.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3947"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3972"/>
         <source>
 
 Note: if you want to update later, there are options under the &apos;Part&apos; menu for dealing with outdated parts individually. </source>
@@ -4820,12 +4683,12 @@ Note: if you want to update later, there are options under the &apos;Part&apos; 
 Увага: якщо ви бажаєте оновити пізніше, є опція у меню &apos;Деталь&apos; для роботи з застарілими відособлено. </translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3951"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3976"/>
         <source>Outdated parts</source>
         <translation>Застарілі деталі</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3952"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3977"/>
         <source>There are %n outdated part(s) in this sketch. </source>
         <translation>
             <numerusform>У нарисі є %n застаріла деталь. </numerusform>
@@ -4834,7 +4697,7 @@ Note: if you want to update later, there are options under the &apos;Part&apos; 
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3953"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3978"/>
         <source>We strongly recommend that you update these %n parts  to the latest version. </source>
         <translation>
             <numerusform>Ми наполегливо радимо вам оновити цю %n деталь до останньої версії. </numerusform>
@@ -4843,12 +4706,12 @@ Note: if you want to update later, there are options under the &apos;Part&apos; 
         </translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3954"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3979"/>
         <source>This may result in changes to your sketch, as parts or connectors may be shifted. </source>
         <translation>Це може призвести до змін у нарисі, оскільки деталі чи роз’єми можуть бути посунуті. </translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3956"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3981"/>
         <source>
 
 Do you want to update now?</source>
@@ -4857,130 +4720,130 @@ Do you want to update now?</source>
 Ви бажаєте оновити зараз?</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4019"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4044"/>
         <source>unable to find replacement for %1.
 </source>
         <translation>не вдалось знайти заміну для %1.
 </translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4075"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4100"/>
         <source>Update %1 part(s)</source>
         <translation>Оновлення %1 деталі(-ей)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4080"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4105"/>
         <source>Successfully updated %1 part(s).
 Please check all views for potential side-effects.</source>
         <translation>Завершено оновлення %1 деталі(ей).
 Будь ласка, перевірте всі види для виявлення можливих побічних наслідків.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4120"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4145"/>
         <source>OK</source>
         <translation>Погодитись</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4143"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4168"/>
         <source>Set the grid size for %1.</source>
         <translation>Задати розмір сітки %1.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4150"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4175"/>
         <source>Grid Size:</source>
         <translation>Розмір сітки:</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4165"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4190"/>
         <source>in</source>
         <translation>дюйм</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4168"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4193"/>
         <source>mm</source>
         <translation>мм</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4177"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4202"/>
         <source>Restore Default</source>
         <translation>Відновити за замовчанням</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4302"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4327"/>
         <source>Your sketch does not have a board yet! DRC only works with a PCB.</source>
         <translation>Ваш нарис не містить плати! Перевірка проектних норм працює лише з ДП.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4308"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4333"/>
         <source>Please select a PCB. DRC only works on one board at a time.</source>
         <translation>Будь ласка, оберіть ДП. ППН працює лише з однією ДП в один момент часу.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4318"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4343"/>
         <source>DRC Progress...</source>
         <translation>Здійснюється ППН...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4444"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4469"/>
         <source>Don&apos;t show this again.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4447"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4472"/>
         <source>Missing copper fill</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4448"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4473"/>
         <source>It is recommended to add copper/ground fill to your circuit to reduce acid usage during production.
 
 Continue upload?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4484"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4509"/>
         <source>Fritzing Fab Upload</source>
         <translation>Fritzing Fab Upload</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4484"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4509"/>
         <source>Please first save your project in order to upload it.</source>
         <translation>Будь ласка, спочатку збережіть свій проект, щоб завантажити його.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4493"/>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4510"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4518"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4535"/>
         <source>Your sketch does not have a board yet! Please add a PCB in order to use copper fill operations.</source>
         <translation>Ваш нарис не містить плати! Будь ласка, додайте ДП для використання мідного заповнення.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4498"/>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4515"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4523"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4540"/>
         <source>Please select a PCB. Copper fill operations only work on one board at a time.</source>
         <translation>Будь ласка, оберіть ДП. Мідне заповнення працює лише з однією платою в один момент часу.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4582"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4607"/>
         <source>%1 background</source>
         <translation>%1, тло</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4615"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4640"/>
         <source>Enter Text</source>
         <translation>Введіть текст</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4616"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4641"/>
         <source>Text will match part label, description, title, etc. Enter text to search for:</source>
         <translation>Текст має відповідати позначці деталі, опису, назві тощо. Введіть текст для пошуку за:</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4654"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4687"/>
         <source>Search</source>
         <translation>Пошук</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4654"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4687"/>
         <source>No parts matched search term &apos;%1&apos;.</source>
         <translation>Жодна деталь не відповідає умовам пошуку &apos;%1&apos;.</translation>
     </message>
@@ -5085,7 +4948,7 @@ Continue upload?</source>
 <context>
     <name>ModelBase</name>
     <message numerus="yes">
-        <location filename="../src/model/modelbase.cpp" line="385"/>
+        <location filename="../src/model/modelbase.cpp" line="387"/>
         <source>Unable to find the following %n part(s):</source>
         <translation>
             <numerusform>Не вдалося знайти наступну %n деталь:</numerusform>
@@ -5094,17 +4957,17 @@ Continue upload?</source>
         </translation>
     </message>
     <message>
-        <location filename="../src/model/modelbase.cpp" line="388"/>
+        <location filename="../src/model/modelbase.cpp" line="390"/>
         <source>at</source>
         <translation>в</translation>
     </message>
     <message>
-        <location filename="../src/model/modelbase.cpp" line="461"/>
+        <location filename="../src/model/modelbase.cpp" line="474"/>
         <source>File save failed!</source>
         <translation>Помилка збереження файлу!</translation>
     </message>
     <message>
-        <location filename="../src/model/modelbase.cpp" line="462"/>
+        <location filename="../src/model/modelbase.cpp" line="475"/>
         <source>Couldn&apos;t overwrite file &apos;%1&apos;.
 Reason: %2 (errcode %3)</source>
         <translation>Не вдається перезаписати файл &apos;%1&apos;.
@@ -5143,95 +5006,91 @@ Reason: %2 (errcode %3)</source>
 <context>
     <name>PCBSketchWidget</name>
     <message>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="196"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="198"/>
         <source>Create Trace from Ratsnest</source>
         <translation>Створити доріжки за допомогою підвісного монтажу</translation>
     </message>
     <message>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="250"/>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="255"/>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1401"/>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1406"/>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1459"/>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1476"/>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1491"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="252"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="257"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1417"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1422"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1475"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1493"/>
         <location filename="../src/sketch/pcbsketchwidget.cpp" line="1508"/>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1520"/>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1560"/>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1565"/>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1600"/>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1617"/>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1632"/>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1655"/>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1673"/>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1712"/>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1717"/>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1724"/>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1741"/>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1764"/>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1781"/>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="2305"/>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="2310"/>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="2333"/>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="2338"/>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="2512"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1526"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1540"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1580"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1585"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1620"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1637"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1652"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1675"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1693"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1732"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1737"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1744"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1761"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1784"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1801"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="2326"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="2331"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="2354"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="2359"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="2533"/>
         <source>Fritzing</source>
         <translation>Fritzing</translation>
     </message>
     <message>
-        <source>Your sketch does not have a board yet! Please add a PCB in order to use this selection operation.</source>
-        <translation type="vanished">Ваш нарис не містить плати! Будь ласка, додайте ДП для використовування обраної операції.</translation>
-    </message>
-    <message>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="251"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="253"/>
         <source>Your sketch does not have a board yet! Please add a PCB to use this selection operation.</source>
         <translation>Ваш нарис не містить плати! Будь ласка, додайте ДП для використовування обраної операції.</translation>
     </message>
     <message>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="256"/>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="2311"/>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="2339"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="258"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="2332"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="2360"/>
         <source>Please click on a PCB first--this selection operation only works for one board at a time.</source>
         <translation>Будь ласка, оберіть спочатку ДП — ця опція працює лише з однією платою одночасно.</translation>
     </message>
     <message>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="295"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="297"/>
         <source>Click this connector to drag out a new trace.</source>
         <translation>Натисніть на цей з’єднувач, для того щоб витягнути нову доріжку.</translation>
     </message>
     <message>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="954"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="956"/>
         <source>Change trace layer</source>
         <translation>Змініть шар доріжки</translation>
     </message>
     <message>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1402"/>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1561"/>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1713"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1418"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1581"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1733"/>
         <source>Your sketch does not have a board yet!  Please add a PCB in order to use copper fill.</source>
         <translation>Ваш нарис не містить плати! Будь ласка, додайте ДП для створення мідного заповнення.</translation>
     </message>
     <message>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1407"/>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1566"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1423"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1586"/>
         <source>%1 Fill: please select the board you want to apply fill to.</source>
         <translation>%1 Заповнення: будь ласка, оберіть платну, яку ви бажаєте заповнити.</translation>
     </message>
     <message>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1407"/>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1566"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1423"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1586"/>
         <source>Ground</source>
         <translation>Заземлення</translation>
     </message>
     <message>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1407"/>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1566"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1423"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1586"/>
         <source>Copper</source>
         <translation>Мідь</translation>
     </message>
     <message>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1419"/>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1576"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1435"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1596"/>
         <source>Please designate one or more ground fill seeds before doing a ground fill.
 
 </source>
@@ -5240,107 +5099,107 @@ Reason: %2 (errcode %3)</source>
 </translation>
     </message>
     <message>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1459"/>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1600"/>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1741"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1475"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1620"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1761"/>
         <source>Fritzing error: unable to render board svg (1).</source>
         <translation>Помилка Fritzing: не вдалось відобразити плату SVG (1).</translation>
     </message>
     <message>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1476"/>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1491"/>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1617"/>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1632"/>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1764"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1493"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1508"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1637"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1652"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1784"/>
         <source>Fritzing error: unable to render copper svg (1).</source>
         <translation>Помилка Fritzing: не вдалось відобразити мідне заповнення SVG (1).</translation>
     </message>
     <message>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1508"/>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1655"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1526"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1675"/>
         <source>Fritzing error: unable to write copper fill (1).</source>
         <translation>Помилка Fritzing: не вдалось відрисувати мідне заповнення (1).</translation>
     </message>
     <message>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1520"/>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1673"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1540"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1693"/>
         <source>Fritzing error: unable to write copper fill (2).</source>
         <translation>Помилка Fritzing: не вдалось відрисувати мідне заповнення (2).</translation>
     </message>
     <message>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1718"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1738"/>
         <source>Copper fill: please select only the board you want to fill.</source>
         <translation>Мідне заповнення: будь ласка, оберіть плату яку ви бажаєте заповнити.</translation>
     </message>
     <message>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1724"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1744"/>
         <source>Unable to create copper fill--probably the part wasn&apos;t dropped onto the PCB.</source>
         <translation>Не вдалось створити мідне заповнення — імовірно деталь не знаходиться на ДП.</translation>
     </message>
     <message>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1781"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="1801"/>
         <source>Unable to create copper fill--possibly the part was dropped onto another part or wire rather than the actual PCB.</source>
         <translation>Не вдалось створити мідне заповнення — можливо, деталь було скинуто на іншу деталь або провідник, а не до ДП.</translation>
     </message>
     <message>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="2167"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="2188"/>
         <source>Clear ground fill seeds</source>
         <translation>Очистити затравки спільного заземлення</translation>
     </message>
     <message>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="2306"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="2327"/>
         <source>Your sketch does not have a board yet!  Please add a PCB to use this selection operation.</source>
         <translation>Ваш нарис не містить плати! Будь ласка, додайте ДП для використовування обраної операції.</translation>
     </message>
     <message>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="2334"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="2355"/>
         <source>Your sketch does not have a board yet!  Please add a PCB in order to use this selection operation.</source>
         <translation>Ваш нарис не містить плати! Будь ласка, додайте ДП для використовування обраної операції.</translation>
     </message>
     <message>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="2513"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="2534"/>
         <source>Unable to convert this via to a bendpoint because it is connected to a part that is only on the bottom layer and another part that is only on the top layer.</source>
         <translation>Не вдалось перетворити цю опорну точку, оскільки сполучення до деталі є лише на нижньому шарі, а інша деталь є лише на верхньому шарі.</translation>
     </message>
     <message>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="2772"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="2793"/>
         <source>Show part silkscreen</source>
         <translation>Показати деталі на шарі позначок</translation>
     </message>
     <message>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="2772"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="2793"/>
         <source>Hide part silkscreen</source>
         <translation>Приховати деталі на шарі позначок</translation>
     </message>
     <message>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="2789"/>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="2794"/>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="2805"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="2810"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="2815"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="2826"/>
         <source>Fritzing Fab Quote</source>
         <translation>Поради Fritzing Fab</translation>
     </message>
     <message>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="2790"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="2811"/>
         <source>Your sketch does not have a board yet. You cannot fabricate this sketch without a PCB part.</source>
         <translation>Ваш нарис не містить плати! Ви не можете створити цей нарис без ДП.</translation>
     </message>
     <message>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="2795"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="2816"/>
         <source>You need to select one board if you have multiple PCB boards.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="2806"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="2827"/>
         <source>Sorry, http://fab.fritzing.org is not responding to the quote request. Please check your network connection and/or try again later.</source>
         <translation>На жаль, http://fab.fritzing.org не відповідає на запит. Будь ласка, перевірте ваше підключення до мережі, та спробуйте ще раз.</translation>
     </message>
     <message>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="2938"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="2966"/>
         <source>Enter Keepout</source>
         <translation>Введіть проміжок</translation>
     </message>
     <message>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="2939"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="2967"/>
         <source>Keepout is in mils (.001 inches).
 
 </source>
@@ -5349,14 +5208,14 @@ Reason: %2 (errcode %3)</source>
 </translation>
     </message>
     <message>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="2940"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="2968"/>
         <source>Note that due to aliasing, distances may be too short by up to 2 mils
 </source>
         <translation>Зверніть увагу на те, що відстані до 2 мілів (0,05 мм) можуть призвести до накладання,
 </translation>
     </message>
     <message>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="2941"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="2969"/>
         <source>so you may want to increase the keepout value by that much.
 
 </source>
@@ -5365,7 +5224,7 @@ Reason: %2 (errcode %3)</source>
 </translation>
     </message>
     <message>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="2942"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="2970"/>
         <source>10 mils is a good default choice.
 
 </source>
@@ -5374,7 +5233,7 @@ Reason: %2 (errcode %3)</source>
 </translation>
     </message>
     <message>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="2943"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="2971"/>
         <source>Enter keepout value:</source>
         <translation>Введіть значення проміжку:</translation>
     </message>
@@ -5382,22 +5241,22 @@ Reason: %2 (errcode %3)</source>
 <context>
     <name>PEConnectorsView</name>
     <message>
-        <location filename="../src/partseditor/peconnectorsview.cpp" line="53"/>
+        <location filename="../src/partseditor/peconnectorsview.cpp" line="54"/>
         <source>This is where you edit the connector metadata for the part</source>
         <translation>Тут ви можете змінювати властивості роз’ємів деталей</translation>
     </message>
     <message>
-        <location filename="../src/partseditor/peconnectorsview.cpp" line="59"/>
+        <location filename="../src/partseditor/peconnectorsview.cpp" line="60"/>
         <source>number of connectors:</source>
         <translation>кількість роз’ємів:</translation>
     </message>
     <message>
-        <location filename="../src/partseditor/peconnectorsview.cpp" line="108"/>
+        <location filename="../src/partseditor/peconnectorsview.cpp" line="109"/>
         <source>Through-hole</source>
         <translation>Наскрізний отвір</translation>
     </message>
     <message>
-        <location filename="../src/partseditor/peconnectorsview.cpp" line="113"/>
+        <location filename="../src/partseditor/peconnectorsview.cpp" line="114"/>
         <source>SMD</source>
         <translatorcomment>SMD - поверхневий монтаж</translatorcomment>
         <translation>Поверхневий монтаж</translation>
@@ -5429,14 +5288,6 @@ Reason: %2 (errcode %3)</source>
         <location filename="../src/partseditor/pemainwindow.cpp" line="383"/>
         <source>Close without saving?</source>
         <translation>Закрити без збереження?</translation>
-    </message>
-    <message>
-        <source>This part can not be saved as-is:
-
-</source>
-        <translation type="vanished">Деталь не може бути збережена як є:
-
-</translation>
     </message>
     <message>
         <location filename="../src/partseditor/pemainwindow.cpp" line="385"/>
@@ -5878,14 +5729,6 @@ Reason: %2 (errcode %3)</source>
         <translation>Файл %2 із префіксом %1 не збережено.</translation>
     </message>
     <message>
-        <source>Unable to load image file &apos;%1&apos;: 
-
-%2</source>
-        <translation type="vanished">Не вдається завантажити зображення файлу &apos;%1&apos;: 
-
-%2</translation>
-    </message>
-    <message>
         <location filename="../src/partseditor/pemainwindow.cpp" line="1580"/>
         <source>Unable to load image file &apos;%1&apos;:
 
@@ -6007,14 +5850,6 @@ Go ahead and save?</source>
         <translation>
 
 Продовжити і зберегти?</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation type="vanished">Зберегти</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">Скасувати</translation>
     </message>
     <message>
         <location filename="../src/partseditor/pemainwindow.cpp" line="2433"/>
@@ -6377,38 +6212,38 @@ Go ahead and save?</source>
 <context>
     <name>Pad</name>
     <message>
-        <location filename="../src/items/pad.cpp" line="204"/>
+        <location filename="../src/items/pad.cpp" line="205"/>
         <source>shape</source>
         <translation>обрис</translation>
     </message>
     <message>
-        <location filename="../src/items/pad.cpp" line="214"/>
+        <location filename="../src/items/pad.cpp" line="215"/>
         <source>center</source>
         <translation>середина</translation>
     </message>
     <message>
-        <location filename="../src/items/pad.cpp" line="215"/>
+        <location filename="../src/items/pad.cpp" line="216"/>
         <source>north</source>
         <translation>північ</translation>
     </message>
     <message>
-        <location filename="../src/items/pad.cpp" line="216"/>
+        <location filename="../src/items/pad.cpp" line="217"/>
         <source>east</source>
         <translation>схід</translation>
     </message>
     <message>
-        <location filename="../src/items/pad.cpp" line="217"/>
+        <location filename="../src/items/pad.cpp" line="218"/>
         <source>south</source>
         <translation>південь</translation>
     </message>
     <message>
-        <location filename="../src/items/pad.cpp" line="218"/>
+        <location filename="../src/items/pad.cpp" line="219"/>
         <source>west</source>
         <translation>захід</translation>
     </message>
     <message>
-        <location filename="../src/items/pad.cpp" line="230"/>
-        <location filename="../src/items/pad.cpp" line="333"/>
+        <location filename="../src/items/pad.cpp" line="231"/>
+        <location filename="../src/items/pad.cpp" line="334"/>
         <source>connect to</source>
         <translation>під’єднати до</translation>
     </message>
@@ -6416,59 +6251,59 @@ Go ahead and save?</source>
 <context>
     <name>PaletteItem</name>
     <message>
-        <location filename="../src/items/paletteitem.cpp" line="545"/>
+        <location filename="../src/items/paletteitem.cpp" line="546"/>
         <source>Edit Pin Labels</source>
         <translation>Редагувати позначки штирка</translation>
     </message>
     <message>
-        <location filename="../src/items/paletteitem.cpp" line="619"/>
-        <location filename="../src/items/paletteitem.cpp" line="630"/>
-        <location filename="../src/items/paletteitem.cpp" line="654"/>
+        <location filename="../src/items/paletteitem.cpp" line="620"/>
+        <location filename="../src/items/paletteitem.cpp" line="631"/>
+        <location filename="../src/items/paletteitem.cpp" line="655"/>
         <source>Fritzing</source>
         <translation>Fritzing</translation>
     </message>
     <message>
-        <location filename="../src/items/paletteitem.cpp" line="620"/>
+        <location filename="../src/items/paletteitem.cpp" line="621"/>
         <source>Unable to proceed; unable to find top level view.</source>
         <translation>Не вдалось продовжити; не вдалось знайти вид верхнього рівня.</translation>
     </message>
     <message>
-        <location filename="../src/items/paletteitem.cpp" line="631"/>
+        <location filename="../src/items/paletteitem.cpp" line="632"/>
         <source>Unable to proceed; part connectors do no have standard IDs.</source>
         <translation>Не вдалось продовжити; з’єднувачі деталей не мають стандартних ідентифікаторів.</translation>
     </message>
     <message>
-        <location filename="../src/items/paletteitem.cpp" line="655"/>
+        <location filename="../src/items/paletteitem.cpp" line="656"/>
         <source>Label mismatch.  Nothing was saved.</source>
         <translation>Невідповідність позначки. Ніщо не буде збережено.</translation>
     </message>
     <message>
-        <location filename="../src/items/paletteitem.cpp" line="819"/>
+        <location filename="../src/items/paletteitem.cpp" line="820"/>
         <source>hole size</source>
         <translation>розмір отвору</translation>
     </message>
     <message>
-        <location filename="../src/items/paletteitem.cpp" line="962"/>
+        <location filename="../src/items/paletteitem.cpp" line="963"/>
         <source>advanced settings</source>
         <translation>розширені налаштування</translation>
     </message>
     <message>
-        <location filename="../src/items/paletteitem.cpp" line="973"/>
+        <location filename="../src/items/paletteitem.cpp" line="974"/>
         <source>in</source>
         <translation>дюйм</translation>
     </message>
     <message>
-        <location filename="../src/items/paletteitem.cpp" line="977"/>
+        <location filename="../src/items/paletteitem.cpp" line="978"/>
         <source>mm</source>
         <translation>мм</translation>
     </message>
     <message>
-        <location filename="../src/items/paletteitem.cpp" line="995"/>
+        <location filename="../src/items/paletteitem.cpp" line="997"/>
         <source>Hole Diameter</source>
         <translation>Діаметр отвору</translation>
     </message>
     <message>
-        <location filename="../src/items/paletteitem.cpp" line="1008"/>
+        <location filename="../src/items/paletteitem.cpp" line="1011"/>
         <source>Ring Thickness</source>
         <translation>Товщина кільця</translation>
     </message>
@@ -6476,192 +6311,192 @@ Go ahead and save?</source>
 <context>
     <name>PartLabel</name>
     <message>
-        <location filename="../src/items/partlabel.cpp" line="454"/>
+        <location filename="../src/items/partlabel.cpp" line="461"/>
         <source>Edit</source>
         <translation>Редагувати</translation>
     </message>
     <message>
-        <location filename="../src/items/partlabel.cpp" line="456"/>
+        <location filename="../src/items/partlabel.cpp" line="463"/>
         <source>Edit label text</source>
         <translation>Редагувати позначку</translation>
     </message>
     <message>
-        <location filename="../src/items/partlabel.cpp" line="458"/>
+        <location filename="../src/items/partlabel.cpp" line="465"/>
         <source>Hide</source>
         <translation>Приховати</translation>
     </message>
     <message>
-        <location filename="../src/items/partlabel.cpp" line="460"/>
+        <location filename="../src/items/partlabel.cpp" line="467"/>
         <source>Hide part label</source>
         <translation>Приховати позначку деталі</translation>
     </message>
     <message>
-        <location filename="../src/items/partlabel.cpp" line="464"/>
+        <location filename="../src/items/partlabel.cpp" line="471"/>
         <source>Display Values</source>
         <translation>Показати значення</translation>
     </message>
     <message>
-        <location filename="../src/items/partlabel.cpp" line="465"/>
+        <location filename="../src/items/partlabel.cpp" line="472"/>
         <source>Flip/Rotate</source>
         <translation>Розвернути/Повернути</translation>
     </message>
     <message>
-        <location filename="../src/items/partlabel.cpp" line="466"/>
+        <location filename="../src/items/partlabel.cpp" line="473"/>
         <source>Font Size</source>
         <translation>Розмір шрифта</translation>
     </message>
     <message>
-        <location filename="../src/items/partlabel.cpp" line="471"/>
+        <location filename="../src/items/partlabel.cpp" line="478"/>
         <source>Rotate 45° Clockwise</source>
         <translation>Повернути на 45° за годинниковою стрілкою</translation>
     </message>
     <message>
-        <location filename="../src/items/partlabel.cpp" line="473"/>
+        <location filename="../src/items/partlabel.cpp" line="480"/>
         <source>Rotate the label by 45 degrees clockwise</source>
         <translation>Повернути позначку на 45° за годинниковою стрілкою</translation>
     </message>
     <message>
-        <location filename="../src/items/partlabel.cpp" line="476"/>
+        <location filename="../src/items/partlabel.cpp" line="483"/>
         <source>Rotate 90° Clockwise</source>
         <translation>Повернути на 90° за годинниковою стрілкою</translation>
     </message>
     <message>
-        <location filename="../src/items/partlabel.cpp" line="478"/>
+        <location filename="../src/items/partlabel.cpp" line="485"/>
         <source>Rotate the label by 90 degrees clockwise</source>
         <translation>Повернути позначку на 90° за годинниковою стрілкою</translation>
     </message>
     <message>
-        <location filename="../src/items/partlabel.cpp" line="481"/>
+        <location filename="../src/items/partlabel.cpp" line="488"/>
         <source>Rotate 135° Clockwise</source>
         <translation>Повернути на 135° за годинниковою стрілкою</translation>
     </message>
     <message>
-        <location filename="../src/items/partlabel.cpp" line="483"/>
+        <location filename="../src/items/partlabel.cpp" line="490"/>
         <source>Rotate the label by 135 degrees clockwise</source>
         <translation>Повернути позначку на 135° за годинниковою стрілкою</translation>
     </message>
     <message>
-        <location filename="../src/items/partlabel.cpp" line="486"/>
+        <location filename="../src/items/partlabel.cpp" line="493"/>
         <source>Rotate 180°</source>
         <translation>Повернути на 180°</translation>
     </message>
     <message>
-        <location filename="../src/items/partlabel.cpp" line="488"/>
+        <location filename="../src/items/partlabel.cpp" line="495"/>
         <source>Rotate the label by 180 degrees</source>
         <translation>Повернути позначку на 180°</translation>
     </message>
     <message>
-        <location filename="../src/items/partlabel.cpp" line="491"/>
+        <location filename="../src/items/partlabel.cpp" line="498"/>
         <source>Rotate 135° Counter Clockwise</source>
         <translation>Повернути на 135° проти годинникової стрілки</translation>
     </message>
     <message>
-        <location filename="../src/items/partlabel.cpp" line="493"/>
+        <location filename="../src/items/partlabel.cpp" line="500"/>
         <source>Rotate the label by 135 degrees counter clockwise</source>
         <translation>Повернути позначку на 135° проти годинникової стрілки</translation>
     </message>
     <message>
-        <location filename="../src/items/partlabel.cpp" line="496"/>
+        <location filename="../src/items/partlabel.cpp" line="503"/>
         <source>Rotate 90° Counter Clockwise</source>
         <translation>Повернути на 90° проти годинникової стрілки</translation>
     </message>
     <message>
-        <location filename="../src/items/partlabel.cpp" line="498"/>
+        <location filename="../src/items/partlabel.cpp" line="505"/>
         <source>Rotate current selection 90 degrees counter clockwise</source>
         <translation>Повернути виділене на 90° проти годинникової стрілки</translation>
     </message>
     <message>
-        <location filename="../src/items/partlabel.cpp" line="501"/>
+        <location filename="../src/items/partlabel.cpp" line="508"/>
         <source>Rotate 45° Counter Clockwise</source>
         <translation>Повернути на 45° проти годинникової стрілки</translation>
     </message>
     <message>
-        <location filename="../src/items/partlabel.cpp" line="503"/>
+        <location filename="../src/items/partlabel.cpp" line="510"/>
         <source>Rotate the label by 45 degrees counter clockwise</source>
         <translation>Повернути позначку на 45° проти годинникової стрілки</translation>
     </message>
     <message>
-        <location filename="../src/items/partlabel.cpp" line="506"/>
+        <location filename="../src/items/partlabel.cpp" line="513"/>
         <source>Flip Horizontal</source>
         <translation>Розвернути по горизонталі</translation>
     </message>
     <message>
-        <location filename="../src/items/partlabel.cpp" line="508"/>
+        <location filename="../src/items/partlabel.cpp" line="515"/>
         <source>Flip label horizontally</source>
         <translation>Розвернути позначку по горизонталі</translation>
     </message>
     <message>
-        <location filename="../src/items/partlabel.cpp" line="510"/>
+        <location filename="../src/items/partlabel.cpp" line="517"/>
         <source>Flip Vertical</source>
         <translation>Розвернути по вертикалі</translation>
     </message>
     <message>
-        <location filename="../src/items/partlabel.cpp" line="512"/>
+        <location filename="../src/items/partlabel.cpp" line="519"/>
         <source>Flip label vertically</source>
         <translation>Розвернути позначку по вертикалі</translation>
     </message>
     <message>
-        <location filename="../src/items/partlabel.cpp" line="514"/>
+        <location filename="../src/items/partlabel.cpp" line="521"/>
         <source>Tiny</source>
         <translation>Крихітний</translation>
     </message>
     <message>
-        <location filename="../src/items/partlabel.cpp" line="516"/>
+        <location filename="../src/items/partlabel.cpp" line="523"/>
         <source>Set font size to tiny</source>
         <translation>Крихітний розмір шрифта</translation>
     </message>
     <message>
-        <location filename="../src/items/partlabel.cpp" line="520"/>
+        <location filename="../src/items/partlabel.cpp" line="527"/>
         <source>Small</source>
         <translation>Маленький</translation>
     </message>
     <message>
-        <location filename="../src/items/partlabel.cpp" line="522"/>
+        <location filename="../src/items/partlabel.cpp" line="529"/>
         <source>Set font size to small</source>
         <translation>Маленький розмір шрифта</translation>
     </message>
     <message>
-        <location filename="../src/items/partlabel.cpp" line="526"/>
+        <location filename="../src/items/partlabel.cpp" line="533"/>
         <source>Medium</source>
         <translation>Середній</translation>
     </message>
     <message>
-        <location filename="../src/items/partlabel.cpp" line="528"/>
+        <location filename="../src/items/partlabel.cpp" line="535"/>
         <source>Set font size to medium</source>
         <translation>Середній розмір шрифта</translation>
     </message>
     <message>
-        <location filename="../src/items/partlabel.cpp" line="532"/>
+        <location filename="../src/items/partlabel.cpp" line="539"/>
         <source>Large</source>
         <translation>Великий</translation>
     </message>
     <message>
-        <location filename="../src/items/partlabel.cpp" line="534"/>
+        <location filename="../src/items/partlabel.cpp" line="541"/>
         <source>Set font size to large</source>
         <translation>Великий розмір шрифта</translation>
     </message>
     <message>
-        <location filename="../src/items/partlabel.cpp" line="538"/>
+        <location filename="../src/items/partlabel.cpp" line="545"/>
         <source>Label text</source>
         <translation>Текст позначки</translation>
     </message>
     <message>
-        <location filename="../src/items/partlabel.cpp" line="542"/>
+        <location filename="../src/items/partlabel.cpp" line="549"/>
         <source>Display the text of the label</source>
         <translation>Показати текст на позначці</translation>
     </message>
     <message>
-        <location filename="../src/items/partlabel.cpp" line="553"/>
+        <location filename="../src/items/partlabel.cpp" line="560"/>
         <source>Display the value of property %1</source>
         <translation>Показати значення властивості %1</translation>
     </message>
     <message>
-        <location filename="../src/items/partlabel.cpp" line="752"/>
+        <location filename="../src/items/partlabel.cpp" line="759"/>
         <source>Set label for %1</source>
         <translation>Задати позначку для %1</translation>
     </message>
     <message>
-        <location filename="../src/items/partlabel.cpp" line="753"/>
+        <location filename="../src/items/partlabel.cpp" line="760"/>
         <source>Label text:</source>
         <translation>Текст позначки:</translation>
     </message>
@@ -6732,21 +6567,9 @@ Go ahead and save?</source>
         <translation>Всі зміни буде втрачено, якщо їх не зберегти.</translation>
     </message>
     <message>
-        <source>Save</source>
-        <translation type="vanished">Збереження</translation>
-    </message>
-    <message>
-        <source>Don&apos;t Save</source>
-        <translation type="vanished">Не зберігати</translation>
-    </message>
-    <message>
         <location filename="../src/partsbinpalette/partsbinpalettewidget.cpp" line="590"/>
         <source>Ctrl+D</source>
         <translation>Ctrl+D</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">Скасувати</translation>
     </message>
     <message>
         <location filename="../src/partsbinpalette/partsbinpalettewidget.cpp" line="692"/>
@@ -6777,22 +6600,22 @@ Go ahead and save?</source>
 <context>
     <name>Perfboard</name>
     <message>
-        <location filename="../src/items/perfboard.cpp" line="185"/>
+        <location filename="../src/items/perfboard.cpp" line="186"/>
         <source>size</source>
         <translation>розмір</translation>
     </message>
     <message>
-        <location filename="../src/items/perfboard.cpp" line="252"/>
+        <location filename="../src/items/perfboard.cpp" line="253"/>
         <source>set board size</source>
         <translation>задати розмір плати</translation>
     </message>
     <message>
-        <location filename="../src/items/perfboard.cpp" line="295"/>
+        <location filename="../src/items/perfboard.cpp" line="296"/>
         <source>Performance Warning</source>
         <translation>Попередження щодо продуктивності</translation>
     </message>
     <message>
-        <location filename="../src/items/perfboard.cpp" line="296"/>
+        <location filename="../src/items/perfboard.cpp" line="297"/>
         <source>Performance of perfboards and stripboards with more than approximately 2000 holes can be slow. Are you sure ?
 
 Note: this warning will not be repeated during this session.</source>
@@ -6801,21 +6624,17 @@ Note: this warning will not be repeated during this session.</source>
 Увага: це попередження показується лише один раз за сесію.</translation>
     </message>
     <message>
-        <location filename="../src/items/perfboard.cpp" line="303"/>
+        <location filename="../src/items/perfboard.cpp" line="304"/>
         <source>Set new size</source>
         <translation>Задати новий розмір</translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation type="vanished">Скасувати</translation>
-    </message>
-    <message>
-        <location filename="../src/items/perfboard.cpp" line="406"/>
+        <location filename="../src/items/perfboard.cpp" line="407"/>
         <source>rows</source>
         <translation>рядок</translation>
     </message>
     <message>
-        <location filename="../src/items/perfboard.cpp" line="410"/>
+        <location filename="../src/items/perfboard.cpp" line="411"/>
         <source>columns</source>
         <translation>стовпчик</translation>
     </message>
@@ -6877,161 +6696,178 @@ Note: this warning will not be repeated during this session.</source>
 <context>
     <name>PrefsDialog</name>
     <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="78"/>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="81"/>
         <source>General</source>
         <translation>Загальні</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="82"/>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="85"/>
         <source>Code View</source>
         <translation>Перегляд коду</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="100"/>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="103"/>
         <source>Cancel</source>
         <translation>Скасувати</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="101"/>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="104"/>
         <source>OK</source>
         <translation>Погодитись</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="174"/>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="177"/>
         <source>Mouse Wheel Behavior</source>
         <translation>Поведінка коліщатка миші</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="194"/>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="197"/>
         <source>Change Wheel Behavior</source>
         <translation>Змінити поведінку коліщатка</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="204"/>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="207"/>
         <source>Autosave</source>
         <translation>Самозбереження</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="209"/>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="212"/>
         <source>Autosave every:</source>
         <translation>Самозбереження кожні:</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="221"/>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="224"/>
         <source>minutes</source>
         <translation>хвилини</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="237"/>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="240"/>
         <source>Language</source>
         <translation>Мова</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="261"/>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="264"/>
         <source>Colors</source>
         <translation>Кольори</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="473"/>
-        <source>The simulator is now enabled by default.</source>
-        <translation>Симулятор тепер увімкнено за замовчуванням.</translation>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="471"/>
+        <source>Project properties</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="563"/>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="476"/>
+        <source>Here you can set some settings that will be saved with the project</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="482"/>
+        <source>Select the way to define the time step: (1) Number of points (max simulation time divided by the number of points) or (2) fixed time step.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="492"/>
+        <source>Number of points: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="507"/>
+        <source>Time Step (s):</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="518"/>
+        <source>Animation time for the transitory simulation (s): </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="625"/>
         <source>&lt;b&gt;Scroll priority&lt;/b&gt;&lt;br/&gt;</source>
         <translation>&lt;b&gt;Пріоритет прокручування&lt;/b&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="563"/>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="625"/>
         <source>no keys down = scroll&lt;br/&gt;&lt;kbd&gt;Shift&lt;/kbd&gt; key swaps scroll axis&lt;br/&gt;&lt;kbd&gt;Alt&lt;/kbd&gt; or &lt;kbd&gt;%1&lt;/kbd&gt; = zoom</source>
         <translation>немає клавіш вниз = прокрутка&lt;br/&gt;&lt;kbd&gt;Shift&lt;/kbd&gt; клавіші перемикають вісь прокрутки&lt;br/&gt;&lt;kbd&gt;Alt&lt;/kbd&gt; або &lt;kbd&gt;%1&lt;/kbd&gt; = масштабування</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="566"/>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="628"/>
         <source>&lt;b&gt;Zoom priority&lt;/b&gt;&lt;br/&gt;</source>
         <translation>&lt;b&gt;Пріоритет масштабування&lt;/b&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="566"/>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="628"/>
         <source>no keys down = zoom&lt;br/&gt;&lt;kbd&gt;Alt&lt;/kbd&gt; or &lt;kbd&gt;%1&lt;/kbd&gt; = scroll&lt;br/&gt;&lt;kbd&gt;Shift&lt;/kbd&gt; key swaps scroll axis</source>
         <translation>немає клавіш вниз = збільшення &lt;br/&gt;&lt;kbd&gt;Alt&lt;/kbd&gt; або &lt;kbd&gt;%1&lt;/kbd&gt; = прокручування&lt;br/&gt;&lt;kbd&gt;Shift&lt;/kbd&gt; клавіша змінює вісь прокручування</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="569"/>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="631"/>
         <source>&lt;b&gt;Guess&lt;/b&gt;&lt;br/&gt;</source>
         <translation>&lt;b&gt;Вгадай&lt;/b&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="570"/>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="632"/>
         <source>Let Fritzing guess if the input is from a wheel or a touchpad. &lt;kbd&gt;Alt&lt;/kbd&gt; or &lt;kbd&gt;%1&lt;/kbd&gt; modify scrolling. &lt;kbd&gt;Shift&lt;/kbd&gt; can modify the axis or the speed.</source>
         <translation>Дозвольте Fritzing вгадати, чи вводиться вхід із коліщатка чи сенсорної панелі. &lt;kbd&gt;Alt&lt;/kbd&gt; або &lt;kbd&gt;%1&lt;/kbd&gt; змінює прокручування. &lt;kbd&gt;Shift&lt;/kbd&gt; може змінювати вісь або швидкість.</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="573"/>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="635"/>
         <source>&lt;b&gt;Pure&lt;/b&gt;&lt;br/&gt;</source>
         <translation>&lt;b&gt;Чистий&lt;/b&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="573"/>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="635"/>
         <source>Use system defaults to interpret the wheel input. Don&apos;t try anything fancy. Recommended when using a touchpad with pinch gestures.</source>
         <translation>Fritzing використовує системні стандарти для інтерпретації вхідних даних колеса. Він не спробує нічого незвичайного. Рекомендовано під час використання сенсорної панелі з жестами зведення.</translation>
     </message>
     <message>
-        <source>%1</source>
-        <translation type="vanished">%1</translation>
-    </message>
-    <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="277"/>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="299"/>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="280"/>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="302"/>
         <source>%1 (click to change...)</source>
         <translation>%1 (натисніть для зміни...)</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="83"/>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="86"/>
         <source>Beta Features</source>
         <translation>Бета-функції</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="316"/>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="319"/>
         <source>Clear Settings</source>
         <translation>Скинути налаштування</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="350"/>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="353"/>
         <source>Platform Support</source>
         <translation>Підтримка платформи</translation>
     </message>
     <message>
-        <source>&lt;b&gt;%1&lt;/b&gt;</source>
-        <translation type="vanished">&lt;b&gt;%1&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="366"/>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="369"/>
         <source>Location:</source>
         <translation>Положення:</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="375"/>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="378"/>
         <source>...</source>
         <translation>...</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="385"/>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="388"/>
         <source>You need to have &lt;a href=&apos;%1&apos;&gt;%2&lt;/a&gt; (version %3 or newer) installed.</source>
         <translation>Вам необхідно встановити &lt;a href=&apos;%1&apos;&gt;%2&lt;/a&gt; (версії %3 або новіші).</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="418"/>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="421"/>
         <source>Select a programmer (executable) for %1</source>
         <translation>Оберіть програматор (виконуваний файл) для %1</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="439"/>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="442"/>
         <source>Gerber</source>
         <translation>Gerber</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="443"/>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="446"/>
         <source>The gerber file generator will use six decimals precision instead of three.
 Some deprecated gerber commands are removed or replaced.
 We recommend enabling this. Only to avoid surprises with processes that are optimized for earlier Fritzing versions, this is currently off by default.</source>
@@ -7040,77 +6876,47 @@ We recommend enabling this. Only to avoid surprises with processes that are opti
 Ми рекомендуємо увімкнути їх. Щоб уникнути несподіванок з процесами, оптимізованими для попередніх версій Fritzing, наразі цей параметр вимкнено за замовчуванням.</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="452"/>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="455"/>
         <source>Enable gerber export improvements</source>
         <translation>Увімкнути покращення експорту Gerber</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="469"/>
-        <source>Simulator</source>
-        <translation>Симулятор</translation>
-    </message>
-    <message>
-        <source>The simulator is a beta feature and has not been tested extensively. This means that there are still bugs that need to be fixed and can cause to crash Fritzing. Backup your data and do not use it for production.</source>
-        <translation type="vanished">Симулятор є бета-версією і ще не пройшов ретельного тестування. Це означає, що все ще існують помилки, які потрібно виправити і які можуть призвести до збою в роботі Fritzing. Створіть, будь ласка, резервні копії даних і не використовуйте їх у виробництві.</translation>
-    </message>
-    <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="479"/>
-        <source>Enable simulator</source>
-        <translation>Увімкнути симулятор</translation>
-    </message>
-    <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="507"/>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="569"/>
         <source>Connected Highlight</source>
         <translation>Підсвітити з’єднані</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="523"/>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="585"/>
         <source>Unconnected Highlight</source>
         <translation>Підсвітити роз’єднані</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="555"/>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="617"/>
         <source>Command</source>
         <translation>Команда</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="557"/>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="619"/>
         <source>Control</source>
         <translation>Контроль</translation>
     </message>
     <message>
-        <source>no keys down = scroll
-shift key swaps scroll axis
-Alt or %1 key = zoom</source>
-        <translation type="vanished">без клавішів = прокручування
-Shift = змінити вісь прокручування
-Alt або %1 = збільшення</translation>
-    </message>
-    <message>
-        <source>no keys down = zoom
-Alt or %1 key = scroll
-shift key swaps scroll axis</source>
-        <translation type="vanished">без клавішів = збільшення
-Alt або %1 = прокручування
-Shift = змінити вісь прокручування</translation>
-    </message>
-    <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="601"/>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="663"/>
         <source>Curvy vs. straight wires</source>
         <translation>Звивисті або прямі лінії</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="604"/>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="666"/>
         <source>When you mouse-down and drag on a wire or the leg of a part (as opposed to a connector or a bendpoint) do you want to change the curvature of the wire (or leg) or drag out a new bendpoint?</source>
         <translation>При натисканні кнопки миші і перетягуванні доріжки або ніжки деталі (роз’єму або опорної точки) ви бажаєте змінити кривизну доріжки (ніжки), чи створити нову опорну точку?</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="609"/>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="671"/>
         <source>This checkbox sets the default behavior. You can switch back to the non-default behavior by holding down the Control key (Mac: Command key) when you drag.</source>
         <translation>Цей прапорець задає поведінку за замовчуванням. Поведінку можна змінити, натиснувши Ctrl (у MacOS: Command) під час перетягування.</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="616"/>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="678"/>
         <source>Curvy wires and legs</source>
         <translation>Звивисті лінії та ніжки</translation>
     </message>
@@ -7211,233 +7017,229 @@ Shift = змінити вісь прокручування</translation>
 <context>
     <name>ProgramWindow</name>
     <message>
-        <location filename="../src/program/programwindow.cpp" line="172"/>
-        <location filename="../src/program/programwindow.cpp" line="322"/>
+        <location filename="../src/program/programwindow.cpp" line="176"/>
+        <location filename="../src/program/programwindow.cpp" line="326"/>
         <source>&amp;Edit</source>
         <translation>Редагування (&amp;E)</translation>
     </message>
     <message>
-        <location filename="../src/program/programwindow.cpp" line="174"/>
+        <location filename="../src/program/programwindow.cpp" line="178"/>
         <source>Undo</source>
         <translation>Відмінити</translation>
     </message>
     <message>
-        <location filename="../src/program/programwindow.cpp" line="180"/>
+        <location filename="../src/program/programwindow.cpp" line="184"/>
         <source>Redo</source>
         <translation>Повернути</translation>
     </message>
     <message>
-        <location filename="../src/program/programwindow.cpp" line="188"/>
+        <location filename="../src/program/programwindow.cpp" line="192"/>
         <source>&amp;Cut</source>
         <translation>Вирізати (&amp;C)</translation>
     </message>
     <message>
-        <location filename="../src/program/programwindow.cpp" line="190"/>
+        <location filename="../src/program/programwindow.cpp" line="194"/>
         <source>Cut selection</source>
         <translation>Вирізати виділене</translation>
     </message>
     <message>
-        <location filename="../src/program/programwindow.cpp" line="195"/>
+        <location filename="../src/program/programwindow.cpp" line="199"/>
         <source>&amp;Copy</source>
         <translation>Копіювати (&amp;C)</translation>
     </message>
     <message>
-        <location filename="../src/program/programwindow.cpp" line="197"/>
+        <location filename="../src/program/programwindow.cpp" line="201"/>
         <source>Copy selection</source>
         <translation>Скопіювати виділене</translation>
     </message>
     <message>
-        <location filename="../src/program/programwindow.cpp" line="202"/>
+        <location filename="../src/program/programwindow.cpp" line="206"/>
         <source>&amp;Paste</source>
         <translation>Вставити (&amp;P)</translation>
     </message>
     <message>
-        <location filename="../src/program/programwindow.cpp" line="204"/>
+        <location filename="../src/program/programwindow.cpp" line="208"/>
         <source>Paste clipboard contents</source>
         <translation>Вставити вміст буфера обміну</translation>
     </message>
     <message>
-        <location filename="../src/program/programwindow.cpp" line="211"/>
+        <location filename="../src/program/programwindow.cpp" line="215"/>
         <source>&amp;Select All</source>
         <translation>Вибрати все (&amp;S)</translation>
     </message>
     <message>
-        <location filename="../src/program/programwindow.cpp" line="213"/>
+        <location filename="../src/program/programwindow.cpp" line="217"/>
         <source>Select all text</source>
         <translation>Вибрати весь текст</translation>
     </message>
     <message>
-        <location filename="../src/program/programwindow.cpp" line="226"/>
+        <location filename="../src/program/programwindow.cpp" line="230"/>
         <source>&amp;Code</source>
         <translation>Код (&amp;C)</translation>
     </message>
     <message>
-        <location filename="../src/program/programwindow.cpp" line="737"/>
+        <location filename="../src/program/programwindow.cpp" line="741"/>
         <source>No boards available</source>
         <translation>Немає доступних плат</translation>
     </message>
     <message>
-        <location filename="../src/program/programwindow.cpp" line="220"/>
+        <location filename="../src/program/programwindow.cpp" line="224"/>
         <source>&amp;Preferences...</source>
         <translation>Уподобання (&amp;P)...</translation>
     </message>
     <message>
-        <source>Show the application&apos;s about box</source>
-        <translation type="vanished">Показати вікно Про програму</translation>
-    </message>
-    <message>
-        <location filename="../src/program/programwindow.cpp" line="228"/>
+        <location filename="../src/program/programwindow.cpp" line="232"/>
         <source>&amp;New Tab</source>
         <translation>&amp;Нова вкладка</translation>
     </message>
     <message>
-        <location filename="../src/program/programwindow.cpp" line="230"/>
+        <location filename="../src/program/programwindow.cpp" line="234"/>
         <source>Create a new program tab</source>
         <translation>Створити нову програмну вкладку</translation>
     </message>
     <message>
-        <location filename="../src/program/programwindow.cpp" line="234"/>
+        <location filename="../src/program/programwindow.cpp" line="238"/>
         <source>&amp;Import Code...</source>
         <translation>&amp;Імпорт коду ...</translation>
     </message>
     <message>
-        <location filename="../src/program/programwindow.cpp" line="235"/>
+        <location filename="../src/program/programwindow.cpp" line="239"/>
         <source>Alt+Ctrl+I</source>
         <translation>Alt+Ctrl+I</translation>
     </message>
     <message>
-        <location filename="../src/program/programwindow.cpp" line="236"/>
+        <location filename="../src/program/programwindow.cpp" line="240"/>
         <source>Import a program from a file</source>
         <translation>Імпорт програми з файлу</translation>
     </message>
     <message>
-        <location filename="../src/program/programwindow.cpp" line="240"/>
+        <location filename="../src/program/programwindow.cpp" line="244"/>
         <source>&amp;Save Tab</source>
         <translation>&amp;Зберегти вкладку</translation>
     </message>
     <message>
-        <location filename="../src/program/programwindow.cpp" line="241"/>
+        <location filename="../src/program/programwindow.cpp" line="245"/>
         <source>Alt+Ctrl+S</source>
         <translation>Alt+Ctrl+S</translation>
     </message>
     <message>
-        <location filename="../src/program/programwindow.cpp" line="242"/>
+        <location filename="../src/program/programwindow.cpp" line="246"/>
         <source>Save the current program tab</source>
         <translation>Зберегти поточну вкладку програми</translation>
     </message>
     <message>
-        <location filename="../src/program/programwindow.cpp" line="246"/>
+        <location filename="../src/program/programwindow.cpp" line="250"/>
         <source>&amp;Rename Tab</source>
         <translation>&amp;Перейменувати вкладку</translation>
     </message>
     <message>
-        <location filename="../src/program/programwindow.cpp" line="247"/>
+        <location filename="../src/program/programwindow.cpp" line="251"/>
         <source>Alt+Ctrl+R</source>
         <translation>Alt+Ctrl+R</translation>
     </message>
     <message>
-        <location filename="../src/program/programwindow.cpp" line="248"/>
+        <location filename="../src/program/programwindow.cpp" line="252"/>
         <source>Rename the current program tab</source>
         <translation>Перемейнувати поточну вкладку програми</translation>
     </message>
     <message>
-        <location filename="../src/program/programwindow.cpp" line="252"/>
+        <location filename="../src/program/programwindow.cpp" line="256"/>
         <source>Close Tab</source>
         <translation>Закрити вкладку</translation>
     </message>
     <message>
-        <location filename="../src/program/programwindow.cpp" line="253"/>
+        <location filename="../src/program/programwindow.cpp" line="257"/>
         <source>Alt+Ctrl+W</source>
         <translation>Alt+Ctrl+W</translation>
     </message>
     <message>
-        <location filename="../src/program/programwindow.cpp" line="254"/>
+        <location filename="../src/program/programwindow.cpp" line="258"/>
         <source>Remove the current program tab from the sketch</source>
         <translation>Видалити поточну вкладку програми із нарису</translation>
     </message>
     <message>
-        <location filename="../src/program/programwindow.cpp" line="260"/>
+        <location filename="../src/program/programwindow.cpp" line="264"/>
         <source>Platform</source>
         <translation>Платформа</translation>
     </message>
     <message>
-        <location filename="../src/program/programwindow.cpp" line="275"/>
+        <location filename="../src/program/programwindow.cpp" line="279"/>
         <source>Board</source>
         <translation>Плата</translation>
     </message>
     <message>
-        <location filename="../src/program/programwindow.cpp" line="280"/>
+        <location filename="../src/program/programwindow.cpp" line="284"/>
         <source>Port</source>
         <translation>Вхід</translation>
     </message>
     <message>
-        <location filename="../src/program/programwindow.cpp" line="289"/>
+        <location filename="../src/program/programwindow.cpp" line="293"/>
         <source>Serial Monitor</source>
         <translation>Серійний монітор</translation>
     </message>
     <message>
-        <location filename="../src/program/programwindow.cpp" line="290"/>
+        <location filename="../src/program/programwindow.cpp" line="294"/>
         <source>Ctrl+M</source>
         <translation>Ctrl+M</translation>
     </message>
     <message>
-        <location filename="../src/program/programwindow.cpp" line="291"/>
+        <location filename="../src/program/programwindow.cpp" line="295"/>
         <source>Monitor the serial port communication</source>
         <translation>Контроль зв&apos;язку послідовного порту</translation>
     </message>
     <message>
-        <location filename="../src/program/programwindow.cpp" line="296"/>
+        <location filename="../src/program/programwindow.cpp" line="300"/>
         <source>Upload</source>
         <translation>Завантажити</translation>
     </message>
     <message>
-        <location filename="../src/program/programwindow.cpp" line="297"/>
+        <location filename="../src/program/programwindow.cpp" line="301"/>
         <source>Ctrl+U</source>
         <translation>Ctrl+U</translation>
     </message>
     <message>
-        <location filename="../src/program/programwindow.cpp" line="298"/>
+        <location filename="../src/program/programwindow.cpp" line="302"/>
         <source>Upload the current program onto a microcontroller</source>
         <translation>Завантажити поточну програму на мікроконтролер</translation>
     </message>
     <message>
-        <location filename="../src/program/programwindow.cpp" line="303"/>
-        <location filename="../src/program/programwindow.cpp" line="335"/>
+        <location filename="../src/program/programwindow.cpp" line="307"/>
+        <location filename="../src/program/programwindow.cpp" line="339"/>
         <source>&amp;View</source>
         <translation>Вид (&amp;V)</translation>
     </message>
     <message>
-        <location filename="../src/program/programwindow.cpp" line="324"/>
+        <location filename="../src/program/programwindow.cpp" line="328"/>
         <source>Edit</source>
         <translation>Редагувати</translation>
     </message>
     <message>
-        <location filename="../src/program/programwindow.cpp" line="337"/>
+        <location filename="../src/program/programwindow.cpp" line="341"/>
         <source>View</source>
         <translation>Вид</translation>
     </message>
     <message>
-        <location filename="../src/program/programwindow.cpp" line="364"/>
+        <location filename="../src/program/programwindow.cpp" line="368"/>
         <source>File &apos;%1&apos; was restored from the .fzz file; the local copy was not found.</source>
         <translation>Файл &apos;%1&apos; відновлено з файлу .fzz; локальну копію не знайдено.</translation>
     </message>
     <message>
-        <location filename="../src/program/programwindow.cpp" line="367"/>
+        <location filename="../src/program/programwindow.cpp" line="371"/>
         <source>File &apos;%1&apos; was restored from the .fzz file; save a local copy to work with an external editor.</source>
         <translation>Файл &apos;%1&apos; відновлено з файлу .fzz; збережіть локальну копію для роботи у зовнішньому редакторі.</translation>
     </message>
     <message>
-        <location filename="../src/program/programwindow.cpp" line="482"/>
+        <location filename="../src/program/programwindow.cpp" line="486"/>
         <source>Code Window</source>
         <translation>Вікно коду</translation>
     </message>
     <message>
-        <location filename="../src/program/programwindow.cpp" line="486"/>
+        <location filename="../src/program/programwindow.cpp" line="490"/>
         <source>Code Window - %1</source>
         <translation>Вікно коду - %1</translation>
     </message>
     <message>
-        <location filename="../src/program/programwindow.cpp" line="495"/>
+        <location filename="../src/program/programwindow.cpp" line="499"/>
         <source>%1%2</source>
         <translation>%1%2</translation>
     </message>
@@ -7458,20 +7260,21 @@ Shift = змінити вісь прокручування</translation>
         <location filename="../src/autoroute/mazerouter/mazerouter.cpp" line="606"/>
         <location filename="../src/autoroute/mazerouter/mazerouter.cpp" line="649"/>
         <location filename="../src/autoroute/mazerouter/mazerouter.cpp" line="719"/>
-        <location filename="../src/fapplication.cpp" line="1134"/>
-        <location filename="../src/mainwindow/fritzingwindow.cpp" line="133"/>
-        <location filename="../src/mainwindow/fritzingwindow.cpp" line="243"/>
+        <location filename="../src/fapplication.cpp" line="1130"/>
+        <location filename="../src/mainwindow/fritzingwindow.cpp" line="141"/>
+        <location filename="../src/mainwindow/fritzingwindow.cpp" line="251"/>
         <location filename="../src/model/modelbase.cpp" line="74"/>
         <location filename="../src/model/modelbase.cpp" line="87"/>
         <location filename="../src/model/modelbase.cpp" line="97"/>
         <location filename="../src/model/modelbase.cpp" line="104"/>
-        <location filename="../src/model/modelbase.cpp" line="189"/>
-        <location filename="../src/model/modelbase.cpp" line="391"/>
-        <location filename="../src/model/modelbase.cpp" line="444"/>
-        <location filename="../src/model/palettemodel.cpp" line="83"/>
-        <location filename="../src/model/palettemodel.cpp" line="190"/>
-        <location filename="../src/model/palettemodel.cpp" line="209"/>
-        <location filename="../src/model/palettemodel.cpp" line="331"/>
+        <location filename="../src/model/modelbase.cpp" line="191"/>
+        <location filename="../src/model/modelbase.cpp" line="393"/>
+        <location filename="../src/model/modelbase.cpp" line="446"/>
+        <location filename="../src/model/modelbase.cpp" line="459"/>
+        <location filename="../src/model/palettemodel.cpp" line="84"/>
+        <location filename="../src/model/palettemodel.cpp" line="191"/>
+        <location filename="../src/model/palettemodel.cpp" line="210"/>
+        <location filename="../src/model/palettemodel.cpp" line="332"/>
         <location filename="../src/partsbinpalette/partsbinpalettewidget.cpp" line="531"/>
         <location filename="../src/svg/gerbergenerator.cpp" line="364"/>
         <source>Fritzing</source>
@@ -7493,14 +7296,6 @@ Shift = змінити вісь прокручування</translation>
         <translation>Немає з’єднань для розведення.</translation>
     </message>
     <message>
-        <source>unable to copy file &apos;%1&apos; to &apos;%2&apos;.</source>
-        <translation type="vanished">Не вдалось скопіювати файл &apos;%1&apos; до &apos;%2&apos;.</translation>
-    </message>
-    <message>
-        <source>%2 ... %1 wires moved from their saved position</source>
-        <translation type="vanished">%2 ... %1 провідників переміщено зі збереженого місцеположення</translation>
-    </message>
-    <message>
         <location filename="../src/commands.cpp" line="2124"/>
         <source>Set Ground Fill Seed</source>
         <translation>Задати затравки спільного заземлення</translation>
@@ -7516,60 +7311,52 @@ Shift = змінити вісь прокручування</translation>
         <translation>Редактор позначок штирків</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="48"/>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="49"/>
         <source>Preferences</source>
         <translation>Уподобання</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="251"/>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="254"/>
         <source>Please note that a new language setting will not take effect until the next time you run Fritzing.</source>
         <translation>Зверніть увагу, що нові мовні налаштування не запрацюють до перезапуску Fritzing.</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="270"/>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="273"/>
         <source>Connected highlight color</source>
         <translation>Підсвітити сполучення</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="292"/>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="295"/>
         <source>Unconnected highlight color</source>
         <translation>Підсвітити не сполучені деталі</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="321"/>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="324"/>
         <source>Clear all saved settings and close this dialog immediately.</source>
         <translation>Очистити всі збережені налаштування і негайно закрити цей діалог.</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="328"/>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="331"/>
         <source>This action does not delete any files; it restores settings to their default values.</source>
         <translation>Ця дія не видаляє файли — вона відновлює значення вподобань по замовчанню.</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="335"/>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="338"/>
         <source>There is no undo for this action, and no further warning!!!!</source>
         <translation>Цю дію неможливо скасувати, і більше попереджень не буде!!!!</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/prefsdialog.cpp" line="340"/>
+        <location filename="../src/dialogs/prefsdialog.cpp" line="343"/>
         <source>Clear Settings</source>
         <translation>Очистити налаштування</translation>
     </message>
     <message>
-        <location filename="../src/fapplication.cpp" line="1134"/>
+        <location filename="../src/fapplication.cpp" line="1130"/>
         <source>%1 wires moved from their saved position in %2.</source>
         <translation>%1 провідників переміщено зі збереженого місцеположення до %2.</translation>
     </message>
     <message>
-        <source>&lt;font face=&apos;Lucida Grande, Tahoma, Sans Serif&apos; size=&apos;2&apos; color=&apos;#eaf4ed&apos;&gt;&amp;#169; 2007-%1 Fritzing&lt;/font&gt;</source>
-        <translation type="vanished">&lt;font face=&apos;Lucida Grande, Tahoma, Sans Serif&apos; size=&apos;2&apos; color=&apos;#eaf4ed&apos;&gt;&amp;#169; 2007-%1 Fritzing&lt;/font&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;font face=&apos;Lucida Grande, Tahoma, Sans Serif&apos; size=&apos;2&apos; color=&apos;#eaf4ed&apos;&gt;Version %1.%2.%3 (%4 %5) %6&lt;/font&gt;</source>
-        <translation type="vanished">&lt;font face=&apos;Lucida Grande, Tahoma, Sans Serif&apos; size=&apos;2&apos; color=&apos;#eaf4ed&apos;&gt;Version %1.%2.%3 (%4 %5) %6&lt;/font&gt;</translation>
-    </message>
-    <message>
-        <location filename="../src/fapplication.cpp" line="2192"/>
+        <location filename="../src/fapplication.cpp" line="2174"/>
         <source>Regenerate database failed</source>
         <translation>Не вдалося відновити базу даних</translation>
     </message>
@@ -7579,42 +7366,42 @@ Shift = змінити вісь прокручування</translation>
         <translation>Редагувати посилання</translation>
     </message>
     <message>
-        <location filename="../src/items/paletteitem.cpp" line="58"/>
+        <location filename="../src/items/paletteitem.cpp" line="59"/>
         <source>mm</source>
         <translation>мм</translation>
     </message>
     <message>
-        <location filename="../src/items/paletteitem.cpp" line="59"/>
+        <location filename="../src/items/paletteitem.cpp" line="60"/>
         <source>in</source>
         <translation>дюйм</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/fritzingwindow.cpp" line="134"/>
+        <location filename="../src/mainwindow/fritzingwindow.cpp" line="142"/>
         <source>The file &apos;%1&apos; is read-only; please use a different filename.</source>
         <translation>Файл &apos;%1&apos; лише для читання; будь ласка, оберіть іншу назву.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3414"/>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3420"/>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3428"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3416"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3424"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3435"/>
         <source>Part</source>
         <translation>Деталь</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3441"/>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3474"/>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3500"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3449"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3482"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="3508"/>
         <source>Wire</source>
         <translation>Провідник</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4112"/>
+        <location filename="../src/mainwindow/mainwindow_menu.cpp" line="4137"/>
         <source>Set Grid Size</source>
         <translation>Задати розмір сітки</translation>
     </message>
     <message>
         <location filename="../src/model/modelbase.cpp" line="75"/>
-        <location filename="../src/model/palettemodel.cpp" line="191"/>
+        <location filename="../src/model/palettemodel.cpp" line="192"/>
         <source>Cannot read file %1:
 %2.</source>
         <translation>Неможливо прочитати файл %1:
@@ -7640,28 +7427,39 @@ Shift = змінити вісь прокручування</translation>
         <translation>Файл %1 не є файлом Fritzing (4).</translation>
     </message>
     <message>
-        <location filename="../src/model/modelbase.cpp" line="189"/>
+        <location filename="../src/model/modelbase.cpp" line="191"/>
         <source>The file %1 is not a Fritzing file (3).</source>
         <translation>Файл %1 не є файлом Fritzing (3).</translation>
     </message>
     <message>
-        <location filename="../src/model/modelbase.cpp" line="445"/>
-        <source>Cannot write file temp:
-%1
-%2
-%3.</source>
-        <translation>Неможливо записати тимчасовий файл:
-%1
-%2
-%3.</translation>
+        <location filename="../src/model/modelbase.cpp" line="447"/>
+        <source>Cannot write temp file. Save aborted. 
+
+error: %1
+
+temp file: %2
+
+target file: %3.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/model/palettemodel.cpp" line="84"/>
+        <location filename="../src/model/modelbase.cpp" line="460"/>
+        <source>Error while writing temp file. Save aborted. 
+
+error: %1
+
+temp file: %2
+
+target file: %3.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/model/palettemodel.cpp" line="85"/>
         <source>No parts found.</source>
         <translation>Деталі не знайдено.</translation>
     </message>
     <message>
-        <location filename="../src/model/palettemodel.cpp" line="210"/>
+        <location filename="../src/model/palettemodel.cpp" line="211"/>
         <source>Parse error (2) at line %1, column %2:
 %3
 %4</source>
@@ -7670,7 +7468,7 @@ Shift = змінити вісь прокручування</translation>
 %4</translation>
     </message>
     <message>
-        <location filename="../src/model/palettemodel.cpp" line="332"/>
+        <location filename="../src/model/palettemodel.cpp" line="333"/>
         <source>The part &apos;%1&apos; at &apos;%2&apos; does not have a unique module id &apos;%3&apos;.</source>
         <translation>Деталь &apos;%1&apos; у %2 не має власного унікального ідентифікатора &apos;%3&apos;.</translation>
     </message>
@@ -7680,95 +7478,95 @@ Shift = змінити вісь прокручування</translation>
         <translation>Fritzing не може завантажити набір деталей</translation>
     </message>
     <message>
-        <location filename="../src/partsbinpalette/partsbinview.cpp" line="39"/>
+        <location filename="../src/partsbinpalette/partsbinview.cpp" line="41"/>
         <source>Basic</source>
         <translation>Основні</translation>
     </message>
     <message>
-        <location filename="../src/partsbinpalette/partsbinview.cpp" line="40"/>
+        <location filename="../src/partsbinpalette/partsbinview.cpp" line="42"/>
         <source>Input</source>
         <translation>Введення</translation>
     </message>
     <message>
-        <location filename="../src/partsbinpalette/partsbinview.cpp" line="41"/>
+        <location filename="../src/partsbinpalette/partsbinview.cpp" line="43"/>
         <source>Output</source>
         <translation>Виведення</translation>
     </message>
     <message>
-        <location filename="../src/partsbinpalette/partsbinview.cpp" line="42"/>
+        <location filename="../src/partsbinpalette/partsbinview.cpp" line="44"/>
         <source>ICs</source>
         <translation>Мікросхеми</translation>
     </message>
     <message>
-        <location filename="../src/partsbinpalette/partsbinview.cpp" line="43"/>
+        <location filename="../src/partsbinpalette/partsbinview.cpp" line="45"/>
         <source>Power</source>
         <translation>Живлення</translation>
     </message>
     <message>
-        <location filename="../src/partsbinpalette/partsbinview.cpp" line="44"/>
+        <location filename="../src/partsbinpalette/partsbinview.cpp" line="46"/>
         <source>Connection</source>
         <translation>З’єднання</translation>
     </message>
     <message>
-        <location filename="../src/partsbinpalette/partsbinview.cpp" line="45"/>
+        <location filename="../src/partsbinpalette/partsbinview.cpp" line="47"/>
         <source>Microcontroller</source>
         <translation>Мікроконтролери</translation>
     </message>
     <message>
-        <location filename="../src/partsbinpalette/partsbinview.cpp" line="46"/>
+        <location filename="../src/partsbinpalette/partsbinview.cpp" line="48"/>
         <location filename="../src/sketch/breadboardsketchwidget.cpp" line="37"/>
         <source>Breadboard View</source>
         <translation>Монтажна плата</translation>
     </message>
     <message>
-        <location filename="../src/partsbinpalette/partsbinview.cpp" line="47"/>
+        <location filename="../src/partsbinpalette/partsbinview.cpp" line="49"/>
         <location filename="../src/sketch/schematicsketchwidget.cpp" line="58"/>
         <source>Schematic View</source>
         <translation>Схема</translation>
     </message>
     <message>
-        <location filename="../src/partsbinpalette/partsbinview.cpp" line="48"/>
+        <location filename="../src/partsbinpalette/partsbinview.cpp" line="50"/>
         <location filename="../src/sketch/pcbsketchwidget.cpp" line="83"/>
         <source>PCB View</source>
         <translation>Друкована плата</translation>
     </message>
     <message>
-        <location filename="../src/partsbinpalette/partsbinview.cpp" line="49"/>
+        <location filename="../src/partsbinpalette/partsbinview.cpp" line="51"/>
         <source>Tools</source>
         <translation>Знаряддя</translation>
     </message>
     <message>
-        <location filename="../src/partsbinpalette/partsbinview.cpp" line="50"/>
+        <location filename="../src/partsbinpalette/partsbinview.cpp" line="52"/>
         <source>Shields</source>
         <translation>Накладки</translation>
     </message>
     <message>
-        <location filename="../src/partsbinpalette/partsbinview.cpp" line="51"/>
+        <location filename="../src/partsbinpalette/partsbinview.cpp" line="53"/>
         <source>LilyPad</source>
         <translation>LilyPad</translation>
     </message>
     <message>
-        <location filename="../src/partsbinpalette/partsbinview.cpp" line="52"/>
+        <location filename="../src/partsbinpalette/partsbinview.cpp" line="54"/>
         <source>Other</source>
         <translation>Інше</translation>
     </message>
     <message>
-        <location filename="../src/partsbinpalette/partsbinview.cpp" line="53"/>
+        <location filename="../src/partsbinpalette/partsbinview.cpp" line="55"/>
         <source>Sensors</source>
         <translation>Давачі</translation>
     </message>
     <message>
-        <location filename="../src/partsbinpalette/partsbinview.cpp" line="54"/>
+        <location filename="../src/partsbinpalette/partsbinview.cpp" line="56"/>
         <source>Measuring Tools</source>
         <translation>Вимірювальні інструменти</translation>
     </message>
     <message>
-        <location filename="../src/partsbinpalette/partsbinview.cpp" line="214"/>
+        <location filename="../src/partsbinpalette/partsbinview.cpp" line="216"/>
         <source>Part already in bin</source>
         <translation>Деталь вже є у наборі</translation>
     </message>
     <message>
-        <location filename="../src/partsbinpalette/partsbinview.cpp" line="214"/>
+        <location filename="../src/partsbinpalette/partsbinview.cpp" line="216"/>
         <source>The part that you have just added,
 is already there, we won&apos;t add it again, right?</source>
         <translation>Деталь, яку ви щойно додали,
@@ -7790,13 +7588,13 @@ is already there, we won&apos;t add it again, right?</source>
         <translation>Обрати %1</translation>
     </message>
     <message>
-        <location filename="../src/partseditor/peconnectorsview.cpp" line="75"/>
+        <location filename="../src/partseditor/peconnectorsview.cpp" line="76"/>
         <source>Set all to:</source>
         <translation>Встановити все до:</translation>
     </message>
     <message>
-        <location filename="../src/partseditor/peconnectorsview.cpp" line="94"/>
-        <location filename="../src/partseditor/peutils.cpp" line="171"/>
+        <location filename="../src/partseditor/peconnectorsview.cpp" line="95"/>
+        <location filename="../src/partseditor/peutils.cpp" line="172"/>
         <source>Pad</source>
         <translation>Площинка</translation>
     </message>
@@ -7816,56 +7614,56 @@ is already there, we won&apos;t add it again, right?</source>
         <translation>Внутрішні з’єднання</translation>
     </message>
     <message>
-        <location filename="../src/partseditor/peutils.cpp" line="86"/>
+        <location filename="../src/partseditor/peutils.cpp" line="87"/>
         <source>&lt;b&gt;Name:&lt;/b&gt;</source>
         <translation>&lt;b&gt;Назва:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/partseditor/peutils.cpp" line="94"/>
+        <location filename="../src/partseditor/peutils.cpp" line="95"/>
         <source>Set the connectors&apos;s title</source>
         <translation>Задати назву роз’ємів</translation>
     </message>
     <message>
-        <location filename="../src/partseditor/peutils.cpp" line="115"/>
+        <location filename="../src/partseditor/peutils.cpp" line="116"/>
         <source>&lt;b&gt;Description:&lt;/b&gt;</source>
         <translation>&lt;b&gt;Опис:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/partseditor/peutils.cpp" line="124"/>
+        <location filename="../src/partseditor/peutils.cpp" line="125"/>
         <source>Set the connectors&apos;s description</source>
         <translation>Встановити опис роз’ємів</translation>
     </message>
     <message>
-        <location filename="../src/partseditor/peutils.cpp" line="138"/>
+        <location filename="../src/partseditor/peutils.cpp" line="139"/>
         <source>&lt;b&gt;id:&lt;/b&gt;</source>
         <translation>&lt;b&gt;ідентифікатор:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/partseditor/peutils.cpp" line="149"/>
+        <location filename="../src/partseditor/peutils.cpp" line="150"/>
         <source>&lt;b&gt;type:&lt;/b&gt;</source>
         <translation>&lt;b&gt;тип:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/program/syntaxer.cpp" line="88"/>
+        <location filename="../src/program/syntaxer.cpp" line="89"/>
         <source>files</source>
         <translation>файли</translation>
     </message>
     <message>
-        <location filename="../src/referencemodel/sqlitereferencemodel.cpp" line="94"/>
-        <location filename="../src/referencemodel/sqlitereferencemodel.cpp" line="146"/>
-        <location filename="../src/referencemodel/sqlitereferencemodel.cpp" line="163"/>
+        <location filename="../src/referencemodel/sqlitereferencemodel.cpp" line="96"/>
+        <location filename="../src/referencemodel/sqlitereferencemodel.cpp" line="148"/>
+        <location filename="../src/referencemodel/sqlitereferencemodel.cpp" line="165"/>
         <source>Oops!</source>
         <translation>Йой!</translation>
     </message>
     <message>
-        <location filename="../src/referencemodel/sqlitereferencemodel.cpp" line="95"/>
+        <location filename="../src/referencemodel/sqlitereferencemodel.cpp" line="97"/>
         <source>Sorry, we have a problem with the swapping mechanism.
 Fritzing still works, but you won&apos;t be able to change parts properties.</source>
         <translation>Вибачте, ми маємо проблему з механізмом заміни.
 Fritzing продовжує роботу, але ви не зможете змінити властивості деталі.</translation>
     </message>
     <message>
-        <location filename="../src/referencemodel/sqlitereferencemodel.cpp" line="96"/>
+        <location filename="../src/referencemodel/sqlitereferencemodel.cpp" line="98"/>
         <source>Error %1
 </source>
         <translation>Помилка %1
@@ -7882,28 +7680,28 @@ Fritzing продовжує роботу, але ви не зможете змі
         <translation>ДП</translation>
     </message>
     <message>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="234"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="236"/>
         <source>Select all &apos;Don&apos;t autoroute&apos; traces</source>
         <translation>Вибрати всі не саморозведені доріжки</translation>
     </message>
     <message>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="239"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="241"/>
         <source>Select all autorouteable traces</source>
         <translation>Вибрати всі доріжки, що можна саморозвести</translation>
     </message>
     <message>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="2324"/>
-        <location filename="../src/sketch/sketchwidget.cpp" line="8058"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="2345"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="8194"/>
         <source>Select all %1</source>
         <translation>Вибрати все %1</translation>
     </message>
     <message>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="2389"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="2410"/>
         <source>Convert to Via</source>
         <translation>Перетворити на отвір</translation>
     </message>
     <message>
-        <location filename="../src/sketch/pcbsketchwidget.cpp" line="2520"/>
+        <location filename="../src/sketch/pcbsketchwidget.cpp" line="2541"/>
         <source>Convert Via to Bendpoint</source>
         <translation>Перетворити отвір на опорну точку</translation>
     </message>
@@ -7918,74 +7716,70 @@ Fritzing продовжує роботу, але ви не зможете змі
         <translation>Помилка читання файлу %1: %2.</translation>
     </message>
     <message>
-        <source>%1 %2,%3 %4</source>
-        <translation type="vanished">%1 %2,%3 %4</translation>
-    </message>
-    <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="3640"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="3653"/>
         <source>Change leg of %1,%2</source>
         <translation>Змінити ніжку %1,%2</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="3799"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="3812"/>
         <source>%1 %2 %3</source>
         <translation>%1 %2 %3</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="4064"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="4077"/>
         <source>%1 Layer</source>
         <translation>Шар %1</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="4288"/>
-        <location filename="../src/sketch/sketchwidget.cpp" line="4305"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="4301"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="4318"/>
         <source>Bring forward</source>
         <translation>Підняти вище</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="4297"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="4310"/>
         <source>Send backward</source>
         <translation>Опустити нижче</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="4314"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="4327"/>
         <source>Bring to front</source>
         <translation>Підняти наверх</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="5628"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="5692"/>
         <source>Split Wire</source>
         <translation>Розгалузити провідник</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="5726"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="5804"/>
         <source>Join Wire</source>
         <translation>Сполучити провідник</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="8053"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="8189"/>
         <source>Trace wires</source>
         <translation>Розвести провідники</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="8056"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="8192"/>
         <source>Ratsnest wires</source>
         <translation>Провідники навісного монтажу</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="8330"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="8466"/>
         <source>Select outdated parts</source>
         <translation>Вибрати застарілі деталі</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="8345"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="8481"/>
         <source>Select locked parts</source>
         <translation>Вибрати заблоковані деталі</translation>
     </message>
     <message>
         <location filename="../src/svg/gedaelement2svg.cpp" line="51"/>
         <location filename="../src/svg/kicadmodule2svg.cpp" line="97"/>
-        <location filename="../src/svg/kicadschematic2svg.cpp" line="72"/>
+        <location filename="../src/svg/kicadschematic2svg.cpp" line="69"/>
         <source>unable to open %1</source>
         <translation>Не вдалось відкрити %1</translation>
     </message>
@@ -8249,29 +8043,29 @@ Fritzing продовжує роботу, але ви не зможете змі
         <translation>не вдалось впоратись із обрисом площинки %1</translation>
     </message>
     <message>
-        <location filename="../src/svg/kicadschematic2svg.cpp" line="94"/>
+        <location filename="../src/svg/kicadschematic2svg.cpp" line="91"/>
         <source>bad schematic definition %1</source>
         <translation>хибне визначення схеми %1</translation>
     </message>
     <message>
-        <location filename="../src/svg/kicadschematic2svg.cpp" line="106"/>
+        <location filename="../src/svg/kicadschematic2svg.cpp" line="103"/>
         <source>schematic part %1 not found in %2</source>
         <translation>схема деталі %1 не знайдено у %2</translation>
     </message>
     <message>
-        <location filename="../src/svg/kicadschematic2svg.cpp" line="114"/>
-        <location filename="../src/svg/kicadschematic2svg.cpp" line="141"/>
+        <location filename="../src/svg/kicadschematic2svg.cpp" line="111"/>
+        <location filename="../src/svg/kicadschematic2svg.cpp" line="138"/>
         <source>schematic %1 unexpectedly ends (1) in %2</source>
         <translation>схема %1 має неочікуваний кінець (1) у %2</translation>
     </message>
     <message>
-        <location filename="../src/svg/kicadschematic2svg.cpp" line="118"/>
-        <location filename="../src/svg/kicadschematic2svg.cpp" line="149"/>
+        <location filename="../src/svg/kicadschematic2svg.cpp" line="115"/>
+        <location filename="../src/svg/kicadschematic2svg.cpp" line="146"/>
         <source>schematic %1 unexpectedly ends (2) in %2</source>
         <translation>схема %1 має неочікуваний кінець (2) у %2</translation>
     </message>
     <message>
-        <location filename="../src/svg/kicadschematic2svg.cpp" line="157"/>
+        <location filename="../src/svg/kicadschematic2svg.cpp" line="154"/>
         <source>schematic %1 unexpectedly ends (3) in %2</source>
         <translation>схема %1 має неочікуваний кінець (3) у %2</translation>
     </message>
@@ -8291,16 +8085,12 @@ Fritzing продовжує роботу, але ви не зможете змі
         <translation>Обробка файлу...</translation>
     </message>
     <message>
-        <source>Application folder %1 not found</source>
-        <translation type="vanished">Папка програми%1 не знайдена</translation>
-    </message>
-    <message>
-        <location filename="../src/utils/folderutils.cpp" line="365"/>
+        <location filename="../src/utils/folderutils.cpp" line="366"/>
         <source>Copying file %1</source>
         <translation>Копіювання файлу %1</translation>
     </message>
     <message>
-        <location filename="../src/utils/folderutils.cpp" line="375"/>
+        <location filename="../src/utils/folderutils.cpp" line="376"/>
         <source>File %1 already exists: it won&apos;t be overwritten</source>
         <translation>Файл %1 вже існує: його не можна перезаписати</translation>
     </message>
@@ -8310,146 +8100,146 @@ Fritzing продовжує роботу, але ви не зможете змі
         <translation>Перевірка оновлень</translation>
     </message>
     <message>
-        <location filename="../src/viewlayer.cpp" line="119"/>
+        <location filename="../src/viewlayer.cpp" line="120"/>
         <source>Icon</source>
         <translation>Значок</translation>
     </message>
     <message>
-        <location filename="../src/viewlayer.cpp" line="120"/>
+        <location filename="../src/viewlayer.cpp" line="121"/>
         <source>Breadboard</source>
         <translation>Монтажна плата</translation>
     </message>
     <message>
-        <location filename="../src/viewlayer.cpp" line="121"/>
-        <location filename="../src/viewlayer.cpp" line="129"/>
+        <location filename="../src/viewlayer.cpp" line="122"/>
+        <location filename="../src/viewlayer.cpp" line="130"/>
         <source>Parts</source>
         <translation>Деталі</translation>
     </message>
     <message>
-        <location filename="../src/viewlayer.cpp" line="122"/>
-        <location filename="../src/viewlayer.cpp" line="132"/>
+        <location filename="../src/viewlayer.cpp" line="123"/>
+        <location filename="../src/viewlayer.cpp" line="133"/>
         <source>Wires</source>
         <translation>Провідники</translation>
     </message>
     <message>
-        <location filename="../src/viewlayer.cpp" line="123"/>
-        <location filename="../src/viewlayer.cpp" line="133"/>
+        <location filename="../src/viewlayer.cpp" line="124"/>
+        <location filename="../src/viewlayer.cpp" line="134"/>
         <source>Part Labels</source>
         <translation>Позначки деталей</translation>
     </message>
     <message>
-        <location filename="../src/viewlayer.cpp" line="124"/>
-        <location filename="../src/viewlayer.cpp" line="131"/>
-        <location filename="../src/viewlayer.cpp" line="146"/>
+        <location filename="../src/viewlayer.cpp" line="125"/>
+        <location filename="../src/viewlayer.cpp" line="132"/>
+        <location filename="../src/viewlayer.cpp" line="147"/>
         <source>Ratsnest</source>
         <translation>Навісний монтаж</translation>
-    </message>
-    <message>
-        <location filename="../src/viewlayer.cpp" line="125"/>
-        <location filename="../src/viewlayer.cpp" line="134"/>
-        <location filename="../src/viewlayer.cpp" line="153"/>
-        <source>Notes</source>
-        <translation>Примітки</translation>
     </message>
     <message>
         <location filename="../src/viewlayer.cpp" line="126"/>
         <location filename="../src/viewlayer.cpp" line="135"/>
         <location filename="../src/viewlayer.cpp" line="154"/>
+        <source>Notes</source>
+        <translation>Примітки</translation>
+    </message>
+    <message>
+        <location filename="../src/viewlayer.cpp" line="127"/>
+        <location filename="../src/viewlayer.cpp" line="136"/>
+        <location filename="../src/viewlayer.cpp" line="155"/>
         <source>Rulers</source>
         <translation>Лінійки</translation>
     </message>
     <message>
-        <location filename="../src/viewlayer.cpp" line="128"/>
+        <location filename="../src/viewlayer.cpp" line="129"/>
         <source>Frame</source>
         <translation>Рамка</translation>
     </message>
     <message>
-        <location filename="../src/viewlayer.cpp" line="130"/>
+        <location filename="../src/viewlayer.cpp" line="131"/>
         <source>Text</source>
         <translation>Текст</translation>
     </message>
     <message>
-        <location filename="../src/viewlayer.cpp" line="137"/>
+        <location filename="../src/viewlayer.cpp" line="138"/>
         <source>Board</source>
         <translation>Плата</translation>
     </message>
     <message>
-        <location filename="../src/viewlayer.cpp" line="138"/>
+        <location filename="../src/viewlayer.cpp" line="139"/>
         <source>Silkscreen Top</source>
         <translation>Верхній шар позначок</translation>
     </message>
     <message>
-        <location filename="../src/viewlayer.cpp" line="139"/>
+        <location filename="../src/viewlayer.cpp" line="140"/>
         <source>Silkscreen Top (Part Labels)</source>
         <translation>Верхній шар позначок (позначки деталей)</translation>
     </message>
     <message>
-        <location filename="../src/viewlayer.cpp" line="140"/>
+        <location filename="../src/viewlayer.cpp" line="141"/>
         <source>Copper Fill Bottom</source>
         <translation>Мідне заповнення знизу</translation>
     </message>
     <message>
-        <location filename="../src/viewlayer.cpp" line="141"/>
+        <location filename="../src/viewlayer.cpp" line="142"/>
         <source>Copper Bottom</source>
         <translation>Мідь знизу</translation>
     </message>
     <message>
-        <location filename="../src/viewlayer.cpp" line="142"/>
+        <location filename="../src/viewlayer.cpp" line="143"/>
         <source>Copper Bottom Trace</source>
         <translation>Мідна доріжка знизу</translation>
     </message>
     <message>
-        <location filename="../src/viewlayer.cpp" line="143"/>
+        <location filename="../src/viewlayer.cpp" line="144"/>
         <source>Copper Fill Top</source>
         <translation>Мідне заповнення зверху</translation>
     </message>
     <message>
-        <location filename="../src/viewlayer.cpp" line="144"/>
+        <location filename="../src/viewlayer.cpp" line="145"/>
         <source>Copper Top</source>
         <translation>Мідь зверху</translation>
     </message>
     <message>
-        <location filename="../src/viewlayer.cpp" line="145"/>
+        <location filename="../src/viewlayer.cpp" line="146"/>
         <source>Copper Top Trace</source>
         <translation>Мідна доріжка зверху</translation>
     </message>
     <message>
-        <location filename="../src/viewlayer.cpp" line="147"/>
+        <location filename="../src/viewlayer.cpp" line="148"/>
         <source>Silkscreen Bottom</source>
         <translation>Нижній шар позначок</translation>
     </message>
     <message>
-        <location filename="../src/viewlayer.cpp" line="148"/>
+        <location filename="../src/viewlayer.cpp" line="149"/>
         <source>Silkscreen Bottom (Part Labels)</source>
         <translation>Нжиній шар позначок (позначки деталей)</translation>
     </message>
     <message>
-        <location filename="../src/viewlayer.cpp" line="152"/>
+        <location filename="../src/viewlayer.cpp" line="153"/>
         <source>Part Image</source>
         <translation>Зображення деталі</translation>
     </message>
     <message>
-        <location filename="../src/viewlayer.cpp" line="160"/>
+        <location filename="../src/viewlayer.cpp" line="161"/>
         <source>Unknown Layer</source>
         <translation>Невідомий шар</translation>
     </message>
     <message>
-        <location filename="../src/viewlayer.cpp" line="177"/>
+        <location filename="../src/viewlayer.cpp" line="178"/>
         <source>icon view</source>
         <translation>вид значка</translation>
     </message>
     <message>
-        <location filename="../src/viewlayer.cpp" line="178"/>
+        <location filename="../src/viewlayer.cpp" line="179"/>
         <source>breadboard view</source>
         <translation>вид монтажної плати</translation>
     </message>
     <message>
-        <location filename="../src/viewlayer.cpp" line="179"/>
+        <location filename="../src/viewlayer.cpp" line="180"/>
         <source>schematic view</source>
         <translation>вид схеми</translation>
     </message>
     <message>
-        <location filename="../src/viewlayer.cpp" line="180"/>
+        <location filename="../src/viewlayer.cpp" line="181"/>
         <source>pcb view</source>
         <translation>вид ДП</translation>
     </message>
@@ -8459,81 +8249,73 @@ Fritzing продовжує роботу, але ви не зможете змі
         <translation>Недоступно</translation>
     </message>
     <message>
-        <source>The parts folder &apos;%1&apos; has been changed--it is not in the master branch (%2). %3</source>
-        <translation type="vanished">Папка деталей &apos;%1&apos; змінена--її немає у головній гілці (%2). %3</translation>
-    </message>
-    <message>
-        <location filename="../src/version/partschecker.cpp" line="72"/>
+        <location filename="../src/version/partschecker.cpp" line="73"/>
         <source>The parts folder &apos;%1&apos; has been changed--it is not in a supported branch (%2). %3</source>
         <translation>Папка деталей &apos;%1&apos; змінена--її немає у головній гілці (%2). %3</translation>
     </message>
     <message>
-        <location filename="../src/version/partschecker.cpp" line="73"/>
+        <location filename="../src/version/partschecker.cpp" line="74"/>
         <source>The parts folder &apos;%1&apos; may have been damaged (%2). %3</source>
         <translation>Папка деталей &apos;%1&apos; можливо була пошкоджена (%2). %3</translation>
     </message>
     <message>
-        <location filename="../src/version/partschecker.cpp" line="74"/>
+        <location filename="../src/version/partschecker.cpp" line="75"/>
         <source>The parts folder &apos;%1&apos; has been changed (%2). %3</source>
         <translation>Папка деталей &apos;%1&apos; змінена (%2). %3</translation>
     </message>
     <message>
-        <location filename="../src/version/partschecker.cpp" line="75"/>
+        <location filename="../src/version/partschecker.cpp" line="76"/>
         <source>There are new or modified files in the parts folder &apos;%1&apos;. These changes will be discarded by the update.</source>
         <translation>У папці з частинами &apos;%1&apos; є нові або модифіковані файли. Ці зміни будуть відхилені оновленням.</translation>
     </message>
     <message>
-        <location filename="../src/version/partschecker.cpp" line="76"/>
+        <location filename="../src/version/partschecker.cpp" line="77"/>
         <source>There are unreadable files in the parts folder &apos;%1&apos;. %2</source>
         <translation>У папці деталей &apos;%1&apos; є файли, які не можна прочитати. %2</translation>
     </message>
     <message>
-        <location filename="../src/version/partschecker.cpp" line="98"/>
+        <location filename="../src/version/partschecker.cpp" line="99"/>
         <source>Unable to open parts folder &apos;%1&apos; for update. %2</source>
         <translation>Не вдається відкрити папку деталей &apos;%1&apos; для оновлення. %2</translation>
     </message>
     <message>
-        <location filename="../src/version/partschecker.cpp" line="104"/>
+        <location filename="../src/version/partschecker.cpp" line="105"/>
         <source>Parts folder repo &apos;%1&apos; is empty. %2</source>
         <translation>Репозиторій папки деталей &apos;%1&apos; порожній. %2</translation>
     </message>
     <message>
-        <location filename="../src/version/partschecker.cpp" line="112"/>
+        <location filename="../src/version/partschecker.cpp" line="113"/>
         <source>Unable to determine network site for &apos;%1&apos;. %2</source>
         <translation>Неможливо визначити мережевий сайт для &apos;%1&apos;. %2</translation>
     </message>
     <message>
-        <location filename="../src/version/partschecker.cpp" line="129"/>
+        <location filename="../src/version/partschecker.cpp" line="130"/>
         <source>Unable to access network site for &apos;%1&apos;. %2</source>
         <translation>Не вдається отримати доступ до мережевого сайту для &apos;%1&apos;. %2</translation>
     </message>
     <message>
-        <location filename="../src/version/partschecker.cpp" line="139"/>
+        <location filename="../src/version/partschecker.cpp" line="140"/>
         <source>Unable to retrieve network references for &apos;%1&apos;. %2</source>
         <translation>Неможливо отримати мережеві посилання для &apos;%1&apos;. %2</translation>
     </message>
     <message>
-        <location filename="../src/version/partschecker.cpp" line="198"/>
+        <location filename="../src/version/partschecker.cpp" line="199"/>
         <source>Unable to retrieve the network reference for &apos;%1&apos;#%2. %3</source>
         <translation>Неможливо отримати головну мережеву посилання для &apos;%1&apos;# %2. %3</translation>
     </message>
     <message>
-        <source>Unable to retrieve master network reference for &apos;%1&apos;. %2</source>
-        <translation type="vanished">Неможливо отримати головну мережеву посилання для &apos;%1&apos;. %2</translation>
-    </message>
-    <message>
-        <location filename="../src/version/partschecker.cpp" line="469"/>
-        <location filename="../src/version/partschecker.cpp" line="477"/>
+        <location filename="../src/version/partschecker.cpp" line="470"/>
+        <location filename="../src/version/partschecker.cpp" line="478"/>
         <source>Regenerating parts database</source>
         <translation>Відновлення бази даних деталей</translation>
     </message>
     <message>
-        <location filename="../src/version/partschecker.cpp" line="469"/>
+        <location filename="../src/version/partschecker.cpp" line="470"/>
         <source>Unable to find parts git repository</source>
         <translation>Неможливо знайти частини сховища git</translation>
     </message>
     <message>
-        <location filename="../src/version/partschecker.cpp" line="477"/>
+        <location filename="../src/version/partschecker.cpp" line="478"/>
         <source>Unable to find parts git repository HEAD</source>
         <translation>Неможливо знайти частини сховища git HEAD</translation>
     </message>
@@ -8541,28 +8323,28 @@ Fritzing продовжує роботу, але ви не зможете змі
 <context>
     <name>QShortcut</name>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="592"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="607"/>
         <source>Ctrl</source>
         <comment>for naming shortcut keys on menu items</comment>
         <translatorcomment>для йменування швидких клавіш на пунктах меню</translatorcomment>
         <translation>Ctrl</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="593"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="608"/>
         <source>Alt</source>
         <comment>for naming shortcut keys on menu items</comment>
         <translatorcomment>для йменування швидких клавіш на пунктах меню</translatorcomment>
         <translation>Alt</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="594"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="609"/>
         <source>Shift</source>
         <comment>for naming shortcut keys on menu items</comment>
         <translatorcomment>для йменування швидких клавіш на пунктах меню</translatorcomment>
         <translation>Shift</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow/mainwindow.cpp" line="595"/>
+        <location filename="../src/mainwindow/mainwindow.cpp" line="610"/>
         <source>Meta</source>
         <comment>for naming shortcut keys on menu items</comment>
         <translatorcomment>для йменування швидких клавіш на пунктах меню</translatorcomment>
@@ -8622,37 +8404,9 @@ Fritzing продовжує роботу, але ви не зможете змі
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>For more information on pricing see &lt;a href=&apos;https://fab.fritzing.org/pricing&apos;&gt;https://fab.fritzing.org/pricing&lt;/a&gt;.</source>
-        <translation type="vanished">Більш детальну інформацію про ціни дивіться на &lt;a href=&apos;https://fab.fritzing.org/pricing&apos;&gt;https://fab.fritzing.org/pricing&lt;/a&gt;.</translation>
-    </message>
-    <message>
-        <source>Please note that prices do not include shipping,&lt;br /&gt;</source>
-        <translation type="obsolete">Зверніть увагу на те, що ціни не включають доставку,&lt;br /&gt;</translation>
-    </message>
-    <message>
-        <source>possible additional taxes, or the checking fee.&lt;br /&gt;</source>
-        <translation type="obsolete">можливі додаткові податки та збори.&lt;br /&gt;</translation>
-    </message>
-    <message>
-        <source>For more information on pricing see &lt;a href=&apos;http://fab.fritzing.org/pricing&apos;&gt;http://fab.fritzing.org/pricing&lt;/a&gt;.</source>
-        <translation type="obsolete">Більш докладну інформацію про ціни можна отримати тут &lt;a href=&apos;http://fab.fritzing.org/pricing&apos;&gt;http://fab.fritzing.org/pricing&lt;/a&gt;.</translation>
-    </message>
-    <message>
         <location filename="../src/dialogs/quotedialog.cpp" line="222"/>
         <source>Visit Fritzing Fab</source>
         <translation>Відвідайте виробництво Fritzing</translation>
-    </message>
-    <message numerus="yes">
-        <source>The total area of the %n PCB(s) in this sketch is</source>
-        <translation type="vanished">
-            <numerusform>Загальна площа %n друкованої плати у цьому нарисі складає</numerusform>
-            <numerusform>Загальна площа %n друкованих плат у цьому нарисі складає</numerusform>
-            <numerusform>Загальна площа %n друкованих плат у цьому нарисі складає</numerusform>
-        </translation>
-    </message>
-    <message>
-        <source> %1 cm%3 (%2 in%3).&lt;br /&gt;</source>
-        <translation type="vanished"> %1 см%3 (%2 дюймів%3).&lt;br /&gt;</translation>
     </message>
     <message>
         <location filename="../src/dialogs/quotedialog.cpp" line="280"/>
@@ -8693,10 +8447,6 @@ Fritzing продовжує роботу, але ви не зможете змі
         <translation>&lt;p&gt;&lt;b&gt;Схоже що Fritzing несподівано упав, але дещо можна відновити&lt;/b&gt;&lt;/p&gt;&lt;p&gt;Відображається дата та час останнього резервування файлу. Якщо файл було збережено, дата та час буде показано для порівняння.&lt;/p&gt;&lt;p&gt;Початковий файл досі зберігається на диску, якщо його колись було збережено. Ви можете обрати, чи потрібно перезаписати файл вихідний файл після завантаження його відновленої копії.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Оберіть файли для відновлення з переліку знизу.&lt;/b&gt;&lt;/p&gt;</translation>
     </message>
     <message>
-        <source>&lt;p&gt;&lt;b&gt;Fritzing may have crashed, but some of the changes to the following files may be recovered.&lt;/b&gt;&lt;/p&gt;&lt;p&gt;The date and time each file was backed-up is displayed. If the file was saved, that date and time is also listed for comparison.&lt;/p&gt;&lt;p&gt;The original files are still on your disk, if they were ever saved. You can choose whether to overwrite the original file after you load its recovery file.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Select any files you want to recover from the list below.&lt;/b&gt;&lt;/p&gt;</source>
-        <translation type="vanished">&lt;p&gt;&lt;b&gt;Схоже що Fritzing несподівано упав, але дещо можна відновити&lt;/b&gt;&lt;/p&gt;&lt;p&gt;Відображається дата та час останнього резервування файлу. Якщо файл було збережено, дата та час буде показано для порівняння.&lt;/p&gt;&lt;p&gt;Початковий файл досі зберігається на диску, якщо його колись було збережено. Ви можете обрати, чи потрібно перезаписати файл вихідний файл після завантаження його відновленої копії.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Оберіть файли для відновлення з переліку знизу.&lt;/b&gt;&lt;/p&gt;</translation>
-    </message>
-    <message>
         <location filename="../src/dialogs/recoverydialog.cpp" line="115"/>
         <source>&amp;Recover</source>
         <translation>Відновити (&amp;R)</translation>
@@ -8710,22 +8460,22 @@ Fritzing продовжує роботу, але ви не зможете змі
 <context>
     <name>RegenerateDatabaseThread</name>
     <message>
-        <location filename="../src/fapplication.cpp" line="335"/>
+        <location filename="../src/fapplication.cpp" line="333"/>
         <source>Unable to open temporary file</source>
         <translation>Неможливо відкрити тимчасовий файл</translation>
     </message>
     <message>
-        <location filename="../src/fapplication.cpp" line="341"/>
+        <location filename="../src/fapplication.cpp" line="339"/>
         <source>Database failure</source>
         <translation>Помилка бази даних</translation>
     </message>
     <message>
-        <location filename="../src/fapplication.cpp" line="348"/>
+        <location filename="../src/fapplication.cpp" line="346"/>
         <source>Unable to replace the existing database file %1</source>
         <translation>Неможливо видалити оригінальний файл db%1</translation>
     </message>
     <message>
-        <location filename="../src/fapplication.cpp" line="355"/>
+        <location filename="../src/fapplication.cpp" line="353"/>
         <source>Unable to copy database file %1</source>
         <translation>Неможливо скопіювати файл бази даних%1</translation>
     </message>
@@ -8749,111 +8499,107 @@ Range: [%2 - %3] %4
 Background: Green = ok, Red = incorrect value, Grey = current value</source>
         <translation>Виберіть зі спадного меню або введіть значення %1 Діапазон: [%2 - %3] %4 Фон: зелений = добре, червоний = неправильне значення, сірий = поточне значення</translation>
     </message>
-    <message>
-        <source>You can either type in a resistance value, or select one from the drop down. Format nnn.dP where P is one of &apos;umkMG&apos;</source>
-        <translation type="vanished">Ви можете ввести значення опору, або обрати його з випадного переліку. Формат nnn.dP, де P є одним з &apos;umkMG&apos;</translation>
-    </message>
 </context>
 <context>
     <name>ResizableBoard</name>
     <message>
-        <location filename="../src/items/resizableboard.cpp" line="1002"/>
+        <location filename="../src/items/resizableboard.cpp" line="1003"/>
         <source>shape</source>
         <translation>обрис</translation>
     </message>
     <message>
-        <location filename="../src/items/resizableboard.cpp" line="1017"/>
+        <location filename="../src/items/resizableboard.cpp" line="1018"/>
         <source>width: %1mm</source>
         <translation>ширина: %1мм</translation>
     </message>
     <message>
-        <location filename="../src/items/resizableboard.cpp" line="1021"/>
+        <location filename="../src/items/resizableboard.cpp" line="1022"/>
         <source>height: %1mm</source>
         <translation>висота: %1мм</translation>
     </message>
     <message>
-        <location filename="../src/items/resizableboard.cpp" line="1278"/>
+        <location filename="../src/items/resizableboard.cpp" line="1279"/>
         <source>width(mm)</source>
         <translation>ширина(мм)</translation>
     </message>
     <message>
-        <location filename="../src/items/resizableboard.cpp" line="1291"/>
+        <location filename="../src/items/resizableboard.cpp" line="1292"/>
         <source>height(mm)</source>
         <translation>висота(мм)</translation>
     </message>
     <message>
-        <location filename="../src/items/resizableboard.cpp" line="1330"/>
+        <location filename="../src/items/resizableboard.cpp" line="1331"/>
         <source>keep aspect ratio</source>
         <translation>зберегти пропорції</translation>
     </message>
     <message>
-        <location filename="../src/items/resizableboard.cpp" line="1344"/>
+        <location filename="../src/items/resizableboard.cpp" line="1345"/>
         <source>Revert</source>
         <translation>Повернути</translation>
     </message>
     <message>
-        <location filename="../src/items/resizableboard.cpp" line="1358"/>
+        <location filename="../src/items/resizableboard.cpp" line="1359"/>
         <source>size</source>
         <translation>розмір</translation>
     </message>
     <message>
-        <location filename="../src/items/resizableboard.cpp" line="1366"/>
-        <location filename="../src/items/resizableboard.cpp" line="1477"/>
+        <location filename="../src/items/resizableboard.cpp" line="1367"/>
+        <location filename="../src/items/resizableboard.cpp" line="1478"/>
         <source>custom</source>
         <translation>заданий</translation>
     </message>
     <message>
-        <location filename="../src/items/resizableboard.cpp" line="1487"/>
+        <location filename="../src/items/resizableboard.cpp" line="1488"/>
         <source>A0 (1030x1456)</source>
         <translation>A0 (1030x1456)</translation>
     </message>
     <message>
-        <location filename="../src/items/resizableboard.cpp" line="1487"/>
+        <location filename="../src/items/resizableboard.cpp" line="1488"/>
         <source>A1 (728x1030)</source>
         <translation>A1 (728x1030)</translation>
     </message>
     <message>
-        <location filename="../src/items/resizableboard.cpp" line="1487"/>
+        <location filename="../src/items/resizableboard.cpp" line="1488"/>
         <source>A2 (515x728)</source>
         <translation>A2 (515x728)</translation>
     </message>
     <message>
-        <location filename="../src/items/resizableboard.cpp" line="1487"/>
+        <location filename="../src/items/resizableboard.cpp" line="1488"/>
         <source>A3 (364x515)</source>
         <translation>A3 (364x515)</translation>
     </message>
     <message>
-        <location filename="../src/items/resizableboard.cpp" line="1487"/>
+        <location filename="../src/items/resizableboard.cpp" line="1488"/>
         <source>A4 (257x364)</source>
         <translation>A4 (257x364)</translation>
     </message>
     <message>
-        <location filename="../src/items/resizableboard.cpp" line="1487"/>
+        <location filename="../src/items/resizableboard.cpp" line="1488"/>
         <source>A5 (182x257)</source>
         <translation>A5 (182x257)</translation>
     </message>
     <message>
-        <location filename="../src/items/resizableboard.cpp" line="1487"/>
+        <location filename="../src/items/resizableboard.cpp" line="1488"/>
         <source>A6 (128x182)</source>
         <translation>A6 (128x182)</translation>
     </message>
     <message>
-        <location filename="../src/items/resizableboard.cpp" line="1488"/>
+        <location filename="../src/items/resizableboard.cpp" line="1489"/>
         <source>Letter (8.5x11)</source>
         <translation>Лист (8.5x11)</translation>
     </message>
     <message>
-        <location filename="../src/items/resizableboard.cpp" line="1488"/>
+        <location filename="../src/items/resizableboard.cpp" line="1489"/>
         <source>Legal (8.5x14)</source>
         <translation>Стандартний (8.5x14)</translation>
     </message>
     <message>
-        <location filename="../src/items/resizableboard.cpp" line="1488"/>
+        <location filename="../src/items/resizableboard.cpp" line="1489"/>
         <source>Ledger (17x11)</source>
         <translation>Книжковий (17x11)</translation>
     </message>
     <message>
-        <location filename="../src/items/resizableboard.cpp" line="1488"/>
+        <location filename="../src/items/resizableboard.cpp" line="1489"/>
         <source>Tabloid (11x17)</source>
         <translation>Газетний (11x17)</translation>
     </message>
@@ -8931,47 +8677,47 @@ Background: Green = ok, Red = incorrect value, Grey = current value</source>
 <context>
     <name>SchematicFrame</name>
     <message>
-        <location filename="../src/items/schematicframe.cpp" line="60"/>
+        <location filename="../src/items/schematicframe.cpp" line="61"/>
         <source>Project</source>
         <translation>Проект</translation>
     </message>
     <message>
-        <location filename="../src/items/schematicframe.cpp" line="61"/>
+        <location filename="../src/items/schematicframe.cpp" line="62"/>
         <source>Filename</source>
         <translation>Назва файлу</translation>
     </message>
     <message>
-        <location filename="../src/items/schematicframe.cpp" line="62"/>
+        <location filename="../src/items/schematicframe.cpp" line="63"/>
         <source>Date</source>
         <translation>Дата</translation>
     </message>
     <message>
-        <location filename="../src/items/schematicframe.cpp" line="63"/>
+        <location filename="../src/items/schematicframe.cpp" line="64"/>
         <source>Sheet</source>
         <translation>Аркуш</translation>
     </message>
     <message>
-        <location filename="../src/items/schematicframe.cpp" line="64"/>
+        <location filename="../src/items/schematicframe.cpp" line="65"/>
         <source>Rev</source>
         <translation>Ревізія</translation>
     </message>
     <message>
-        <location filename="../src/items/schematicframe.cpp" line="279"/>
+        <location filename="../src/items/schematicframe.cpp" line="280"/>
         <source>shape</source>
         <translation>обрис</translation>
     </message>
     <message>
-        <location filename="../src/items/schematicframe.cpp" line="331"/>
+        <location filename="../src/items/schematicframe.cpp" line="332"/>
         <source>of</source>
         <translation>від</translation>
     </message>
     <message>
-        <location filename="../src/items/schematicframe.cpp" line="428"/>
+        <location filename="../src/items/schematicframe.cpp" line="429"/>
         <source>date</source>
         <translation>дата</translation>
     </message>
     <message>
-        <location filename="../src/items/schematicframe.cpp" line="450"/>
+        <location filename="../src/items/schematicframe.cpp" line="451"/>
         <source>sheet</source>
         <translation>аркуш</translation>
     </message>
@@ -9045,60 +8791,53 @@ Background: Green = ok, Red = incorrect value, Grey = current value</source>
 <context>
     <name>Simulator</name>
     <message>
-        <location filename="../src/simulation/simulator.cpp" line="179"/>
-        <location filename="../src/simulation/simulator.cpp" line="217"/>
-        <location filename="../src/simulation/simulator.cpp" line="299"/>
+        <location filename="../src/simulation/simulator.cpp" line="192"/>
+        <location filename="../src/simulation/simulator.cpp" line="404"/>
         <source>Simulator Error</source>
         <translation>Помилка симулятора</translation>
     </message>
     <message>
-        <location filename="../src/simulation/simulator.cpp" line="179"/>
+        <location filename="../src/simulation/simulator.cpp" line="192"/>
         <source>An error occurred when starting the simulation.</source>
         <translation>Під час запуску моделювання сталася помилка.</translation>
     </message>
     <message>
-        <location filename="../src/simulation/simulator.cpp" line="218"/>
+        <location filename="../src/simulation/simulator.cpp" line="285"/>
         <source>The simulator gave an error when loading the netlist. Probably some SPICE field is wrong, please, check them.
-If the parts are from the simulation bin, report the bug in GitHub.
-
-Errors:
-</source>
-        <translation>Симулятор видав помилку під час завантаження списку мереж. Можливо, якісь поля SPICE неправильні, будь ласка, перевірте їх.
- Якщо частини взяті з кошика симуляції, повідомте про помилку в GitHub.
- Помилки:
-</translation>
+If the parts are from the simulation bin, report the bug in GitHub.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/simulation/simulator.cpp" line="286"/>
+        <location filename="../src/simulation/simulator.cpp" line="370"/>
+        <source>The simulator gave an error when trying to simulate this circuit. Please, check the wiring and try again.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/simulation/simulator.cpp" line="409"/>
+        <source>Errors:
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/simulation/simulator.cpp" line="358"/>
         <source>Simulator Timeout</source>
         <translation>Час очікування симультора</translation>
     </message>
     <message>
-        <location filename="../src/simulation/simulator.cpp" line="286"/>
+        <location filename="../src/simulation/simulator.cpp" line="358"/>
         <source>The spice simulator did not finish after %1 ms. Aborting simulation.</source>
         <translation>Симулятор spice не завершився через %1 мс. Переривання симуляції.</translation>
-    </message>
-    <message>
-        <location filename="../src/simulation/simulator.cpp" line="300"/>
-        <source>The simulator gave an error when trying to simulate this circuit. Please, check the wiring and try again. 
-
-Errors:
-</source>
-        <translation>При спробі змоделювати цю схему симулятор видав помилку. Будь ласка, перевірте підключення та повторіть спробу. 
-
-Помилки:
-</translation>
     </message>
 </context>
 <context>
     <name>SketchWidget</name>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="679"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="678"/>
         <source>loading part</source>
         <translation>завантаження деталі</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="683"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="682"/>
         <source>done loading</source>
         <translation>завантаження завершено</translation>
     </message>
@@ -9118,202 +8857,202 @@ Errors:
         <translation>%1 %2 предмети</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="1547"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="1545"/>
         <source>Select All</source>
         <translation>Виділити все</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="1547"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="1545"/>
         <source>Deselect</source>
         <translation>Зняти виділення</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="2050"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="2052"/>
         <source>Add %1</source>
         <translation>Додати %1</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="2153"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="2155"/>
         <source>Selection</source>
         <translation>Вибір</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="3322"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="3326"/>
         <source>Move %2 (%1)</source>
         <translation>Перемістити %2 (%1)</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="3325"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="3329"/>
         <source>Move %2 items (%1)</source>
         <translation>Перемістити %2 предмети (%1)</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="3503"/>
-        <location filename="../src/sketch/sketchwidget.cpp" line="9655"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="3516"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="9842"/>
         <source>Select %1</source>
         <translation>Вибрати %1</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="3506"/>
-        <location filename="../src/sketch/sketchwidget.cpp" line="9658"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="3519"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="9844"/>
         <source>Select %1 items</source>
         <translation>Вибрати %1 предмети</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="3595"/>
-        <location filename="../src/sketch/sketchwidget.cpp" line="3783"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="3608"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="3796"/>
         <source>Disconnect</source>
         <translation>Відключити</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="3596"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="3609"/>
         <source>from %1</source>
         <translation>від %1</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="3599"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="3612"/>
         <source>Move leg of</source>
         <translation>Перемістити ніжку</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="3603"/>
-        <location filename="../src/sketch/sketchwidget.cpp" line="3795"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="3616"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="3808"/>
         <source>Connect</source>
         <translation>Підключити</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="3604"/>
-        <location filename="../src/sketch/sketchwidget.cpp" line="3796"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="3617"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="3809"/>
         <source>to %1</source>
         <translation>до %1</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="3663"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="3676"/>
         <source>Change leg curvature for %1.</source>
         <translation>Змінити кривизну ніжки для %1.</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="3689"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="3702"/>
         <source>Change leg bendpoint for %1.</source>
         <translation>Змінити опорну точку ніжки для %1.</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="3791"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="3804"/>
         <source>Change</source>
         <translation>Змінити</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="3849"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="3862"/>
         <source>Create and connect wire</source>
         <translation>Створити та під’єднати дріт</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="3971"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="3984"/>
         <source>Fritzing</source>
         <translation>Fritzing</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="3971"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="3984"/>
         <source>This seems like an attempt to create a trace across layers. This circumstance should not arise: please contact the developers.</source>
         <translation>Це схоже на спробу провести доріжку між шарами. Так не має бути: будь ласка, зв’яжіться із розробниками.</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="3978"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="3991"/>
         <source>Create and connect %1</source>
         <translation>Створити та під’єднати %1</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="3978"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="3991"/>
         <source>wire</source>
         <translation>провідник</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="3978"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="3991"/>
         <source>trace</source>
         <translation>доріжка</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="4608"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="4651"/>
         <source>Rotate %2 (%1)</source>
         <translation>Повернути %2 (%1)</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="4794"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="4837"/>
         <source>Flip %2 (%1)</source>
         <translation>Розвернути %2 (%1)</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="5814"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="5892"/>
         <source>Double-click</source>
         <translation>Двічі клацніть</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="5814"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="5892"/>
         <source>Drag or double-click</source>
         <translation>Перетягніть або двічі клацніть</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="5815"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="5893"/>
         <source>or alt-drag to move the segment</source>
         <translation>або потягніть з Alt&apos;ом для переміщення відрізка</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="5880"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="5958"/>
         <source>Double-click to delete this bend point</source>
         <translation>Двічі клацніть для видалення опорної точки</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="5942"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="6020"/>
         <source>Note text change</source>
         <translation>Змінити примітку</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="5968"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="6046"/>
         <source>Change %1 label to &apos;%2&apos;</source>
         <translation>Змінити %1 позначку на &apos;%2&apos;</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="6558"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="6673"/>
         <source>Change %1 color from %2 to %3</source>
         <translation>Змінити %1 колір з %2 на %3</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="6564"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="6679"/>
         <source>Change color of %1 wires to %2</source>
         <translation>Змінити колір %1 дротів на %2</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="6610"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="6727"/>
         <source>Change %1 width from %2 to %3</source>
         <translation>Змінити %1 ширину з %2 на %3</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="6616"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="6733"/>
         <source>Change width of %1 wires to %2</source>
         <translation>Змінити ширину %1 дротів на %2</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="7282"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="7381"/>
         <source>Move label &apos;%1&apos;</source>
         <translation>Перемістити позначку &apos;%1&apos;</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="7289"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="7388"/>
         <source>%1 label &apos;%2&apos;</source>
         <translation>%1 позначка &apos;%2&apos;</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="7289"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="7388"/>
         <source>Rotate</source>
         <translation>Обернути</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="7289"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="7388"/>
         <source>Flip</source>
         <translation>Віддзеркалити</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/sketch/sketchwidget.cpp" line="7324"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="7423"/>
         <source>show %n part label(s)</source>
         <translation>
             <numerusform>показати %n позначку деталі</numerusform>
@@ -9322,7 +9061,7 @@ Errors:
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/sketch/sketchwidget.cpp" line="7327"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="7426"/>
         <source>hide %n part label(s)</source>
         <translation>
             <numerusform>приховати %n позначку деталі</numerusform>
@@ -9331,75 +9070,87 @@ Errors:
         </translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="7341"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="7440"/>
         <source>Resize Note</source>
         <translation>Змінити розмір примітки</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="7738"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="7874"/>
         <source>Change Resistance from %1 to %2</source>
         <translation>Змінити Опір з %1 на %2</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="381"/>
-        <location filename="../src/sketch/sketchwidget.cpp" line="7762"/>
-        <location filename="../src/sketch/sketchwidget.cpp" line="7771"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="378"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="7898"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="7907"/>
         <source>Change %1 from %2 to %3</source>
         <translation>Змінити %1 з %2 на %3</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="7869"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="8005"/>
         <source>Resize ruler to %1 %2</source>
         <translation>Змінити розмір керувача на %1 %2</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="7892"/>
-        <location filename="../src/sketch/sketchwidget.cpp" line="8778"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="8028"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="8928"/>
         <source>Resize board to %1 %2</source>
         <translation>Змінити розмір плати на %1 %2</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="7949"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="8085"/>
         <source>Create wire from Ratsnest</source>
         <translation>Створити дріт з наівсного монтажу</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="8144"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="8280"/>
         <source>Disconnect all wires from %1</source>
         <translation>Від’єднати всі дроти від %1</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="8147"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="8283"/>
         <source>Disconnect all wires from %1 items</source>
         <translation>Від’єднати всі дроти з %1 предметів</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="8425"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="8561"/>
         <source>Change image from %1 to %2</source>
         <translation>Змінити зображення з %1 на %2</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="9224"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="9070"/>
+        <source>Part Movement Notice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/sketch/sketchwidget.cpp" line="9071"/>
+        <source>To delete this connection, some parts need to be moved from their current positions.
+The parts will be moved automatically. To see changes clearly use undo then redo.
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/sketch/sketchwidget.cpp" line="9383"/>
         <source>change pin labels</source>
         <translation>змінити позначки штирка</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="9528"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="9724"/>
         <source>Unrouted connections are highlighted in yellow.</source>
         <translation>Нерозведені з’єднання буде виділено жовтим кольором.</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="9529"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="9725"/>
         <source>There are no unrouted connections</source>
         <translation>Тут немає нерозведених з’єднань</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="9530"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="9726"/>
         <source>Unrouted connections</source>
         <translation>Нерозведені з’єднання</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="9531"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="9727"/>
         <source>%1
 
 Note: you can also trigger this display by mousing down on the routing status text in the status bar.</source>
@@ -9408,22 +9159,22 @@ Note: you can also trigger this display by mousing down on the routing status te
 Увага: ви можете викликати це повідомлення, клацнувши мишею на стані розведення у рядку стану.</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="9578"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="9774"/>
         <source>Part &apos;%1&apos; not found in sketch</source>
         <translation>Деталь &apos;%1&apos; не знайдено у нарисі</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="9590"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="9786"/>
         <source>Add %1 parts</source>
         <translation>Додати %1 деталі</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="9652"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="9840"/>
         <source>Deselect all</source>
         <translation>Зняти виділення з усього</translation>
     </message>
     <message>
-        <location filename="../src/sketch/sketchwidget.cpp" line="10181"/>
+        <location filename="../src/sketch/sketchwidget.cpp" line="10382"/>
         <source>test connectors</source>
         <translation>перевірити з’єднання</translation>
     </message>
@@ -9431,8 +9182,8 @@ Note: you can also trigger this display by mousing down on the routing status te
 <context>
     <name>SqliteReferenceModel</name>
     <message>
-        <location filename="../src/referencemodel/sqlitereferencemodel.cpp" line="132"/>
-        <location filename="../src/referencemodel/sqlitereferencemodel.cpp" line="149"/>
+        <location filename="../src/referencemodel/sqlitereferencemodel.cpp" line="134"/>
+        <location filename="../src/referencemodel/sqlitereferencemodel.cpp" line="151"/>
         <source>The swapping mechanism is disabled for:
 
 </source>
@@ -9441,24 +9192,24 @@ Note: you can also trigger this display by mousing down on the routing status te
 </translation>
     </message>
     <message>
-        <location filename="../src/referencemodel/sqlitereferencemodel.cpp" line="144"/>
+        <location filename="../src/referencemodel/sqlitereferencemodel.cpp" line="146"/>
         <source>and %1 other parts</source>
         <translation>та %1 інших деталей</translation>
     </message>
     <message>
-        <location filename="../src/referencemodel/sqlitereferencemodel.cpp" line="161"/>
+        <location filename="../src/referencemodel/sqlitereferencemodel.cpp" line="163"/>
         <source>and %1 other properties</source>
         <translation>та %1 інших властивостей</translation>
     </message>
     <message>
-        <location filename="../src/referencemodel/sqlitereferencemodel.cpp" line="980"/>
+        <location filename="../src/referencemodel/sqlitereferencemodel.cpp" line="1027"/>
         <source>property &apos;%1&apos; in part &apos;%2&apos; with id &apos;%3&apos;.</source>
         <translation>властивість &apos;%1&apos; у деталі &apos;%2&apos; з ідентифікатором &apos;%3&apos;.</translation>
     </message>
     <message>
-        <location filename="../src/referencemodel/sqlitereferencemodel.cpp" line="1011"/>
-        <source>part &apos;%1&apos; with id &apos;%2&apos;; possibly because it has no &apos;family&apos; property.</source>
-        <translation>деталь &apos;%1&apos; з ідентифікатором &apos;%2&apos;; можливо немає &apos;родинних&apos; властивостей.</translation>
+        <location filename="../src/referencemodel/sqlitereferencemodel.cpp" line="1058"/>
+        <source>part &apos;%1&apos; with id &apos;%2&apos; error &apos;%3&apos;; possibly because it has no &apos;family&apos; property.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -9534,10 +9285,6 @@ Note: you can also trigger this display by mousing down on the routing status te
         <translation>Поради та хитрощі</translation>
     </message>
     <message>
-        <source>Fritzing stores files for custom parts, generated parts, and for other temporary and long-term purposes in a &apos;local storage folder&apos;. On Mac and Linux this is usually ~/.config/Fritzing/. Under Windows Vista and above, it is something like C:\Users\[user name]\AppData\Roaming\Fritzing\; under Windows XP is something like C:\Documents and Settings\[user name]\Application Data\Fritzing\.</source>
-        <translation type="vanished">Fritzing зберігає файли створених і згенерованих деталей, та файли для інших тимчасових та довгострокових цілей, у локальній папці. У Mac OS та Linux це зазвичай ~/.config/Fritzing/. У Windows Vista та новіших — щось на кшталт C:\Users\[ім’я користувача]\AppData\Roaming\Fritzing\, а у Windows XP — C:\Documents and Settings\[ім’я користувача]\Application Data\Fritzing\.</translation>
-    </message>
-    <message>
         <location filename="../src/help/tipsandtricks.cpp" line="76"/>
         <source>examples</source>
         <translation>приклади</translation>
@@ -9593,10 +9340,6 @@ Note: you can also trigger this display by mousing down on the routing status te
         <translation>Для більш точного переміщення вибраних деталей використовуйте курсорні клавіші. Якщо при цьому затиснути Shift — переміщення відбудеться відразу на 10 одиниць.</translation>
     </message>
     <message>
-        <source>Click on the mouse position indicator in the status bar (at the bottom) to toggle the units from in to mm to px.</source>
-        <translation type="vanished">Клацніть на показнику положення миші у рядку стану (це знизу) для перемикання між міліметрами, пікселями та дюймами.</translation>
-    </message>
-    <message>
         <location filename="../src/help/tipsandtricks.cpp" line="97"/>
         <source>curves and bendable legs</source>
         <translation>кривизна та гнучкість ніжок</translation>
@@ -9620,10 +9363,6 @@ Note: you can also trigger this display by mousing down on the routing status te
         <location filename="../src/help/tipsandtricks.cpp" line="104"/>
         <source>rotation</source>
         <translation>обертання</translation>
-    </message>
-    <message>
-        <source>To free-rotate a part in Breadboard or PCB view, select it, then hover your mouse near one of the corners until you see the rotate cursor. Mouse down and that corner will follow your mouse as you drag.</source>
-        <translation type="vanished">Для вільного обертання деталі у виді Монтажної або Друкованї плат, оберіть її, а потім підведіть вказівник до будь-якого її кута, аж доки не побачите значок повороту. Затисніть кнопку миші, і кут буде слідувати за вказівником при перетягуванні.</translation>
     </message>
     <message>
         <location filename="../src/help/tipsandtricks.cpp" line="106"/>
@@ -9659,10 +9398,6 @@ Note: you can also trigger this display by mousing down on the routing status te
         <location filename="../src/help/tipsandtricks.cpp" line="118"/>
         <source>To edit a part label, double-click it, or use the text input widget in the inspector window.</source>
         <translation>Для редагування позначки двічі клацніть по ній, або використовуйте текстовий пристосунок у вікні Інспектора.</translation>
-    </message>
-    <message>
-        <source>To display different properties in a part label, as well as rotate it, or change the font, right-click the label.</source>
-        <translation type="vanished">Для відображення різних властивостей на позначках, а також для їх обертання або зміни шрифта, клацніть по позначці правою кнопкою.</translation>
     </message>
     <message>
         <location filename="../src/help/tipsandtricks.cpp" line="68"/>
@@ -9839,10 +9574,6 @@ Note: you can also trigger this display by mousing down on the routing status te
         <location filename="../src/help/tipsandtricks.cpp" line="166"/>
         <source>When using the Fritzing Fab Service, if there are empty areas of the PCB that you do not want filled with copper, use the copper-blocker part. This resizable part will mask out copper fill in the rectangle it covers.</source>
         <translation>При використанні послуги Fab Service: використовуйте блокатори міді, якщо ви бажаєте залишити певні ділянки ДП без мідного заповнення. Це прямокутні деталі змінного розміру, що приховують мідне заповнення яке вони прикривають.</translation>
-    </message>
-    <message>
-        <source>When using the Fritzing Fab Service, If there are empty areas of the PCB that you do not want filled with copper, use the copper-blocker part. This resizable part will mask out copper fill in the rectangle it covers.</source>
-        <translation type="vanished">При використанні послуги Fab Service: використовуйте блокатори міді, якщо ви бажаєте залишити певні ділянки ДП без мідного заповнення. Це прямокутні деталі змінного розміру, що приховують мідне заповнення яке вони прикривають.</translation>
     </message>
     <message>
         <location filename="../src/help/tipsandtricks.cpp" line="170"/>
@@ -10074,10 +9805,6 @@ Note: you can also trigger this display by mousing down on the routing status te
         <translation>&lt;p&gt;&lt;b&gt;Доступне оновлення бібліотеки деталей!&lt;/b&gt;&lt;/p&gt;&lt;p&gt;Чи хочете Ви завантажити Fritzing та встановити оновлення зараз?&lt;br/&gt;Дивіться &lt;a href=&apos;https://github.com/fritzing/fritzing-parts/compare/%1...master&apos;&gt;лист змін тут.&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Примітка: оновлення може зайняти кілька хвилин, і вам доведеться перезапустити Fritzing.&lt;br/&gt;Ви також можете оновити пізніше за допомогою &lt;i&gt;Допомога &amp;rarr; Перевірити оновлення&lt;/i&gt; меню.&lt;/p&gt;</translation>
     </message>
     <message>
-        <source>Close</source>
-        <translation type="vanished">Готово</translation>
-    </message>
-    <message>
         <location filename="../src/version/updatedialog.cpp" line="251"/>
         <source>Update parts</source>
         <translation>Оновити деталі</translation>
@@ -10176,130 +9903,102 @@ Note: you can also trigger this display by mousing down on the routing status te
 <context>
     <name>WelcomeView</name>
     <message>
-        <location filename="../src/sketch/welcomeview.cpp" line="468"/>
+        <location filename="../src/sketch/welcomeview.cpp" line="464"/>
         <source>Recent Sketches</source>
         <translation>Останні нариси</translation>
     </message>
     <message>
-        <location filename="../src/sketch/welcomeview.cpp" line="504"/>
+        <location filename="../src/sketch/welcomeview.cpp" line="500"/>
         <source>New Sketch</source>
         <translation>Новий нарис</translation>
     </message>
     <message>
-        <location filename="../src/sketch/welcomeview.cpp" line="512"/>
+        <location filename="../src/sketch/welcomeview.cpp" line="508"/>
         <source>Open Sketch</source>
         <translation>Відкрити нарис</translation>
     </message>
     <message>
-        <location filename="../src/sketch/welcomeview.cpp" line="557"/>
+        <location filename="../src/sketch/welcomeview.cpp" line="553"/>
         <source>Fab</source>
         <translation>Fab</translation>
     </message>
     <message>
-        <source>Fritzing CreatorKit</source>
-        <translation type="obsolete">Fritzing CreatorKit</translation>
-    </message>
-    <message>
-        <source>Donate</source>
-        <translation type="vanished">Пожертвувати</translation>
-    </message>
-    <message>
-        <source>Fritzing development needs you</source>
-        <translation type="vanished">Розробці Fritzing потрібні Ви</translation>
-    </message>
-    <message>
-        <source>Software development and maintenance is a lot of work. Without your support, it is not possible to keep that up.</source>
-        <translation type="vanished">Розробка та обслуговування програмного забезпечення - це велика робота. Без вашої підтримки це неможливо продовжувати.</translation>
-    </message>
-    <message>
-        <source>Donate and leave a comment.</source>
-        <translation type="vanished">Пожертвувати та залишити коментар.</translation>
-    </message>
-    <message>
-        <source>Donate now</source>
-        <translation type="vanished">Пожертвувати зараз</translation>
-    </message>
-    <message>
-        <location filename="../src/sketch/welcomeview.cpp" line="561"/>
+        <location filename="../src/sketch/welcomeview.cpp" line="557"/>
         <source>Fritzing Fab</source>
         <translation>Fritzing Fab</translation>
     </message>
     <message>
-        <location filename="../src/sketch/welcomeview.cpp" line="562"/>
+        <location filename="../src/sketch/welcomeview.cpp" line="558"/>
         <source>Fritzing Fab is an easy and affordable service for producing professional PCBs from your Fritzing sketches.</source>
         <translation>Fritzing Fab — це проста та зручна послуга зі створення професійних друкованих плат із ваших нарисів Fritzing.</translation>
     </message>
     <message>
-        <location filename="../src/sketch/welcomeview.cpp" line="564"/>
+        <location filename="../src/sketch/welcomeview.cpp" line="560"/>
         <source>produce your first pcb now &gt;&gt;</source>
         <translation>виготовити вашу першу друковану плату &gt;&gt;</translation>
     </message>
     <message>
-        <location filename="../src/sketch/welcomeview.cpp" line="565"/>
+        <location filename="../src/sketch/welcomeview.cpp" line="561"/>
         <source>Order your PCB now.</source>
         <translation>Замовити друковану плату зараз.</translation>
     </message>
     <message>
-        <location filename="../src/sketch/welcomeview.cpp" line="641"/>
+        <location filename="../src/sketch/welcomeview.cpp" line="637"/>
         <source>&lt;a href=&apos;%1&apos;&gt;&lt;img src=&apos;%2&apos;/&gt;&lt;/a&gt;</source>
         <translation>&lt;a href=&apos;%1&apos;&gt;&lt;img src=&apos;%2&apos;/&gt;&lt;/a&gt;</translation>
     </message>
     <message>
-        <location filename="../src/sketch/welcomeview.cpp" line="660"/>
+        <location filename="../src/sketch/welcomeview.cpp" line="656"/>
         <source>Projects</source>
         <translation>Проекти</translation>
     </message>
     <message>
-        <location filename="../src/sketch/welcomeview.cpp" line="660"/>
+        <location filename="../src/sketch/welcomeview.cpp" line="656"/>
         <source>Blog</source>
         <translation>Блог</translation>
     </message>
     <message>
-        <location filename="../src/sketch/welcomeview.cpp" line="663"/>
+        <location filename="../src/sketch/welcomeview.cpp" line="659"/>
         <source>Fritzing News.</source>
         <translation>Новини Fritzing.</translation>
     </message>
     <message>
-        <location filename="../src/sketch/welcomeview.cpp" line="668"/>
+        <location filename="../src/sketch/welcomeview.cpp" line="664"/>
         <source>Fritzing Projects.</source>
         <translation>Проекти Fritzing.</translation>
     </message>
     <message>
-        <location filename="../src/sketch/welcomeview.cpp" line="735"/>
+        <location filename="../src/sketch/welcomeview.cpp" line="731"/>
         <source>&lt;a href=&apos;%1&apos;&gt;&lt;img src=&apos;%2&apos; /&gt;&lt;/a&gt;</source>
         <translation>&lt;a href=&apos;%1&apos;&gt;&lt;img src=&apos;%2&apos; /&gt;&lt;/a&gt;</translation>
     </message>
     <message>
-        <location filename="../src/sketch/welcomeview.cpp" line="812"/>
+        <location filename="../src/sketch/welcomeview.cpp" line="808"/>
         <source>No recent sketches found</source>
         <translation>Немає останніх нарисів</translation>
     </message>
     <message>
-        <location filename="../src/sketch/welcomeview.cpp" line="853"/>
+        <location filename="../src/sketch/welcomeview.cpp" line="849"/>
         <source>Unable to reach blog.fritzing.org</source>
         <translation>Немає доступу до blog.fritzing.org</translation>
     </message>
     <message>
-        <location filename="../src/sketch/welcomeview.cpp" line="853"/>
+        <location filename="../src/sketch/welcomeview.cpp" line="849"/>
         <source>Unable to reach fritzing.org/projects</source>
         <translation>Неможливо перейти до fritzing.org/projects</translation>
     </message>
     <message>
-        <source>Unable to reach friting.org/projects</source>
-        <translation type="obsolete">Немає доступу до friting.org/projects</translation>
-    </message>
-    <message>
-        <location filename="../src/sketch/welcomeview.cpp" line="1066"/>
+        <location filename="../src/sketch/welcomeview.cpp" line="1062"/>
         <source>Tip of the Day:</source>
         <translation>Порада дня:</translation>
     </message>
     <message>
-        <location filename="../src/sketch/welcomeview.cpp" line="1093"/>
+        <location filename="../src/sketch/welcomeview.cpp" line="1089"/>
         <source>All Tips</source>
         <translation>Всі поради</translation>
     </message>
     <message>
-        <location filename="../src/sketch/welcomeview.cpp" line="1101"/>
+        <location filename="../src/sketch/welcomeview.cpp" line="1097"/>
         <source>Next Tip</source>
         <translation>Наступна порада</translation>
     </message>
@@ -10307,120 +10006,120 @@ Note: you can also trigger this display by mousing down on the routing status te
 <context>
     <name>Wire</name>
     <message>
-        <location filename="../src/items/wire.cpp" line="1279"/>
+        <location filename="../src/items/wire.cpp" line="1281"/>
         <source>super fine (8 mil)</source>
         <translation>надтонкий (0,2 мм)</translation>
     </message>
     <message>
-        <location filename="../src/items/wire.cpp" line="1280"/>
+        <location filename="../src/items/wire.cpp" line="1282"/>
         <source>extra thin (12 mil)</source>
         <translation>дуже тонкий (0,3 мм)</translation>
     </message>
     <message>
-        <location filename="../src/items/wire.cpp" line="1283"/>
+        <location filename="../src/items/wire.cpp" line="1285"/>
         <source>thin (16 mil)</source>
         <translation>тонкий (0,4 мм)</translation>
     </message>
     <message>
-        <location filename="../src/items/wire.cpp" line="1286"/>
+        <location filename="../src/items/wire.cpp" line="1288"/>
         <source>standard (24 mil)</source>
         <translation>типовий (0,6 мм)</translation>
     </message>
     <message>
-        <location filename="../src/items/wire.cpp" line="1288"/>
+        <location filename="../src/items/wire.cpp" line="1290"/>
         <source>thick (32 mil)</source>
         <translation>товстий (0,8 мм)</translation>
     </message>
     <message>
-        <location filename="../src/items/wire.cpp" line="1289"/>
+        <location filename="../src/items/wire.cpp" line="1291"/>
         <source>extra thick (48 mil)</source>
         <translation>дуже товстий (1,2 мм)</translation>
     </message>
     <message>
-        <location filename="../src/items/wire.cpp" line="1294"/>
-        <location filename="../src/items/wire.cpp" line="1309"/>
+        <location filename="../src/items/wire.cpp" line="1296"/>
+        <location filename="../src/items/wire.cpp" line="1311"/>
         <source>blue</source>
         <translation>синій</translation>
     </message>
     <message>
-        <location filename="../src/items/wire.cpp" line="1295"/>
-        <location filename="../src/items/wire.cpp" line="1310"/>
+        <location filename="../src/items/wire.cpp" line="1297"/>
+        <location filename="../src/items/wire.cpp" line="1312"/>
         <source>red</source>
         <translation>червоний</translation>
     </message>
     <message>
-        <location filename="../src/items/wire.cpp" line="1296"/>
-        <location filename="../src/items/wire.cpp" line="1311"/>
+        <location filename="../src/items/wire.cpp" line="1298"/>
+        <location filename="../src/items/wire.cpp" line="1313"/>
         <source>black</source>
         <translation>чорний</translation>
     </message>
     <message>
-        <location filename="../src/items/wire.cpp" line="1297"/>
-        <location filename="../src/items/wire.cpp" line="1312"/>
+        <location filename="../src/items/wire.cpp" line="1299"/>
+        <location filename="../src/items/wire.cpp" line="1314"/>
         <source>yellow</source>
         <translation>жовтий</translation>
     </message>
     <message>
-        <location filename="../src/items/wire.cpp" line="1298"/>
-        <location filename="../src/items/wire.cpp" line="1313"/>
+        <location filename="../src/items/wire.cpp" line="1300"/>
+        <location filename="../src/items/wire.cpp" line="1315"/>
         <source>green</source>
         <translation>зелений</translation>
     </message>
     <message>
-        <location filename="../src/items/wire.cpp" line="1299"/>
-        <location filename="../src/items/wire.cpp" line="1314"/>
+        <location filename="../src/items/wire.cpp" line="1301"/>
+        <location filename="../src/items/wire.cpp" line="1316"/>
         <source>grey</source>
         <translation>сірий</translation>
     </message>
     <message>
-        <location filename="../src/items/wire.cpp" line="1300"/>
-        <location filename="../src/items/wire.cpp" line="1315"/>
+        <location filename="../src/items/wire.cpp" line="1302"/>
+        <location filename="../src/items/wire.cpp" line="1317"/>
         <source>white</source>
         <translation>білий</translation>
     </message>
     <message>
-        <location filename="../src/items/wire.cpp" line="1301"/>
-        <location filename="../src/items/wire.cpp" line="1316"/>
+        <location filename="../src/items/wire.cpp" line="1303"/>
+        <location filename="../src/items/wire.cpp" line="1318"/>
         <source>orange</source>
         <translation>жовтогарячий</translation>
     </message>
     <message>
-        <location filename="../src/items/wire.cpp" line="1302"/>
-        <location filename="../src/items/wire.cpp" line="1317"/>
+        <location filename="../src/items/wire.cpp" line="1304"/>
+        <location filename="../src/items/wire.cpp" line="1319"/>
         <source>ochre</source>
         <translation>брунатно-жовтий</translation>
     </message>
     <message>
-        <location filename="../src/items/wire.cpp" line="1303"/>
-        <location filename="../src/items/wire.cpp" line="1318"/>
+        <location filename="../src/items/wire.cpp" line="1305"/>
+        <location filename="../src/items/wire.cpp" line="1320"/>
         <source>cyan</source>
         <translation>блакитний</translation>
     </message>
     <message>
-        <location filename="../src/items/wire.cpp" line="1304"/>
-        <location filename="../src/items/wire.cpp" line="1319"/>
+        <location filename="../src/items/wire.cpp" line="1306"/>
+        <location filename="../src/items/wire.cpp" line="1321"/>
         <source>brown</source>
         <translation>брунатний</translation>
     </message>
     <message>
-        <location filename="../src/items/wire.cpp" line="1305"/>
-        <location filename="../src/items/wire.cpp" line="1320"/>
+        <location filename="../src/items/wire.cpp" line="1307"/>
+        <location filename="../src/items/wire.cpp" line="1322"/>
         <source>purple</source>
         <translation>фіалковий</translation>
     </message>
     <message>
-        <location filename="../src/items/wire.cpp" line="1306"/>
-        <location filename="../src/items/wire.cpp" line="1321"/>
+        <location filename="../src/items/wire.cpp" line="1308"/>
+        <location filename="../src/items/wire.cpp" line="1323"/>
         <source>pink</source>
         <translation>рожевий</translation>
     </message>
     <message>
-        <location filename="../src/items/wire.cpp" line="1623"/>
+        <location filename="../src/items/wire.cpp" line="1625"/>
         <source>color</source>
         <translation>колір</translation>
     </message>
     <message>
-        <location filename="../src/items/wire.cpp" line="1647"/>
+        <location filename="../src/items/wire.cpp" line="1649"/>
         <source>Banded</source>
         <translation>Смужастий</translation>
     </message>
