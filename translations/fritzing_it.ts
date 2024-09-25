@@ -106,7 +106,7 @@
     <message>
         <location filename="../src/help/aboutbox.cpp" line="115"/>
         <source>Thanks for the translations go out to: </source>
-        <translation>I ringraziamenti per le traduzioni vanno a: </translation>
+        <translation>Un grande grazie per le traduzioni va a: </translation>
     </message>
     <message>
         <location filename="../src/help/aboutbox.cpp" line="116"/>
@@ -221,7 +221,7 @@
     <message>
         <location filename="../src/help/aboutbox.cpp" line="146"/>
         <source>Special thanks go out to all the students and alpha testers who were brave enough to give Fritzing a test spin.</source>
-        <translation>Un ringraziamento speciale va a tutti gli studenti e agli alpha tester che sono stati abbastanza coraggiosi da provare Fritzing.</translation>
+        <translation>Un ringraziamento speciale va a tutti gli studenti e agli alpha tester che hanno avuto il coraggio di provare Fritzing.</translation>
     </message>
     <message>
         <location filename="../src/help/aboutbox.cpp" line="150"/>
@@ -231,7 +231,7 @@
     <message>
         <location filename="../src/help/aboutbox.cpp" line="151"/>
         <source>GPLv2 with linking exception</source>
-        <translation>GPLv2 con un&apos;eccezione di collegamento</translation>
+        <translation>GPLv2 con eccezione di collegamento</translation>
     </message>
     <message>
         <location filename="../src/help/aboutbox.cpp" line="152"/>
@@ -241,7 +241,7 @@
     <message>
         <location filename="../src/help/aboutbox.cpp" line="153"/>
         <source>Modified BSD License</source>
-        <translation>Licenza BSD modificata</translation>
+        <translation>Licenza BSD Modificata</translation>
     </message>
     <message>
         <location filename="../src/help/aboutbox.cpp" line="154"/>
@@ -251,12 +251,12 @@
     <message>
         <location filename="../src/help/aboutbox.cpp" line="155"/>
         <source>PNG Reference Library License version 2</source>
-        <translation>Versione 2 della Licenza per la libreria di riferimento PNG</translation>
+        <translation>Licenza della libreria di riferimento PNG versione 2</translation>
     </message>
     <message>
         <location filename="../src/help/aboutbox.cpp" line="156"/>
         <source>Dual OpenSSL and SSLeay License</source>
-        <translation>Licenza doppia OpenSSL e SSLeay</translation>
+        <translation>Doppia licenza OpenSSL e SSLeay</translation>
     </message>
     <message>
         <location filename="../src/help/aboutbox.cpp" line="157"/>
@@ -266,7 +266,7 @@
     <message>
         <location filename="../src/help/aboutbox.cpp" line="160"/>
         <source>The following libraries are used by Fritzing:</source>
-        <translation>Da Fritzing vengono usate le seguenti librerie:</translation>
+        <translation>Le seguenti librerie sono utilizzate da Fritzing:</translation>
     </message>
     <message>
         <location filename="../src/help/aboutbox.cpp" line="128"/>
