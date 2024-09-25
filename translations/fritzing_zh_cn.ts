@@ -164,7 +164,7 @@
     <message>
         <location filename="../src/help/aboutbox.cpp" line="124"/>
         <source>Japanese: </source>
-        <translation>日语 </translation>
+        <translation>日语： </translation>
     </message>
     <message>
         <location filename="../src/help/aboutbox.cpp" line="128"/>
