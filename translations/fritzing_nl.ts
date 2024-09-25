@@ -388,17 +388,17 @@
     <message>
         <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="716"/>
         <source>Confirmation</source>
-        <translation type="unfinished"></translation>
+        <translation>Bevestiging</translation>
     </message>
     <message>
         <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="717"/>
         <source>The &apos;Contributed Parts&apos; bin has been replaced with &apos;My Parts&apos; since Fritzing 0.7.12.</source>
-        <translation type="unfinished"></translation>
+        <translation>De bak &apos;Contributes Parts&apos; is sinds Fritzing 0.7.12 vervangen door &apos;My Parts&apos;.</translation>
     </message>
     <message>
         <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="718"/>
         <source>Would you like Fritzing to move the parts over?</source>
-        <translation type="unfinished"></translation>
+        <translation>Wil je dat Fritzing de onderdelen verplaatst?</translation>
     </message>
     <message>
         <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1012"/>
@@ -974,7 +974,7 @@ Achtergrond: Groen = ok, Rood = onjuiste waarde, Grijs = huidige waarde</transla
     <message>
         <location filename="../src/program/consolewindow.ui" line="30"/>
         <source>Monitor</source>
-        <translation type="unfinished"></translation>
+        <translation>Monitor</translation>
     </message>
     <message>
         <location filename="../src/program/consolewindow.ui" line="39"/>
