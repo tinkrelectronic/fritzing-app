@@ -184,7 +184,7 @@
     <message>
         <location filename="../src/help/aboutbox.cpp" line="125"/>
         <source>Korean: </source>
-        <translation type="unfinished"></translation>
+        <translation>韩语： </translation>
     </message>
     <message>
         <location filename="../src/help/aboutbox.cpp" line="129"/>
