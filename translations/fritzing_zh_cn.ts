@@ -179,7 +179,7 @@
     <message>
         <location filename="../src/help/aboutbox.cpp" line="119"/>
         <source>Czech: </source>
-        <translation type="unfinished"></translation>
+        <translation>捷克语： </translation>
     </message>
     <message>
         <location filename="../src/help/aboutbox.cpp" line="125"/>
