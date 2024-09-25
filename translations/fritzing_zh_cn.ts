@@ -204,12 +204,12 @@
     <message>
         <location filename="../src/help/aboutbox.cpp" line="131"/>
         <source>Turkish: </source>
-        <translation type="unfinished"></translation>
+        <translation>土耳其语： </translation>
     </message>
     <message>
         <location filename="../src/help/aboutbox.cpp" line="116"/>
         <source>Bulgarian: </source>
-        <translation type="unfinished"></translation>
+        <translation>保加利亚语： </translation>
     </message>
     <message>
         <location filename="../src/help/aboutbox.cpp" line="117"/>
