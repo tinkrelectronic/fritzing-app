@@ -3974,7 +3974,7 @@ void SketchWidget::dragRatsnestChanged()
 	QList<ConnectorItem *> ends;
 	m_bendpointWire->collectChained(wires, ends);
 	if (ends.count() != 2) {
-		// ratsnest wires should always and only have two ends: we're screwed
+		// ratsnest lines should always and only have two ends: we're screwed
 		return;
 	}
 
@@ -8156,7 +8156,7 @@ void SketchWidget::selectAllWiresFrom(ViewGeometry::WireFlag flag, QList<QGraphi
 		wireName = QObject::tr("Trace wires");
 	}
 	else if (flag == ViewGeometry::RatsnestFlag) {
-		wireName = QObject::tr("Ratsnest wires");
+		wireName = QObject::tr("Ratsnest lines");
 	}
 	auto * parentCommand = new QUndoCommand(QObject::tr("Select all %1").arg(wireName));
 

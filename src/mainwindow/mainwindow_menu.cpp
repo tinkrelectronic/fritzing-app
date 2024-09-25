@@ -2831,7 +2831,7 @@ void MainWindow::createTraceMenuActions() {
 	connect(m_selectAllCopperFillAct, SIGNAL(triggered()), this, SLOT(selectAllCopperFill()));
 
 	m_updateRoutingStatusAct = new QAction(tr("Force Update Routing Status and Ratsnests"), this);
-	m_updateRoutingStatusAct->setStatusTip(tr("Recalculate routing status and ratsnest wires (in case the auto-update isn't working correctly)"));
+	m_updateRoutingStatusAct->setStatusTip(tr("Recalculate routing status and ratsnest lines (in case the auto-update isn't working correctly)"));
 	connect(m_updateRoutingStatusAct, SIGNAL(triggered()), this, SLOT(updateRoutingStatus()));
 
 	m_selectAllExcludedTracesAct = new QAction(tr("Select All \"Don't Autoroute\" Traces"), this);

@@ -27,7 +27,7 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 VirtualWire::VirtualWire( ModelPart * modelPart, ViewLayer::ViewID viewID,  const ViewGeometry & viewGeometry, long id, QMenu * itemMenu  )
 	: ClipableWire(modelPart, viewID,  viewGeometry,  id, itemMenu, false)
 {
-	// note: at this point in fritzing development, the VirtualWire class is only ever used for ratsnest wires
+	// note: at this point in fritzing development, the VirtualWire class is only ever used for ratsnest lines
 	modelPart->setLocalProp("ratsnest", "true");
 	m_colorWasNamed = false;
 	setFlag(QGraphicsItem::ItemIsSelectable, false);
