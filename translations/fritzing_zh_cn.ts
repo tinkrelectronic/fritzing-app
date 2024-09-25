@@ -189,17 +189,17 @@
     <message>
         <location filename="../src/help/aboutbox.cpp" line="129"/>
         <source>Slovak: </source>
-        <translation type="unfinished"></translation>
+        <translation>斯洛伐克语： </translation>
     </message>
     <message>
         <location filename="../src/help/aboutbox.cpp" line="122"/>
         <source>Greek: </source>
-        <translation type="unfinished"></translation>
+        <translation>希腊语： </translation>
     </message>
     <message>
         <location filename="../src/help/aboutbox.cpp" line="121"/>
         <source>French: </source>
-        <translation type="unfinished"></translation>
+        <translation>法语： </translation>
     </message>
     <message>
         <location filename="../src/help/aboutbox.cpp" line="131"/>
