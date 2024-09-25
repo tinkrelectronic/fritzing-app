@@ -388,17 +388,17 @@
     <message>
         <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="716"/>
         <source>Confirmation</source>
-        <translation type="unfinished"></translation>
+        <translation>Conferma</translation>
     </message>
     <message>
         <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="717"/>
         <source>The &apos;Contributed Parts&apos; bin has been replaced with &apos;My Parts&apos; since Fritzing 0.7.12.</source>
-        <translation type="unfinished"></translation>
+        <translation>Il contenitore &apos;Contributed Parts&apos; è stato sostituito con &apos;My Parts&apos; a partire da Fritzing 0.7.12.</translation>
     </message>
     <message>
         <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="718"/>
         <source>Would you like Fritzing to move the parts over?</source>
-        <translation type="unfinished"></translation>
+        <translation>Vuoi che Fritzing sposti i componenti?</translation>
     </message>
     <message>
         <location filename="../src/partsbinpalette/binmanager/binmanager.cpp" line="1012"/>
@@ -1105,7 +1105,7 @@ Sfondo: Verde=ok, Rosso=valore errato, Grigio=valore corrente</translation>
     <message>
         <location filename="../src/program/consolewindow.cpp" line="182"/>
         <source>This terminal displays the serial communication on the selected port, usually between your computer and the connected microcontroller.</source>
-        <translation type="unfinished"></translation>
+        <translation>Questo terminale visualizza la comunicazione seriale sulla porta selezionata, solitamente tra il computer e il microcontrollore collegato.</translation>
     </message>
 </context>
 <context>
@@ -1143,7 +1143,7 @@ Sfondo: Verde=ok, Rosso=valore errato, Grigio=valore corrente</translation>
     <message>
         <location filename="../src/autoroute/drc.cpp" line="417"/>
         <source>Unexpected SVG rendering failure--contact fritzing.org</source>
-        <translation type="unfinished"></translation>
+        <translation>Errore imprevisto nel rendering SVG--contatta fritzing.org</translation>
     </message>
     <message>
         <location filename="../src/autoroute/drc.cpp" line="284"/>
@@ -1163,12 +1163,12 @@ Sfondo: Verde=ok, Rosso=valore errato, Grigio=valore corrente</translation>
     <message>
         <location filename="../src/autoroute/drc.cpp" line="1025"/>
         <source>A hole in %1 may lie outside the border of the board and would be clipped.</source>
-        <translation type="unfinished"></translation>
+        <translation>Un foro in %1 potrebbe trovarsi fuori dal bordo della scheda e verrebbe tagliato.</translation>
     </message>
     <message>
         <location filename="../src/autoroute/drc.cpp" line="1122"/>
         <source>Connector %1 on %2 should have both copper top and bottom layers, but the svg only specifies one layer.</source>
-        <translation type="unfinished"></translation>
+        <translation>Il connettore %1 su %2 dovrebbe avere sia il rame superiore che inferiore, ma l&apos;SVG specifica solo un livello.</translation>
     </message>
 </context>
 <context>
@@ -1181,7 +1181,7 @@ Sfondo: Verde=ok, Rosso=valore errato, Grigio=valore corrente</translation>
     <message>
         <location filename="../src/autoroute/drc.cpp" line="150"/>
         <source>Note: the list items and the red highlighting will not update as you edit your sketch--you must rerun the DRC. The highlighting will disappear when you close this dialog.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nota: gli elementi dell&apos;elenco e l&apos;evidenziazione rossa non si aggiorneranno mentre modifichi il tuo sketch--devi rieseguire il DRC. L&apos;evidenziazione scomparirà quando chiudi questa finestra di dialogo.</translation>
     </message>
     <message>
         <location filename="../src/autoroute/drc.cpp" line="146"/>
@@ -1318,7 +1318,7 @@ Sfondo: Verde=ok, Rosso=valore errato, Grigio=valore corrente</translation>
     <message>
         <location filename="../src/utils/fmessagebox.cpp" line="95"/>
         <source>Copy to Clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Copia negli Appunti</translation>
     </message>
 </context>
 <context>
@@ -1326,7 +1326,7 @@ Sfondo: Verde=ok, Rosso=valore errato, Grigio=valore corrente</translation>
     <message>
         <location filename="../src/dialogs/fabuploaddialog.ui" line="19"/>
         <source>Fritzing Fab Upload</source>
-        <translation type="unfinished"></translation>
+        <translation>Carica su Fritzing Fab</translation>
     </message>
     <message>
         <location filename="../src/dialogs/fabuploaddialog.ui" line="69"/>
@@ -1347,12 +1347,12 @@ Sfondo: Verde=ok, Rosso=valore errato, Grigio=valore corrente</translation>
         <location filename="../src/dialogs/fabuploaddialog.ui" line="205"/>
         <location filename="../src/dialogs/fabuploaddialog.ui" line="372"/>
         <source>&amp;Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Annulla</translation>
     </message>
     <message>
         <location filename="../src/dialogs/fabuploaddialog.ui" line="237"/>
         <source>Upload to Fab</source>
-        <translation type="unfinished"></translation>
+        <translation>Carica su Fab</translation>
     </message>
     <message>
         <location filename="../src/dialogs/fabuploaddialog.ui" line="296"/>
@@ -1367,7 +1367,7 @@ Sfondo: Verde=ok, Rosso=valore errato, Grigio=valore corrente</translation>
     <message>
         <location filename="../src/dialogs/fabuploaddialog.ui" line="404"/>
         <source>Uploading...</source>
-        <translation type="unfinished"></translation>
+        <translation>Caricamento in corso...</translation>
     </message>
     <message>
         <location filename="../src/dialogs/fabuploaddialog.cpp" line="87"/>
@@ -1421,12 +1421,12 @@ Sfondo: Verde=ok, Rosso=valore errato, Grigio=valore corrente</translation>
     <message>
         <location filename="../src/help/firsttimehelpdialog.cpp" line="95"/>
         <source>Welcome to the &lt;b&gt;Schematic View&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;This is a more abstract way to look at components and connections than the Breadboard View. You have the same elements as you have on your breadboard, they just look different. This representation is closer to the traditional diagrams used by engineers.&lt;br/&gt;&lt;br/&gt;After you have drawn wires between parts, you can press &amp;lt;Shift&amp;gt;-click with the mouse to create bend points and tidy up your connections. The Schematic View can help you check that you have made the right connections between components. You can also print out your schematic for documentation.</source>
-        <translation type="unfinished"></translation>
+        <translation>Benvenuto nella &lt;b&gt;Vista Schematico&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;Questo è un modo più astratto di vedere i componenti e le connessioni rispetto alla Vista Breadboard. Hai gli stessi elementi che hai sulla tua breadboard, solo che appaiono diversi. Questa rappresentazione è più vicina ai diagrammi tradizionali usati dagli ingegneri.&lt;br/&gt;&lt;br/&gt;Dopo aver disegnato i fili tra le parti, puoi premere &amp;lt;Shift&amp;gt;-clic con il mouse per creare punti di piega e sistemare le tue connessioni. La Vista Schematico può aiutarti a verificare che tu abbia fatto le giuste connessioni tra i componenti. Puoi anche stampare il tuo schema per la documentazione.</translation>
     </message>
     <message>
         <location filename="../src/help/firsttimehelpdialog.cpp" line="107"/>
         <source>The &lt;b&gt;PCB View&lt;/b&gt; is where you layout the components on a physical PCB (Printed Circuit Board).&lt;br/&gt;&lt;br/&gt;PCBs can be made at home or in a small lab using DIY etching processes. They also can be sent to professional PCB manufacturing services for more precise fabrication. &lt;br/&gt;&lt;table&gt;&lt;tr&gt;&lt;td&gt;The first thing you will need is a board to place your parts on. There should already be one in your sketch, but if not, drag in the board icon from the Parts Bin. The icon matches the image to the right: &lt;/td&gt;&lt;td&gt;&lt;img src=&quot;:resources/parts/svg/core/icon/rectangle_pcb.svg&quot; /&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;br/&gt;&lt;br/&gt;To lay out your PCB, arrange all the components so they fit nicely on the board. Then try to shift them around to minimize the length and confusion of connections. You can also resize rectangular boards. &lt;br/&gt;&lt;table&gt;&lt;tr&gt;&lt;td&gt;Once the parts are sorted out, you connect them with copper traces. You can drag out a trace from individual connections or use the autorouter to generate them. The Autoroute button is at the bottom of the window. The button matches the image to the right:&lt;/td&gt;&lt;td&gt;&lt;img src=&quot;:resources/images/icons/toolbarAutorouteEnabled_icon.png&quot; /&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>La &lt;b&gt;Vista PCB&lt;/b&gt; è dove disponi i componenti su un PCB (Printed Circuit Board) fisico. &lt;br/&gt;&lt;br/&gt;I PCB possono essere realizzati a casa o in un piccolo laboratorio utilizzando processi di incisione fai-da-te. Possono anche essere inviati a servizi di produzione PCB professionali per una fabbricazione più precisa. &lt;br/&gt;&lt;table&gt;&lt;tr&gt;&lt;td&gt;La prima cosa di cui avrai bisogno è una scheda su cui posizionare i tuoi componenti. Dovrebbe essercene già una nel tuo progetto, ma se non c&apos;è, trascina l&apos;icona della scheda dal Cestino dei Componenti. L&apos;icona corrisponde all&apos;immagine a destra: &lt;/td&gt;&lt;td&gt;&lt;img src=&quot;:resources/parts/svg/core/icon/rectangle_pcb.svg&quot; /&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;br/&gt;&lt;br/&gt;Per disporre il tuo PCB, organizza tutti i componenti in modo che si adattino bene alla scheda. Poi prova a spostarli per ridurre al minimo la lunghezza e la confusione delle connessioni. Puoi anche ridimensionare le schede rettangolari. &lt;br/&gt;&lt;table&gt;&lt;tr&gt;&lt;td&gt;Una volta sistemati i componenti, li colleghi con tracce di rame. Puoi trascinare una traccia dalle singole connessioni o utilizzare l&apos;autorouter per generarle. Il pulsante Autoroute si trova in fondo alla finestra. Il pulsante corrisponde all&apos;immagine a destra: &lt;/td&gt;&lt;td&gt;&lt;img src=&quot;:resources/images/icons/toolbarAutorouteEnabled_icon.png&quot; /&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</translation>
     </message>
 </context>
 <context>
@@ -1558,7 +1558,7 @@ E&apos; anche possibile scegliere un connettore come seme per il piano massa con
     <message>
         <location filename="../src/infoview/htmlinfoview.cpp" line="225"/>
         <source>SPICE</source>
-        <translation type="unfinished"></translation>
+        <translation>SPICE</translation>
     </message>
     <message>
         <location filename="../src/infoview/htmlinfoview.cpp" line="285"/>
@@ -1593,12 +1593,12 @@ E&apos; anche possibile scegliere un connettore come seme per il piano massa con
     <message>
         <location filename="../src/infoview/htmlinfoview.cpp" line="142"/>
         <source>Change the part label here</source>
-        <translation type="unfinished"></translation>
+        <translation>Modificare l&apos;etichetta del pezzo qui</translation>
     </message>
     <message>
         <location filename="../src/infoview/htmlinfoview.cpp" line="249"/>
         <source>Part version number</source>
-        <translation type="unfinished"></translation>
+        <translation>Numero di versione del pezzo</translation>
     </message>
     <message>
         <location filename="../src/infoview/htmlinfoview.cpp" line="977"/>
@@ -1608,27 +1608,27 @@ E&apos; anche possibile scegliere un connettore come seme per il piano massa con
     <message>
         <location filename="../src/infoview/htmlinfoview.cpp" line="426"/>
         <source>Ratsnest wire</source>
-        <translation type="unfinished"></translation>
+        <translation>Filo per nidi di topi</translation>
     </message>
     <message>
         <location filename="../src/infoview/htmlinfoview.cpp" line="979"/>
         <source>Change the locked state of the part in this view. A locked part can&apos;t be moved.</source>
-        <translation type="unfinished"></translation>
+        <translation>Cambia lo stato bloccato della parte in questa vista. Una parte bloccata non può essere spostata.</translation>
     </message>
     <message>
         <location filename="../src/infoview/htmlinfoview.cpp" line="985"/>
         <source>Sticky</source>
-        <translation>Adesivo</translation>
+        <translation>Appiccicoso</translation>
     </message>
     <message>
         <location filename="../src/infoview/htmlinfoview.cpp" line="987"/>
         <source>Change the &quot;sticky&quot; state of the part in this view. When a sticky part is moved, objects on top of it also move.</source>
-        <translation type="unfinished"></translation>
+        <translation>Cambia lo stato &quot;appiccicoso&quot; della parte in questa vista. Quando una parte appiccicosa viene spostata, anche gli oggetti sopra di essa si spostano.</translation>
     </message>
     <message>
         <location filename="../src/infoview/htmlinfoview.cpp" line="745"/>
         <source>v. %1 %2</source>
-        <translation type="unfinished"></translation>
+        <translation>v. %1 %2</translation>
     </message>
     <message>
         <location filename="../src/infoview/htmlinfoview.cpp" line="745"/>
@@ -1648,7 +1648,7 @@ E&apos; anche possibile scegliere un connettore come seme per il piano massa con
     <message>
         <location filename="../src/infoview/htmlinfoview.cpp" line="699"/>
         <source>No SPICE information. This part will not be simulated.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nessuna informazione SPICE. Questa parte non verrà simulata.</translation>
     </message>
     <message>
         <location filename="../src/infoview/htmlinfoview.cpp" line="997"/>
