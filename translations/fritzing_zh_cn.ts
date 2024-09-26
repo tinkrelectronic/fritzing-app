@@ -1592,7 +1592,7 @@ It is also possible to choose a connector as a ground fill seed by right-clickin
     </message>
     <message>
         <location filename="../src/infoview/htmlinfoview.cpp" line="426"/>
-        <source>Ratsnest wire</source>
+        <source>Ratsnest line</source>
         <translation>飞线连线</translation>
     </message>
     <message>
@@ -3430,7 +3430,7 @@ Please check all views for potential side-effects.</source>
     </message>
     <message>
         <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2834"/>
-        <source>Recalculate routing status and ratsnest wires (in case the auto-update isn&apos;t working correctly)</source>
+        <source>Recalculate routing status and ratsnest lines (in case the auto-update isn&apos;t working correctly)</source>
         <translation>重新计算布线状态和覆铜线(在自动更新不能正确工作的情况下)</translation>
     </message>
     <message>
@@ -7444,7 +7444,7 @@ Fritzing仍然在工作，但不能改变元件的属性.</translation>
     </message>
     <message>
         <location filename="../src/sketch/sketchwidget.cpp" line="8192"/>
-        <source>Ratsnest wires</source>
+        <source>Ratsnest lines</source>
         <translation>飞线和覆铜预览</translation>
     </message>
     <message>

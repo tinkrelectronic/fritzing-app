@@ -1617,7 +1617,7 @@ It is also possible to choose a connector as a ground fill seed by right-clickin
     </message>
     <message>
         <location filename="../src/infoview/htmlinfoview.cpp" line="426"/>
-        <source>Ratsnest wire</source>
+        <source>Ratsnest line</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4587,7 +4587,7 @@ Note: if you want to update later, there are options under the &apos;Part&apos; 
     </message>
     <message>
         <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2817"/>
-        <source>Recalculate routing status and ratsnest wires (in case the auto-update isn&apos;t working correctly)</source>
+        <source>Recalculate routing status and ratsnest lines (in case the auto-update isn&apos;t working correctly)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7514,7 +7514,7 @@ Fritzing still works, but you won&apos;t be able to change parts properties.</so
     </message>
     <message>
         <location filename="../src/sketch/sketchwidget.cpp" line="8020"/>
-        <source>Ratsnest wires</source>
+        <source>Ratsnest lines</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

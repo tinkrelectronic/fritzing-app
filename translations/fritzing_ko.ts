@@ -1613,7 +1613,7 @@ It is also possible to choose a connector as a ground fill seed by right-clickin
     </message>
     <message>
         <location filename="../src/infoview/htmlinfoview.cpp" line="426"/>
-        <source>Ratsnest wire</source>
+        <source>Ratsnest line</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4573,7 +4573,7 @@ Go ahead and revert?</source>
     </message>
     <message>
         <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2834"/>
-        <source>Recalculate routing status and ratsnest wires (in case the auto-update isn&apos;t working correctly)</source>
+        <source>Recalculate routing status and ratsnest lines (in case the auto-update isn&apos;t working correctly)</source>
         <translation>라우팅 상태와 라우팅 되지 않은 와이어를 계산(오토라우터가 제대로 작동하지 않을 때)</translation>
     </message>
     <message>
@@ -7593,7 +7593,7 @@ Fritzing은 여전히 ​​작동하지만 부품 속성을 변경할 수 없�
     </message>
     <message>
         <location filename="../src/sketch/sketchwidget.cpp" line="8192"/>
-        <source>Ratsnest wires</source>
+        <source>Ratsnest lines</source>
         <translation>렛츠 네스트 와이어</translation>
     </message>
     <message>

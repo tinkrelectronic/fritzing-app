@@ -1599,7 +1599,7 @@ Het is ook mogelijk om op een connector rechts te klikken en kies &apos;Maak gro
     </message>
     <message>
         <location filename="../src/infoview/htmlinfoview.cpp" line="426"/>
-        <source>Ratsnest wire</source>
+        <source>Ratsnest line</source>
         <translation>Rattennest draad</translation>
     </message>
     <message>
@@ -3439,7 +3439,7 @@ Controleer a.u.b. alle weergaves voor potentiële fouten.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2834"/>
-        <source>Recalculate routing status and ratsnest wires (in case the auto-update isn&apos;t working correctly)</source>
+        <source>Recalculate routing status and ratsnest lines (in case the auto-update isn&apos;t working correctly)</source>
         <translation>Herbereken Routing Status en Rattennest lijnen (In het geval de auto-update niet correct werkt)</translation>
     </message>
     <message>
@@ -7458,7 +7458,7 @@ Fritzing werkt nog steeds, maar je kunt geen eigenschappen van de onderdelen wij
     </message>
     <message>
         <location filename="../src/sketch/sketchwidget.cpp" line="8192"/>
-        <source>Ratsnest wires</source>
+        <source>Ratsnest lines</source>
         <translation>Rattennest draden</translation>
     </message>
     <message>

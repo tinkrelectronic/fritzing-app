@@ -1595,7 +1595,7 @@ Também é possível escolher um conector como uma semente de aterramento clican
     </message>
     <message>
         <location filename="../src/infoview/htmlinfoview.cpp" line="426"/>
-        <source>Ratsnest wire</source>
+        <source>Ratsnest line</source>
         <translation>Fio ninho-de-ratos</translation>
     </message>
     <message>
@@ -3435,7 +3435,7 @@ Por favor verifique em todos os modos de visualização para verificar alguma mo
     </message>
     <message>
         <location filename="../src/mainwindow/mainwindow_menu.cpp" line="2834"/>
-        <source>Recalculate routing status and ratsnest wires (in case the auto-update isn&apos;t working correctly)</source>
+        <source>Recalculate routing status and ratsnest lines (in case the auto-update isn&apos;t working correctly)</source>
         <translation>Recalcular o estado do encaminhamento e fios emaranhados (no caso da atualização automática não estiver a funcionar corretamente)</translation>
     </message>
     <message>
@@ -7368,7 +7368,7 @@ target file: %3.</source>
     </message>
     <message>
         <location filename="../src/sketch/sketchwidget.cpp" line="8192"/>
-        <source>Ratsnest wires</source>
+        <source>Ratsnest lines</source>
         <translation>Fios ninho-de-ratos</translation>
     </message>
     <message>
