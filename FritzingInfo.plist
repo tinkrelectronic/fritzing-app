@@ -40,9 +40,9 @@ You should have received a copy of the GNU General Public License
         <string>APPL</string>
         <key>CFBundleSignature</key>
         <string>FRtz</string>
-        <key>CFBundleDocumentTypes</key>
         <key>LSMinimumSystemVersion</key>
         <string>11.0</string>
+        <key>CFBundleDocumentTypes</key>
         <array>
             <dict>
                 <key>CFBundleTypeExtensions</key>
