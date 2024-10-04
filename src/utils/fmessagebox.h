@@ -154,6 +154,8 @@ public:
 	static bool BlockMessages;
 
 protected:
+	void closeEvent(QCloseEvent *event) override;
+
 	/**
 		Logs a message with the given \a title and \a text.
 	*/

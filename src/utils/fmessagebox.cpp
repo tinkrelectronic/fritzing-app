@@ -19,11 +19,14 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 ********************************************************************/
 
 #include "fmessagebox.h"
-#include "../debugdialog.h"
+#include <QApplication>
+#include <QClipboard>
+#include <QMessageBox>
 #include <QTextEdit>
 #include <QVBoxLayout>
-#include <QClipboard>
-#include <QApplication>
+#include <QCloseEvent>
+#include "../debugdialog.h"
+
 
 bool FMessageBox::BlockMessages = false;
 
@@ -104,7 +107,11 @@ void FMessageBox::setupUI() {
 	enableClipboardButton(m_clipboardButtonEnabled);
 }
 
-// Modify the existing static methods to use the new custom builder
+void FMessageBox::closeEvent(QCloseEvent* event)
+{
+	event->accept();
+	this->done(QDialog::Rejected);
+}
 
 QMessageBox::StandardButton FMessageBox::critical(QWidget* parent, const QString& title, const QString& text, StandardButtons buttons, StandardButton defaultButton) {
 	logMessage("critical: " + title, text);
