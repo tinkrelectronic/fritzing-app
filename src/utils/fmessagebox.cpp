@@ -81,16 +81,9 @@ FMessageBox* FMessageBox::createCustom(QWidget* parent, Icon icon, const QString
 void FMessageBox::setDetailedText(const QString& text) {
 	QMessageBox::setDetailedText(text);
 
-	// Increase the size of the detailed text area
 	QTextEdit* textEdit = findChild<QTextEdit*>();
 	if (textEdit) {
-		textEdit->setMinimumSize(600, 400);
-
-		// Make the text edit expand to fill available space
-		QGridLayout* layout = qobject_cast<QGridLayout*>(this->layout());
-		if (layout) {
-			layout->setRowStretch(layout->rowCount() - 1, 1);
-		}
+		textEdit->setFixedSize(400, 250);
 	}
 }
 
