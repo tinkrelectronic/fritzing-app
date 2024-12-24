@@ -18,6 +18,7 @@ phoenix.pro.user
 *.sln
 *.vcxproj
 *.vcxproj.*
+*.vs
 
 # Compiled source
 *.pyc
@@ -73,3 +74,6 @@ index
 /ngspice*
 /libgit*
 /zlib*
+/flex*
+/clipper*
+phoenix.qtvscr
