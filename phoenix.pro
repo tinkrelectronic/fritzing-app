@@ -46,7 +46,7 @@ win32 {
     RELEASE_SCRIPT = $$(RELEASE_SCRIPT)    # environment variable set from release script
 
     message("target arch: $${QMAKE_TARGET.arch}")
-    contains(QMAKE_TARGET.arch, x86_64) {
+    contains(QMAKE_TARGET.arch, x64) {
         RELDIR = ../release64
         DEBDIR = ../debug64
         DEFINES += WIN64

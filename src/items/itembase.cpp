@@ -1967,7 +1967,7 @@ void ItemBase::debugInfo2(const QString & msg) const
 	                   .arg(this->viewLayerID())
 	                   .arg(this->viewLayerPlacement())
 	                   .arg(this->wireFlags())
-			   .arg((long) dynamic_cast<const QGraphicsItem *>(this), 0, 16)
+               .arg((long long) dynamic_cast<const QGraphicsItem *>(this), 0, 16)
 	                   .arg(m_viewID)
 	                   .arg(this->zValue())
 	                   .arg(this->pos().x())

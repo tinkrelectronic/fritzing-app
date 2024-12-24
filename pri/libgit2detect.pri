@@ -19,7 +19,7 @@
 
 # Use libgit2 1.7.1 ( https://github.com/libgit2/libgit2/pull/6471 )
 LIBGIT_VERSION=1.7.1
-LIBGITPATH = $$absolute_path($$_PRO_FILE_PWD_/../libgit2-$$LIBGIT_VERSION)
+LIBGITPATH = $$absolute_path($$_PRO_FILE_PWD_/libgit2-$$LIBGIT_VERSION)
 
 unix:!macx {
 	LIBGIT_STATIC = false
@@ -30,7 +30,7 @@ unix:!macx {
 
 win32 {
 	if ($$LIBGIT_STATIC) {
-		LIBGIT2INCLUDE = "$$_PRO_FILE_PWD_/../libgit2/include"
+		LIBGIT2INCLUDE = "$$_PRO_FILE_PWD_/libgit2/include"
 
 		exists($$LIBGIT2INCLUDE/git2.h) {
 			message("found libgit2 include path at $$LIBGIT2INCLUDE")
@@ -44,9 +44,9 @@ win32 {
 	}
 
     contains(QMAKE_TARGET.arch, x86_64) {
-        LIBGIT2LIB = "$$_PRO_FILE_PWD_/../libgit2/build64/Release"
+        LIBGIT2LIB = "$$_PRO_FILE_PWD_/libgit2/build64/Release"
     } else {
-        LIBGIT2LIB = "$$_PRO_FILE_PWD_/../libgit2/build32/Release"
+        LIBGIT2LIB = "$$_PRO_FILE_PWD_/libgit2/build64/Release"
     }
 
     exists($$LIBGIT2LIB/git2.lib) {

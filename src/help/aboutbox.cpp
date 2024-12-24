@@ -90,6 +90,12 @@ AboutBox::AboutBox(QWidget *parent)
 	// Scrolling Credits Text
 	QString data =
 		QString("<br /><br /><br /><br /><br /><br />") +
+		"<p>" +
+		tr("Warning: ") +
+		tr("This is experimental ") +
+		tr("From the Development Source Branch ") +
+		tr("Modified By TinkR to fit your Windows 64bit Computer") +
+		"</p>" +
 
 		"<p>" +
 		tr("Fritzing is made by: ") +
@@ -99,7 +105,7 @@ AboutBox::AboutBox(QWidget *parent)
 		tr("Travis Robertson, Stefan Hermann, Brendan Howell, ") +
 		tr("Mariano Crowe, Johannes Landstorfer, ") +
 		tr("Jenny Chowdhury, Lionel Michel, Fabian Althaus, Jannis Leidel, ") +
-		tr("Bryant Mairs, Uleshka Asher, Daniel Tzschentke, and Kjell Morgenstern") +
+		tr("Bryant Mairs, Uleshka Asher, Daniel Tzschentke, and Kjell Morgenstern, ") +
 		"</p>" +
 
 		"<p>" +
