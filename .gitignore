@@ -66,6 +66,7 @@ saved_state
 index
 /.qtc_clangd/compile_commands.json
 /boost*
+<<<<<<< HEAD
 /quazip*
 /clipper*
 /bzip*
@@ -77,3 +78,12 @@ index
 /flex*
 /clipper*
 phoenix.qtvscr
+=======
+/clipper*
+/bzip*
+/quazip*
+/zlib*
+/svgpp*
+/ngspice*
+/libgit*
+>>>>>>> 6e0a413e5246a92f8093ce381c750be643da9aff
