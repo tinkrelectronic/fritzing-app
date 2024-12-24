@@ -64,3 +64,10 @@ saved_state
 *.qm
 index
 /.qtc_clangd/compile_commands.json
+/boost*
+/clipper*
+/bzip*
+/quazip*
+/zlib*
+/svgpp*
+/ngspice*
