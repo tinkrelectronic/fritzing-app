@@ -4,6 +4,7 @@
 
 Makefile*
 
+phoenix.qtvscr
 phoenix.pro.user
 /phoenix-build-*
 /release*
@@ -73,3 +74,7 @@ index
 /ngspice*
 /libgit*
 /zlib*
+/exboost*
+/.vs*
+
+resource.h
