@@ -4,6 +4,7 @@
 
 Makefile*
 
+phoenix.qtvscr
 phoenix.pro.user
 /phoenix-build-*
 /release*
@@ -66,7 +67,6 @@ saved_state
 index
 /.qtc_clangd/compile_commands.json
 /boost*
-<<<<<<< HEAD
 /quazip*
 /clipper*
 /bzip*
@@ -75,9 +75,14 @@ index
 /ngspice*
 /libgit*
 /zlib*
+/exboost*
+/.vs*
+
+resource.h
 /flex*
 /clipper*
 phoenix.qtvscr
 
 resource.h
 license.rtf
+
