@@ -93,8 +93,9 @@ AboutBox::AboutBox(QWidget *parent)
 		"<p>" +
 		tr("Warning: ") +
 		tr("This is experimental ") +
+		tr("Some Features Removed (PCB/FAB) ") +
 		tr("From the Development Source Branch ") +
-		tr("Modified By TinkR to fit your Windows 64bit Computer") +
+		tr("Modified / Tinkered with By TinkR ") +
 		"</p>" +
 
 		"<p>" +
