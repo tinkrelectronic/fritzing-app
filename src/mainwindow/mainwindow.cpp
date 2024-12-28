@@ -584,7 +584,7 @@ void MainWindow::initSketchWidgets(bool withIcons) {
 	initSketchWidget(m_schematicGraphicsView);
 	m_schematicWidget = new SketchAreaWidget(m_schematicGraphicsView, this);
 	addTab(m_schematicWidget, ":/resources/images/icons/TabWidgetSchematicActive_icon.png", tr("Schematic"), withIcons);
-
+	
 	if (m_fileProgressDialog != nullptr) {
 		m_fileProgressDialog->setValue(20); // 10%
 	}
@@ -592,8 +592,8 @@ void MainWindow::initSketchWidgets(bool withIcons) {
 	m_pcbGraphicsView = new PCBSketchWidget(ViewLayer::PCBView, this);
 	initSketchWidget(m_pcbGraphicsView);
 	m_pcbWidget = new SketchAreaWidget(m_pcbGraphicsView, this);
-	addTab(m_pcbWidget, ":/resources/images/icons/TabWidgetPcbActive_icon.png", tr("PCB"), withIcons);
-
+	/*addTab(m_pcbWidget, ":/resources/images/icons/TabWidgetPcbActive_icon.png", tr("PCB"), withIcons); */
+	
 
 	if (m_fileProgressDialog != nullptr) {
 		m_fileProgressDialog->setValue(29); // 14%

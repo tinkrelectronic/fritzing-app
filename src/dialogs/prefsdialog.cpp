@@ -73,7 +73,7 @@ void PrefsDialog::initLayout(QFileInfoList & languages, QList<Platform *> platfo
 	m_general = new QWidget();
 	m_breadboard = new QWidget();
 	m_schematic = new QWidget();
-	m_pcb = new QWidget();
+	//m_pcb = new QWidget();
 	m_code = new QWidget();
 	m_beta_features = new QWidget();
 	m_tabWidget->setObjectName("preDia_tabs");
@@ -81,7 +81,7 @@ void PrefsDialog::initLayout(QFileInfoList & languages, QList<Platform *> platfo
 	m_tabWidget->addTab(m_general, tr("General"));
 	m_tabWidget->addTab(m_breadboard, m_viewInfoThings[0].viewName);
 	m_tabWidget->addTab(m_schematic, m_viewInfoThings[1].viewName);
-	m_tabWidget->addTab(m_pcb, m_viewInfoThings[2].viewName);
+	//m_tabWidget->addTab(m_pcb, m_viewInfoThings[2].viewName);
 	m_tabWidget->addTab(m_code, tr("Code View"));
 	m_tabWidget->addTab(m_beta_features, tr("Beta Features"));
 
@@ -92,7 +92,7 @@ void PrefsDialog::initLayout(QFileInfoList & languages, QList<Platform *> platfo
 
 	initBreadboard(m_breadboard, &m_viewInfoThings[0]);
 	initSchematic(m_schematic, &m_viewInfoThings[1]);
-	initPCB(m_pcb, &m_viewInfoThings[2]);
+	//initPCB(m_pcb, &m_viewInfoThings[2]);
 
 	initCode(m_code, platforms);
 	m_platforms = platforms;
@@ -146,7 +146,7 @@ void PrefsDialog::initSchematic(QWidget * widget, ViewInfoThing * viewInfoThing)
 
 	widget->setLayout(vLayout);
 }
-
+/*
 void PrefsDialog::initPCB(QWidget * widget, ViewInfoThing * viewInfoThing)
 {
 	auto * vLayout = new QVBoxLayout();
@@ -155,7 +155,7 @@ void PrefsDialog::initPCB(QWidget * widget, ViewInfoThing * viewInfoThing)
 
 	widget->setLayout(vLayout);
 }
-
+*/
 void PrefsDialog::initCode(QWidget * widget, QList<Platform *> platforms)
 {
 	auto * vLayout = new QVBoxLayout();

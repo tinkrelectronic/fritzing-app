@@ -839,7 +839,7 @@ void MainWindow::updateFileMenu() {
 	m_printAct->setEnabled(m_currentGraphicsView || m_currentWidget->contentView() == m_programView);
 
 	updateRecentFileActions();
-	m_orderFabAct->setEnabled(true);
+	m_orderFabAct->setEnabled(false);
 
 	m_revertAct->setEnabled(m_undoStack->canUndo());
 
@@ -1410,10 +1410,10 @@ void MainWindow::createFileMenu() {
 	m_fileMenu->addAction(m_saveAct);
 	m_fileMenu->addAction(m_saveAsAct);
 	m_fileMenu->addAction(m_shareOnlineAct);
-
+	/*
 	if (m_orderFabEnabled) {
 		m_fileMenu->addAction(m_orderFabAct);
-	}
+	}*/
 
 	m_fileMenu->addSeparator();
 	m_exportMenu = m_fileMenu->addMenu(tr("&Export"));
@@ -1456,12 +1456,12 @@ void MainWindow::populateExportMenu() {
 	imageMenu->addSeparator();
 	imageMenu->addAction(m_exportSvgAct);
 	imageMenu->addAction(m_exportPdfAct);
-
+	/*
 	QMenu * productionMenu = m_exportMenu->addMenu(tr("for Production"));
 	productionMenu->addAction(m_exportEtchablePdfAct);
 	productionMenu->addAction(m_exportEtchableSvgAct);
 	productionMenu->addSeparator();
-	productionMenu->addAction(m_exportGerberAct);
+	productionMenu->addAction(m_exportGerberAct);*/
 }
 
 
@@ -1551,7 +1551,7 @@ void MainWindow::createViewMenu()
 	if (m_welcomeView) m_viewMenu->addAction(m_showWelcomeAct);
 	m_viewMenu->addAction(m_showBreadboardAct);
 	m_viewMenu->addAction(m_showSchematicAct);
-	m_viewMenu->addAction(m_showPCBAct);
+	//m_viewMenu->addAction(m_showPCBAct);
 	if (m_programView) m_viewMenu->addAction(m_showProgramAct);
 	m_viewMenu->addSeparator();
 	if (m_binManager) {
