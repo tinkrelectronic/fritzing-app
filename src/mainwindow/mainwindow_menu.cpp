@@ -1228,7 +1228,7 @@ void MainWindow::createViewMenuActions(bool showWelcome) {
 		connect(m_showProgramAct, SIGNAL(triggered()), this, SLOT(showProgramView()));
 		QList<QAction *> viewMenuActions;
 		if (m_welcomeView) viewMenuActions << m_showWelcomeAct;
-		viewMenuActions << m_showBreadboardAct << m_showSchematicAct << m_showPCBAct << m_showProgramAct;
+		viewMenuActions << m_showBreadboardAct << m_showSchematicAct /* << m_showPCBAct */<< m_showProgramAct;
 		m_programView->createViewMenuActions(viewMenuActions);
 	}
 
