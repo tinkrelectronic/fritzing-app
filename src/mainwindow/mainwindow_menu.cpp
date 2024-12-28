@@ -535,7 +535,7 @@ void MainWindow::pasteAux(bool pasteInPlace)
 		auto * parentCommand = new QUndoCommand("Paste"); // if you translate "Paste", you must also do so for the check in sketchwidget.cpp.
 
 		QList<SketchWidget *> sketchWidgets;
-		sketchWidgets << m_breadboardGraphicsView << m_schematicGraphicsView << m_pcbGraphicsView;
+		sketchWidgets << m_breadboardGraphicsView << m_schematicGraphicsView; /* << m_pcbGraphicsView*/
 		sketchWidgets.removeOne(m_currentGraphicsView);
 		sketchWidgets.prepend(m_currentGraphicsView);
 
@@ -1192,7 +1192,7 @@ void MainWindow::createViewMenuActions(bool showWelcome) {
 	connect(m_setBackgroundColorAct, SIGNAL(triggered()), this, SLOT(setBackgroundColor()));
 
 	QStringList controls;
-	controls << tr("Ctrl+1") << tr("Ctrl+2") << tr("Ctrl+3") << tr("Ctrl+4") << tr("Ctrl+5");
+	controls << tr("Ctrl+1") << tr("Ctrl+2") << tr("Ctrl+3") << tr("Ctrl+4")/*<< tr("Ctrl+5")*/;
 	int controlIndex = 0;
 	if (showWelcome) {
 		m_showWelcomeAct = new QAction(tr("&Show Welcome"), this);
@@ -1213,24 +1213,24 @@ void MainWindow::createViewMenuActions(bool showWelcome) {
 	m_showSchematicAct->setStatusTip(tr("Show the schematic view"));
 	m_showSchematicAct->setCheckable(true);
 	connect(m_showSchematicAct, SIGNAL(triggered()), this, SLOT(showSchematicView()));
-
+	
 	m_showPCBAct = new QAction(tr("&Show PCB"), this);
-	m_showPCBAct->setShortcut(controls.at(controlIndex++));
+	//m_showPCBAct->setShortcut(controls.at(controlIndex++));
 	m_showPCBAct->setStatusTip(tr("Show the PCB view"));
 	m_showPCBAct->setCheckable(true);
-	connect(m_showPCBAct, SIGNAL(triggered()), this, SLOT(showPCBView()));
+	//connect(m_showPCBAct, SIGNAL(triggered()), this, SLOT(showPCBView()));
 
-	if (m_programView) {
-		m_showProgramAct = new QAction(tr("Show Code"), this);
+		if (m_programView) {
+		m_showProgramAct = new QAction(tr("&Show Code"), this);
 		m_showProgramAct->setShortcut(controls.at(controlIndex++));
 		m_showProgramAct->setStatusTip(tr("Show the code (programming) view"));
 		m_showProgramAct->setCheckable(true);
 		connect(m_showProgramAct, SIGNAL(triggered()), this, SLOT(showProgramView()));
 		QList<QAction *> viewMenuActions;
 		if (m_welcomeView) viewMenuActions << m_showWelcomeAct;
-		viewMenuActions << m_showBreadboardAct << m_showSchematicAct /* << m_showPCBAct */<< m_showProgramAct;
+		viewMenuActions << m_showBreadboardAct << m_showSchematicAct << m_showProgramAct;
 		m_programView->createViewMenuActions(viewMenuActions);
-	}
+		}
 
 	m_showPartsBinIconViewAct = new QAction(tr("Show Parts Bin Icon View"), this);
 	m_showPartsBinIconViewAct->setStatusTip(tr("Display the parts bin in an icon view"));
@@ -2339,7 +2339,7 @@ void MainWindow::setCurrentView(ViewLayer::ViewID viewID)
 {
 	if (viewID == ViewLayer::BreadboardView) showBreadboardView();
 	else if (viewID == ViewLayer::SchematicView) showSchematicView();
-	else if (viewID == ViewLayer::PCBView) showPCBView();
+	//else if (viewID == ViewLayer::ProgramView) showProgramView();
 }
 
 void MainWindow::showPartsBinIconView() {
@@ -2725,7 +2725,7 @@ void MainWindow::hideShowProgramMenu() {
 	if (m_currentWidget == nullptr) return;
 
 	bool show = m_programView == nullptr || m_currentWidget->contentView() != m_programView;
-	//if (m_fileMenu) m_fileMenu->menuAction()->setVisible(show);
+	if (m_fileMenu) m_fileMenu->menuAction()->setVisible(show);
 	if (m_viewMenu) {
 		m_viewMenu->menuAction()->setVisible(show);
 		m_viewMenu->setEnabled(show);
