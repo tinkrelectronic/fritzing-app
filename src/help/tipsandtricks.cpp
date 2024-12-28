@@ -26,6 +26,8 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "tipsandtricks.h"
 
+
+
 TipsAndTricks* TipsAndTricks::Singleton = nullptr;
 QList<TipSet *>  TipsAndTricks::TipSets;
 
@@ -37,7 +39,7 @@ TipsAndTricks::TipsAndTricks(QWidget *parent)
 	// Let's set the icon
 	this->setWindowIcon(QIcon(QPixmap(":resources/images/fritzing_icon.png")));
 	QString html("<html><body>");
-	html += QString("<h3>%1</h3>").arg(tr("Fritzing Tips and Tricks"));
+	html += QString("<h3>%1</h3>").arg(tr("Tips and Tricks"));
 	html += "<ul>";
 	Q_FOREACH (TipSet * tipSet, TipSets) {
 		html += QString("<li><h4>%1</h4><ul>").arg(tipSet->heading);
@@ -73,16 +75,16 @@ void TipsAndTricks::initTipSets() {
 							  "and on macOS Mojave or later, the default location is usually ~/Library/Application Support/Fritzing/.");
 
 	auto * ts = new TipSet;
-	ts->heading = tr("examples");
-	ts->tips << tr("Get a jump start by looking at the example circuits under File > Examples.");
+	ts->heading = tr("Money Tip");
+	ts->tips << tr("Don't take wooden nickels.");
 	TipSets.append(ts);
 
 	ts = new TipSet;
-	ts->heading = tr("parts");
-	ts->tips << tr("Can't find your part? Search for it by clicking the magnifier icon in the Parts Bin and type in some keywords");
-	ts->tips << tr("If you can't find a part in the Parts Bin, the Generic IC is your friend.  Drag it onto your sketch, then use the widgets in the Inspector to: choose from among 25 different through-hole and SMD packages; change the pin label; and--for DIPs and SIPs--change the number of pins.  You can also change the pin names with the Pin Label editor");
-	ts->tips << tr("An icon in the parts bin may actually represent multiple related parts.  So when you drag an icon from the parts bin into a sketch, make sure you look at the inspector.  The inspector will display the range of choices available for you to modify a part, or swap it for a related part. The parts bin icon will also be a little 'stack' and not just a flat icon.");
-	ts->tips << tr("The Inspector Window--which lets you change the properties of parts--is only enabled for parts that are in a sketch (not for parts still in a Parts Bin).");
+	ts->heading = tr("Use the Right Tool");
+	ts->tips << tr("FreeCAD is great for making parametric parts https://freecad.org");
+	ts->tips << tr("KiCad is great for making PCB's https://kicad.org");
+	ts->tips << tr("Fritzing is great for instructional information https://fritzing.org");
+	
 	TipSets.append(ts);
 
 	ts = new TipSet;
@@ -97,13 +99,7 @@ void TipsAndTricks::initTipSets() {
 	ts->heading = tr("curves and bendable legs");
 	ts->tips << tr("In Breadboard view, to drag a part with bendable legs while keeping it connected to the breadboard, hold the Alt (Linux: Meta) key down when you start dragging.");
 	ts->tips << tr("In Breadboard view, to drag out a wire from the end of a bendable leg, drag with the Alt (Linux: Meta) key down.");
-	ts->tips << tr("In Breadboard or PCB view, to add a curve to a wire or bendable leg, drag with the Control (Mac: Command) key down.  You can set whether curvy wires are the default in Preferences.");
-	TipSets.append(ts);
-
-	ts = new TipSet;
-	ts->heading = tr("rotation");
-	ts->tips << tr("To free-rotate a part in Breadboard or PCB view, select it, then hover your mouse near one of the corners until you see the rotate cursor. Mouse down, and that corner will follow your mouse as you drag.");
-	ts->tips << tr("To free-rotate a logo text or image item in PCB view hold down the Alt (Linux: meta) key and free-rotate as usual.");
+	ts->tips << tr("In Breadboard view, to add a curve to a wire or bendable leg, drag with the Control (Mac: Command) key down.  You can set whether curvy wires are the default in Preferences.");
 	TipSets.append(ts);
 
 	ts = new TipSet;
@@ -124,7 +120,7 @@ void TipsAndTricks::initTipSets() {
 	ts->heading = tr("wires and bendpoints");
 	ts->tips << tr("To add a bendpoint to a wire, double-click where you want the bendpoint.");
 	ts->tips << tr("To delete a bendpoint from a wire, double-click it.");
-	ts->tips << tr("In Schematic or PCB view, if you drag from a bendpoint with the Alt (Linux: Meta) key down, you will drag out a new wire from that bendpoint.");
+	ts->tips << tr("In Schematic view, if you drag from a bendpoint with the Alt (Linux: Meta) key down, you will drag out a new wire from that bendpoint.");
 	ts->tips << tr("To drag a wire segment (a section of a wire between two bendpoints), drag it with the Alt (Linux: Meta) key down.  If you also hold down the shift key, the wire segment will be constrained to horizontal or vertical motion.");
 	ts->tips << tr("Use shift-drag on a wire end or bendpoint to constrain its wire segment to an angle of 45 degrees (or some multiple of 45 degrees).  If the wire segment is connected to other wire segments, the segment you're dragging will snap to make 90 degree angles with the neighboring wire segment.");
 	TipSets.append(ts);
@@ -143,27 +139,6 @@ void TipsAndTricks::initTipSets() {
 	ts->tips << tr("You can use the Parts Editor to find the SVG file for a part's image for a given view. In the Parts Editor, click on the tab for that view, then use <b>Show in Folder</b> under the <b>File</b> Menu");
 	ts->tips << localStorage;
 	ts->tips << tr("Do not store your custom part files in the Fritzing installation folder. If you upgrade Fritzing, these files will probably be deleted. Also, files in the Fritzing installation folder will not be saved in sketch (.fzz) files, so you won't be able to share them.");
-	TipSets.append(ts);
-
-	ts = new TipSet;
-	ts->heading = tr("pcb layout");
-	ts->tips << tr("Always lead a trace straight out of a pin. This helps to prevent short circuits.");
-	ts->tips << tr("Through-hole parts can be traced from either side of a PCB.");
-	ts->tips << tr("It makes life easier to route traces horizontally on one side of a PCB and vertically on the other side.");
-	ts->tips << tr("Route traces in 45-degree angles to reduce noise.");
-	ts->tips << tr("If Fritzing is missing a particular part and you don't want to build one yourself, then use pin headers as connectors and the grid to align them.");
-	ts->tips << tr("You can put your own Logo in the silkscreen of your PCB. Just use the Logo part of the core library and select your own file. SVG is the best format.");
-	ts->tips << tr("Use copper-blocker parts to mask out areas that you want free of copper fill.");
-	ts->tips << tr("To change trace width, select a trace then use the <b>width</b> combo box in the Inspector. You can use the drop-down or just type in a number (from 8 to 128).");
-	ts->tips << tr("To create a custom shape for your PCB, import an SVG file.");
-	ts->tips << tr("To make a stylish Arduino shield in no time, switch the shape of the PCB from a rectangle to the Arduino");
-	TipSets.append(ts);
-
-	ts = new TipSet;
-	ts->heading = tr("pcb production");
-	ts->tips << tr("Smaller PCBs are more affortable than larger ones. Save space and money.");
-	ts->tips << tr("Have your PCB quickly and easily produced with Fritzing Fab. Hover over the 'Fabricate' button to get a quote.");
-	ts->tips << tr("When using the Fritzing Fab Service, if there are empty areas of the PCB that you do not want filled with copper, use the copper-blocker part. This resizable part will mask out copper fill in the rectangle it covers.");
 	TipSets.append(ts);
 
 	ts = new TipSet;

@@ -146,14 +146,14 @@ protected:
 	void initLayout();
 	QWidget * initRecent();
 	QWidget * initBlog();
-	QWidget * initShop();
+	//QWidget * initShop();
 	QWidget * initTip();
 	void readBlog(const QDomDocument &, bool doEmit, bool blog, const QString & prefix);
 	QWidget * makeRecentItem(const QString & objectName, const QString & iconText, const QString & textText, QLabel * & icon, QLabel * & text);
 	void getNextBlogImage(int ix, bool blog);
 	void setBlogItemImage(QPixmap &, int index, bool blog) ;
-	QWidget * createShopContentFrame(const QString & imagePath, const QString & headline, const QString & description,
-	                                 const QString & url, const QString & urlText, const QString & urlText2, const QString & logoPath, const QString & footerLabelColor);
+	//QWidget * createShopContentFrame(const QString & imagePath, const QString & headline, const QString & description,
+	//                                 const QString & url, const QString & urlText, const QString & urlText2, const QString & logoPath, const QString & footerLabelColor);
 	BlogListWidget * createBlogContentFrame(const QString & url, const QString & urlText, const QString & logoPath, const QString & footerLabelColor);
 
     QFrame * createHeaderFrame(const QString & url1, const QString & urlText1, const QString & url2, const QString & urlText2, const QString & inactiveColor, const QString & activeColor, QLabel * & label1, QLabel * & label2);

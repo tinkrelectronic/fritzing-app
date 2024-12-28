@@ -1314,11 +1314,11 @@ void MainWindow::createHelpMenuActions() {
 	m_aboutQtAct = new QAction(tr("&About Qt"), this);
 	m_aboutQtAct->setStatusTip(tr("Show Qt's about box"));
 	connect(m_aboutQtAct, SIGNAL(triggered()), qApp, SLOT(aboutQt()));
-
+	/*
 	m_reportBugAct = new QAction(tr("Report a bug..."), this);
 	m_reportBugAct->setStatusTip(tr("Report a but you've found in Fritzing"));
 	connect(m_reportBugAct, SIGNAL(triggered()), this, SLOT(reportBug()));
-
+	*/
 	m_enableDebugAct = new QAction(tr("Enable debugging log"), this);
 	m_enableDebugAct->setStatusTip(tr("Report a but you've found in Fritzing"));
 	m_enableDebugAct->setCheckable(true);

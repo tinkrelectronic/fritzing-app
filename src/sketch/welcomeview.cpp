@@ -440,8 +440,8 @@ void WelcomeView::initLayout()
 	QWidget * widget = initBlog();
 	mainLayout->addWidget(widget, 0, 1);
 
-	widget = initShop();
-	mainLayout->addWidget(widget, 1, 1);
+	//widget = initShop();
+	//mainLayout->addWidget(widget, 1, 1);
 
 	widget = initTip();
 	mainLayout->addWidget(widget, 1, 0);
@@ -542,7 +542,7 @@ QWidget * WelcomeView::makeRecentItem(const QString & objectName, const QString 
 	rFrame->setLayout(rFrameLayout);
 	return rFrame;
 }
-
+/*
 QWidget * WelcomeView::initShop() {
 
 	auto * frame = new QFrame();
@@ -645,7 +645,7 @@ QWidget * WelcomeView::createShopContentFrame(const QString & imagePath, const Q
 	uberFrame->setLayout(shopUberFrameLayout);
 	return uberFrame;
 }
-
+*/
 QWidget * WelcomeView::initBlog() {
 
 	auto * frame = new QFrame();
