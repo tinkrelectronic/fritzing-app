@@ -590,7 +590,7 @@ void MainWindow::exportAux(QString fileName, QImage::Format format, int quality,
 
 	QPainter painter;
 	painter.begin(&image);
-	QRectF target(0, 0, imgSize.width(), imgSize.height());
+	QRectF target(40, 30, imgSize.width() * 0.95, imgSize.height() * 0.95);
 	transformPainter(painter, target.width());
 	m_currentGraphicsView->scene()->render(&painter, target, source, Qt::KeepAspectRatio);
 	painter.end();
