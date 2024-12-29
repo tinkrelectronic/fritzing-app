@@ -25,6 +25,7 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 #include <QRandomGenerator>
 
 #include "tipsandtricks.h"
+#include <QTextBrowser>
 
 
 
@@ -54,18 +55,21 @@ TipsAndTricks::TipsAndTricks(QWidget *parent)
 	Singleton = this;
 	setWindowTitle(tr("Tips and Tricks"));
 	resize(600, 500);
-	m_textEdit = new QTextEdit();
-	m_textEdit->setReadOnly(true);
-	m_textEdit->setHtml(html);
+	m_textBrowser = new QTextBrowser();
+	m_textBrowser->setReadOnly(true);
+	m_textBrowser->setHtml(html);
+	m_textBrowser->setTextInteractionFlags(Qt::LinksAccessibleByMouse);
+	m_textBrowser->setOpenLinks(1);
+	m_textBrowser->setOpenExternalLinks(1);
 
 	auto * vLayout = new QVBoxLayout(this);
-	vLayout->addWidget(m_textEdit);
+	vLayout->addWidget(m_textBrowser);
 
 }
 
 void TipsAndTricks::initTipSets() {
 	if (TipSets.count() > 0) return;
-
+	
 
 	QString localStorage = tr("The local storage folder is used for storing data that is specific to Fritzing, "
 							  "such as custom parts and settings, as well as temporary and long-term files "
@@ -74,16 +78,20 @@ void TipsAndTricks::initTipSets() {
 							  "On Windows 11, the default location is typically C:\\Users[user name]\\AppData\\Roaming\\Fritzing, "
 							  "and on macOS Mojave or later, the default location is usually ~/Library/Application Support/Fritzing/.");
 
+	
 	auto * ts = new TipSet;
 	ts->heading = tr("Money Tip");
 	ts->tips << tr("Don't take wooden nickels.");
 	TipSets.append(ts);
-
+	
 	ts = new TipSet;
 	ts->heading = tr("Use the Right Tool");
-	ts->tips << tr("FreeCAD is great for making parametric parts https://freecad.org");
-	ts->tips << tr("KiCad is great for making PCB's https://kicad.org");
-	ts->tips << tr("Fritzing is great for instructional information https://fritzing.org");
+	
+	ts->tips << tr("FreeCAD is great for making parametric parts <a href='https://freecad.org'>https://freecad.org</a>");
+	ts->tips << tr("KiCad is great for making PCB's <a href='https://kicad.org'>https://kicad.org</a>");
+	ts->tips << tr("Fritzing is great for making breadboard and schematic instructions <a href='https://fritzing.org'>https://fritzing.org</a>");
+	
+	
 	
 	TipSets.append(ts);
 

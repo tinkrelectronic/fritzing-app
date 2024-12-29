@@ -27,6 +27,7 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 #include <QTextEdit>
 #include <QFile>
 #include <QList>
+#include <QtextBrowser>
 
 #include "../utils/misc.h"
 
@@ -55,8 +56,7 @@ protected:
 	static TipsAndTricks* Singleton;
 	static QList<TipSet *> TipSets;
 
-	QTextEdit* m_textEdit;
-
+	QTextBrowser* m_textBrowser;
 };
 
 #endif
