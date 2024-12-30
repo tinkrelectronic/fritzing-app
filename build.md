@@ -17,7 +17,7 @@ Additional Libraries (Qt)
 
 You can choose a different Qt version, but you will need to swap the dll's.
 
-### Fritzing Source
+## Fritzing Source
 Either download and extract zip or git clone to directory.
 
 ## Additional Libraries & Source/Binaries
