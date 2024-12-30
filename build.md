@@ -16,7 +16,7 @@ Be sure the default Qt is set to your installed Qt version in the Qt Tools VS ex
 Additional Libraries (Qt)
 
 ## Additional Libraries & Source/Binaries
-+ [Boost 1_85_0](https://github.com/tinkrelectronic/boost/archive/refs/tags/boost-1.85.0.zip)
++ [Boost 1_85_0](https://github.com/tinkrelectronic/boost/releases/download/boost-1.85.0/boost_1_85_0.zip)
 + [clipper-6.4.2](https://github.com/tinkrelectronic/clipper/archive/refs/tags/v6.4.2.zip)
 + [Quazip 1.4](https://github.com/tinkrelectronic/quazip/archive/refs/tags/v1.4.zip)
 + [Zlib 1.3.1](https://github.com/tinkrelectronic/zlib/archive/refs/tags/v1.3.1.zip)
