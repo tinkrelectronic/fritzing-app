@@ -15,6 +15,8 @@ Be sure the default Qt is set to your installed Qt version in the Qt Tools VS ex
 ## Qt 6.8.1 with msvc2022_64 tools installed
 Additional Libraries (Qt)
 
+You can choose a different Qt version, but you will need to swap the dll's.
+
 ### Fritzing Source
 Either download and extract zip or git clone to directory.
 
