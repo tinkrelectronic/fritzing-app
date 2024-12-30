@@ -22,3 +22,5 @@ Additional Libraries (Qt)
 + Zlib 1.3.1
 + ngspice-42
 + svgpp-1.3.1
+
+###New release.bat in the works to help set up.
