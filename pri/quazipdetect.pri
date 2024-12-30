@@ -3,7 +3,7 @@
 message("Using Fritzing quazip detect script.")
 
 QUAZIP_VERSION=1.4
-QUAZIP_PATH=$$absolute_path($$PWD/../quazip-$$QT_VERSION-$$QUAZIP_VERSION)
+QUAZIP_PATH=$$absolute_path($$PWD/../quazip-$$QUAZIP_VERSION)
 QUAZIP_INCLUDE_PATH=$$QUAZIP_PATH
 QUAZIP_LIB_PATH=$$QUAZIP_PATH/quazip/release
 
