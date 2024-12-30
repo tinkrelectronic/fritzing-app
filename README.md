@@ -1,22 +1,8 @@
 # Fritzing
 
-|Branch|Badge|
-|------|-----|
-|master|[![Build Status](https://travis-ci.org/fritzing/fritzing-app.svg?branch=master)](https://travis-ci.org/fritzing/fritzing-app)|
-|develop|[![Build Status](https://travis-ci.org/fritzing/fritzing-app.svg?branch=develop)](https://travis-ci.org/fritzing/fritzing-app)|
-
 The Fritzing application is an Electronic Design Automation software with a low entry barrier, suited for the needs of makers and hobbyists. It offers a unique real-life "breadboard" view, and a parts library with many commonly used high-level components. Fritzing makes it very easy to communicate about circuits, as well as to turn them into PCB layouts ready for production. It is particularly popular among Arduino and Raspberry Pi users, and is widely used in education and creative tinkering.
 
-* For more information on Fritzing and its related activities, visit [http://fritzing.org](http://fritzing.org). There you can also [download](http://fritzing.org/download) the latest releases for all platforms and get help on getting started.
-
-* To report a problem or suggest improvements, use the [issue tracker](https://github.com/fritzing/fritzing-app/issues) or the [user forum](http://forum.fritzing.org).
-Please provide steps, what operating system you are on, including the version. Add screenshots or copies of error messages, describe what behavior you saw and what you expected.
-
-* If you would like to help with the development, please take a look at those labels:
-  * [![label: easy start][~easy start]](https://github.com/fritzing/fritzing-app/labels/easy%20start)
-  * [![label: challenging start][~challenging start]](https://github.com/fritzing/fritzing-app/labels/challenging%20start)
-
-Some of those don't need C++ skills, like reproducing an issue on a certain platform, or verifying translations of languages we don't speak. If there is something for you, you might want to check the [developer instructions](https://github.com/fritzing/fritzing-app/wiki) next. This includes information about how to compile and run the Fritzing app.
+If there is something for you, you might want to check the [developer instructions](https://github.com/tinkrelectronic/fritzing-app/build.md) next. This includes information about how to compile and run the Fritzing app.
 
 ## Project Structure
 
@@ -55,7 +41,3 @@ license. You may publish circuits and diagrams that you create with Fritzing and
 publish your works under the same license.  A credit can be as simple as "this image was created with Fritzing."
 
 Lookup [our FAQs](http://fritzing.org/faq/) for more details on licensing.
-
-[~help wanted]: https://img.shields.io/badge/-help%20wanted-%23159818
-[~easy start]: https://img.shields.io/badge/-easy%20start-%2333AAFF
-[~challenging start]: https://img.shields.io/badge/-challenging%20start-%235500EE
