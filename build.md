@@ -21,6 +21,6 @@ Additional Libraries (Qt)
 + [Quazip 1.4](https://github.com/tinkrelectronic/quazip/archive/refs/tags/v1.4.zip)
 + [Zlib 1.3.1](https://github.com/tinkrelectronic/zlib/archive/refs/tags/v1.3.1.zip)
 + [ngspice-42](https://github.com/tinkrelectronic/ngspice/archive/refs/tags/v42.zip)
-+ svgpp-1.3.1
++ [svgpp-1.3.1](https://github.com/tinkrelectronic/svgpp/archive/refs/tags/v1.3.1.zip)
 
 ### New release.bat in the works to help set up.
