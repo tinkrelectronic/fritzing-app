@@ -80,12 +80,12 @@ AboutBox::AboutBox(QWidget *parent)
 	mainLayout->addWidget(versionMain);
 
 	// Link to website
-	auto *linkToFritzing = new QLabel();
-	linkToFritzing->setText("<a href=\"https://fritzing.org\">fritzing.org</a>");
-	linkToFritzing->setOpenExternalLinks(true);
-	linkToFritzing->setFont(smallFont);
-	linkToFritzing->setAlignment(Qt::AlignHCenter);
-	mainLayout->addWidget(linkToFritzing);
+	auto *linkToTinkr = new QLabel();
+	linkToTinkr->setText("<a href=\"https://tinkrelectronic.ca\">https://tinkrelectronic.ca</a>");
+	linkToTinkr->setOpenExternalLinks(true);
+	linkToTinkr->setFont(smallFont);
+	linkToTinkr->setAlignment(Qt::AlignHCenter);
+	mainLayout->addWidget(linkToTinkr);
 
 	// Scrolling Credits Text
 	QString data =

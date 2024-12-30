@@ -1290,7 +1290,7 @@ void MainWindow::createHelpMenuActions() {
 	m_partsRefAct->setStatusTip(tr("Open Parts Reference"));
 	connect(m_partsRefAct, SIGNAL(triggered(bool)), this, SLOT(openPartsReference()));
 
-	m_visitFritzingDotOrgAct = new QAction(tr("Visit fritzing.org"), this);
+	m_visitFritzingDotOrgAct = new QAction(tr("Donate to Fritzing"), this);
 	m_visitFritzingDotOrgAct->setStatusTip(tr("fritzing.org"));
 	connect(m_visitFritzingDotOrgAct, SIGNAL(triggered(bool)), this, SLOT(visitFritzingDotOrg()));
 
@@ -1645,6 +1645,7 @@ void MainWindow::createHelpMenu()
 	m_helpMenu->addAction(m_openHelpAct);
 	m_helpMenu->addAction(m_examplesAct);
 	m_helpMenu->addAction(m_partsRefAct);
+	m_helpMenu->addAction(m_visitFritzingDotOrgAct);
 	m_helpMenu->addSeparator();
 	m_helpMenu->addAction(m_partsEditorHelpAct);
 	m_helpMenu->addSeparator();
