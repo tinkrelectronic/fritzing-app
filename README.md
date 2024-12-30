@@ -2,7 +2,7 @@
 
 The Fritzing application is an Electronic Design Automation software with a low entry barrier, suited for the needs of makers and hobbyists. It offers a unique real-life "breadboard" view, and a parts library with many commonly used high-level components. Fritzing makes it very easy to communicate about circuits, as well as to turn them into PCB layouts ready for production. It is particularly popular among Arduino and Raspberry Pi users, and is widely used in education and creative tinkering.
 
-If there is something for you, you might want to check the [developer instructions](/../../build.md) next. This includes information about how to compile and run the Fritzing app.
+If there is something for you, you might want to check the [developer instructions](/build.md) next. This includes information about how to compile and run the Fritzing app.
 
 ## Project Structure
 
