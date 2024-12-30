@@ -47,5 +47,7 @@ Extract Additional libraries/source to look like this
   Note: If you want to build from the original fritzing branch just swap the PRI folder and       pheonix.pro file in the root directory.
 
   This will create the fritzing.exe file.
+
+  These are the dll's and other resources without the executable [zipped](https://github.com/tinkrelectronic/fritzing-app/releases/download/base/fritzingbasefolder.zip). Enjoy your tinkering!
   
   
