@@ -37,7 +37,7 @@ Extract Additional libraries/source to look like this
 +  /fritzing-app/ngspice-42/
 +  /fritzing-app/svgpp-1.3.1/
 
-  in MSVC2022 click extensions and use the Qt tool to open pheonix.pro
+  in MSVC2022 click extensions and use the Qt tool (Open Qt Profect File) to open pheonix.pro
   and wait. Once it loads fully you may save the SVN (solution)
   
   
