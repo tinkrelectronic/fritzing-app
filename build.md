@@ -41,8 +41,8 @@ Extract Additional libraries/source to look like this
 +  /fritzing-app/svgpp-1.3.1/
 +  /fritzing-app/libgit2/ (Rename to libgit2)
 
-  in MSVC2022 click extensions and use the Qt tool (Open Qt Project (.pro) File) to open pheonix.pro
-  and wait. Once it loads fully you may save the SVN (solution)
+  in MSVC2022 click extensions and use the Qt tool (Open Qt Project File (.pro)) to open pheonix.pro
+  and wait. Once it loads fully you may save the SLN (solution)
 
   Change to release, then build solution. 
 
