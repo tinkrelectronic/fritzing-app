@@ -23,4 +23,4 @@ Additional Libraries (Qt)
 + ngspice-42
 + svgpp-1.3.1
 
-###New release.bat in the works to help set up.
+### New release.bat in the works to help set up.
