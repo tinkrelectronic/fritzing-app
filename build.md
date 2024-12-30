@@ -44,7 +44,7 @@ Extract Additional libraries/source to look like this
 
   Change to release, then build solution. 
 
-  Note: If you want to build from the original fritzing branch just swap the PRI folder and       pheonix.pro file in the root directory.
+  Note: If you want to build from the original fritzing branch just swap the PRI folder and pheonix.pro file in the root directory from this source.
 
   This will create the fritzing.exe file.
 
