@@ -90,8 +90,8 @@ void TipsAndTricks::initTipSets() {
 	ts->tips << tr("FreeCAD is great for making parametric parts <a href='https://freecad.org'>https://freecad.org</a>");
 	ts->tips << tr("KiCad is great for making PCB's <a href='https://kicad.org'>https://kicad.org</a>");
 	ts->tips << tr("Fritzing is great for making breadboard and schematic instructions <a href='https://fritzing.org'>https://fritzing.org</a>");
-	
-	
+	ts->tips << tr("Inkscape is great for creating SVG files (Including Fritzing Parts) <a href='https://inkscape.org/'>https://inkscape.org/</a>");
+
 	
 	TipSets.append(ts);
 
