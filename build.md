@@ -27,9 +27,9 @@ Either download and extract zip or git clone to directory.
 + [svgpp-1.3.1](https://github.com/tinkrelectronic/svgpp/archive/refs/tags/v1.3.1.zip)
 
 ### New release.bat in the works to help set up.
+Set up the Fritzing Source Code Directory
+Extract Additional libraries/source to look like this
 
-+ Set up the Fritzing Source Code Directory
-+ Extract Additional libraries/source to look like this
 +  /fritzing-app/clipper-6.4.2/
 +  /fritzing-app/boost_1_85_0/
 +  /fritzing-app/quazip-1.4/
