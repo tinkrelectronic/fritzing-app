@@ -37,9 +37,15 @@ Extract Additional libraries/source to look like this
 +  /fritzing-app/zlib-1.3.1/
 +  /fritzing-app/ngspice-42/
 +  /fritzing-app/svgpp-1.3.1/
-+  /fritzing-app/libgit2/
++  /fritzing-app/libgit2/ (Rename to libgit2)
 
   in MSVC2022 click extensions and use the Qt tool (Open Qt Profect File) to open pheonix.pro
   and wait. Once it loads fully you may save the SVN (solution)
+
+  Change to release, then build solution. 
+
+  Note: If you want to build from the original fritzing branch just swap the PRI folder and       pheonix.pro file in the root directory.
+
+  This will create the fritzing.exe file.
   
   
