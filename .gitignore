@@ -78,11 +78,10 @@ index
 /exboost*
 /.vs*
 
-resource.h
 /flex*
 /clipper*
 phoenix.qtvscr
 
-resource.h
+h
 license.rtf
 

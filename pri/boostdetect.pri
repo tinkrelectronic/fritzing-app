@@ -36,7 +36,7 @@ defined(boost_root, var) {
     for(boost, BOOSTS) {
         exists(../boost_1_$${boost}_0) {
             LATESTBOOST = $$boost
-            BOOSTPATH = ../boost_1_$${boost}_0
+            BOOSTPATH = boost_1_$${boost}_0
         }
     }
 }
