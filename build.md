@@ -30,12 +30,12 @@ Either download and extract zip or git clone to directory.
 
 + Set up the Fritzing Source Code Directory
 + Extract Additional libraries/source to look like this
-  /fritzing-app/clipper-6.4.2/
-  /fritzing-app/boost_1_85_0/
-  /fritzing-app/quazip-1.4/
-  /fritzing-app/zlib-1.3.1/
-  /fritzing-app/ngspice-42/
-  /fritzing-app/svgpp-1.3.1/
++  /fritzing-app/clipper-6.4.2/
++  /fritzing-app/boost_1_85_0/
++  /fritzing-app/quazip-1.4/
++  /fritzing-app/zlib-1.3.1/
++  /fritzing-app/ngspice-42/
++  /fritzing-app/svgpp-1.3.1/
 
   in MSVC2022 click extensions and use the Qt tool to open pheonix.pro
   and wait. Once it loads fully you may save the SVN (solution)
