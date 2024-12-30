@@ -48,6 +48,6 @@ Extract Additional libraries/source to look like this
 
   This will create the fritzing.exe file.
 
-  These are the dll's and other resources without the executable [zipped](https://github.com/tinkrelectronic/fritzing-app/releases/download/base/fritzingbasefolder.zip). Enjoy your tinkering!
+  These are the dll's (Qt 6.8.1) and other resources without the executable [zipped](https://github.com/tinkrelectronic/fritzing-app/releases/download/base/fritzingbasefolder.zip). Enjoy your tinkering!
   
   
