@@ -27,7 +27,7 @@ Either download and extract zip or git clone to directory.
 + [svgpp-1.3.1](https://github.com/tinkrelectronic/svgpp/archive/refs/tags/v1.3.1.zip)
 + [libgit2](https://github.com/tinkrelectronic/libgit2/archive/refs/tags/v1.7.zip)
 
-### New release.bat in the works to help set up.
+### Set Up Instructions
 Set up the Fritzing Source Code Directory (/fritzing-app)
 Extract Additional libraries/source to look like this
 
