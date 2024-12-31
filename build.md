@@ -53,5 +53,13 @@ Extract Additional libraries/source to look like this
   This will create the fritzing.exe file.
 
   These are the dll's (Qt 6.8.1) and other resources without the executable [zipped](https://github.com/tinkrelectronic/fritzing-app/releases/download/base/fritzingbasefolder.zip). Enjoy your tinkering!
-  
-  
+
+# Install Setup File
+
+You may wish to create a setup for distribution, however most of it depends on what you use.
+
+These are the Registry areas of interest.
+
+![image](https://github.com/user-attachments/assets/b53e59d2-984e-4d09-9081-3423f36167fb)
+
+Post install you can make an executable or batch file to notify the windows shell of the new assosciation.
