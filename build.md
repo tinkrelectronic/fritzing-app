@@ -62,4 +62,4 @@ These are the Registry areas of interest.
 
 ![image](https://github.com/user-attachments/assets/b53e59d2-984e-4d09-9081-3423f36167fb)
 
-Post install you can make an executable or batch file to notify the windows shell of the new assosciation.
+For post install you can make an executable or batch file to notify the windows shell of the new assosciation.
