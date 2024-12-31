@@ -89,7 +89,6 @@ END
 // PNG
 //
 
-IDB_PNG1                PNG                     "D:\\src\\fritzing\\fritzing-app\\resources\\images\\splash\\splash_screen_start-dev.png"
 
 #endif    // English (United States) resources
 /////////////////////////////////////////////////////////////////////////////
