@@ -12,7 +12,7 @@ You will  need to install the Qt Tools for VS extension
 
 Be sure the default Qt is set to your installed Qt version in the Qt Tools VS extension
 
-## Qt 6.8.1 with msvc2022_64 tools installed
+### Qt 6.8.1 with msvc2022_64 tools installed
 [Qt Tools Installer](https://www.qt.io/download-qt-installer-oss)
 
 Additional Libraries (Qt)
