@@ -100,7 +100,7 @@ unix {
         } else {
             DEFINES += LINUX_32
         }
-        LIBS += -lz
+        LIBS += -Lz
     }
 
     isEmpty(PREFIX) {
