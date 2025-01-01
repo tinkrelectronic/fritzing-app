@@ -5,8 +5,8 @@ message("Using fritzing Clipper 1 detect script.")
 unix {
     message("including Clipper1 library on linux or mac")
 
-    exists($$absolute_path($$PWD/../../Clipper-6.4.2)) {
-	            CLIPPER1 = $$absolute_path($$PWD/../../Clipper1/6.4.2)
+    exists($$absolute_path($$PWD/../clipper-6.4.2)) {
+	            CLIPPER1 = $$absolute_path($$PWD/../clipper1/6.4.2)
 				message("found Clipper1 in $${CLIPPER1}")
 			}
 }
