@@ -15,7 +15,7 @@ exists($$Zlib_PATH) {
 	}
 
 INCLUDEPATH += $$Zlib_INCLUDE_PATH
-LIBS += -L$$Zlib_LIB_PATH -lzlibstatic
+LIBS += -L$$Zlib_LIB_PATH -Lzlibstatic
 
 unix {
 	message("set rpath for zlib")
@@ -23,5 +23,5 @@ unix {
 }
 
 macx {
-	LIBS += -lz
+	LIBS += -Lz
 }
