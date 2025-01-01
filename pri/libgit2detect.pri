@@ -18,8 +18,8 @@
 # macOS uses 1.7.1 static linked
 
 # Use libgit2 1.7.1 ( https://github.com/libgit2/libgit2/pull/6471 )
-LIBGIT_VERSION=1.7.1
-LIBGITPATH = $$absolute_path($$_PRO_FILE_PWD_/libgit2-$$LIBGIT_VERSION)
+#LIBGIT_VERSION=1.7.1
+LIBGITPATH = $$absolute_path($$_PRO_FILE_PWD_/libgit2)
 
 unix:!macx {
 	LIBGIT_STATIC = false
