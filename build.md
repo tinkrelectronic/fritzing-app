@@ -95,7 +95,7 @@ Extract Additional libraries/source to look like this
 +  /fritzing-app/libgit2/ (Rename to libgit2)
 
 ## Build
-+ Open the pheonix.pro file in QT creator
++ Open the pheonix.pro project file in QT creator
 + Configure Qt version
 + Build & Cross fingers
 
