@@ -29,7 +29,7 @@ Either download and extract zip or git clone to directory.
 + [Zlib-1.3.1](https://github.com/tinkrelectronic/zlib/archive/refs/tags/v1.3.1.zip)
 + [ngspice-42](https://github.com/tinkrelectronic/ngspice/archive/refs/tags/v42.zip)
 + [svgpp-1.3.1](https://github.com/tinkrelectronic/svgpp/archive/refs/tags/v1.3.1.zip)
-+ [libgit2](https://github.com/tinkrelectronic/libgit2/archive/refs/tags/v1.7.zip)
++ [libgit2](https://github.com/tinkrelectronic/libgit2/archive/refs/tags/v1.9.zip)
 
 ### Set Up Instructions
 Set up the Fritzing Source Code Directory (/fritzing-app)
