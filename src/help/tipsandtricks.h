@@ -27,7 +27,7 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 #include <QTextEdit>
 #include <QFile>
 #include <QList>
-#include <QtextBrowser>
+#include <QTextBrowser>
 
 #include "../utils/misc.h"
 
