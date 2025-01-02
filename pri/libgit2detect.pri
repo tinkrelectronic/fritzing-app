@@ -76,7 +76,7 @@ unix {
 		}
 	} else {
 		message("Enabled dynamic linking of libgit2 $$LIBGIT_VERSION")
-		INCLUDEPATH += $$LIBGITPATH/lib
+		INCLUDEPATH += $$LIBGITPATH/include
 		LIBS += -L$$LIBGIT2LIB -l:libgit2.so.1.9.0
 		!macx {
 			QMAKE_RPATHDIR += $$LIBGIT2LIB
