@@ -18,8 +18,8 @@
 # macOS uses 1.7.1 static linked
 
 # Use libgit2 1.7.1 ( https://github.com/libgit2/libgit2/pull/6471 )
-LIBGIT_VERSION=1.7.1
-LIBGITPATH = $$absolute_path($$_PRO_FILE_PWD_/libgit2-$$LIBGIT_VERSION)
+#LIBGIT_VERSION=1.7.1
+LIBGITPATH = $$absolute_path($$_PRO_FILE_PWD_/libgit2)
 
 unix:!macx {
 	LIBGIT_STATIC = false
@@ -76,8 +76,8 @@ unix {
 		}
 	} else {
 		message("Enabled dynamic linking of libgit2 $$LIBGIT_VERSION")
-		INCLUDEPATH += $$LIBGITPATH/include
-		LIBS += -L$$LIBGIT2LIB -lgit2
+		INCLUDEPATH += $$LIBGITPATH/lib
+		LIBS += -L$$LIBGIT2LIB -l:libgit2.so.1.9.0
 		!macx {
 			QMAKE_RPATHDIR += $$LIBGIT2LIB
 		}
