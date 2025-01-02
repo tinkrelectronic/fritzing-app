@@ -17,7 +17,7 @@ exists($$Zlib_PATH) {
 INCLUDEPATH += $$Zlib_INCLUDE_PATH
 LIBS += -L$$Zlib_LIB_PATH -lzlibstatic
 #Swap for Linux
-#LIBS += -L$$Zlib_LIB_PATH -l:libz.so.1.3.1.1-motley
+#LIBS += -L$$Zlib_LIB_PATH -l:libz.so
 
 unix {
 	message("set rpath for zlib")
