@@ -19,7 +19,7 @@ exists($$QUAZIP_PATH) {
 INCLUDEPATH += $$QUAZIP_INCLUDE_PATH
 LIBS += -L$$QUAZIP_LIB_PATH -lquazip1-qt$$QT_MAJOR_VERSION
 #Swap for Linux
-#LIBS += -L$$QUAZIP_LIB_PATH -l:libquazip1-qt6.so -l:libquazip1-qt6.so.1.4
+#LIBS += -L$$QUAZIP_LIB_PATH -l:libquazip1-qt6.so.1.4
 
 unix {
 	message("set rpath for quazip")
