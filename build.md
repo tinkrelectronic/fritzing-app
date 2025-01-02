@@ -54,7 +54,7 @@ Extract Additional libraries/source to look like this
 
   These are the dll's (Qt 6.8.1) and other resources without the executable [zipped](https://github.com/tinkrelectronic/fritzing-app/releases/download/base/fritzingbasefolder.zip). Enjoy your tinkering!
 
-# Install Setup File
+### Install Setup File
 
 You may wish to create a setup for distribution, however most of it depends on what you use.
 
