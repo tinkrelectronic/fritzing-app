@@ -75,6 +75,8 @@ Here is how to compile in a Linux environment.
 
 Additional Libraries (Qt)
 
+Qt Creator
+
 You can of course use another Qt version if you wish.
 
 ## Fritzing Source Code
