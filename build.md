@@ -69,6 +69,7 @@ For post install you can make an executable or batch file to notify the windows 
 
 ## Install Qt 6.8.1 or build from source
 + zlib, quazip and clipper edit the PRI files and swap LIB comments (#)
++ You can of course use another Qt version if you wish.
 
 ## Fritzing Source Code
 Download or git clone
