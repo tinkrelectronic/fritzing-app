@@ -75,9 +75,6 @@ Here is how to compile in a Linux environment.
 
 Additional Libraries (Qt)
 
-+ zlib, quazip and clipper edit the PRI files and swap LIB comments (#)
-+ You can of course use another Qt version if you wish.
-
 ## Fritzing Source Code
 Download or git clone
 
@@ -101,6 +98,10 @@ Extract Additional libraries/source to look like this
 +  /fritzing-app/ngspice-42/
 +  /fritzing-app/svgpp-1.3.1/
 +  /fritzing-app/libgit2/ (Rename to libgit2)
+
+  
++ zlib, quazip and clipper edit the PRI files and swap LIB comments (#)
++ You can of course use another Qt version if you wish.
 
 ## Build
 + Open the pheonix.pro project file in QT creator
