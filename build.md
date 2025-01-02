@@ -75,6 +75,8 @@ Here is how to compile in a Linux environment.
 
 Additional Libraries (Qt)
 
+You can of course use another Qt version if you wish.
+
 ## Fritzing Source Code
 Download or git clone
 
@@ -101,7 +103,7 @@ Extract Additional libraries/source to look like this
 
   
 + zlib, quazip and clipper edit the PRI files and swap LIB comments (#)
-+ You can of course use another Qt version if you wish.
+  
 
 ## Build
 + Open the pheonix.pro project file in QT creator
