@@ -97,6 +97,7 @@ Extract Additional libraries/source to look like this
 ## Build
 + Open the pheonix.pro project file in QT creator
 + Configure Qt version
++ Select Release
 + Build & Cross fingers
 
 ## Notes
