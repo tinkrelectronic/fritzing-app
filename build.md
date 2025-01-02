@@ -67,6 +67,8 @@ For post install you can make an executable or batch file to notify the windows 
 
 # Compiling for Linux
 
+Here is how to compile in a Linux environment.
+
 ## Install Qt 6.8.1 or build from source
 + zlib, quazip and clipper edit the PRI files and swap LIB comments (#)
 + You can of course use another Qt version if you wish.
