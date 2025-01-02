@@ -23,6 +23,7 @@ You can choose a different Qt version, but you will need to swap the dll's.
 Either download and extract zip or git clone to directory.
 
 ## Additional Libraries & Source/Binaries
+(download & Extract in fritzing-app directory)
 + [Boost 1_85_0](https://github.com/tinkrelectronic/boost/releases/download/boost-1.85.0/boost_1_85_0.zip)
 + [clipper-6.4.2](https://github.com/tinkrelectronic/clipper/archive/refs/tags/v6.4.2.zip)
 + [Quazip-1.4](https://github.com/tinkrelectronic/quazip/archive/refs/tags/v1.4.zip)
@@ -83,6 +84,8 @@ You can of course use another Qt version if you wish.
 Download or git clone
 
 ## Additional Libraries & Source/Binaries
+
+(download & Extract in fritzing-app directory)
 + [Boost 1_85_0](https://github.com/tinkrelectronic/boost/releases/download/boost-1.85.0/boost_1_85_0.zip)
 + [clipper-6.4.2](https://github.com/tinkrelectronic/clipper/archive/refs/tags/v6.4.2.zip)
 + [Quazip-1.4](https://github.com/tinkrelectronic/quazip/archive/refs/tags/v1.4.zip)
