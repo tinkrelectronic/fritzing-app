@@ -19,7 +19,7 @@ Additional Libraries (Qt)
 
 You can choose a different Qt version, but you will need to swap the dll's.
 
-[Fritzing Base Folder](https://github.com/tinkrelectronic/fritzing-app/releases/download/base/fritzingbasefolder.zip)
+[Fritzing Base Folder ](https://github.com/tinkrelectronic/fritzing-app/releases/download/base/fritzingbasefolder.zip)
 
 ## Fritzing Source Code
 Either download and extract zip or git clone to directory.
