@@ -18,7 +18,8 @@ Be sure the default Qt is set to your installed Qt version in the Qt Tools VS ex
 Additional Libraries (Qt)
 
 You can choose a different Qt version, but you will need to swap the dll's.
-[Fritzing Base Folder](https://github.com/tinkrelectronic/fritzing-app/releases/download/base/fritzingbasefolder.zip)
+
+[Fritzing Base Folder ](https://github.com/tinkrelectronic/fritzing-app/releases/download/base/fritzingbasefolder.zip)
 
 ## Fritzing Source Code
 Either download and extract zip or git clone to directory.
@@ -80,6 +81,7 @@ Additional Libraries (Qt)
 Qt Creator
 
 You can of course use another Qt version if you wish.
+
 [Fritzing Base Folder](https://github.com/tinkrelectronic/fritzing-app/releases/download/base/fritzingbasefolder.zip)
 
 ## Fritzing Source Code
