@@ -18,6 +18,7 @@ Be sure the default Qt is set to your installed Qt version in the Qt Tools VS ex
 Additional Libraries (Qt)
 
 You can choose a different Qt version, but you will need to swap the dll's.
+[Fritzing Base Folder](https://github.com/tinkrelectronic/fritzing-app/releases/download/base/fritzingbasefolder.zip)
 
 ## Fritzing Source Code
 Either download and extract zip or git clone to directory.
@@ -79,6 +80,7 @@ Additional Libraries (Qt)
 Qt Creator
 
 You can of course use another Qt version if you wish.
+[Fritzing Base Folder](https://github.com/tinkrelectronic/fritzing-app/releases/download/base/fritzingbasefolder.zip)
 
 ## Fritzing Source Code
 Download or git clone
@@ -122,5 +124,7 @@ You may need to build the linux libraries for some of the dependancies. I am not
 You may also need to install some qt6 libraries to run Fritzing.
 
 OpenSSL v 3.0.15 or higher is required to be installed for build.(fallback)
+
+libglx and libgles may also be required
 
 General Tip -L is specifies libraries directory -l the library file -l: if it starts with an "l"
