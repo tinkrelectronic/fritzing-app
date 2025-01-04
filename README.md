@@ -8,7 +8,7 @@ If there is something for you, you might want to check the [developer instructio
 
 * **help** - End-user documentation included with the app. 
 
-* **parts** - All the part definitions, including meta data (.fzp) and graphics (.svg), as well as some utility tools. They are kept in a separate repository at [https://github.com/fritzing/fritzing-parts](http://github.com/fritzing/fritzing-parts) and only linked from here.
+* **parts** - All the part definitions, including meta data (.fzp) and graphics (.svg), as well as some utility tools. They are kept in a separate repository at [https://github.com/tinkrelectronic/fritzing-parts](http://github.com/tinkrelectronic/fritzing-parts) and only linked from here.
 
 * **pri** - Submodule definitions for Qt
 
