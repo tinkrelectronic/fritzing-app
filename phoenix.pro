@@ -209,3 +209,5 @@ TARGET = Fritzing
 TEMPLATE = app
 
 !build_pass:message("libs $$LIBS")
+#Linux Search Launch For Libs
+#QMAKE_LFLAGS += -Wl,-rpath,"'\$$ORIGIN'"
