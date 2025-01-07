@@ -94,7 +94,7 @@ Download or git clone
 + [clipper-6.4.2](https://github.com/tinkrelectronic/clipper/archive/refs/tags/v6.4.2.zip)
 + [Quazip-1.4](https://github.com/tinkrelectronic/quazip/archive/refs/tags/v1.4.zip)
 + [Zlib-1.3.1](https://github.com/tinkrelectronic/zlib/archive/refs/tags/v1.3.1.zip)
-+ [ngspice-42](https://github.com/tinkrelectronic/ngspice/releases/download/v42/ngspice-42.tar.gz)
++ [ngspice-42](https://github.com/tinkrelectronic/ngspice/archive/refs/tags/v42.zip)
 + [svgpp-1.3.1](https://github.com/tinkrelectronic/svgpp/archive/refs/tags/v1.3.1.zip)
 + [libgit2](https://github.com/tinkrelectronic/libgit2/archive/refs/tags/v1.9.zip)
 
