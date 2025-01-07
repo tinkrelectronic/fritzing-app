@@ -130,3 +130,5 @@ OpenSSL v 3.0.15 or higher is required to be installed for build.(fallback) (lib
 libgles may also be required
 
 General Tip -L is specifies libraries directory -l the library file -l: if it starts with an "l"
+
+If you would like to make an install package I recommend cqtdeployer
