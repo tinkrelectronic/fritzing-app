@@ -209,3 +209,5 @@ TARGET = Fritzing
 TEMPLATE = app
 
 !build_pass:message("libs $$LIBS")
+#Linux search for libs
+#QMAKE_RPATHDIR += lib
