@@ -125,6 +125,6 @@ It's been a long time since I've compiled in linux, even longer with a GUI.
 You may need to build the linux libraries for some of the dependancies. I am not sure how these carry over to other distros.
 You may also need to install some qt6 libraries to run Fritzing.
 
-OpenSSL v 3.0.15 or higher is required to be installed for build.(fallback) (libSSL)
+OpenSSL v 3.0.15 or higher is required to be installed for build.(fallback) (libssl-dev & pkg-config)
 
 General Tip -L is specifies libraries directory -l the library file -l: if it starts with an "l"
