@@ -131,4 +131,6 @@ libgles may also be required
 
 If you would like to make an install package I recommend cqtdeployer
 
+ldd [executable] extremely useful!
+
 General Tip -L is specifies libraries directory -l the library file -l: if it starts with an "l"
