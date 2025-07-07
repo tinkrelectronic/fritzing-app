@@ -52,8 +52,6 @@ public:
 	static void cleanup();
 	static QString makeRequestParamsString(bool withID);
 
-public:
-	static QString FirstVersionWithDetachedUserData;
 
 protected:
 	Version();

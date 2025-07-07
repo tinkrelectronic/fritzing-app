@@ -86,7 +86,7 @@ public:
 	}
 	static QPointF calcConstraint(QPointF initial, QPointF current);
 
-	static constexpr double pixels2mils(double p, double dpi) noexcept { 
+	static constexpr double pixels2mils(double p, double dpi) noexcept {
 		return p * 1000.0 / dpi;
 	}
 	static constexpr double pixels2ins(double p, double dpi) noexcept {
@@ -134,6 +134,7 @@ public:
 	static constexpr double StandardFritzingDPI = 1000;
 	static constexpr double SVGDPI = 90;
 	static constexpr double InchesPerMeter = 1000.0 / 25.4;
+	static constexpr double Inch2mm = 25.4;
 	static constexpr double StandardSchematicSeparationMils = 7.5 * 1000.0 / 25.4;
 	static constexpr double StandardSchematicSeparation10thinMils = 100;  // 0.1 inches
 

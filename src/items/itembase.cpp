@@ -25,6 +25,7 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 #include "../model/modelpart.h"
 #include "../connectors/connectoritem.h"
 #include "../sketch/infographicsview.h"
+#include "sketch/sketchwidget.h"
 #include "../connectors/connector.h"
 #include "../connectors/bus.h"
 #include "partlabel.h"
@@ -217,19 +218,19 @@ void ItemBase::initNames() {
 	}
 
 	if (TranslatedPropertyNames.count() == 0) {
-		TranslatedPropertyNames.insert("family", tr("family"));
+		TranslatedPropertyNames.insert("family", tr("family", "component family, interchangebable"));
 		TranslatedPropertyNames.insert("type", tr("type"));
 		TranslatedPropertyNames.insert("model", tr("model"));
 		TranslatedPropertyNames.insert("size", tr("size"));
 		TranslatedPropertyNames.insert("color", tr("color"));
-		TranslatedPropertyNames.insert("resistance", tr("resistance"));
+		TranslatedPropertyNames.insert("resistance", tr("resistance", "electrical resistance of a component"));
 		TranslatedPropertyNames.insert("capacitance", tr("capacitance"));
 		TranslatedPropertyNames.insert("inductance", tr("inductance"));
 		TranslatedPropertyNames.insert("voltage", tr("voltage"));
 		TranslatedPropertyNames.insert("current", tr("current"));
 		TranslatedPropertyNames.insert("power", tr("power"));
 		TranslatedPropertyNames.insert("pin spacing", tr("pin spacing"));
-		TranslatedPropertyNames.insert("rated power", tr("rated power"));
+		TranslatedPropertyNames.insert("rated power", tr("rated power", "maximum power rating"));
 		TranslatedPropertyNames.insert("rated voltage", tr("rated voltage"));
 		TranslatedPropertyNames.insert("rated current", tr("rated current"));
 		TranslatedPropertyNames.insert("version", tr("version"));
@@ -240,7 +241,7 @@ void ItemBase::initNames() {
 		TranslatedPropertyNames.insert("maximum resistance", tr("maximum resistance"));
 		TranslatedPropertyNames.insert("pins", tr("pins"));
 		TranslatedPropertyNames.insert("spacing", tr("spacing"));
-		TranslatedPropertyNames.insert("pin spacing", tr("pin spacing"));
+		TranslatedPropertyNames.insert("pin spacing", tr("pin spacing", "distance between pins"));
 		TranslatedPropertyNames.insert("frequency", tr("frequency"));
 		TranslatedPropertyNames.insert("processor", tr("processor"));
 		TranslatedPropertyNames.insert("variant", tr("variant"));
@@ -253,21 +254,21 @@ void ItemBase::initNames() {
 		TranslatedPropertyNames.insert("rev", tr("rev"));
 		TranslatedPropertyNames.insert("sheet", tr("sheet"));
 		TranslatedPropertyNames.insert("project", tr("project"));
-		TranslatedPropertyNames.insert("banded", tr("banded"));
-		TranslatedPropertyNames.insert("top", tr("top"));
-		TranslatedPropertyNames.insert("bottom", tr("bottom"));
-		TranslatedPropertyNames.insert("copper bottom", tr("copper bottom"));
-		TranslatedPropertyNames.insert("copper top", tr("copper top"));
+		TranslatedPropertyNames.insert("banded", tr("banded", "wire color bands, for example red/white or green/white"));
+		TranslatedPropertyNames.insert("top", tr("top", "placed on the top side of the board"));
+		TranslatedPropertyNames.insert("bottom", tr("bottom", "placed on the bottom side of the board"));
+		TranslatedPropertyNames.insert("copper bottom", tr("copper bottom", "bottom copper PCB layer"));
+		TranslatedPropertyNames.insert("copper top", tr("copper top", "top copper PCB layer"));
 		TranslatedPropertyNames.insert("silkscreen bottom", tr("silkscreen bottom"));
 		TranslatedPropertyNames.insert("silkscreen top", tr("silkscreen top"));
-		TranslatedPropertyNames.insert("mn", tr("mn"));
-		TranslatedPropertyNames.insert("mpn", tr("mpn"));
+		TranslatedPropertyNames.insert("mn", tr("mn", "Manufacturer Number"));
+		TranslatedPropertyNames.insert("mpn", tr("mpn", "Manufacturer Parts Number"));
 
 		// TODO: translate more known property names from fzp files and resource xml files
 
 	}
 
-	PartInstanceDefaultTitle = tr("Part");
+	PartInstanceDefaultTitle = tr("Part", "electronic component");
 
 	QSettings settings;
 	QString colorName = settings.value("ConnectedColor").toString();
@@ -609,7 +610,7 @@ void ItemBase::hoverLeaveEvent ( QGraphicsSceneHoverEvent * event ) {
 	}
 }
 
-void ItemBase::updateConnections(bool /* includeRatsnest */, QList<ConnectorItem *> & /* already */) { } 
+void ItemBase::updateConnections(bool /* includeRatsnest */, QList<ConnectorItem *> & /* already */) { }
 
 void ItemBase::updateConnections(ConnectorItem * connectorItem, bool includeRatsnest, QList<ConnectorItem *> & already) {
 	if (!already.contains(connectorItem)) {
@@ -660,35 +661,44 @@ QList<Bus *> ItemBase::buses() {
 	return busList;
 }
 
-void ItemBase::busConnectorItems(class Bus * bus, ConnectorItem * /* fromConnectorItem */, QList<class ConnectorItem *> & items) {
+bool ItemBase::busConnectorItems(ConnectorItem * fromConnectorItem, QList<class ConnectorItem *> & items) {
+	auto * bus = fromConnectorItem->bus();
+	if (bus == nullptr && ! ((m_superpart != nullptr) || m_subparts.count() > 0)) return false;
 
-	if (bus == nullptr) return;
+	if (m_superpart != nullptr || m_subparts.count() > 0) {
+		QList<QPointer<ItemBase>> subOrSuperparts;
+		if (m_superpart != nullptr) {
+			subOrSuperparts = m_superpart->subparts();
+			subOrSuperparts.append(m_superpart);
+		} else {
+			subOrSuperparts = m_subparts;
+		}
 
-	Q_FOREACH (Connector * connector, bus->connectors()) {
-		Q_FOREACH (ConnectorItem * connectorItem, connector->viewItems()) {
-			if (connectorItem != nullptr) {
-				//connectorItem->debugInfo(QString("on the bus %1").arg((long) connector, 0, 16));
-				if (connectorItem->attachedTo() == this) {
+		for (ItemBase * part: subOrSuperparts) {
+			for (ConnectorItem * connectorItem: part->cachedConnectorItems()) {
+				if (connectorItem->connectorSharedID() == fromConnectorItem->connectorSharedID()) {
 					items.append(connectorItem);
+					break;
 				}
 			}
 		}
 	}
 
-	if ((m_superpart != nullptr) || m_subparts.count() > 0) {
-		Connector * connector = bus->subConnector();
-		if (connector != nullptr) {
-			Q_FOREACH (ConnectorItem * connectorItem, connector->viewItems()) {
+	if (bus) {
+		for (Connector * connector: bus->connectors()) {
+			for (ConnectorItem * connectorItem: connector->viewItems()) {
 				if (connectorItem != nullptr) {
 					//connectorItem->debugInfo(QString("on the bus %1").arg((long) connector, 0, 16));
 					if (connectorItem->attachedToViewID() == m_viewID) {
-						items.append(connectorItem);
+						if (!items.contains(connectorItem)) {
+							items.append(connectorItem);
+						}
 					}
 				}
 			}
 		}
 	}
-
+	return items.size() > 0;
 
 	/*
 	if (items.count() > 0) {
@@ -1194,15 +1204,28 @@ void ItemBase::ensureUniqueTitle(const QString & title, bool force) {
 
 QVariant ItemBase::itemChange(QGraphicsItem::GraphicsItemChange change, const QVariant & value)
 {
-	switch (change) {
-	case QGraphicsItem::ItemSelectedChange:
-		if (m_partLabel != nullptr) {
+	if (change == QGraphicsItem::ItemSelectedChange) {
+		if (m_partLabel) {
 			m_partLabel->ownerSelected(value.toBool());
 		}
+	}
 
-		break;
-	default:
-		break;
+	if (change == QGraphicsItem::ItemSceneChange) {
+		QGraphicsScene* oldScene = scene();
+		QGraphicsScene* newScene = qvariant_cast<QGraphicsScene*>(value);
+
+		if (oldScene != newScene) {
+			if (oldScene) {
+				if (auto *oldSketch = dynamic_cast<SketchWidget *>(oldScene->views().constFirst())) {
+					oldSketch->unregisterItem(this);
+				}
+			}
+			if (newScene) {
+				if (auto *newSketch = dynamic_cast<SketchWidget *>(newScene->views().constFirst())) {
+					newSketch->registerItem(this);
+				}
+			}
+		}
 	}
 
 	return QGraphicsSvgItem::itemChange(change, value);
@@ -1276,7 +1299,7 @@ void ItemBase::transformItem2(const QTransform & matrix) {
 	transformItem(transform, false);
 }
 
-void ItemBase::collectWireConnectees(QSet<Wire *> & /* wires */) { } 
+void ItemBase::collectWireConnectees(QSet<Wire *> & /* wires */) { }
 
 bool ItemBase::collectFemaleConnectees(QSet<ItemBase *> & /* items */) {
 	return false;			// means no male connectors
@@ -1363,7 +1386,6 @@ FSvgRenderer * ItemBase::setUpImage(ModelPart * modelPart, LayerAttributes & lay
 		break;
 	}
 
-	auto * newRenderer = new FSvgRenderer();
 	QDomDocument flipDoc;
 	getFlipDoc(modelPart, filename, layerAttributes.viewLayerID, layerAttributes.viewLayerPlacement, flipDoc, layerAttributes.orientation);
 	QByteArray bytesToLoad;
@@ -1405,6 +1427,7 @@ FSvgRenderer * ItemBase::setUpImage(ModelPart * modelPart, LayerAttributes & lay
 		}
 	}
 
+	auto * newRenderer = new FSvgRenderer();
 	QByteArray resultBytes;
 	if (!bytesToLoad.isEmpty()) {
 		if (makeLocalModifications(bytesToLoad, filename)) {
@@ -1629,7 +1652,9 @@ bool ItemBase::collectExtraInfo(QWidget * parent, const QString & family, const 
 	QList<QPair<QString, QString>> collection;
 	ItemBase * targetItem(this);
 
-	if (prop.compare("chip label", Qt::CaseInsensitive) == 0 || prop.compare("variant", Qt::CaseInsensitive) == 0) {
+	if (prop.compare("chip label", Qt::CaseInsensitive) == 0 ||
+		prop.compare("font", Qt::CaseInsensitive) == 0 ||
+		prop.compare("variant", Qt::CaseInsensitive) == 0) {
 		// Get a list of ModuleIDs with their associated values for the property 'prop'
 		// This should be the prefered method for all parts that get fully swapped.
 		// for now, we only do this for 'chip label' and 'variant'
@@ -1642,6 +1667,7 @@ bool ItemBase::collectExtraInfo(QWidget * parent, const QString & family, const 
 		// Original method. Only look at the property text. This does not work well
 		// with translations, and often requires difficult (buggy) reverse lookups
 		// to identify the part with that property.
+		// Note: tempValue is being modified by some instances such as LogoItem::collectValues.
 		QStringList values = collectValues(family, prop, tempValue);
 		for (const QString &value : values) {
 			collection.append(qMakePair(QString(), value));
@@ -1676,12 +1702,18 @@ bool ItemBase::collectExtraInfo(QWidget * parent, const QString & family, const 
 		// Fixme: Does this still work when using item data? tempValue will be a moduleID then.
 		// Also, swapEntry will overwrite prop (see ~ 30 lines below) , probably before it ever gets used.
 		// Remove ?
+		// See comment below about MainWindow::swapSelectedMap
 		m_propsMap.insert(prop, tempValue);
 		FProbeSwitchProperty::insertIf(prop,
 									   comboBox,
-									   "Package, Layer, Variant, Pins, Form, Position, Row, Stepper type, Chip label"
+									   "Package, Type, Bands, Layer, Variant, Pins, Form, Position, Row, Stepper type, Chip label"
 									   );
 		return true;
+	} else if (collection.count() == 1) {
+		// Note: the following lines in MainWindow::swapSelectedMap depend on m_propsMap:
+		// m_referenceModel->recordProperty(key, value);
+		// m_referenceModel->retrieveModuleIdWith(family, prop, true);
+		m_propsMap.insert(prop, tempValue);
 	}
 	return true;
 }
@@ -2263,31 +2295,6 @@ void ItemBase::addSubpart(ItemBase * sub)
 	sub->debugInfo("\t");
 	m_subparts.append(sub);
 	sub->setSuperpart(this);
-	Q_FOREACH (ConnectorItem * connectorItem, sub->cachedConnectorItems()) {
-		Bus * subbus = connectorItem->bus();
-		Connector * subconnector = nullptr;
-		if (subbus == nullptr) {
-			subconnector = connectorItem->connector();
-			if (subconnector != nullptr) {
-				subbus = new Bus(nullptr, nullptr);
-				subconnector->setSubBus(subbus);
-			}
-		}
-
-		Connector * connector = modelPart()->getConnector(connectorItem->connectorSharedID());
-		if (connector != nullptr) {
-			if (subbus != nullptr) subbus->addSubConnector(connector);
-			if (subconnector != nullptr) {
-				Bus * bus = connector->bus();
-				if (bus == nullptr) {
-					bus = new Bus(nullptr, nullptr);
-					connector->setSubBus(bus);
-				}
-
-				bus->addSubConnector(subconnector);
-			}
-		}
-	}
 }
 
 void ItemBase::removeSubpart(ItemBase * sub)
@@ -2296,23 +2303,6 @@ void ItemBase::removeSubpart(ItemBase * sub)
 	sub->debugInfo("\t");
 	m_subparts.removeAll(sub);
 	sub->setSuperpart(nullptr);
-	Q_FOREACH (ConnectorItem * connectorItem, sub->cachedConnectorItems()) {
-		Connector * subconnector = nullptr;
-		subconnector = connectorItem->connector();
-		if (subconnector != nullptr) {
-			subconnector->removeSubBus();
-		}
-
-		auto * mp = modelPart();
-		if (mp != nullptr) {
-			Connector * connector = modelPart()->getConnector(connectorItem->connectorSharedID());
-			if (connector != nullptr) {
-				if (subconnector != nullptr) {
-					connector->removeSubBus();
-				}
-			}
-		}
-	}
 }
 
 void ItemBase::setSuperpart(ItemBase * super) {

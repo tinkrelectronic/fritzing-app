@@ -23,10 +23,9 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 #include "src/utils/misc.h"
 #include "../model/modelpart.h"
 
-Bus::Bus(BusShared * busShared, ModelPart * modelPart) 
+Bus::Bus(BusShared * busShared, ModelPart * modelPart)
 	: QObject(),
 	m_connectors(),
-	m_subConnector(nullptr),
 	m_busShared(busShared),
 	m_modelPart(modelPart)
 {
@@ -48,17 +47,4 @@ void Bus::addConnector(Connector * connector) {
 
 ModelPart * Bus::modelPart() const noexcept {
 	return m_modelPart;
-}
-
-void Bus::addSubConnector(Connector * subConnector) {
-	m_subConnector = subConnector;
-}
-
-Connector * Bus::subConnector() const noexcept {
-	return m_subConnector;
-}
-
-void Bus::removeSubConnector() {
-	delete m_subConnector;
-	m_subConnector = nullptr;
 }

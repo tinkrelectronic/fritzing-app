@@ -34,7 +34,7 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 
 QString Version::m_majorVersion("1");
 QString Version::m_minorVersion("0");
-QString Version::m_minorSubVersion("4-T2 DEV");
+QString Version::m_minorSubVersion("5-T2 DEV");
 QString Version::m_modifier("");
 QString Version::m_gitVersion(GIT_VERSION);
 QString Version::m_gitDate(GIT_DATE);  // want standard ISO form
@@ -46,7 +46,6 @@ QStringList Version::m_modifiers;
 
 Version * Version::m_singleton = new Version();
 
-QString Version::FirstVersionWithDetachedUserData = "0.3.1b.05.26.3016";
 
 Version::Version() {
 	if (m_modifiers.count() == 0) {

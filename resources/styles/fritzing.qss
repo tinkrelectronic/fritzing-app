@@ -2398,3 +2398,8 @@ QPrintDialog QPushButton:pressed {
     background-color: #666666;
     color: #ffffff;
 }
+
+QMessageBox QTextEdit {
+    background-color: #ececec;
+    color: #333333;
+}

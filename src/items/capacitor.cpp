@@ -113,7 +113,7 @@ bool Capacitor::collectExtraInfo(QWidget * parent, const QString & family, const
     //			QString pattern = QString("((\\d{0,10})|(\\d{0,10}\\.)|(\\d{0,10}\\.\\d{1,10}))[%1]{0,1}%2")
                 QString pattern = QString("((-?\\d{1,3})|(-?\\d{1,3}\\.)|(-?\\d{1,3}\\.\\d{1,2}))[%1]{0,1}%2").arg(
     //			QString pattern = QString("((\\d{0,3})|(\\d{0,3}\\.)|(\\d{0,3}\\.\\d{1,3}))[%1]{0,1}%2")
-					TextUtils::PowerPrefixesString, 
+					TextUtils::PowerPrefixesString,
                     symbolRegExp
                 );
 				validator->setRegularExpression(QRegularExpression(pattern));

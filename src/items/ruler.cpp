@@ -40,7 +40,7 @@ Ruler::Ruler( ModelPart * modelPart, ViewLayer::ViewID viewID, const ViewGeometr
 {
 	m_widthEditor = nullptr;
 	m_unitsEditor = nullptr;
-	m_widthValidator = nullptr;
+
 	QString w = modelPart->localProp("width").toString();
 	if (w.isEmpty()) {
 		if (DefaultWidth.isEmpty()) {
@@ -155,7 +155,7 @@ QString Ruler::makeSvg(double inches) {
 				       .arg(y)
 				       .arg(QString::number(counter++));
 				if (counter == 1) {
-					svg += QString("<text x='%1' y='%2'>cm</text>").arg(x + 103).arg(y);
+					svg += QString("<text text-anchor='start' x='%1' y='%2'>cm</text>").arg(x + 50).arg(y);
 				}
 			}
 			else if (i % 5 == 0) {
@@ -194,7 +194,8 @@ QString Ruler::makeSvg(double inches) {
 				       .arg(y)
 				       .arg(QString::number(counter++));
 				if (counter == 1) {
-					svg += QString("<text x='%1' y='%2'>in</text>").arg(x + 103).arg(y);
+					svg += QString("<text text-anchor='start' x='%1' y='%2'>%3</text>")
+					.arg(x + 50).arg(y).arg(tr("inch"));
 				}
 			}
 			else if (i % 8 == 0) {
@@ -248,37 +249,40 @@ bool Ruler::hasCustomSVG() {
 
 bool Ruler::collectExtraInfo(QWidget * parent, const QString & family, const QString & prop, const QString & value, bool swappingEnabled, QString & returnProp, QString & returnValue, QWidget * & returnWidget, bool & hide)
 {
+	static constexpr int MaxSpinBoxWidth = 60;
+
 	bool result = PaletteItem::collectExtraInfo(parent, family, prop, value, swappingEnabled, returnProp, returnValue, returnWidget, hide);
 
 	if (prop.compare("width", Qt::CaseInsensitive) == 0) {
-		returnProp = tr("width");
+		returnProp = tr("length");  // Changed from "width" to "length"
 
 		int units = m_modelPart->localProp("width").toString().contains("cm") ? IndexCm : IndexIn;
-		auto * e1 = new QLineEdit();
-		auto * validator = new QDoubleValidator(e1);
-		validator->setRange(1.0, 20 * ((units == IndexCm) ? 2.54 : 1), 2);
-		validator->setNotation(QDoubleValidator::StandardNotation);
-		validator->setLocale(QLocale::C);
-		e1->setValidator(validator);
-		e1->setEnabled(swappingEnabled);
+
+		// Create QDoubleSpinBox instead of QLineEdit
+		auto * spinBox = new QDoubleSpinBox();
+		spinBox->setDecimals(2);
+		spinBox->setMinimum(1.0);
+		spinBox->setMaximum(20 * ((units == IndexCm) ? 2.54 : 1));
+		spinBox->setSingleStep(0.1);
+		spinBox->setEnabled(swappingEnabled);
+		spinBox->setLocale(TextUtils::getLocale());
 		QString temp = m_modelPart->localProp("width").toString();
 		temp.chop(2);
-		e1->setText(temp);
-		e1->setObjectName("infoViewLineEdit");
-		e1->setMaximumWidth(80);
+		spinBox->setValue(temp.toDouble());
+		spinBox->setObjectName("infoViewDoubleSpinBox");
+		spinBox->setMaximumWidth(MaxSpinBoxWidth);
+		spinBox->setMinimumWidth(MaxSpinBoxWidth);
 
-		m_widthEditor = e1;
-		m_widthValidator = validator;
+
+		m_widthEditor = spinBox;
 
 		// Radio Buttons
 		auto *radioCm = new QRadioButton(tr("&cm"));
 		auto *radioIn = new QRadioButton(tr("&in"));
 
-		// set radio button object names
 		radioCm->setObjectName("cm");
 		radioIn->setObjectName("in");
 
-		// update pointer and set checked
 		if (units == IndexIn) {
 			radioIn->setChecked(true);
 			m_unitsEditor = radioIn;
@@ -295,9 +299,8 @@ bool Ruler::collectExtraInfo(QWidget * parent, const QString & family, const QSt
 		hboxLayout->setAlignment(Qt::AlignRight);
 		hboxLayout->setContentsMargins(0, 0, 0, 0);
 		hboxLayout->setSpacing(5);
-		hboxLayout->setContentsMargins(0, 0, 0, 0);
 
-		hboxLayout->addWidget(e1);
+		hboxLayout->addWidget(spinBox);
 		hboxLayout->addWidget(radioCm);
 		hboxLayout->addWidget(radioIn);
 		hboxLayout->addSpacerItem(item);
@@ -306,7 +309,7 @@ bool Ruler::collectExtraInfo(QWidget * parent, const QString & family, const QSt
 		frame->setLayout(hboxLayout);
 		frame->setObjectName("infoViewPartFrame");
 
-		connect(e1, SIGNAL(editingFinished()), this, SLOT(widthEntry()));
+		connect(spinBox, SIGNAL(valueChanged(double)), this, SLOT(widthEntry()));
 		connect(radioCm, SIGNAL(clicked()), this, SLOT(unitsEntry()));
 		connect(radioIn, SIGNAL(clicked()), this, SLOT(unitsEntry()));
 
@@ -319,36 +322,32 @@ bool Ruler::collectExtraInfo(QWidget * parent, const QString & family, const QSt
 	return result;
 }
 
-void Ruler::widthEntry() {
-	auto * edit = qobject_cast<QLineEdit *>(sender());
-	if (edit == nullptr) return;
 
-	QString t = edit->text();
+void Ruler::widthEntry() {
+	auto * spinBox = qobject_cast<QDoubleSpinBox *>(sender());
+	if (spinBox == nullptr) return;
+
+	double value = spinBox->value();
 	QString w = prop("width");
 	w.chop(2);
-	if (t.compare(w) == 0) {
+	if (QString::number(value, 'f', 2) == w) {
 		return;
 	}
 
 	InfoGraphicsView * infoGraphicsView = InfoGraphicsView::getInfoGraphicsView(this);
 	if (infoGraphicsView != nullptr) {
-		// get current object units
 		int units = (m_unitsEditor->objectName() == "cm") ? IndexCm : IndexIn;
-		DefaultWidth = edit->text() + m_unitsEditor->objectName();
-		infoGraphicsView->resizeBoard(edit->text().toDouble(), units, false);
+		DefaultWidth = QString::number(value) + m_unitsEditor->objectName();
+		infoGraphicsView->resizeBoard(value, units, false);
 	}
 }
 
 void Ruler::unitsEntry() {
-	// get clicked object
 	auto * obj = qobject_cast<QRadioButton *>(sender());
 	if (obj == nullptr) return;
 
-	// update pointer
 	m_unitsEditor = obj;
-
 	QString units = obj->objectName();
-
 	double inches = TextUtils::convertToInches(prop("width"));
 
 	// save local prop incase render fails so we can revert back to original.
@@ -357,12 +356,11 @@ void Ruler::unitsEntry() {
 	if (units == "in") {
 		// set local prop so makeSvg has the current width and units.
 		modelPart()->setLocalProp("width", QVariant(QString::number(inches) + "in"));
-
 		QString s = makeSvg(inches);
 		bool result = resetRenderer(s);
 		if (result) {
-			m_widthEditor->setText(QString::number(inches));
-			m_widthValidator->setTop(20);
+			m_widthEditor->setValue(inches);
+			m_widthEditor->setMaximum(20);
 		}
 		else {
 			// if render error restore original prop
@@ -372,12 +370,11 @@ void Ruler::unitsEntry() {
 	else {
 		// set local prop so makeSvg has the current width and units.
 		modelPart()->setLocalProp("width", QVariant(QString::number(inches * 2.54) + "cm"));
-
 		QString s = makeSvg(inches);
 		bool result = resetRenderer(s);
 		if (result) {
-			m_widthEditor->setText(QString::number(inches * 2.54));
-			m_widthValidator->setTop(20 * 2.54);
+			m_widthEditor->setValue(inches * 2.54);
+			m_widthEditor->setMaximum(20 * 2.54);
 		}
 		else {
 			// if render error restore original prop

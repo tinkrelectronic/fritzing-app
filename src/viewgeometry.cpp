@@ -21,14 +21,14 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 #include "viewgeometry.h"
 #include "utils/graphicsutils.h"
 
-ViewGeometry::ViewGeometry(  ) 
+ViewGeometry::ViewGeometry(  )
 	: m_loc(-1, -1),
 	m_line(-1, -1, -1, -1),
 	m_wireFlags(WireFlag::NoFlag)
 {
 }
 
-ViewGeometry::ViewGeometry(const ViewGeometry& that) 
+ViewGeometry::ViewGeometry(const ViewGeometry& that)
 	: m_z(that.m_z),
 	m_loc(that.m_loc),
 	m_line(that.m_line),
@@ -47,7 +47,7 @@ ViewGeometry& ViewGeometry::operator=(const ViewGeometry& that)
 	return *this;
 }
 
-ViewGeometry::ViewGeometry(QDomElement & geometry) 
+ViewGeometry::ViewGeometry(QDomElement & geometry)
 	: m_z(geometry.attribute("z").toDouble()),
 	m_loc(geometry.attribute("x").toDouble(),
 	      geometry.attribute("y").toDouble()),

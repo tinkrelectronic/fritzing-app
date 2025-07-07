@@ -60,10 +60,26 @@ public:
 	QString getInspectorTitle();
 	void setInspectorTitle(const QString & oldText, const QString & newText);
 
+public Q_SLOTS:
+	void swapEntry(int index);
+
 protected Q_SLOTS:
 	void logoEntry();
 	void widthEntry();
 	void heightEntry();
+
+private:
+	QString hackSvg_v4(const QString &svg, const QString &logo);
+	QString hackSvg_v5(const QString &svg, const QString &logo);
+	void migrateToVersion5();
+
+	std::pair<double, double> getTextPosition(const QDomElement &root, int index);
+
+	QStringList getViewBox(const QDomElement &root);
+
+	bool parseDOM(QDomDocument &doc, const QString &svg, const QString &context);
+
+	QString removeFlip(const QString &svg);
 
 protected:
 	virtual QString hackSvg(const QString & svg, const QString & logo);

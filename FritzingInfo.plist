@@ -27,9 +27,9 @@ You should have received a copy of the GNU General Public License
         <key>CFBundleExecutable</key>
         <string>Fritzing</string>
         <key>CFBundleGetInfoString</key>
-		<string>Fritzing 1.0.4</string>
+		<string>Fritzing 1.0.5</string>
         <key>CFBundleShortVersionString</key>
-		<string>1.0.4</string>
+		<string>1.0.5</string>
         <key>CFBundleVersion</key>
 		<string>104347</string>
         <key>CFBundleIconFile</key>

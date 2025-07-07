@@ -112,7 +112,7 @@ public:
 
 	void collectConnectors(ConnectorPairHash & connectorHash, SkipCheckFunction);
 
-	virtual void busConnectorItems(Bus * bus, ConnectorItem *, QList<ConnectorItem *> & items);
+	virtual bool busConnectorItems(ConnectorItem *, QList<ConnectorItem *> & items);
 	virtual void setHidden(bool hidden);
 	virtual void setLayerHidden(bool hidden);
 	constexpr bool hidden() const noexcept { return m_hidden; }

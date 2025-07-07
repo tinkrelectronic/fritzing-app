@@ -22,6 +22,7 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 #include "sketch/sketchwidget.h"
 #include "waitpushundostack.h"
 #include "items/wire.h"
+#include "items/logoitem.h"
 #include "connectors/connectoritem.h"
 #include "items/moduleidnames.h"
 #include "utils/bezier.h"
@@ -2028,6 +2029,60 @@ QString LoadLogoImageCommand::getParamString() const {
 
 ///////////////////////////////////////////////
 
+ResizeLogoCommand::ResizeLogoCommand(SketchWidget* sketchWidget, long itemID,
+								   double oldWidth, double oldHeight,
+								   double newWidth, double newHeight,
+								   const QString& logoProperty,
+								   QUndoCommand* parent)
+	: BaseCommand(BaseCommand::SingleView, sketchWidget, parent)
+	, m_itemID(itemID)
+	, m_oldWidth(oldWidth)
+	, m_oldHeight(oldHeight)
+	, m_newWidth(newWidth)
+	, m_newHeight(newHeight)
+	, m_logoProperty(logoProperty)
+{
+}
+
+void ResizeLogoCommand::undo()
+{
+	if (!m_redoOnly) {
+		LogoItem* logo = qobject_cast<LogoItem*>(m_sketchWidget->findItem(m_itemID));
+		if (logo) {
+			logo->setLogo(m_logoProperty, true);
+			m_sketchWidget->resizeBoard(m_itemID, m_oldWidth, m_oldHeight);
+		}
+	}
+	BaseCommand::undo();
+}
+
+void ResizeLogoCommand::redo()
+{
+	if (!m_undoOnly) {
+		LogoItem* logo = qobject_cast<LogoItem*>(m_sketchWidget->findItem(m_itemID));
+		if (logo) {
+			logo->setLogo(m_logoProperty, true);
+			m_sketchWidget->resizeBoard(m_itemID, m_newWidth, m_newHeight);
+		}
+	}
+	BaseCommand::redo();
+}
+
+QString ResizeLogoCommand::getParamString() const
+{
+	return QString("ResizeLogoCommand ")
+		   + BaseCommand::getParamString() +
+		   QString(" id:%1 ow:%2 oh:%3 nw:%4 nh:%5 logo:%6")
+		   .arg(m_itemID)
+		   .arg(m_oldWidth)
+		   .arg(m_oldHeight)
+		   .arg(m_newWidth)
+		   .arg(m_newHeight)
+		   .arg(m_logoProperty);
+}
+
+///////////////////////////////////////////////
+
 ChangeBoardLayersCommand::ChangeBoardLayersCommand(SketchWidget *sketchWidget, int oldLayers, int newLayers, QUndoCommand *parent)
 	: BaseCommand(BaseCommand::SingleView, sketchWidget, parent),
 	m_oldLayers(oldLayers),
@@ -2140,13 +2195,22 @@ void GroundFillSeedCommand::redo()
 	BaseCommand::redo();
 }
 
-void GroundFillSeedCommand::addItem(long id, const QString & connectorID, bool seed)
+void GroundFillSeedCommand::setSeedState(long id, const QString & connectorID, bool setSeed)
 {
 	GFSThing gfsThing;
 	gfsThing.id = id;
 	gfsThing.connectorID = connectorID;
-	gfsThing.seed = seed;
+	gfsThing.seed = setSeed;
 	m_items.append(gfsThing);
+}
+
+// Convenience wrappers for more explicit intent
+void GroundFillSeedCommand::addSeed(long id, const QString & connectorID) {
+	setSeedState(id, connectorID, true);
+}
+
+void GroundFillSeedCommand::removeSeed(long id, const QString & connectorID) {
+	setSeedState(id, connectorID, false);
 }
 
 QString GroundFillSeedCommand::getParamString() const {

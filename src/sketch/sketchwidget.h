@@ -44,6 +44,7 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "renderthing.h"
 #include "swapthing.h"
+#include "utils/fpsmonitor.h"
 
 class SubpartSwapManager;
 
@@ -362,7 +363,7 @@ protected:
 	ViewLayer::ViewLayerID getConnectorViewLayerID();
 	virtual ViewLayer::ViewLayerID getLabelViewLayerID(ItemBase *);
 	ViewLayer::ViewLayerID getNoteViewLayerID();
-	void dragMoveHighlightConnector(QPoint eventPos);
+	void dragMoveHighlightConnector(QPointF eventPos);
 
 	void addToScene(ItemBase * item, ViewLayer::ViewLayerID viewLayerID);
 	ConnectorItem * findConnectorItem(ItemBase * item, const QString & connectorID, ViewLayer::ViewLayerPlacement);
@@ -405,9 +406,9 @@ protected:
 	virtual bool disconnectFromFemale(ItemBase * item, QHash<long, ItemBase *> & savedItems, ConnectorPairHash &, bool doCommand, bool rubberBandLegEnabled, QUndoCommand * parentCommand);
 	void clearDragWireTempCommand();
 	bool draggingWireEnd();
-	void moveItems(QPoint globalPos, bool checkAutoScroll, bool rubberBandLegEnabled);
+	void moveItems(QPointF globalPos, bool checkAutoScroll, bool rubberBandLegEnabled);
 	void moveItemsScene(QPointF scenePos, bool checkAutoScrollFlag, bool rubberBandLegEnabled);
-	void moveItemsAux(QPointF scenePos, QPoint globalPos, bool checkAutoScrollFlag, bool rubberBandLegEnabled);
+	void moveItemsAux(QPointF scenePos, QPointF globalPos, bool checkAutoScrollFlag, bool rubberBandLegEnabled);
 	virtual ViewLayer::ViewLayerID multiLayerGetViewLayerID(ModelPart * modelPart, ViewLayer::ViewID, ViewLayer::ViewLayerPlacement, LayerList &);
 	virtual BaseCommand::CrossViewType wireSplitCrossView();
 	virtual bool canChainMultiple();
@@ -418,7 +419,7 @@ protected:
 	virtual void setUpColor(ConnectorItem * fromConnectorItem, ConnectorItem * toConnectorItem, Wire * wire, QUndoCommand * parentCommand);
 	void setupAutoscroll(bool moving);
 	void turnOffAutoscroll();
-	bool checkAutoscroll(QPoint globalPos);
+	bool checkAutoscroll(QPointF globalPos);
 	virtual void setWireVisible(Wire *);
 	bool matchesLayer(ModelPart * modelPart);
 
@@ -577,6 +578,9 @@ Q_SIGNALS:
 	void enableUndoRedo();
 	void undoSignal();
 
+public:
+	void registerItem(ItemBase* itemBase);
+	void unregisterItem(ItemBase* itemBase);
 protected Q_SLOTS:
 	void itemAddedSlot(ModelPart *, ItemBase *, ViewLayer::ViewLayerPlacement, const ViewGeometry &, long id, SketchWidget * dropOrigin);
 	void itemDeletedSlot(long id);
@@ -618,6 +622,7 @@ protected Q_SLOTS:
 	void canConnect(Wire * from, ItemBase * to, bool & connect);
 	long swapStart(SwapThing & swapThing, bool master);
 	virtual void getDroppedItemViewLayerPlacement(ModelPart * modelPart, ViewLayer::ViewLayerPlacement &);
+
 
 public Q_SLOTS:
 	void changeWireColor(const QString newColor);
@@ -681,7 +686,7 @@ protected:
 	volatile int m_autoScrollX = 0;
 	volatile int m_autoScrollY = 0;
 	volatile int m_autoScrollCount = 0;
-	QPoint m_globalPos;
+	QPointF m_globalPos;
 
 	QPointer<PaletteItem> m_lastPaletteItemSelected;
 
@@ -759,14 +764,24 @@ protected:
 	double m_ratsnestWidth = 0.0;
     QString m_simMessage = "";
 
+	bool m_useOpenGL;
+	bool m_showFPS;
+	FPSMonitor *m_fpsMonitor = nullptr;
+
 public:
 	static ViewLayer::ViewLayerID defaultConnectorLayer(ViewLayer::ViewID viewId);
 	static constexpr int PropChangeDelay = 100;
 	static bool m_blockUI;
 
+
 protected:
 	static constexpr int MoveAutoScrollThreshold = 5;
 	static constexpr int DragAutoScrollThreshold = 10;
+
+private:
+	QHash<long, ItemBase*> m_itemBaseHash;          // direct id lookup
+	QHash<long, ItemBase*> m_baseIdItemBaseHash;    // base id lookup for chief/kin
+
 };
 
 #endif

@@ -130,10 +130,14 @@ void NgSpiceSimulator::init()
 		m_handles[symbol] = (void *) m_library.resolve(symbol.c_str());
 	}
 
-	std::string previousLocale = setlocale(LC_NUMERIC, nullptr);
-	setlocale(LC_NUMERIC, "C");
+	if (localeconv()->decimal_point[0] != '.') {
+		QString errorMsg = "Error: Locale for LC_NUMERIC is not set to 'C'. Current decimal point: " +
+						   QString(localeconv()->decimal_point);
+		DebugDialog::debug(errorMsg);
+		throw std::runtime_error(errorMsg.toStdString());
+	}
+
 	GET_FUNC(ngSpice_Init)(&SendCharFunc, &SendStatFunc, &ControlledExitFunc, nullptr, nullptr, &BGThreadRunningFunc, nullptr);
-	setlocale(LC_NUMERIC, previousLocale.c_str());
 
 	m_isBGThreadRunning = true;
 	m_isInitialized = true;
@@ -172,11 +176,8 @@ void NgSpiceSimulator::loadCircuit(const std::string& netList) {
 		garbageCollector.push_back(shared);
 	}
 	components.push_back(nullptr);
-
-	std::string previousLocale = setlocale(LC_NUMERIC, nullptr);
-	setlocale(LC_NUMERIC, "C");
 	GET_FUNC(ngSpice_Circ)(components.data());
-	setlocale(LC_NUMERIC, previousLocale.c_str());
+
 }
 
 
@@ -192,17 +193,13 @@ void NgSpiceSimulator::command(const std::string& command) {
 	if (!m_isInitialized) {
 		init();
 	}
-	std::string previousLocale = setlocale(LC_NUMERIC, nullptr);
-	setlocale(LC_NUMERIC, "C");
+
 	GET_FUNC(ngSpice_Command)(UNIQ(command));
-	setlocale(LC_NUMERIC, previousLocale.c_str());
+
 }
 
 std::vector<double> NgSpiceSimulator::getVecInfo(const std::string& vecName) {
-	std::string previousLocale = setlocale(LC_NUMERIC, nullptr);
-	setlocale(LC_NUMERIC, "C");
 	vector_info* vecInfo = GET_FUNC(ngGet_Vec_Info)(UNIQ(vecName));
-	setlocale(LC_NUMERIC, previousLocale.c_str());
 
 	if (!vecInfo) return std::vector<double>();
 

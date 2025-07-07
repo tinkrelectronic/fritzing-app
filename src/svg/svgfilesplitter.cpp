@@ -81,7 +81,7 @@ bool SvgFileSplitter::splitString(QString & contents, const QString & elementID)
 	int errorColumn;
 
 	if (!m_domDocument.setContent(contents, true, &errorStr, &errorLine, &errorColumn)) {
-		//DebugDialog::debug(QString("parse error: %1 l:%2 c:%3\n\n%4").arg(errorStr).arg(errorLine).arg(errorColumn).arg(contents));
+		DebugDialog::debug(QString("parse error: %1 l:%2 c:%3\n\n%4").arg(errorStr).arg(errorLine).arg(errorColumn).arg(contents));
 		return false;
 	}
 
@@ -108,13 +108,17 @@ bool SvgFileSplitter::splitString(QString & contents, const QString & elementID)
 		QRectF viewBox;
 
 		bool ok = TextUtils::extractViewBox(viewBoxString, viewBox);
+		if (ok) {
+			if (viewBox.topLeft().x() != 0 || viewBox.topLeft().y() != 0) {
+				superTransforms.append(QString("translate(%1,%2)")
+										   .arg(-viewBox.topLeft().x())
+										   .arg(-viewBox.topLeft().y()));
 
-		if (viewBox.topLeft().x() != 0 || viewBox.topLeft().y() != 0) {
-			superTransforms.append(QString("translate(%1,%2)").arg(-viewBox.topLeft().x()).arg(-viewBox.topLeft().y()));
-
-			root.setAttribute("viewBox", QString("0 0 %1 %2")
-					  .arg(viewBox.width())
-					  .arg(viewBox.height()));
+				root.setAttribute("viewBox",
+								  QString("0 0 %1 %2").arg(viewBox.width()).arg(viewBox.height()));
+			}
+		} else {
+			DebugDialog::stream(DebugDialog::Warning) << "Can not parse this viewBox: " << viewBoxString;
 		}
 	}
 

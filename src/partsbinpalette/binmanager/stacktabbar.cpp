@@ -83,7 +83,7 @@ void StackTabBar::dragLeaveEvent(QDragLeaveEvent *event) {
 
 void StackTabBar::dragMoveEvent(QDragMoveEvent* event) {
 	const QMimeData *m = event->mimeData();
-	int index = tabAt(event->pos());
+	int index = tabAt(event->position().toPoint());
 	if ((event->source() != this) && mimeIsAction(m,"part-reordering")) {
 		auto* bin = qobject_cast<PartsBinPaletteWidget*>(m_parent->widget(index));
 		if((bin != nullptr) && bin->allowsChanges()) {
@@ -99,7 +99,7 @@ void StackTabBar::dragMoveEvent(QDragMoveEvent* event) {
 }
 
 void StackTabBar::dropEvent(QDropEvent* event) {
-	int toIndex = tabAt(event->pos());
+	int toIndex = tabAt(event->position().toPoint());
 
 	const QMimeData *m = event->mimeData();
 	if(mimeIsAction(m, "part-reordering")) {

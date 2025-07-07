@@ -23,10 +23,10 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 #include <QAction>
 
 
-ViewLayerCheckBox::ViewLayerCheckBox(QWidget * parent) : QCheckBox(parent), m_viewLayer(nullptr) { } 
+ViewLayerCheckBox::ViewLayerCheckBox(QWidget * parent) : QCheckBox(parent), m_viewLayer(nullptr) { }
 //////////////////////////////////////
 
-LayerPalette::LayerPalette(QWidget * parent) 
+LayerPalette::LayerPalette(QWidget * parent)
 	: QScrollArea(parent),
 	m_showAllWidget(new QCheckBox(tr("show all layers"))),
 	m_checkBoxes(),
@@ -37,7 +37,7 @@ LayerPalette::LayerPalette(QWidget * parent)
 {
 
 	auto *frame = new QFrame(this);
-    
+   
 	m_mainLayout->setSizeConstraint( QLayout::SetMinAndMaxSize );
 	m_mainLayout->setObjectName("LayerWindowFrame");
 	for (int i = 0; i < ViewLayer::ViewLayerCount; i++) {

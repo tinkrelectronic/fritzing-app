@@ -434,11 +434,20 @@ void Board::moreCheckImage(const QString & filename) {
 	}
 
 	QString msg = tr("<b>The custom shape has been loaded, and you will see the new board shortly.</b><br/><br/>");
-	msg += tr("Before actual PCB production we recommend that you test your custom shape by using the 'File > Export for Production > Extended Gerber' option. ");
-	msg += tr("Check the resulting contour file with a Gerber-viewer application to make sure the shape came out as expected.<br/><br/>");
+	msg
+		+= tr(
+			"Before ordering PCB manufacturing, we recommend validating your design by exporting "
+			"it as Gerber files (File → Export → for Production → Extended Gerber)."
+			);
+	msg += tr("Check the resulting contour file with a Gerber-viewer application to make sure the "
+			  "shape came out as expected.<br/><br/>"
+			  );
 
 	msg += tr("The rest of this message concerns 'cutouts'. ");
-	msg += tr("These are circular or irregularly-shaped holes that you can optionally incorporate into a custom PCB shape.<br/><br/>");
+	msg += tr("These are circular or irregularly-shaped holes that you can optionally incorporate "
+			  "into a custom PCB shape.<br/><br/>"
+			  );
+
 	if (subpaths == 1) {
 		msg += tr("<b>The custom shape has no cutouts.</b>");
 	}
@@ -448,8 +457,9 @@ void Board::moreCheckImage(const QString & filename) {
 			msg += tr("<br/>However, the cutouts may not be formatted correctly.");
 		}
 	}
-	msg +=  tr("<br/><br/>If you intended your custom shape to have cutouts and you did not get the expected result, ");
-	msg += tr("it is because Fritzing requires that you make cutouts using a shape 'subtraction' or 'difference' operation in your vector graphics editor.");
+	msg +=  tr("<br/><br/>If you intended your custom shape to have cutouts and you did not get the expected result, "
+			  "it is likely because Fritzing requires that you make cutouts using a shape 'subtraction' or 'difference' "
+			  "operation in your vector graphics editor.");
 	QMessageBox::information(nullptr, "Custom Shape", msg);
 }
 
@@ -1062,7 +1072,10 @@ void ResizableBoard::widthEntry() {
 	auto * edit = qobject_cast<QLineEdit *>(sender());
 	if (edit == nullptr) return;
 
-	double w = edit->text().toDouble();
+	QString text = edit->text();
+	text.replace(TextUtils::getLocale().decimalPoint(), QChar('.'));
+
+	double w = text.toDouble();
 	double oldW = m_modelPart->localProp("width").toDouble();
 	if (w == oldW) return;
 
@@ -1078,7 +1091,10 @@ void ResizableBoard::heightEntry() {
 	auto * edit = qobject_cast<QLineEdit *>(sender());
 	if (edit == nullptr) return;
 
-	double h = edit->text().toDouble();
+	QString text = edit->text();
+	text.replace(TextUtils::getLocale().decimalPoint(), QChar('.'));
+
+	double h = text.toDouble();
 	double oldH =  m_modelPart->localProp("height").toDouble();
 	if (h == oldH) return;
 
@@ -1276,6 +1292,9 @@ QFrame * ResizableBoard::setUpDimEntry(bool includeAspectRatio, bool includeReve
 	hboxLayout2->setContentsMargins(0, 0, 0, 0);
 	hboxLayout2->setSpacing(2);
 
+	QLocale locale = TextUtils::getLocale();
+	QString decimalPoint = locale.decimalPoint();
+
 	auto * l1 = new QLabel(tr("width(mm)"));
 	l1->setContentsMargins(0, 0, 0, 0);
 	l1->setObjectName("infoViewLabel");
@@ -1283,11 +1302,11 @@ QFrame * ResizableBoard::setUpDimEntry(bool includeAspectRatio, bool includeReve
 	auto * validator = new QDoubleValidator(e1);
 	validator->setRange(0.1, 999.9, m_decimalsAfter);
 	validator->setNotation(QDoubleValidator::StandardNotation);
-	validator->setLocale(QLocale::C);
+	validator->setLocale(locale);
 	e1->setObjectName("infoViewLineEdit");
 	e1->setValidator(validator);
 	e1->setMaxLength(4 + m_decimalsAfter);
-	e1->setText(QString::number(w));
+	e1->setText(QString::number(w, 'f', m_decimalsAfter).replace('.', decimalPoint));
 
 	auto * l2 = new QLabel(tr("height(mm)"));
 	l2->setContentsMargins(0, 0, 0, 0);
@@ -1296,11 +1315,11 @@ QFrame * ResizableBoard::setUpDimEntry(bool includeAspectRatio, bool includeReve
 	validator = new QDoubleValidator(e1);
 	validator->setRange(0.1, 999.9, m_decimalsAfter);
 	validator->setNotation(QDoubleValidator::StandardNotation);
-	validator->setLocale(QLocale::C);
+	validator->setLocale(locale);
 	e2->setObjectName("infoViewLineEdit");
 	e2->setValidator(validator);
 	e2->setMaxLength(4 + m_decimalsAfter);
-	e2->setText(QString::number(h));
+	e2->setText(QString::number(h, 'f', m_decimalsAfter).replace('.', decimalPoint));
 
 	hboxLayout1->addWidget(l1);
 	hboxLayout1->addWidget(e1);
@@ -1413,11 +1432,13 @@ void ResizableBoard::fixWH() {
 
 void ResizableBoard::setWidthAndHeight(double w, double h)
 {
+	QLocale locale = TextUtils::getLocale();
+
 	if (m_widthEditor != nullptr) {
-		m_widthEditor->setText(QString::number(w));
+		m_widthEditor->setText(locale.toString(w, 'f', m_decimalsAfter));
 	}
 	if (m_heightEditor != nullptr) {
-		m_heightEditor->setText(QString::number(h));
+		m_heightEditor->setText(locale.toString(h, 'f', m_decimalsAfter));
 	}
 	updatePaperSizes(w, h);
 }

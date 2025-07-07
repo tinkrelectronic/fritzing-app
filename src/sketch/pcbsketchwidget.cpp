@@ -2187,7 +2187,7 @@ void PCBSketchWidget::clearGroundFillSeeds()
 	auto * command = new GroundFillSeedCommand(this, nullptr);
 	command->setText(tr("Clear ground fill seeds"));
 	Q_FOREACH (ConnectorItem * connectorItem, trueSeeds) {
-		command->addItem(connectorItem->attachedToID(), connectorItem->connectorSharedID(), false);
+		command->removeSeed(connectorItem->attachedToID(), connectorItem->connectorSharedID());
 	}
 
 	m_undoStack->waitPush(command, PropChangeDelay);
@@ -2218,7 +2218,7 @@ void PCBSketchWidget::setGroundFillSeeds(const QString & intro)
 				if (command == nullptr) {
 					command = new GroundFillSeedCommand(this, nullptr);
 				}
-				command->addItem(ci->attachedToID(), ci->connectorSharedID(), isSeed);
+				command->setSeedState(ci->attachedToID(), ci->connectorSharedID(), isSeed);
 			}
 		}
 		if (command != nullptr) {
@@ -2261,7 +2261,11 @@ bool PCBSketchWidget::collectGroundFillSeeds(QList<ConnectorItem *> & seeds, boo
 		cis.append(ci);
 		ConnectorItem::collectEqualPotential(cis, true, ViewGeometry::NoFlag);
 		Q_FOREACH (ConnectorItem * eq, cis) {
-			if (eq != ci) trueSeeds.removeAll(eq);
+			if (eq != ci) {
+				if (ci->getCrossLayerConnectorItem() == eq) {
+					trueSeeds.removeAll(eq);
+				}
+			}
 			potentialSeeds.removeAll(eq);
 		}
 	}
@@ -2272,7 +2276,11 @@ bool PCBSketchWidget::collectGroundFillSeeds(QList<ConnectorItem *> & seeds, boo
 		cis.append(ci);
 		ConnectorItem::collectEqualPotential(cis, true, ViewGeometry::NoFlag);
 		Q_FOREACH (ConnectorItem * eq, cis) {
-			if (eq != ci) potentialSeeds.removeAll(eq);
+			if (eq != ci) {
+				if (ci->getCrossLayerConnectorItem() == eq) {
+					potentialSeeds.removeAll(eq);
+				}
+			}
 		}
 	}
 
@@ -2871,7 +2879,7 @@ void PCBSketchWidget::requestQuote() {
 	QSettings settings;
 	QString fabName = settings.value("service", "").toString();
 	if (fabName != "Aisler") {
-		qDebug() << fabName;
+		DebugDialog::stream() << fabName;
 		return;
 	}
 

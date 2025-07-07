@@ -363,12 +363,25 @@ FApplication::FApplication( int & argc, char ** argv) : QApplication(argc, argv)
 }
 
 int FApplication::init() {
+	setlocale(LC_NUMERIC, "C");
+	QLocale::setDefault(QLocale::C);
+
+// Conditionally disable the SVG size limit for Qt 6.5.
+// This fixes text elements being skipped during gerber export and copper fills.
+// Qt 6.7 already handles this differntly, we will have to revisit then.
+#if (QT_VERSION_MAJOR == 6) && (QT_VERSION_MINOR == 5)
+	// Set the environment variable to disable SVG size limits
+	qputenv("QT_SVG_DISABLE_SIZE_LIMIT", "1");
+#endif
 
 	//foreach (QString argument, m_arguments) {
 	//DebugDialog::debug(QString("argument %1").arg(argument));
 	//}
 
 	m_serviceType = ServiceType::NoService;
+
+	bool useOpenGL = false;
+	bool showFPS = false;
 
 	QList<int> toRemove;
 	for (int i = 0; i < m_arguments.length(); i++) {
@@ -400,6 +413,14 @@ int FApplication::init() {
 		        (m_arguments[i].compare("--debug", Qt::CaseInsensitive) == 0)) {
 			DebugDialog::setEnabled(true);
 			toRemove << i;
+			
+			// Check if the next argument is a filename for debug output
+			if (i + 1 < m_arguments.length() && !m_arguments[i + 1].startsWith("-")) {
+				m_debugLogFilename = m_arguments[i + 1];
+				DebugDialog::setLogFilename(m_debugLogFilename);
+				toRemove << i + 1;
+				i++; // Skip the filename parameter
+			}
 		}
 
 		if ((m_arguments[i].compare("-ftesting", Qt::CaseInsensitive) == 0) ||
@@ -408,6 +429,20 @@ int FApplication::init() {
 			std::shared_ptr<FTesting> fTesting = FTesting::getInstance();
 			fTesting->init();
 			toRemove << i;
+		}
+
+		if (m_arguments[i].compare("--opengl", Qt::CaseInsensitive) == 0) {
+			useOpenGL = true;
+			DebugDialog::debug("OpenGL rendering enabled via --opengl");
+			toRemove << i;
+			continue;
+		}
+
+		if (m_arguments[i].compare("--fps", Qt::CaseInsensitive) == 0) {
+			showFPS = true;
+			DebugDialog::debug("FPS Monitor enabled via --fps");
+			toRemove << i;
+			continue;
 		}
 
 		if (i + 1 >= m_arguments.length()) continue;
@@ -567,7 +602,39 @@ int FApplication::init() {
 	QCoreApplication::setOrganizationDomain("fritzing.org");
 	QCoreApplication::setApplicationName("Fritzing");
 
+	qRegisterMetaType<QLocale>();
 	qRegisterMetaType<UploadPair>("UploadPair");
+
+	QSettings settings;
+
+	if (!settings.contains("locale") || !settings.value("locale").canConvert<QLocale>()) {
+		QLocale locale = QLocale::system();
+		QLocale localeFromSystemName(locale.name());
+		if (localeFromSystemName.decimalPoint() != locale.decimalPoint()) {
+			const bool isCommaDecimal = (locale.decimalPoint() == QChar(','));
+			DebugDialog::debug(QString("Locale decimal points differ: 1. derived from system locale name alone: '%1' 2. from whole system locale: '%2'. Writing %3 locale to settings %4.")
+			    .arg(localeFromSystemName.decimalPoint())
+			    .arg(locale.decimalPoint())
+			    .arg(isCommaDecimal ? "German" : "English")
+			    .arg(isCommaDecimal ? "to fit with decimal point ','" : "because decimal point is not ','"));
+			locale = QLocale(isCommaDecimal ? QLocale::German : QLocale::English);
+		}
+
+		settings.setValue("locale", QVariant::fromValue(locale));
+
+		DebugDialog::debug(QString("Initializing locale setting with locale: %1 (numberOptions: %2) language: %3 script: %4 territory: %5 decimal point: %6")
+				   .arg(locale.name())
+				   .arg(static_cast<int>(locale.numberOptions()))
+				   .arg(QLocale::languageToString(locale.language()))
+				   .arg(QLocale::scriptToString(locale.script()))
+				   .arg(QLocale::territoryToString(locale.territory()))
+				   .arg(locale.decimalPoint()));
+	}
+
+	DebugDialog::debug(QString("OpenGL requested: %1").arg(useOpenGL ? "Yes" : "No"));
+	DebugDialog::debug(QString("FPS Monitor requested: %1").arg(showFPS ? "Yes" : "No"));
+	settings.setValue("Rendering/OpenGL", useOpenGL);
+	settings.setValue("Rendering/FPS", showFPS);
 
 	installEventFilter(this);
 
@@ -790,12 +857,14 @@ bool FApplication::findTranslator(const QString & translationsPath) {
 }
 
 void FApplication::registerFonts() {
-	registerFont(":/resources/fonts/DroidSans.ttf", true);
-	registerFont(":/resources/fonts/DroidSans-Bold.ttf", false);
-	registerFont(":/resources/fonts/DroidSansMono.ttf", false);
+	registerFont(":/resources/fonts/DroidSans/DroidSans.ttf", true);
+	registerFont(":/resources/fonts/DroidSans/DroidSans-Bold.ttf", false);
+	registerFont(":/resources/fonts/DroidSans/DroidSansMono.ttf", false);
 	registerFont(":/resources/fonts/OCRA.ttf", true);
 	registerFont(":/resources/fonts/Segment16/Segment16C Bold.ttf", true);
-	registerFont(":/resources/fonts/OCR-Fritzing-mono.otf", true);
+	// registerFont(":/resources/fonts/OCR-Fritzing-mono.otf", true);
+	registerFont(":/resources/fonts/OCR-Fritzing-mono.ttf", true);
+	registerFont(":/resources/fonts/NotoSans/NotoSans-Regular.ttf", true);
 
 	// "Droid Sans"
 	// "Droid Sans Mono"
@@ -924,7 +993,7 @@ void FApplication::runGerberService()
 QString FApplication::runServiceAux(ExportFunction exportFunc, int mainWindowArg) {
 	QDir dir(m_outputFolder);
 	QStringList filters;
-	filters << "*" + FritzingBundleExtension;
+	filters << "*" + FritzingBundleExtension << "*" + FritzingSketchExtension;
 	QStringList filenames = dir.entryList(filters, QDir::Files);
 	bool fail = false;
 	QStringList failedFiles;
@@ -1002,21 +1071,31 @@ void FApplication::runExportAllServiceAux() {
 }
 
 QString FApplication::runExportAllPlusSvgServiceAux() {
-	return runServiceAux([](MainWindow* mainWindow, const QString& filepath, const QDir& dir) {
+	return runServiceAux([](MainWindow *mainWindow, const QString &filepath, const QDir &dir) {
 		QFileInfo info(filepath);
-		GerberGenerator::exportToGerber(info.completeBaseName(), dir.absolutePath(), nullptr, mainWindow->pcbView(), false);
+		QString baseName = info.completeBaseName();
 
-		QString filepathCsv = filepath;
-		TextUtils::writeUtf8(filepathCsv.replace(".fzz", "_bom.csv"), mainWindow->getExportBOM_CSV());
+		// Export Gerber files
+		GerberGenerator::exportToGerber(baseName, dir.absolutePath(), nullptr, mainWindow->pcbView(), false);
 
-		QString filepathIPC = filepath;
-		TextUtils::writeUtf8(filepathIPC.replace(".fzz", ".ipc"), mainWindow->exportIPC_D_356A());
+		// Export BOM as CSV
+		QString filepathCsv = dir.absoluteFilePath(baseName + "_bom.csv");
+		if (!TextUtils::writeUtf8(filepathCsv, mainWindow->getExportBOM_CSV())) {
+			DebugDialog::debug(QString("Failed to write BOM CSV to %1").arg(filepathCsv));
+		}
 
+		// Export IPC
+		QString filepathIPC = dir.absoluteFilePath(baseName + ".ipc");
+		if (!TextUtils::writeUtf8(filepathIPC, mainWindow->exportIPC_D_356A())) {
+			DebugDialog::debug(QString("Failed to write IPC file to %1").arg(filepathIPC));
+		}
+
+		// Export SVGs for different views
 		QList<ViewLayer::ViewID> ids;
 		ids << ViewLayer::BreadboardView << ViewLayer::SchematicView << ViewLayer::PCBView;
 		Q_FOREACH (ViewLayer::ViewID id, ids) {
-			QString fn = QString("%1_%2.svg").arg(info.completeBaseName()).arg(ViewLayer::viewIDNaturalName(id));
-			QString svgPath = dir.absoluteFilePath(fn);
+			QString svgFileName = QString("%1_%2.svg").arg(baseName, ViewLayer::viewIDNaturalName(id));
+			QString svgPath = dir.absoluteFilePath(svgFileName);
 			mainWindow->setCurrentView(id);
 			mainWindow->exportSvg(GraphicsUtils::StandardFritzingDPI, false, false, svgPath);
 		}
@@ -1026,7 +1105,7 @@ QString FApplication::runExportAllPlusSvgServiceAux() {
 void FApplication::runExportAllService()
 {
 	initService();
-	runExportAllServiceAux();
+	runExportAllPlusSvgServiceAux();
 }
 
 void FApplication::initService()
@@ -1292,21 +1371,32 @@ int FApplication::startup()
 		QSettings settings;
 		prevVersion = settings.value("version").toString();
 		QString currVersion = Version::versionString();
+
 		if (prevVersion != currVersion) {
-			QVariant pid = settings.value("pid");
-			QVariant language = settings.value("language");
-			settings.clear();
-			if (!pid.isNull()) {
-				settings.setValue("pid", pid);
+			// Settings to preserve during clear
+			const QStringList preserveKeys = {"pid", "language", "locale", "fps", "opengl"};
+
+			// Store values we want to keep
+			QMap<QString, QVariant> preserveValues;
+			for (const QString& key : preserveKeys) {
+				QVariant value = settings.value(key);
+				if (!value.isNull()) {
+					preserveValues[key] = value;
+				}
 			}
-			if (!language.isNull()) {
-				settings.setValue("language", language);
+
+			settings.clear();
+
+			// Restore preserved values
+			for (auto it = preserveValues.constBegin(); it != preserveValues.constEnd(); ++it) {
+				settings.setValue(it.key(), it.value());
 			}
 		}
 	}
 
 	//bool fabEnabled = settings.value(ORDERFABENABLED, QVariant(false)).toBool();
 	//if (!fabEnabled) {
+
 	auto * manager = new QNetworkAccessManager(this);
 	connect(manager, SIGNAL(finished(QNetworkReply *)), this, SLOT(gotOrderFab(QNetworkReply *)));
 	manager->get(QNetworkRequest(QUrl(QString("http%2://fab.fritzing.org/launched%1")

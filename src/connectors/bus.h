@@ -43,13 +43,9 @@ public:
 	void addConnector(Connector *);
 	ModelPart * modelPart() const noexcept;
 	const QList<Connector *> & connectors() const noexcept;
-	Connector * subConnector() const noexcept;
-	void addSubConnector(Connector *);
-	void removeSubConnector();
 
 protected:
 	QList<Connector *> m_connectors;
-	Connector * m_subConnector;
 	BusShared * m_busShared;
 	QPointer<ModelPart> m_modelPart;
 };

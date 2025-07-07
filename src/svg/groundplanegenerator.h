@@ -21,7 +21,6 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 #ifndef GROUNDPLANEGENERATOR_H
 #define GROUNDPLANEGENERATOR_H
 
-#include "../connectors/connectoritem.h"
 #include <clipper.hpp>
 #include <QImage>
 #include <QList>

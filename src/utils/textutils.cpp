@@ -19,15 +19,13 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 ********************************************************************/
 
 //#include <QNetworkInterface>
-#include <QTextCodec>
+
 #include <QTextDocument>
 #include <QTextStream>
 
 #include "textutils.h"
 #include "misc.h"
 #include "../installedfonts.h"
-
-//#include "../debugdialog.h"
 
 #include <QRegularExpression>
 #include <QRegularExpression>
@@ -956,27 +954,25 @@ struct Context
 };
 
 QTransform TextUtils::transformStringToTransform(const QString & transform) {
-	Context context;
-	// std::string s(transform.toStdString());
-	// svgpp::value_parser<svgpp::tag::type::transform_list>::parse(
-	// 		svgpp::tag::attribute::transform(),
-	// 		context,
-	// 		s,
-	// 		svgpp::tag::source::attribute()
-	// 	);
+	try {
+		Context context;
 
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-copy"
 
-	svgpp::value_parser<svgpp::tag::type::transform_list>::parse(
-		svgpp::tag::attribute::transform(),
-		context,
-		std::move(transform.toStdString()),
-		svgpp::tag::source::attribute()
-		);
- #pragma GCC diagnostic pop
+		svgpp::value_parser<svgpp::tag::type::transform_list>::parse(
+			svgpp::tag::attribute::transform(),
+			context,
+			std::move(transform.toStdString()),
+			svgpp::tag::source::attribute()
+			);
 
-	return context.m_transform;
+#pragma GCC diagnostic pop
+
+		return context.m_transform;
+	} catch (...) {
+		return QTransform();
+	}
 }
 
 QList<double> TextUtils::getTransformFloats(QDomElement & element) {
@@ -1200,6 +1196,24 @@ double TextUtils::getStrokeWidth(QDomElement & element, double defaultValue)
 	//if (!ok) {
 	//return false;
 	//}
+}
+
+QString TextUtils::getStrokeColor(QDomElement & element, const QString & defaultColor)
+{
+	QString stroke = element.attribute("stroke");
+	if (!stroke.isEmpty()) return stroke;
+
+	QDomElement parent = element.parentNode().toElement();
+	while (!parent.isNull()) {
+		stroke = parent.attribute("stroke");
+		if (!stroke.isEmpty()) return stroke;
+
+		parent = parent.parentNode().toElement();
+	}
+
+	// default if there is no value to inherit
+	element.setAttribute("stroke", defaultColor);
+	return defaultColor;
 }
 
 bool TextUtils::fixStrokeWidth(QDomDocument & svgDoc) {
@@ -1630,41 +1644,60 @@ QString TextUtils::expandAndFill(const QString & svg, const QString & color, dou
 	}
 
 	QDomElement root = domDocument.documentElement();
-	expandAndFillAux(root, color, expandBy);
+	expandAndFillAux(root, color, expandBy, QTransform());
 
 	return domDocument.toString();
 }
 
-void TextUtils::expandAndFillAux(QDomElement & element, const QString & color, double expandBy)
+void TextUtils::expandAndFillAux(QDomElement & element, const QString & color, double expandBy, const QTransform & parentTransform)
 {
-	bool gotChildren = false;
-	QDomElement child = element.firstChildElement();
-	while (!child.isNull()) {
-		gotChildren = true;
-		expandAndFillAux(child, color, expandBy);
-		child = child.nextSiblingElement();
+	// Combine the current element’s transform with the inherited transform.
+	QTransform currentTransform = parentTransform;
+	QString transformAttr = element.attribute("transform");
+	if (!transformAttr.isEmpty()) {
+		QTransform t = transformStringToTransform(transformAttr);
+		currentTransform = currentTransform * t;
 	}
 
-	if (gotChildren) return;
-
+	QString strokeWidth = element.attribute("stroke-width");
 	QString fill = element.attribute("fill");
 	QString stroke = element.attribute("stroke");
-	QString strokeWidth = element.attribute("stroke-width");
-	if (stroke.isEmpty() && fill.isEmpty()) {
+
+	QDomElement child = element.firstChildElement();
+	if (!child.isNull()) {
+		// Propagate current style attributes to child elements that lack them.
+		while (!child.isNull()) {
+			if (child.attribute("stroke").isEmpty() && !stroke.isEmpty())
+				child.setAttribute("stroke", stroke);
+			if (child.attribute("fill").isEmpty() && !fill.isEmpty())
+				child.setAttribute("fill", fill);
+			if (child.attribute("stroke-width").isEmpty() && !strokeWidth.isEmpty())
+				child.setAttribute("stroke-width", strokeWidth);
+
+			expandAndFillAux(child, color, expandBy, currentTransform);
+			child = child.nextSiblingElement();
+		}
 		return;
 	}
 
-	element.setAttribute("fill", color);
-	element.setAttribute("stroke", color);
+	// For leaf elements with stroke or fill, update the attributes.
+	if (!stroke.isEmpty() || !fill.isEmpty()) {
+		element.setAttribute("fill", color);
+		element.setAttribute("stroke", color);
 
-	if (strokeWidth.isEmpty()) {
-		strokeWidth = "0";
+		if (strokeWidth.isEmpty())
+			strokeWidth = "0";
+		double sw = strokeWidth.toDouble();
+
+		// Get the combined scaling factor from the accumulated transform.
+		QLineF unitLine(0, 0, 1, 0);
+		QLineF combinedLine = currentTransform.map(unitLine);
+		double combinedScale = combinedLine.length();
+
+		if (!qFuzzyIsNull(combinedScale))
+			sw += expandBy / combinedScale;
+		element.setAttribute("stroke-width", QString::number(sw));
 	}
-
-	double sw = strokeWidth.toDouble();
-	sw += expandBy;
-	element.setAttribute("stroke-width", QString::number(sw));
-
 }
 
 bool TextUtils::writeUtf8(const QString & fileName, const QString & text)
@@ -1678,13 +1711,6 @@ bool TextUtils::writeUtf8(const QString & fileName, const QString & text)
 	}
 
 	return false;
-}
-
-bool TextUtils::writeUtf8(const QString & fileName, const QByteArray & data)
-{
-	QByteArray data2 = data;
-	QString text = QTextCodec::codecForMib(106)->toUnicode(data2);
-	return TextUtils::writeUtf8(fileName, text);
 }
 
 int TextUtils::getPinsAndSpacing(const QString & expectedFileName, QString & spacingString)
@@ -1794,32 +1820,6 @@ QMap<QString, QString> TextUtils::parseFileForViewImages(const QString & fzpPath
 	return map;
 }
 
-
-QString TextUtils::parseFileForModuleID(const QString & fzpPath)
-{
-	QString moduleId;
-	QFile file(fzpPath);
-	if (!file.open(QFile::ReadOnly)) return moduleId;
-
-	QXmlStreamReader streamReader(&file);
-	streamReader.setNamespaceProcessing(false);
-
-	while (!streamReader.atEnd()) {
-		switch (streamReader.readNext()) {
-		case QXmlStreamReader::StartElement:
-			if (streamReader.name().toString().compare("module") == 0) {
-				file.close();
-				return streamReader.attributes().value("moduleId").toString();
-			}
-			break;
-		default:
-			break;
-		}
-	}
-
-	file.close();
-	return moduleId;
-}
 
 QSizeF TextUtils::parseForWidthAndHeight(const QString & svg, QRectF & viewBox, bool getViewBox)
 {
@@ -2099,4 +2099,14 @@ QString TextUtils::setOfSetsToString(const QSet<QSet<QString>> & setOfSets) {
 		setOfSetsString += setToString(set) + "\n";
 	}
 	return setOfSetsString;
+}
+
+QLocale TextUtils::getLocale() {
+	QSettings settings;
+	QVariant stored = settings.value("locale");
+
+	if (settings.contains("locale") && stored.canConvert<QLocale>()) {
+		return stored.value<QLocale>();
+	}
+	return QLocale();
 }

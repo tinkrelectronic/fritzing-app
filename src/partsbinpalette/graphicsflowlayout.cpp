@@ -24,7 +24,7 @@ constexpr auto SpaceBefore = 5;
 constexpr auto SpaceAfter = 3;
 
 GraphicsFlowLayout::GraphicsFlowLayout(QGraphicsLayoutItem *parent, int spacing)
-	: QGraphicsLinearLayout(parent), 
+	: QGraphicsLinearLayout(parent),
 	m_lastWidth(0.0)
 {
 	setSpacing(spacing);

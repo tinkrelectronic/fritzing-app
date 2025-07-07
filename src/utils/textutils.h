@@ -100,9 +100,8 @@ public:
 	static QString removeSVGHeader(QString & string);
 	//static QString getMacAddress();
 	static QString expandAndFill(const QString & svg, const QString & color, double expandBy);
-	static void expandAndFillAux(QDomElement &, const QString & color, double expandBy);
+	static void expandAndFillAux(QDomElement &, const QString & color, double expandBy, const QTransform & parentTransform);
 	static bool writeUtf8(const QString & fileName, const QString & text);
-	static bool writeUtf8(const QString & fileName, const QByteArray & data);
 	static int getPinsAndSpacing(const QString & expectedFileName, QString & spacingString);
 	static bool extractViewBox(QString viewBoxString, QRectF & viewBox);
 	static QSizeF parseForWidthAndHeight(QXmlStreamReader &, QRectF & viewBox, bool getViewBox);
@@ -116,11 +115,11 @@ public:
 	static bool fixFonts(QString & svg, const QString & destFont, bool & reallyFixed);
 	static void fixStyleAttribute(QDomElement & element);
 	static QString parseForModuleID(const QString & fzpXmlString);
-	static QString parseFileForModuleID(const QString & fzpPath);
 	static QString getRandText();
 	static bool ensureViewBox(QDomDocument doc, double dpi, QRectF & rect, bool toInches, double & w, double & h, bool getwh);
 	static QString findAnchor(const QDomElement & text);
 	static double getStrokeWidth(QDomElement &, double defaultValue);
+	static QString getStrokeColor(QDomElement &, const QString & defaultColor);
 	static void resplit(QStringList & names, const QString & split);
 	static QString elementToString(const QDomElement &);
 	template<typename T> static std::optional<double> optToDouble(const T & param)
@@ -134,6 +133,7 @@ public:
 	}
 	static QString setToString(const QSet<QString> & set);
 	static QString setOfSetsToString(const QSet<QSet<QString>> & setOfSets);
+	static QLocale getLocale();
 
 public:
 	static const QRegularExpression FindWhitespace;
@@ -153,6 +153,7 @@ public:
 	static const QString AdobeIllustratorIdentifier;
 
 	static QMap<QString, QString> parseFileForViewImages(const QString &fzpPath);
+
 protected:
 	static bool pxToInches(QDomElement &elem, const QString &attrName, bool isIllustrator);
 	static void squashNotElement(QDomElement & element, const QString & elementName, const QString & attName, const QRegularExpression & matchContent, bool & result);

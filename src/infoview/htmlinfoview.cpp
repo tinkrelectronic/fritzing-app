@@ -423,10 +423,10 @@ void HtmlInfoView::appendWireStuff(Wire* wire, bool swappingEnabled) {
 	QString nameString = tr("Wire");
 	if (swappingEnabled) {
 		if (wire->getRatsnest()) {
-			nameString = tr("Ratsnest line");
+			nameString = tr("Ratsnest line", "A virtual wire, a planned connection that does not yet have a layout.");
 		}
 		else if(wire->getTrace()) {
-			nameString = tr("Trace wire %1").arg(autoroutable);
+			nameString = tr("Trace wire %1", "A wire routed on a PCB").arg(autoroutable);
 		}
 	}
 	else {

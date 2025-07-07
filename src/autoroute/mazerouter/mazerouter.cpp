@@ -318,7 +318,7 @@ bool GridPoint::operator<(const GridPoint& other) const {
 }
 ////////////////////////////////////////////////////////////////////
 
-Grid::Grid(int sx, int sy, int sz) : 
+Grid::Grid(int sx, int sy, int sz) :
 	data(new GridValue[sx * sy * sz]()), // initialize to zero
 	x(sx), y(sy), z(sz) { }
 
@@ -489,7 +489,7 @@ QList<ConnectorItem *> ConnectionThing::values(ConnectorItem * s) {
 
 ////////////////////////////////////////////////////////////////////
 
-MazeRouter::MazeRouter(PCBSketchWidget * sketchWidget, QGraphicsItem * board, bool adjustIf) : 
+MazeRouter::MazeRouter(PCBSketchWidget * sketchWidget, QGraphicsItem * board, bool adjustIf) :
     Autorouter(sketchWidget),
     m_keepoutMils(0.0),
     m_keepoutGrid(0.0),
@@ -566,7 +566,7 @@ MazeRouter::MazeRouter(PCBSketchWidget * sketchWidget, QGraphicsItem * board, bo
 MazeRouter::~MazeRouter()
 {
     /// @todo replace explicit deletes with std::shared_ptr and std::unique_ptr
-    /// where it makes sense. 
+    /// where it makes sense.
 	Q_FOREACH (QDomDocument * doc, m_masterDocs) {
 		delete doc;
 	}

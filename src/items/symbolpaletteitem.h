@@ -55,7 +55,7 @@ public:
 	~SymbolPaletteItem();
 
 	ConnectorItem* newConnectorItem(class Connector *connector);
-	void busConnectorItems(class Bus * bus, ConnectorItem *, QList<ConnectorItem *> & items);
+	bool busConnectorItems(ConnectorItem *, QList<ConnectorItem *> & items);
 	double voltage();
 	void setProp(const QString & prop, const QString & value);
 	void setVoltage(double);
@@ -81,6 +81,7 @@ public:
 public Q_SLOTS:
 	void voltageEntry(int index);
 	void labelEntry();
+	void swapEntry(int index);
 
 protected:
 	void removeMeFromBus(double voltage);
@@ -114,6 +115,7 @@ public:
 	bool isOnlyNetLabel();
 	QString getInspectorTitle();
 	void setInspectorTitle(const QString & oldText, const QString & newText);
+	QString getVersion(); // Only used in NetLabel currenty, but a candiate for PartBase or similar, to support future migrations
 
 protected:
 	QString makeSvg(ViewLayer::ViewLayerID);

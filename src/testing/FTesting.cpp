@@ -155,8 +155,6 @@ void FTestingServerThread::run()
 		param = QUrl::fromPercentEncoding(param.toUtf8());
 	}
 
-	QString mimeType;
-
 	int waitInterval = 100;     // 100ms to wait
 	int timeoutSeconds = 2 * 60;    // timeout after 2 minutes
 	int attempts = timeoutSeconds * 1000 / waitInterval;  // timeout a
@@ -173,71 +171,61 @@ void FTestingServerThread::run()
 		return;
 	}
 
-	QString result;
-	int status;
-
-	status = 200;
-	result = "";
-
 	std::shared_ptr<FTesting> fTesting = FTesting::getInstance();
-	if (result != "") {
-		QString type = "text/plain";
-		QString response =
-			QString("HTTP/1.0 %1 %2\r\n").arg(status).arg("response") %
-			QString("Content-Type: %1; charset=\"utf-8\"\r\n").arg(type) %
-			QString("Content-Length: %1\r\n").arg(result.length()) %
-			QString("\r\n%1").arg(result);
-		socket->write(response.toUtf8());
-	}
-	if (readOrWrite.compare("write") == 0 ) {
+
+	if (readOrWrite.compare("write") == 0) {
 		DebugDialog::debug(QString("FTesting write command %1 %2").arg(command, param));
 		fTesting->writeProbe(command.toStdString(), QVariant(param));
+		writeResponse(socket, 200, "OK", "text/plain", "");
 	} else {
 		std::optional<QVariant> probeResult = fTesting->readProbe(command.toStdString());
 
 		if (probeResult == std::nullopt) {
 			DebugDialog::debug(QString("Reading probe failed."));
+			writeResponse(socket, 404, "Not Found", "text/plain", "Probe not found");
 		} else {
-
+			QString result;
 			if (probeResult->typeId() == QMetaType::QPointF) {
-				DebugDialog::debug(QString("QPointF probe read: %1 %2").arg(probeResult->toPointF().x()).arg(probeResult->toPointF().y()));
 				result = QString("%1 %2").arg(probeResult->toPointF().x()).arg(probeResult->toPointF().y());
 			} else {
-				DebugDialog::debug(QString("QVariant to string: %1").arg(probeResult->toString()));
 				result = probeResult->toString();
 			}
-		}
 
-		if (result != "") {
-			QString type = "text/plain";
-			QString response =
-				QString("HTTP/1.0 %1 %2\r\n").arg(status).arg("response") %
-				QString("Content-Type: %1; charset=\"utf-8\"\r\n").arg(type) %
-				QString("Content-Length: %1\r\n").arg(result.length()) %
-				QString("\r\n%1").arg(result);
-			socket->write(response.toUtf8());
+			// Check if result is JSON and set appropriate content type
+			QString mimeType = "text/plain";
+			if (result.startsWith('{') || result.startsWith('[')) {
+				mimeType = "application/json";
+			}
+
+			writeResponse(socket, 200, "OK", mimeType, result);
 		}
 	}
 
 	m_busy.unlock();
-
-	if (status != 200) {
-		writeResponse(socket, status, "failed", "", result);
-	} else {
-		writeResponse(socket, 200, "Ok", mimeType, result);
-	}
 }
 
 void FTestingServerThread::writeResponse(QTcpSocket * socket, int code, const QString & codeString, const QString & mimeType, const QString & message)
 {
 	QString type = mimeType;
 	if (type.isEmpty()) type = "text/plain";
-	QString response = QString("HTTP/1.0 %1 %2\r\n").arg(code).arg(codeString) %
-					   QString("Content-Type: %1; charset=\"utf-8\"\r\n").arg(type) %
-					   QString("Content-Length: %1\r\n").arg(message.length()) %
-					   QString("\r\n%1").arg(message);
 
-	socket->write(response.toUtf8());
+	QByteArray messageBytes = message.toUtf8();
+	QByteArray header = QString("HTTP/1.0 %1 %2\r\n"
+								"Content-Type: %3; charset=utf-8\r\n"
+								"Content-Length: %4\r\n"
+								"Connection: close\r\n"
+								"\r\n")
+							.arg(code)
+							.arg(codeString, type)
+							.arg(messageBytes.length())
+							.toUtf8();
+
+	// Send the complete HTTP response in one go
+	socket->write(header);
+	socket->write(messageBytes);
+	socket->flush();
+	socket->waitForBytesWritten();
+
 	socket->disconnectFromHost();
 	socket->waitForDisconnected();
 	socket->deleteLater();

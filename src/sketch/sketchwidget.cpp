@@ -55,6 +55,7 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 #include "../model/modelpart.h"
 #include "../debugdialog.h"
 #include "sketchwidget.h"
+#include "qopenglcontext.h"
 #include "subpartswapmanager.h"
 #include "../connectors/connectoritem.h"
 #include "../connectors/svgidlayer.h"
@@ -84,6 +85,8 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 #include "../utils/ratsnestcolors.h"
 #include "../utils/fmessagebox.h"
 #include "utils/duplicatetracker.h"
+
+#include <QOpenGLWidget>
 
 /////////////////////////////////////////////////////////////////////
 
@@ -147,7 +150,30 @@ SketchWidget::SketchWidget(ViewLayer::ViewID viewID, QWidget *parent, int size, 
 	setDragMode(QGraphicsView::RubberBandDrag);
 	setFrameStyle(QFrame::Sunken | QFrame::StyledPanel);
 	setAcceptDrops(true);
-	setRenderHint(QPainter::Antialiasing, true);
+
+	QSettings settings;
+	m_useOpenGL = settings.value("Rendering/OpenGL", false).toBool() && FPSMonitor::checkOpenGLAvailability();
+	m_showFPS = settings.value("Rendering/FPS", false).toBool();
+
+	if (m_showFPS) {
+		m_fpsMonitor = new FPSMonitor(this);
+		// m_fpsMonitor->start();
+		DebugDialog::debug("FPS Monitor activated for SketchWidget.");
+	}
+
+	if (m_useOpenGL) {
+		QOpenGLWidget *glWidget = new QOpenGLWidget;
+		QSurfaceFormat format;
+		format.setSamples(4);
+		format.setSwapBehavior(QSurfaceFormat::DoubleBuffer);
+		glWidget->setFormat(format);
+		setViewport(glWidget);
+		DebugDialog::debug("OpenGL rendering enabled for SketchWidget." + ViewLayer::viewIDName(viewID));
+	} else {
+		// Non-OpenGL rendering settings
+		DebugDialog::debug("OpenGL rendering not enabled for SketchWidget." + ViewLayer::viewIDName(viewID));
+	}
+	setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
 
 	//setCacheMode(QGraphicsView::CacheBackground);
 	//setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
@@ -915,34 +941,59 @@ void SketchWidget::addToScene(ItemBase * item, ViewLayer::ViewLayerID viewLayerI
 	item->setInactive(!layerIsActive(viewLayerID));
 }
 
-ItemBase * SketchWidget::findItem(long id) {
-	// TODO:  this needs to be optimized: could make a hash table
+ItemBase* SketchWidget::findItem(long id) {
+	// Direct lookup first
+	ItemBase* itemBase = m_itemBaseHash.value(id);
+	if (itemBase) return itemBase;
 
-	long baseid = id / ModelPart::indexMultiplier;
+	// Check for chief/kin relationship
+	long baseId = id / ModelPart::indexMultiplier;
+	itemBase = m_baseIdItemBaseHash.value(baseId);
+	if (!itemBase) return nullptr;
 
-	Q_FOREACH (QGraphicsItem * item, this->scene()->items()) {
-		auto* base = dynamic_cast<ItemBase *>(item);
-		if (!base) continue;
+	// Found an item with matching baseId, now check the relationship
+	ItemBase* chief = itemBase->layerKinChief();
+	if (chief->id() == id) return chief;
 
-		if (base->id() == id) {
-			return base;
-		}
-
-		if (base->id() / ModelPart::indexMultiplier == baseid) {
-			// found chief or layerkin
-			ItemBase * chief = base->layerKinChief();
-			if (chief->id() == id) return chief;
-
-			Q_FOREACH (ItemBase * lk, chief->layerKin()) {
-				if (lk->id() == id) return lk;
-			}
-
-			return chief;
-
-		}
+	for (ItemBase* kin : chief->layerKin()) {
+		if (kin->id() == id) return kin;
 	}
 
-	return nullptr;
+	return chief;  // Return chief as fallback, matching original behavior
+}
+
+void SketchWidget::registerItem(ItemBase* itemBase) {
+	if (!itemBase) return;
+
+	m_itemBaseHash[itemBase->id()] = itemBase;
+
+	// Store the base relationship for chief/kin lookup
+	long baseId = itemBase->id() / ModelPart::indexMultiplier;
+	m_baseIdItemBaseHash[baseId] = itemBase;
+}
+
+void SketchWidget::unregisterItem(ItemBase* itemBase) {
+	if (!itemBase) return;
+
+	m_itemBaseHash.remove(itemBase->id());
+
+	long baseId = itemBase->id() / ModelPart::indexMultiplier;
+	// Only remove from baseId hash if no other items share this baseId
+	bool hasOtherItems = false;
+	if (ItemBase* chief = itemBase->layerKinChief()) {
+		if (chief != itemBase && m_itemBaseHash.contains(chief->id())) {
+			hasOtherItems = true;
+		}
+		for (ItemBase* kin : chief->layerKin()) {
+			if (kin != itemBase && m_itemBaseHash.contains(kin->id())) {
+				hasOtherItems = true;
+				break;
+			}
+		}
+	}
+	if (!hasOtherItems) {
+		m_baseIdItemBaseHash.remove(baseId);
+	}
 }
 
 void SketchWidget::deleteItemForCommand(long id, bool deleteModelPart, bool doEmit, bool later) {
@@ -1781,7 +1832,7 @@ void SketchWidget::dragEnterEvent(QDragEnterEvent *event)
 			m_movingItem = new QGraphicsSvgItem();
 			m_movingItem->setSharedRenderer(other->m_movingSVGRenderer);
 			this->scene()->addItem(m_movingItem);
-			m_movingItem->setPos(mapToScene(event->pos()) - other->m_movingSVGOffset);
+			m_movingItem->setPos(mapToScene(event->position().toPoint()) - other->m_movingSVGOffset);
 		}
 		event->acceptProposedAction();
 	}
@@ -1841,7 +1892,7 @@ bool SketchWidget::dragEnterEventAux(QDragEnterEvent *event) {
 		m_droppingItem->setVisible(true);
 	}
 	else {
-		if (!setDroppingItemAndOffset(event->pos(), offset, modelPart)) {
+		if (!setDroppingItemAndOffset(event->position().toPoint(), offset, modelPart)) {
 			return false;
 		}
 
@@ -1911,18 +1962,17 @@ void SketchWidget::dragLeaveEvent(QDragLeaveEvent * event) {
 void SketchWidget::dragMoveEvent(QDragMoveEvent *event)
 {
 	if (event->mimeData()->hasFormat("application/x-dnditemdata")) {
-		dragMoveHighlightConnector(event->pos());
+		dragMoveHighlightConnector(event->position().toPoint());
 		event->acceptProposedAction();
 		return;
 	}
 
 	if (event->mimeData()->hasFormat("application/x-dndsketchdata")) {
 		if (event->source() == this) {
-			m_globalPos = this->mapToGlobal(event->pos());
+			m_globalPos = this->mapToGlobal(event->position());
 			if ((QApplication::keyboardModifiers() & Qt::ShiftModifier) != 0) {
 				QPointF p = GraphicsUtils::calcConstraint(m_mousePressGlobalPos, m_globalPos);
-				m_globalPos.setX(p.x());
-				m_globalPos.setY(p.y());
+				m_globalPos = p;
 			}
 
 			moveItems(m_globalPos, true, m_rubberBandLegWasEnabled);
@@ -1933,7 +1983,7 @@ void SketchWidget::dragMoveEvent(QDragMoveEvent *event)
 			if (!other) {
 				throw "drag move event from unknown source";
 			}
-			m_movingItem->setPos(mapToScene(event->pos()) - other->m_movingSVGOffset);
+			m_movingItem->setPos(mapToScene(event->position().toPoint()) - other->m_movingSVGOffset);
 		}
 		event->acceptProposedAction();
 		return;
@@ -1942,13 +1992,13 @@ void SketchWidget::dragMoveEvent(QDragMoveEvent *event)
 	//QGraphicsView::dragMoveEvent(event);   // we override QGraphicsView::dragEnterEvent so don't call the subclass dragMoveEvent here
 }
 
-void SketchWidget::dragMoveHighlightConnector(QPoint eventPos) {
+void SketchWidget::dragMoveHighlightConnector(QPointF eventPos) {
 	if (!m_droppingItem) return;
 
 	m_globalPos = this->mapToGlobal(eventPos);
 	checkAutoscroll(m_globalPos);
 
-	QPointF loc = this->mapToScene(eventPos) - m_droppingOffset;
+	QPointF loc = this->mapToScene(eventPos.toPoint()) - m_droppingOffset;
 	if (m_alignToGrid && (m_alignmentItem)) {
 		QPointF l =  m_alignmentItem->getViewGeometry().loc();
 		alignLoc(loc, m_alignmentStartPoint, loc, l);
@@ -1997,11 +2047,11 @@ void SketchWidget::dropEvent(QDropEvent *event)
 			other->copyDrop();
 			QPointF startLocal = other->mapFromGlobal(QPoint(other->m_mousePressGlobalPos.x(), other->m_mousePressGlobalPos.y()));
 			QPointF sceneLocal = other->mapToScene(startLocal.x(), startLocal.y());
-			m_pasteOffset = this->mapToScene(event->pos()) - sceneLocal;
+			m_pasteOffset = this->mapToScene(event->position().toPoint()) - sceneLocal;
 
 			DebugDialog::debug(QString("drop from other (%1, %2), event (%3, %4)")
 			                   .arg(startLocal.x()).arg(startLocal.y())
-			                   .arg(event->pos().x()).arg(event->pos().y())
+							   .arg(event->position().x()).arg(event->position().y())
 			                  );
 			m_pasteCount = 0;
 			Q_EMIT dropPasteSignal(this);
@@ -2027,7 +2077,7 @@ void SketchWidget::putItemByModuleID(const QString  & moduleID) {
 	QDropEvent * event = new QDropEvent(pos, Qt::IgnoreAction, nullptr, Qt::NoButton, Qt::NoModifier);
 	QPointF offset;
 
-	if (!setDroppingItemAndOffset(event->pos(), offset, modelPart)) {
+	if (!setDroppingItemAndOffset(event->position().toPoint(), offset, modelPart)) {
 		delete event;
 		return;
 	}
@@ -2132,7 +2182,7 @@ void SketchWidget::dropItemEvent(QDropEvent *event) {
 
 	event->acceptProposedAction();
 
-	Q_EMIT dropSignal(event->pos());
+	Q_EMIT dropSignal(event->position().toPoint());
 }
 
 SelectItemCommand* SketchWidget::stackSelectionState(bool pushIt, QUndoCommand * parentCommand) {
@@ -2241,7 +2291,7 @@ void SketchWidget::mousePressEvent(QMouseEvent *event)
 		setDragMode(QGraphicsView::ScrollHandDrag);
 		setCursor(Qt::OpenHandCursor);
 		// make the event look like a left button press to fool the underlying drag mode implementation
-		event = hackEvent = new QMouseEvent(event->type(), event->pos(), event->globalPos(), Qt::LeftButton, event->buttons() | Qt::LeftButton, event->modifiers());
+		event = hackEvent = new QMouseEvent(event->type(), event->pos(), event->globalPosition().toPoint(), Qt::LeftButton, event->buttons() | Qt::LeftButton, event->modifiers());
 	}
 
 	m_dragBendpointWire = nullptr;
@@ -2259,8 +2309,8 @@ void SketchWidget::mousePressEvent(QMouseEvent *event)
 	m_savedWires.clear();
 	m_moveEventCount = 0;
 	m_holdingSelectItemCommand = stackSelectionState(false, nullptr);
-	m_mousePressScenePos = mapToScene(event->pos());
-	m_mousePressGlobalPos = event->globalPos();
+	m_mousePressScenePos = mapToScene(event->position().toPoint());
+	m_mousePressGlobalPos = event->globalPosition().toPoint();
 
 	squashShapes(m_mousePressScenePos);
 	QList<QGraphicsItem *> items = this->items(event->pos());
@@ -3017,7 +3067,7 @@ void SketchWidget::mouseMoveEvent(QMouseEvent *event) {
 
 	if (m_savedItems.count() > 0) {
 		if ((event->buttons() & Qt::LeftButton) && !draggingWireEnd()) {
-			m_globalPos = event->globalPos();
+			m_globalPos = event->globalPosition();
 			if ((m_globalPos - m_mousePressGlobalPos).manhattanLength() >= QApplication::startDragDistance()) {
 				auto *mimeData = new QMimeData;
 				mimeData->setData("application/x-dndsketchdata", nullptr);
@@ -3060,7 +3110,7 @@ void SketchWidget::mouseMoveEvent(QMouseEvent *event) {
 
 	if (draggingWireEnd()) {
 		// DebugDialog::debug("dragging wire end");
-		checkAutoscroll(event->globalPos());
+		checkAutoscroll(event->globalPosition());
 	}
 
 	QList<ItemBase *> squashed;
@@ -3104,10 +3154,10 @@ QString SketchWidget::makeMoveSVG(double printerScale, double dpi, QPointF & off
 
 
 
-void SketchWidget::moveItems(QPoint globalPos, bool checkAutoScrollFlag, bool rubberBandLegEnabled)
+void SketchWidget::moveItems(QPointF globalPos, bool checkAutoScrollFlag, bool rubberBandLegEnabled)
 {
-	QPoint q = mapFromGlobal(globalPos);
-	QPointF scenePos = mapToScene(q);
+	QPointF q = mapFromGlobal(globalPos);
+	QPointF scenePos = mapToScene(q.toPoint());
 	moveItemsAux(scenePos, globalPos, checkAutoScrollFlag, rubberBandLegEnabled);
 }
 
@@ -3119,7 +3169,7 @@ void SketchWidget::moveItemsScene(QPointF scenePos, bool checkAutoScrollFlag, bo
 	moveItemsAux(scenePos, globalPos, checkAutoScrollFlag, rubberBandLegEnabled);
 }
 
-void SketchWidget::moveItemsAux(QPointF scenePos, QPoint globalPos, bool checkAutoScrollFlag, bool rubberBandLegEnabled)
+void SketchWidget::moveItemsAux(QPointF scenePos, QPointF globalPos, bool checkAutoScrollFlag, bool rubberBandLegEnabled)
 {
 	if (checkAutoScrollFlag) {
 		bool result = checkAutoscroll(globalPos);
@@ -3218,7 +3268,7 @@ void SketchWidget::mouseReleaseEvent(QMouseEvent *event) {
 		QMouseEvent * hackEvent = nullptr;
 		if (m_middleMouseIsPressed) {
 			// make the event look like a left button press to fool the underlying drag mode implementation
-			event = hackEvent = new QMouseEvent(event->type(), event->pos(), event->globalPos(), Qt::LeftButton, event->buttons() | Qt::LeftButton, event->modifiers());
+			event = hackEvent = new QMouseEvent(event->type(), event->pos(), event->globalPosition().toPoint(), Qt::LeftButton, event->buttons() | Qt::LeftButton, event->modifiers());
 		}
 
 		InfoGraphicsView::mouseReleaseEvent(event);
@@ -5383,16 +5433,20 @@ void SketchWidget::prepDeleteProps(ItemBase * itemBase, long id, const QString &
 		QPointF p;
 		QSizeF sz;
 		logo->getParams(p, sz);
-		new ResizeBoardCommand(this, id, sz.width(), sz.height(), sz.width(), sz.height(), parentCommand);
 		QString logoProp = logo->prop("logo");
 		QString shapeProp = logo->prop("shape");
+
 		if (!logoProp.isEmpty()) {
-			new SetPropCommand(this, id, "logo", logoProp, logoProp, true, parentCommand);
+			new ResizeLogoCommand(this, id, sz.width(), sz.height(),
+								  sz.width(), sz.height(), logoProp, parentCommand);
 		}
 		else if (!shapeProp.isEmpty()) {
 			QString newName = logo->getNewLayerFileName(propsMap.value("layer"));
-			new LoadLogoImageCommand(this, id, shapeProp, logo->modelPart()->localProp("aspectratio").toSizeF(), logo->prop("lastfilename"), newName, false, parentCommand);
+			new LoadLogoImageCommand(this, id, shapeProp,
+									 logo->modelPart()->localProp("aspectratio").toSizeF(),
+									 logo->prop("lastfilename"), newName, false, parentCommand);
 		}
+
 		prepDeleteOtherProps(itemBase, id, newModuleID, propsMap, parentCommand);
 	}
 	return;
@@ -5512,17 +5566,20 @@ void SketchWidget::prepDeleteOtherProps(ItemBase * itemBase, long id, const QStr
 void SketchWidget::prepDeleteOtherPropsNumbers(const QString & propertyName, ItemBase * itemBase, long id, const QString & newModuleID, QUndoCommand * parentCommand)
 {
 	QString value = itemBase->modelPart()->localProp(propertyName).toString();
-	if (!value.isEmpty()) {
-		QString newValue = value;
-		if (!newModuleID.isEmpty()) {
-			newValue = "";
-			ModelPart * newModelPart = m_referenceModel->retrieveModelPart(newModuleID);
-			if (newModelPart) {
-				newValue = newModelPart->properties().value(propertyName, "");
-			}
-		}
-		new SetPropCommand(this, id, propertyName, value, newValue, true, parentCommand);
+	if (value.isEmpty()) return;
+
+	if (itemBase->moduleID() == newModuleID) {
+		// Preserve manufacturer/part number if the part is deleted during a swap and the moduleID is unchanged.
+		new SetPropCommand(this, id, propertyName, value, value, true, parentCommand);
+		return;
 	}
+
+	QString newValue;
+	ModelPart * newModelPart = m_referenceModel->retrieveModelPart(newModuleID);
+	if (newModelPart) {
+		newValue = newModelPart->properties().value(propertyName, "");
+	}
+	new SetPropCommand(this, id, propertyName, value, newValue, true, parentCommand);
 }
 
 void SketchWidget::rememberSticky(long id, QUndoCommand * parentCommand) {
@@ -6323,14 +6380,17 @@ void SketchWidget::setUpSwapReconnect(SwapThing & swapThing, QString newModuleID
 
 			newConnectors.removeOne(newConnector);
 			found.insert(fromConnectorItem, newConnector);
-			fromConnectorItem = fromConnectorItem->getCrossLayerConnectorItem();
-			if (fromConnectorItem) {
-				other.append(fromConnectorItem);
-				found.insert(fromConnectorItem, newConnector);
-			}
 		}
 		else {
 			notFound.append(fromConnectorItem);
+
+		}
+		fromConnectorItem = fromConnectorItem->getCrossLayerConnectorItem();
+		if (fromConnectorItem) {
+			other.append(fromConnectorItem);
+			if (candidates.count() > 0) {
+				found.insert(fromConnectorItem, newConnector);
+			}
 		}
 	}
 
@@ -6346,7 +6406,10 @@ void SketchWidget::setUpSwapReconnect(SwapThing & swapThing, QString newModuleID
 		Connector * newConnector = found.value(fromConnectorItem, nullptr);
 		if (fromConnectorItem->isGroundFillSeed()) {
 			auto * command = new GroundFillSeedCommand(this, swapThing.parentCommand);
-			command->addItem(newID, newConnector->connectorSharedID(), true);
+			if (newConnector) {
+				command->addSeed(newID, newConnector->connectorSharedID());
+			}
+			command->removeSeed(fromConnectorItem->attachedToID(), fromConnectorItem->connectorSharedID());
 		}
 		Q_FOREACH (ConnectorItem * toConnectorItem, fromConnectorItem->connectedToItems()) {
 			// delete connection to part being swapped out
@@ -7172,10 +7235,10 @@ void SketchWidget::turnOffAutoscroll() {
 
 }
 
-bool SketchWidget::checkAutoscroll(QPoint globalPos)
+bool SketchWidget::checkAutoscroll(QPointF globalPos)
 {
-	QRect r = rect();
-	QPoint q = mapFromGlobal(globalPos);
+	QRectF r = rect();
+	QPointF q = mapFromGlobal(globalPos);
 
 	if (verticalScrollBar()->isVisible()) {
 		r.setWidth(width() - verticalScrollBar()->width());
@@ -7742,7 +7805,6 @@ void SketchWidget::drawForeground ( QPainter * painter, const QRectF & rect ) {
 		font.setPointSizeF(baseFontSize);
 		painter->setFont(font);
 
-		int margin = 0; // Margin from the top and right edges
 		QFontMetrics metrics = painter->fontMetrics();
 		int textWidth = metrics.horizontalAdvance(m_simMessage);
 
@@ -7756,6 +7818,8 @@ void SketchWidget::drawForeground ( QPainter * painter, const QRectF & rect ) {
 		painter->drawText(viewTexPos.x(), viewTexPos.y(), m_simMessage);
 		painter->restore();
 	}
+
+	if (m_fpsMonitor) m_fpsMonitor->paint(painter, rect, viewport());
 }
 
 void SketchWidget::setSimulatorMessage(QString message) {
@@ -7906,37 +7970,16 @@ ItemBase * SketchWidget::resizeBoard(long itemID, double mmW, double mmH) {
 	if (!itemBase) return nullptr;
 
 	bool resized = false;
-	switch (itemBase->itemType()) {
-	case ModelPart::ResizableBoard:
-		qobject_cast<ResizableBoard *>(itemBase)->resizeMM(mmW, mmH, m_viewLayers);
-		resized = true;
-		break;
 
-	case ModelPart::Logo:
-		qobject_cast<LogoItem *>(itemBase)->resizeMM(mmW, mmH, m_viewLayers);
+	// Handle ResizableBoard and all its derived classes
+	if (auto* resizableBoard = qobject_cast<ResizableBoard *>(itemBase)) {
+		resizableBoard->resizeMM(mmW, mmH, m_viewLayers);
 		resized = true;
-		break;
-
-	case ModelPart::Ruler:
-		qobject_cast<Ruler *>(itemBase)->resizeMM(mmW, mmH, m_viewLayers);
-		resized = true;
-		break;
 	}
-
-	if (!resized) {
-		Pad * pad = qobject_cast<Pad *>(itemBase);
-		if (pad) {
-			pad->resizeMM(mmW, mmH, m_viewLayers);
-			resized = true;
-		}
-	}
-
-	if (!resized) {
-		auto * schematicFrame = qobject_cast<SchematicFrame *>(itemBase);
-		if (schematicFrame) {
-			schematicFrame->resizeMM(mmW, mmH, m_viewLayers);
-			resized = true;
-		}
+	// Handle Ruler separately as it's not a ResizableBoard
+	else if (auto* ruler = qobject_cast<Ruler *>(itemBase)) {
+		ruler->resizeMM(mmW, mmH, m_viewLayers);
+		resized = true;
 	}
 
 	if (resized) {
@@ -8555,6 +8598,7 @@ void SketchWidget::paintEvent ( QPaintEvent * event ) {
 		((FGraphicsScene *) scene())->setDisplayHandles(true);
 	}
 	QGraphicsView::paintEvent(event);
+	if (m_fpsMonitor) m_fpsMonitor->update();
 }
 
 void SketchWidget::setNoteFocus(QGraphicsItem * item, bool inFocus) {
@@ -9034,9 +9078,9 @@ void SketchWidget::removeRatsnestSlot(QList<ConnectorEdge *> & cutSet, QUndoComm
 	if (!detachItems.isEmpty()) {
 		FMessageBox::information(
 					this,
-					tr("Part Movement Notice"),
+					tr("We need to move these parts."),
 					tr("To delete this connection, some parts need to be moved from their current positions.\n"
-					   "The parts will be moved automatically. To see changes clearly use undo then redo.\n")
+					   "The parts will be moved automatically. You can use the Undo History to review these changes.\n")
 					);
 	}
 
@@ -9712,6 +9756,13 @@ void SketchWidget::showUnrouted() {
 
 void SketchWidget::showEvent(QShowEvent * event) {
 	InfoGraphicsView::showEvent(event);
+
+	static bool firstShow = true;
+	if (firstShow && m_fpsMonitor) {
+		firstShow = false;
+		QTimer::singleShot(0, m_fpsMonitor, &FPSMonitor::showDiagnostics);
+	}
+
 	Q_EMIT showing(this);
 }
 

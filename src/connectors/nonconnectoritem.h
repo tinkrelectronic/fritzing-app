@@ -62,7 +62,7 @@ public:
 	bool forWire();
 
 protected:
-	constexpr bool doNotPaint() const noexcept { 
+	constexpr bool doNotPaint() const noexcept {
         return (m_hidden || m_inactive || !m_paint || m_layerHidden);
     }
 
