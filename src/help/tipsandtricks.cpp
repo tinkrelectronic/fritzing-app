@@ -136,7 +136,10 @@ void TipsAndTricks::initTipSets() {
 	ts = new TipSet;
 	ts->heading = tr("connections");
 	ts->tips << tr("To see all the connectors connected to a given connector, hold the mouse down on the connector--all the connections will be highlighted.");
-	ts->tips << tr("A ratsnest line (very thin 'wire') between connections in one view means that those connections are somehow connected in another view.");
+	ts->tips << tr("A virtual wire between connections in one view indicates that there is already a corresponding connection in another view.");
+	ts->tips << tr("They are displayed as dotted lines. When wires haven't been routed yet and all connections are virtual, the sketch can look quite chaotic.");
+	ts->tips << tr("Therefore, virtual wires are sometimes also called 'Ratsnest lines'.");
+
 	TipSets.append(ts);
 
 	ts = new TipSet;
@@ -144,7 +147,7 @@ void TipsAndTricks::initTipSets() {
 	ts->tips << tr("Check out Parts Editor Help under the <b>Help</b> Menu.");
 	ts->tips << tr("Before using the Parts Editor, see whether a Generic IC, Mystery Part, or Pin Header will do the job. Once you drop one of these into your sketch, you can change the number of pins, pin spacing, and other properties.");
 	ts->tips << tr("In the Parts Editor, to select a graphic underneath another graphic, use the mouse wheel while holding down the shift key.");
-	ts->tips << tr("You can use the Parts Editor to find the SVG file for a part's image for a given view. In the Parts Editor, click on the tab for that view, then use <b>Show in Folder</b> under the <b>File</b> Menu");
+	ts->tips << tr("You can use the Parts Editor to find the SVG file for a part's image for a given view. In the Parts Editor, click on the tab for that view, then use <b>Show in Folder</b> under the <b>File</b> Menu.");
 	ts->tips << localStorage;
 	ts->tips << tr("Do not store your custom part files in the Fritzing installation folder. If you upgrade Fritzing, these files will probably be deleted. Also, files in the Fritzing installation folder will not be saved in sketch (.fzz) files, so you won't be able to share them.");
 	TipSets.append(ts);

@@ -238,6 +238,7 @@ protected:
 	int m_portNumber = 0;
 	FServer * m_fServer = nullptr;
 	QString m_buildType;
+	QString m_debugLogFilename;
 };
 
 

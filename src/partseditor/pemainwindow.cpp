@@ -2175,7 +2175,7 @@ bool PEMainWindow::saveAs(bool overWrite)
 			messageBox.setStandardButtons(QMessageBox::Save | QMessageBox::Cancel);
 			messageBox.setDefaultButton(QMessageBox::Cancel);
 			messageBox.setIcon(QMessageBox::Warning);
-			messageBox.setWindowModality(Qt::WindowModal);					
+			messageBox.setWindowModality(Qt::WindowModal);
 			auto answer = (QMessageBox::StandardButton) messageBox.exec();
 
 			if (answer != QMessageBox::Save) {

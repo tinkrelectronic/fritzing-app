@@ -26,7 +26,7 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 #include <QPixmap>
 #include <QVariant>
 #include <QComboBox>
-#include <QDoubleValidator>
+#include <QDoubleSpinBox>
 
 #include "paletteitem.h"
 
@@ -59,9 +59,9 @@ protected:
 	ViewLayer::ViewID useViewIDForPixmap(ViewLayer::ViewID, bool swappingEnabled);
 
 protected:
-	QPointer<QLineEdit> m_widthEditor;
+	QPointer<QDoubleSpinBox> m_widthEditor;
 	QPointer<QRadioButton> m_unitsEditor;
-	QPointer<QDoubleValidator> m_widthValidator;
+
 };
 
 #endif

@@ -100,7 +100,7 @@ unix {
         } else {
             DEFINES += LINUX_32
         }
-        LIBS += -lz
+        LIBS += -Lz
     }
 
     isEmpty(PREFIX) {
@@ -163,7 +163,7 @@ macx {
     QMAKE_BUNDLE_DATA += FILE_ICONS
 }
 
-QT += concurrent core gui network printsupport serialport sql svg widgets xml
+QT += concurrent core gui network printsupport serialport sql svg widgets xml svgwidgets openglwidgets
 
 equals(QT_MAJOR_VERSION, 6) {
   QT += core5compat svgwidgets openglwidgets
@@ -209,5 +209,5 @@ TARGET = Fritzing
 TEMPLATE = app
 
 !build_pass:message("libs $$LIBS")
-#Linux search for libs
+#Linux Search Launch For Libs
 #QMAKE_RPATHDIR += lib

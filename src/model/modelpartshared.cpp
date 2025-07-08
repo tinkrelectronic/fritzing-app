@@ -138,6 +138,7 @@ bool ModelPartShared::setDomDocument(QDomDocument & domDocument) {
 	loadTagText(root, "author", m_author);
 	loadTagText(root, "description", m_description);
 	loadTagText(root, "url", m_url);
+	m_url = m_url.trimmed();
 	loadTagText(root, "taxonomy", m_taxonomy);
 	loadTagText(root, "date", m_date);
 	QDomElement version = root.firstChildElement("version");
@@ -224,7 +225,7 @@ void ModelPartShared::populateProperties(QDomElement parent, QHash<QString,QStri
 		QString value = prop.text();
 		hash.insert(name.toLower().trimmed(),value);
 		if (prop.attribute("showInLabel", "").compare("yes", Qt::CaseInsensitive) == 0) {
-			displayKeys.append(name);
+			displayKeys.append(name.toLower().trimmed());
 		}
 		prop = prop.nextSiblingElement("property");
 	}
@@ -607,14 +608,14 @@ void ModelPartShared::flipSMDAnd() {
 	copyPins(ViewLayer::Copper1, ViewLayer::Copper0);
 }
 
-bool ModelPartShared::hasViewFor(ViewLayer::ViewID viewID) {
+bool ModelPartShared::hasViewFor(ViewLayer::ViewID viewID) const {
 	ViewImage * viewImage = m_viewImages.value(viewID, NULL);
 	if (viewImage == nullptr) return false;
 
 	return viewImage->layers != 0;
 }
 
-bool ModelPartShared::hasViewFor(ViewLayer::ViewID viewID, ViewLayer::ViewLayerID viewLayerID) {
+bool ModelPartShared::hasViewFor(ViewLayer::ViewID viewID, ViewLayer::ViewLayerID viewLayerID) const {
 	ViewImage * viewImage = m_viewImages.value(viewID, NULL);
 	if (viewImage == nullptr) return false;
 
@@ -721,15 +722,15 @@ qulonglong flipped(ViewImage * viewImage) {
 	return viewImage->flipped;
 }
 
-LayerList ModelPartShared::viewLayersFlipped(ViewLayer::ViewID viewID) {
+LayerList ModelPartShared::viewLayersFlipped(ViewLayer::ViewID viewID) const {
 	return viewLayersAux(viewID, flipped);
 }
 
-LayerList ModelPartShared::viewLayers(ViewLayer::ViewID viewID) {
+LayerList ModelPartShared::viewLayers(ViewLayer::ViewID viewID) const {
 	return viewLayersAux(viewID, layers);
 }
 
-LayerList ModelPartShared::viewLayersAux(ViewLayer::ViewID viewID, qulonglong (*accessor)(ViewImage *)) {
+LayerList ModelPartShared::viewLayersAux(ViewLayer::ViewID viewID, qulonglong (*accessor)(ViewImage *)) const {
 
 	static QHash<qulonglong, ViewLayer::ViewLayerID> ToLayerIDs;
 

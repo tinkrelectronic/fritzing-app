@@ -432,7 +432,7 @@ void PartsBinIconView::reloadPart(const QString & moduleID) {
 
 	for (int i = 0; i < m_layout->count(); i++) {
 		auto *it = dynamic_cast<SvgIconWidget*>(m_layout->itemAt(i));
-        if (it == nullptr) 
+        if (it == nullptr)
             continue;
 
 		if (it->itemBase()->moduleID().compare(moduleID) != 0) continue;

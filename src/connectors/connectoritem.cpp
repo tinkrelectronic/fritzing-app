@@ -1270,10 +1270,7 @@ bool ConnectorItem::isConnectedToPart() {
 
 	ConnectorItem * thisCrossConnectorItem = this->getCrossLayerConnectorItem();
 	QList<ConnectorItem *> busConnectedItems;
-	Bus * b = bus();
-	if (b) {
-		attachedTo()->busConnectorItems(b, this, busConnectedItems);
-	}
+	attachedTo()->busConnectorItems(this, busConnectedItems);
 
 	for (int i = 0; i < tempItems.count(); i++) {
 		ConnectorItem * connectorItem = tempItems[i];
@@ -1317,10 +1314,8 @@ bool ConnectorItem::isConnectedToPart() {
 			tempItems.append(cto);
 		}
 
-		Bus * bus = connectorItem->bus();
-		if (bus) {
-			QList<ConnectorItem *> busConnectedItems;
-			connectorItem->attachedTo()->busConnectorItems(bus, connectorItem, busConnectedItems);
+		QList<ConnectorItem *> busConnectedItems;
+		if (connectorItem->attachedTo()->busConnectorItems(connectorItem, busConnectedItems)) {
 			Q_FOREACH (ConnectorItem * busConnectedItem, busConnectedItems) {
 				if (!tempItems.contains(busConnectedItem)) {
 					tempItems.append(busConnectedItem);
@@ -1395,23 +1390,23 @@ void ConnectorItem::collectEqualPotential(
 
 		// When the kept connector item is part of a bus, include all of the other
 		// connectors on the bus in the list being processed
-		Bus *bus = connectorItem->bus();
-		if (bus && (connectorItem->attachedToItemType() == ModelPart::Wire || !skipBuses)) {
+		if ((connectorItem->attachedToItemType() == ModelPart::Wire || !skipBuses)) {
 			QList<ConnectorItem *> busConnectedItems;
-			connectorItem->attachedTo()->busConnectorItems(bus, connectorItem, busConnectedItems);
+			if (connectorItem->attachedTo()->busConnectorItems(connectorItem, busConnectedItems)) {
 #ifndef QT_NO_DEBUG
-			if (connectorItem->attachedToItemType() == ModelPart::Wire && busConnectedItems.count() != 2) {
-				connectorItem->debugInfo("bus is missing");
-				//busConnectedItems.clear();
-				//connectorItem->attachedTo()->busConnectorItems(bus, busConnectedItems);
-			}
+				if (connectorItem->attachedToItemType() == ModelPart::Wire && busConnectedItems.count() != 2) {
+					connectorItem->debugInfo("bus is missing");
+					//busConnectedItems.clear();
+					//connectorItem->attachedTo()->busConnectorItems(bus, busConnectedItems);
+				}
 #endif
-			Q_FOREACH (ConnectorItem *busConnectedItem, busConnectedItems) {
-				if (!tempItems.contains(busConnectedItem)) {
-					tempItems.append(busConnectedItem);
+				Q_FOREACH (ConnectorItem *busConnectedItem, busConnectedItems) {
+					if (!tempItems.contains(busConnectedItem)) {
+						tempItems.append(busConnectedItem);
+					}
 				}
 			}
-		} // end if (bus)
+		}
 	} // end for (int i = 0; i < tempItems.count(); i++)
 } // end void ConnectorItem::collectEqualPotential(…)
 

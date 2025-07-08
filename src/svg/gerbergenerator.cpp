@@ -148,17 +148,17 @@ void GerberGenerator::exportToGerber(const QString & prefix, const QString & exp
 
 	doDrill(board, sketchWidget, prefix, exportDir, displayMessageBoxes);
 
-	if (outlineInvalidCount > 0 || silkInvalidCount > 0 || copperInvalidCount > 0 || (maskInvalidCount != 0) || (pasteMaskInvalidCount != 0)) {
-		QString s;
-		if (outlineInvalidCount > 0) s += QObject::tr("the board outline layer, ");
-		if (silkInvalidCount > 0) s += QObject::tr("silkscreen layer(s), ");
-		if (copperInvalidCount > 0) s += QObject::tr("copper layer(s), ");
-		if (maskInvalidCount > 0) s += QObject::tr("mask layer(s), ");
-		if (pasteMaskInvalidCount > 0) s += QObject::tr("paste mask layer(s), ");
-		s.chop(2);
-		displayMessage(QObject::tr("Unable to translate svg curves in %1").arg(s), displayMessageBoxes);
-	}
+	QStringList messages;
+	if (outlineInvalidCount > 0) messages << QObject::tr("%n path(s) in board outline layer", "", outlineInvalidCount);
+	if (silkInvalidCount > 0) messages << QObject::tr("%n path(s) in silkscreen layers", "", silkInvalidCount);
+	if (copperInvalidCount > 0) messages << QObject::tr("%n path(s) in copper layers", "", copperInvalidCount);
+	if (maskInvalidCount > 0) messages << QObject::tr("%n path(s) in mask layers", "", maskInvalidCount);
+	if (pasteMaskInvalidCount > 0) messages << QObject::tr("%n path(s) in paste mask layers", "", pasteMaskInvalidCount);
 
+	if (!messages.isEmpty()) {
+		QString joinedMessage = messages.join(QObject::tr(", "));
+		displayMessage(QObject::tr("Some SVG paths could not be transformed into Gerber format: %1.").arg(joinedMessage), displayMessageBoxes);
+	}
 }
 
 int GerberGenerator::doCopper(ItemBase * board, PCBSketchWidget * sketchWidget, LayerList & viewLayerIDs, const QString & copperName, const QString & copperSuffix, const QString & filename, const QString & exportDir, bool displayMessageBoxes)
@@ -1024,21 +1024,14 @@ void GerberGenerator::exportPickAndPlace(const QString & prefix, const QString &
 
 	QTextStream stream(&out);
 	stream << "# Pick And Place List\n"
-		   << "# Company=\n"
-		   << "# Author=\n"
-	       //*Tel=
-	       //*Fax=
 		   << "# eMail=\n"
 		   << "#\n"
 		   << QString("# Project=%1\n").arg(prefix)
 	       // *Variant=<alle Bauteile>
 		   << QString("# Date=%1\n").arg(QTime::currentTime().toString())
 		   << QString("# CreatedBy=Fritzing %1\n").arg(Version::versionString())
-		   << "#\n"
 		   << "#\n# Coordinates in mils, always center of component\n"
-		   << "# Origin 0/0=Lower left corner of PCB\n"
-		   << "# Rotation in degree (0-360, math. pos.)\n"
-		   << "#\n"
+		   << "# Origin 0/0=Lower left corner of PCB. Rotation in degree (0-360, math. pos.)\n"
 		   << "RefDes,Description,Package,X,Y,Rotation,Side,Mount\n"
 		   << "Description: ";
 

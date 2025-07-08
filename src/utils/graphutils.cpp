@@ -228,7 +228,7 @@ void GraphUtils::minCut(QList<ConnectorItem *> & connectorItems, QList<SketchWid
 
 		int ix = vertices.value(key);
 		QList<ConnectorItem *> bcis;
-		key->attachedTo()->busConnectorItems(key->bus(), key, bcis);
+		key->attachedTo()->busConnectorItems(key, bcis);
 		Q_FOREACH (ConnectorItem * bci, bcis) {
 			if (bci == key) continue;
 
@@ -619,10 +619,8 @@ void GraphUtils::collectBreadboard(ConnectorItem * connectorItem, QList<Connecto
 			continue;
 		}
 
-		Bus * bus = candidate->bus();
-		if (bus != nullptr) {
-			QList<ConnectorItem *> busConnectorItems;
-			candidate->attachedTo()->busConnectorItems(bus, candidate, busConnectorItems);
+		QList<ConnectorItem *> busConnectorItems;
+		if (candidate->attachedTo()->busConnectorItems(candidate, busConnectorItems)) {
 			Q_FOREACH (ConnectorItem * bci, busConnectorItems) {
 				if (!itemsToGo.contains(bci)) {
 					itemsToGo.append(bci);

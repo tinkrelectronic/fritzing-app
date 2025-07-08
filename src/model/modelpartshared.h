@@ -100,8 +100,8 @@ public:
 	bool canFlipHorizontal(ViewLayer::ViewID);
 	bool canFlipVertical(ViewLayer::ViewID);
 	bool hasViewID(ViewLayer::ViewID viewID);
-	LayerList viewLayers(ViewLayer::ViewID viewID);
-	LayerList viewLayersFlipped(ViewLayer::ViewID viewID);
+	LayerList viewLayers(ViewLayer::ViewID viewID) const;
+	LayerList viewLayersFlipped(ViewLayer::ViewID viewID) const;
 
 	const QString & path();
 	void setPath(QString path);
@@ -138,8 +138,8 @@ public:
 	void setFlippedSMD(bool);
 	bool flippedSMD();
 	bool needsCopper1();
-	bool hasViewFor(ViewLayer::ViewID);
-	bool hasViewFor(ViewLayer::ViewID, ViewLayer::ViewLayerID);
+	bool hasViewFor(ViewLayer::ViewID) const;
+	bool hasViewFor(ViewLayer::ViewID, ViewLayer::ViewLayerID) const;
 	QString hasBaseNameFor(ViewLayer::ViewID);
 	void setViewImage(ViewImage *);
 	void addConnector(ConnectorShared *);
@@ -156,7 +156,7 @@ protected:
 	void commonInit();
 	void ensurePartNumberProperty();
 	void copyPins(ViewLayer::ViewLayerID from, ViewLayer::ViewLayerID to);
-	LayerList viewLayersAux(ViewLayer::ViewID viewID, qulonglong (*accessor)(ViewImage *));
+	LayerList viewLayersAux(ViewLayer::ViewID viewID, qulonglong (*accessor)(ViewImage *)) const;
 	void addSchematicText(ViewImage *);
 	bool setDomDocument(QDomDocument &);
 

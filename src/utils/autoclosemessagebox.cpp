@@ -33,7 +33,7 @@ AutoCloseMessageBox::AutoCloseMessageBox( QWidget * parent )
 	m_startX(0),
 	m_startY(0),
 	m_animationTimer(),
-	m_counter(0) 
+	m_counter(0)
 {
 	setWordWrap(true);
 }

@@ -22,16 +22,13 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "debugdialog.h"
 #include "qevent.h"
-#ifndef QT_NO_DEBUG
-#include "utils/folderutils.h"
-#endif
-#include <QEvent>
 #include <QCoreApplication>
 #include <QFile>
 #include <QTextStream>
 #include <QDir>
 #include <QtDebug>
 #include <QIcon>
+#include <QStandardPaths>
 
 const QMap<QString, QString> DebugDialog::colorMap = {
 	{ "<RESET>", "\033[0m" },
@@ -142,15 +139,6 @@ DebugDialog::DebugDialog(QWidget *parent)
 	resize(400, 300);
 	m_textEdit = new QTextEdit(this);
 	m_textEdit->setGeometry(QRect(10, 10, 381, 281));
-
-	QString path;
-#ifndef QT_NO_DEBUG
-	path = FolderUtils::getTopLevelUserDataStorePath();
-#endif
-	path += "/debug.txt";
-
-	m_file.setFileName(path);
-	m_file.remove();
 }
 
 DebugDialog::~DebugDialog()
@@ -263,11 +251,14 @@ void DebugDialog::debug(QString message, DebugLevel debugLevel, QObject * ancest
 		qDebug() << message;
 	}
 
+	if (m_file.fileName().isEmpty()) {
+		QString path = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
+		// path += "/debug.txt";
+		m_file.setFileName(path);
+	}
+	
 	if (m_file.open(QIODevice::Append | QIODevice::Text)) {
 		QTextStream out(&m_file);
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-		out.setCodec("UTF-8");
-#endif
 		out << message << "\n";
 		m_file.close();
 	}
@@ -414,6 +405,23 @@ QString DebugDialog::createKeyTag(const QKeyEvent *event) {
 
 void DebugDialog::setColoringEnabled(bool enabled) {
 	coloringEnabled = enabled;
+}
+
+void DebugDialog::setLogFilename(const QString &filename) {
+	if (m_file.isOpen()) {
+		m_file.close();
+	}
+	
+	if (!filename.isEmpty()) {
+		m_file.setFileName(filename);
+		// Clear the file and write the header
+		m_file.remove();
+		m_file.open(QIODevice::WriteOnly | QIODevice::Text);
+		QTextStream out(&m_file);
+		out << "Fritzing debug log started at " << QDateTime::currentDateTime().toString() << "\n";
+		m_file.close();
+		qDebug() << "Debug output redirected to" << filename;
+	}
 }
 
 DebugDialog::DebugStream DebugDialog::stream(DebugLevel level, QObject* ancestor) {

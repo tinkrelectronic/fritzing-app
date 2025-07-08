@@ -235,7 +235,7 @@ void PEMetadataView::initMetadata(const QDomDocument & doc)
 	formLayout->addRow(tr("Label"), m_labelEdit);
 
 	m_urlEdit = new QLineEdit();
-	m_urlEdit->setText(url.text());
+	m_urlEdit->setText(url.text().trimmed());
 	connect(m_urlEdit, SIGNAL(editingFinished()), this, SLOT(urlEntry()));
 	m_urlEdit->setObjectName("PartsEditorLineEdit");
 	m_urlEdit->setStatusTip(tr("Set the part's url if it is described on a web page"));

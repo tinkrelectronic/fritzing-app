@@ -20,7 +20,7 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "svgidlayer.h"
 
-SvgIdLayer::SvgIdLayer(ViewLayer::ViewID viewID) : 
+SvgIdLayer::SvgIdLayer(ViewLayer::ViewID viewID) :
 	m_viewID(viewID),
 	m_svgViewLayerID(),
 	m_svgId(),
@@ -35,7 +35,7 @@ SvgIdLayer::SvgIdLayer(ViewLayer::ViewID viewID) :
 	m_path(false)
 { }
 
-SvgIdLayer::SvgIdLayer(const SvgIdLayer& other) : 
+SvgIdLayer::SvgIdLayer(const SvgIdLayer& other) :
 	m_viewID(other.m_viewID),
 	m_svgViewLayerID(other.m_svgViewLayerID),
 	m_svgId(other.m_svgId),

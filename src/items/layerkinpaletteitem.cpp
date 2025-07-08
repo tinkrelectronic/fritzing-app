@@ -30,7 +30,7 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 ////////////////////////////////////////////////
 
 LayerKinPaletteItem::LayerKinPaletteItem(PaletteItemBase * chief, ModelPart * modelPart, ViewLayer::ViewID viewID, const ViewGeometry & viewGeometry, long id, QMenu* itemMenu)
-	: PaletteItemBase(modelPart, viewID, viewGeometry, id, itemMenu), 
+	: PaletteItemBase(modelPart, viewID, viewGeometry, id, itemMenu),
     m_layerKinChief(chief), m_ok(false), m_passMouseEvents(false)
 {
 	setFlag(QGraphicsItem::ItemIsSelectable, true);

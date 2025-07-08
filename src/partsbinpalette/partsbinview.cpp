@@ -33,7 +33,7 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 QHash<QString, QString> PartsBinView::TranslatedCategoryNames;
 QHash<QString, ItemBase *> PartsBinView::ItemBaseHash;
 
-PartsBinView::PartsBinView(ReferenceModel *referenceModel, PartsBinPaletteWidget *parent) 
+PartsBinView::PartsBinView(ReferenceModel *referenceModel, PartsBinPaletteWidget *parent)
 	: m_referenceModel(referenceModel),
 	m_parent(parent)
 {
@@ -191,7 +191,7 @@ void PartsBinView::dropEventAux(QDropEvent* event, bool justAppend) {
 		toIndex = -1;
 		trustResult = true;
 	} else {
-		toIndex = itemIndexAt(event->pos(), trustResult);
+		toIndex = itemIndexAt(event->position().toPoint(), trustResult);
 	}
 
 	if(!trustResult) return;

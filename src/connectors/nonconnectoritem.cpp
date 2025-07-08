@@ -33,7 +33,7 @@ constexpr double EffectiveAdjustmentFactor = 5.0 / 15.0;
 
 /////////////////////////////////////////////////////////
 
-NonConnectorItem::NonConnectorItem(ItemBase * attachedTo) 
+NonConnectorItem::NonConnectorItem(ItemBase * attachedTo)
 	: QGraphicsRectItem(attachedTo),
 	m_attachedTo(attachedTo)
 {
@@ -149,7 +149,7 @@ const QString & NonConnectorItem::attachedToTitle() {
 }
 
 const QString & NonConnectorItem::attachedToInstanceTitle() {
-	if (attachedTo() == nullptr) return ___emptyString___; 
+	if (attachedTo() == nullptr) return ___emptyString___;
 	return attachedTo()->instanceTitle();
 }
 

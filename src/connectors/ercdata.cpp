@@ -32,7 +32,7 @@ bool ValidReal::setValue(const QString & v) {
 
 //////////////////////////////////////////////////////////
 
-ErcData::ErcData(const QDomElement & ercElement) : 
+ErcData::ErcData(const QDomElement & ercElement) :
 	m_eType(UnknownEType),
 	m_ignore(Never),
 	m_currentFlow(UnknownFlow)

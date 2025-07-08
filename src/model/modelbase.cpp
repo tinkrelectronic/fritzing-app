@@ -70,6 +70,8 @@ bool ModelBase::loadFromFile(const QString & fileName, ModelBase * referenceMode
 	m_referenceModel = referenceModel;
 
 	QFile file(fileName);
+	QFileInfo fileInfo(file);
+	QString onlyFileName = fileInfo.fileName();
 	if (!file.open(QFile::ReadOnly | QFile::Text)) {
 		FMessageBox::warning(nullptr, QObject::tr("Fritzing"),
 		                     QObject::tr("Cannot read file %1:\n%2.")
@@ -152,6 +154,35 @@ bool ModelBase::loadFromFile(const QString & fileName, ModelBase * referenceMode
 		correctPartLabelOffset = Version::greaterThan(m_fritzingVersion, "1.0.0a");
 		if (correctPartLabelOffset) {
 			Q_EMIT migratePartLabelOffset(m_fritzingVersion);
+		}
+	}
+	VersionThing versionThingFz;
+	Version::toVersionThing(m_fritzingVersion,versionThingFz);
+	if (m_fritzingVersion.isEmpty()) {
+		FMessageBox::warning(
+			nullptr,
+			QObject::tr("Missing Version Attribute"),
+			QObject::tr("The loaded sketch is missing its 'fritzingVersion' attribute.\n\nFile: %1")
+				.arg(onlyFileName)
+			);
+	} else if (!versionThingFz.ok) {
+		FMessageBox::warning(
+			nullptr,
+			QObject::tr("Invalid Version Format"),
+			QObject::tr("The loaded sketch's 'fritzingVersion' attribute '%1' is not formatted correctly.\n\nFile: %2")
+				.arg(m_fritzingVersion, onlyFileName)
+			);
+	} else {
+		VersionThing currentVersionThing;
+		Version::toVersionThing(Version::versionString(), currentVersionThing);
+
+		if (Version::greaterThan(currentVersionThing, versionThingFz)) {
+			FMessageBox::warning(
+				nullptr,
+				QObject::tr("Version Mismatch"),
+				QObject::tr("This sketch was created in a newer version of Fritzing (%1).\nYour current version is %2.\n\nPlease update Fritzing to ensure proper functionality.\n\nFile: %3")
+					.arg(m_fritzingVersion, Version::versionString(), onlyFileName)
+				);
 		}
 	}
 	ModelPartSharedRoot * modelPartSharedRoot = this->rootModelPartShared();
@@ -503,12 +534,12 @@ bool ModelBase::paste(ModelBase * referenceModel, QByteArray & data, QList<Model
 	bool result = domDocument.setContent(data, &errorStr, &errorLine, &errorColumn);
 	if (!result) return false;
 
-	QDomElement module = domDocument.documentElement();
-	if (module.isNull()) {
+	QDomElement el = domDocument.documentElement();
+	if (el.isNull()) {
 		return false;
 	}
 
-	QDomElement boundingRectsElement = module.firstChildElement("boundingRects");
+	QDomElement boundingRectsElement = el.firstChildElement("boundingRects");
 	if (!boundingRectsElement.isNull()) {
 		QDomElement boundingRect = boundingRectsElement.firstChildElement("boundingRect");
 		while (!boundingRect.isNull()) {
@@ -527,7 +558,7 @@ bool ModelBase::paste(ModelBase * referenceModel, QByteArray & data, QList<Model
 		}
 	}
 
-	QDomElement instances = module.firstChildElement("instances");
+	QDomElement instances = el.firstChildElement("instances");
 	if (instances.isNull()) {
 		return false;
 	}
@@ -543,11 +574,6 @@ bool ModelBase::paste(ModelBase * referenceModel, QByteArray & data, QList<Model
 		}
 		renewModelIndexes(instances, "instance", oldToNew);
 	}
-
-	//QFile file("test.xml");
-	//file.open(QFile::WriteOnly);
-	//file.write(domDocument.toByteArray());
-	//file.close();
 
 	return loadInstances(domDocument, instances, modelParts, true);
 }

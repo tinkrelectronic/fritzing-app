@@ -966,9 +966,10 @@ bool MainWindow::saveBundledNonAtomicEntity(QString &filename, const QString &ex
 
 	if(!result) {
 		FMessageBox::warning(
-		    this,
-		    tr("Fritzing"),
-		    tr("Unable to export %1 as shareable. Save failed. Please check if home and save dir are writeable and not full. ").arg(bundledFileName)
+			this,
+			tr("Fritzing"),
+			tr("Unable to export %1 as shareable.").arg(bundledFileName) +
+				tr("Saving failed. Please check if home and destionation directory are writeable and not full.")
 		);
 	}
 

@@ -1033,6 +1033,30 @@ protected:
 
 /////////////////////////////////////////////
 
+class ResizeLogoCommand : public BaseCommand
+{
+public:
+	ResizeLogoCommand(SketchWidget* sketchWidget, long itemID,
+					  double oldWidth, double oldHeight,
+					  double newWidth, double newHeight,
+					  const QString& logoProperty,
+					  QUndoCommand* parent = nullptr);
+
+	void undo() override;
+	void redo() override;
+	QString getParamString() const override;
+
+private:
+	long m_itemID;
+	double m_oldWidth;
+	double m_oldHeight;
+	double m_newWidth;
+	double m_newHeight;
+	QString m_logoProperty;
+};
+
+/////////////////////////////////////////////
+
 class ChangeBoardLayersCommand : public BaseCommand
 {
 public:
@@ -1097,7 +1121,9 @@ public:
 	GroundFillSeedCommand(class SketchWidget *sketchWidget, QUndoCommand *parent);
 	void undo();
 	void redo();
-	void addItem(long id, const QString & connectorID, bool seed);
+	void setSeedState(long id, const QString & connectorID, bool seed);
+	void addSeed(long id, const QString & connectorID);
+	void removeSeed(long id, const QString & connectorID);
 
 protected:
 	QString getParamString() const;

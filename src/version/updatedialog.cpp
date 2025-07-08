@@ -282,7 +282,7 @@ void UpdateDialog::partsAvailableSlot() {
 	break;
 	}
 
-	m_buttonBox->setEnabled(true);	
+	m_buttonBox->setEnabled(true);
 	if (!this->isVisible()) {
 		this->exec();
 	}

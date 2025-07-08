@@ -42,7 +42,7 @@ FabUploadDialog::FabUploadDialog(QNetworkAccessManager *manager,
 	m_manager(manager)
 {
 
-	ui->setupUi(this);	
+	ui->setupUi(this);
 	setWindowFlags(Qt::Dialog | windowFlags());
 	ui->stackedWidget->setCurrentIndex(0);
 	ui->upload->init(manager, filename, width, height, boardCount, boardTitle);

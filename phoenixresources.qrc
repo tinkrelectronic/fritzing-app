@@ -253,10 +253,12 @@
         <file>resources/styles/win-fritzing.qss</file>
         <file>resources/styles/mac-fritzing.qss</file>
         <file>resources/styles/updatedialog.css</file>
-        <file>resources/fonts/DroidSans.ttf</file>
-        <file>resources/fonts/DroidSansMono.ttf</file>
-        <file>resources/fonts/DroidSans-Bold.ttf</file>
-        <file>resources/fonts/NOTICE</file>
+        <file>resources/fonts/DroidSans/DroidSans.ttf</file>
+        <file>resources/fonts/DroidSans/DroidSansMono.ttf</file>
+        <file>resources/fonts/DroidSans/DroidSans-Bold.ttf</file>
+        <file>resources/fonts/DroidSans/NOTICE</file>
+        <file>resources/fonts/NotoSans/NotoSans-Regular.ttf</file>
+        <file>resources/fonts/NotoSans/OFL.txt</file>
         <file>resources/fonts/OCRA.ttf</file>
         <file>resources/fonts/OCR-Fritzing-mono.otf</file>
         <file>resources/bins/my_parts.fzb</file>
@@ -382,5 +384,14 @@
         <file>resources/images/icons/smalToolarrowFab-inactive.svg</file>
         <file>resources/images/icons/smalToolarrowFab-pressed.svg</file>
         <file>resources/images/icons/smalToolarrowFab-normal.svg</file>
+        <file>resources/parts/core/netlabel_v5.fzp</file>
+        <file>resources/parts/svg/core/schematic/netlabel_v5.svg</file>
+        <file>resources/fonts/OCR-Fritzing-mono.ttf</file>
+        <file>resources/parts/core/schematiclogotext_noto.fzp</file>
+        <file>resources/parts/svg/core/schematic/schematiclogo_noto.svg</file>
+        <file>resources/parts/svg/core/icon/schematic_text_noto.svg</file>
+        <file>resources/parts/svg/core/icon/schematic_text_droid.svg</file>
+        <file>resources/parts/core/notobreadboardlogotext.fzp</file>
+        <file>resources/parts/svg/core/breadboard/breadboardlogo_noto.svg</file>
     </qresource>
 </RCC>

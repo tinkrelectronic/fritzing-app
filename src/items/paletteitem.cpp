@@ -989,7 +989,7 @@ QWidget * PaletteItem::createHoleSettings(QWidget * parent, HoleSettings & holeS
 		holeSettings.diameterEdit->setMinimumHeight(RowHeight);
 		holeSettings.diameterValidator = new QDoubleValidator(holeSettings.diameterEdit);
 		holeSettings.diameterValidator->setNotation(QDoubleValidator::StandardNotation);
-		holeSettings.diameterValidator->setLocale(getLocale());
+		holeSettings.diameterValidator->setLocale(TextUtils::getLocale());
 		holeSettings.diameterEdit->setValidator(holeSettings.diameterValidator);
 		gridLayout->addWidget(holeSettings.diameterEdit, 0, 1);
 		holeSettings.diameterEdit->setObjectName("infoViewLineEdit");
@@ -1003,7 +1003,7 @@ QWidget * PaletteItem::createHoleSettings(QWidget * parent, HoleSettings & holeS
 		holeSettings.thicknessEdit->setMinimumHeight(RowHeight);
 		holeSettings.thicknessValidator = new QDoubleValidator(holeSettings.thicknessEdit);
 		holeSettings.thicknessValidator->setNotation(QDoubleValidator::StandardNotation);
-		holeSettings.thicknessValidator->setLocale(getLocale());
+		holeSettings.thicknessValidator->setLocale(TextUtils::getLocale());
 		holeSettings.thicknessEdit->setValidator(holeSettings.thicknessValidator);
 		gridLayout->addWidget(holeSettings.thicknessEdit, 1, 1);
 		holeSettings.thicknessEdit->setObjectName("infoViewLineEdit");
@@ -1060,8 +1060,10 @@ void PaletteItem::updateEditTexts(HoleSettings & holeSettings) {
 	}
 
 	QStringList sizes = newVal.split(",");
-	holeSettings.diameterEdit->setText(sizes.at(0));
-	holeSettings.thicknessEdit->setText(sizes.at(1));
+	QLocale locale = TextUtils::getLocale();
+	constexpr int decimalsAfter = 2;
+	holeSettings.diameterEdit->setText(locale.toString(sizes.at(0).toDouble(), 'f', decimalsAfter));
+	holeSettings.thicknessEdit->setText(locale.toString(sizes.at(1).toDouble(), 'f', decimalsAfter));
 }
 
 void PaletteItem::updateSizes(HoleSettings &  holeSettings) {
@@ -1452,7 +1454,7 @@ void PaletteItem::changeThickness()
 {
 	if (changeThickness(m_holeSettings, sender())) {
 		auto * edit = qobject_cast<QLineEdit *>(sender());
-		changeHoleSize(m_holeSettings.holeDiameter + "," + QString::number(getLocale().toDouble(edit->text())) + m_holeSettings.currentUnits());
+		changeHoleSize(m_holeSettings.holeDiameter + "," + QString::number(TextUtils::getLocale().toDouble(edit->text())) + m_holeSettings.currentUnits());
 	}
 }
 
@@ -1461,7 +1463,7 @@ bool PaletteItem::changeThickness(HoleSettings & holeSettings, QObject * sender)
 	auto * edit = qobject_cast<QLineEdit *>(sender);
 	if (edit == nullptr) return false;
 
-	double newValue = getLocale().toDouble(edit->text());
+	double newValue = TextUtils::getLocale().toDouble(edit->text());
 	QString temp = holeSettings.ringThickness;
 	temp.chop(2);
 	double oldValue = temp.toDouble();
@@ -1472,7 +1474,7 @@ void PaletteItem::changeDiameter()
 {
 	if (changeDiameter(m_holeSettings, sender())) {
 		auto * edit = qobject_cast<QLineEdit *>(sender());
-		changeHoleSize(QString::number(getLocale().toDouble(edit->text())) + m_holeSettings.currentUnits() + "," + m_holeSettings.ringThickness);
+		changeHoleSize(QString::number(TextUtils::getLocale().toDouble(edit->text())) + m_holeSettings.currentUnits() + "," + m_holeSettings.ringThickness);
 
 	}
 }
@@ -1482,7 +1484,7 @@ bool PaletteItem::changeDiameter(HoleSettings & holeSettings, QObject * sender)
 	auto * edit = qobject_cast<QLineEdit *>(sender);
 	if (edit == nullptr) return false;
 
-	double newValue = getLocale().toDouble(edit->text());
+	double newValue = TextUtils::getLocale().toDouble(edit->text());
 	QString temp = holeSettings.holeDiameter;
 	temp.chop(2);
 	double oldValue = temp.toDouble();
@@ -1616,11 +1618,4 @@ void PaletteItem::retransform(const QTransform & chiefTransform) {
 			lkpi->transformItem(chiefTransform, false);
 		}
 	}
-}
-
-QLocale PaletteItem::getLocale()
-{
-	QSettings settings;
-	QString localeName = settings.value("locale", "C").toString();
-	return QLocale(localeName);
 }

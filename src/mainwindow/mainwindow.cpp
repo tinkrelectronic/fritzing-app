@@ -77,11 +77,15 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 #include "../mainwindow/FProbeDropByModuleID.h"
 #include "../mainwindow/FProbeKeyPressEvents.h"
 #include "../mainwindow/fprobefocuswidget.h"
+#include "model/fzpinfo.h"
 #include "connectors/debugconnectors.h"
 #include "connectors/debugconnectorsprobe.h"
 #include "testing/FTesting.h"
 #include "servicelistfetcher.h"
 #include "utils/uploadpair.h"
+#include "version/version.h"
+
+using namespace Qt::Literals::StringLiterals;
 
 FTabWidget::FTabWidget(QWidget * parent) : QTabWidget(parent)
 {
@@ -1206,7 +1210,7 @@ QList<QWidget*> MainWindow::getButtonsForView(ViewLayer::ViewID viewId) {
 		break;
 	}
 
-	retval << createRotateButton(parent);	
+	retval << createRotateButton(parent);
 	switch (viewId) {
 	case ViewLayer::BreadboardView:
 		retval << createFlipButton(parent) << createRoutingStatusLabel(parent)
@@ -1827,7 +1831,7 @@ bool MainWindow::loadBundledNonAtomicEntity(const QString &fileName, Bundler* bu
 	QDir unzipDir(unzipDirPath);
 
 	if (bundler->preloadBundledAux(unzipDir, dontAsk)) {
-		QList<ModelPart*> mps = moveToPartsFolder(unzipDir,this,addToBin,true,FolderUtils::getUserPartsPath(), "contrib", false);
+		QList<ModelPart*> mps = moveToPartsFolder(unzipDir, addToBin, true, FolderUtils::getUserPartsPath(), "contrib", false);
 		// the bundled itself
 		bundler->loadBundledAux(unzipDir,mps);
 	}
@@ -1931,7 +1935,7 @@ QList<ModelPart*> MainWindow::loadPart(const QString &fzpFile, bool addToBin) {
 
 
 	try {
-		mps = moveToPartsFolder(tmpDir, this, addToBin, true, FolderUtils::getUserPartsPath(), "user", true);
+		mps = moveToPartsFolder(tmpDir, addToBin, true, FolderUtils::getUserPartsPath(), "user", true);
 	}
 	catch (const QString & msg) {
 		FMessageBox::warning(
@@ -1977,7 +1981,7 @@ QList<ModelPart*> MainWindow::loadBundledPart(const QString &fileName, bool addT
 
 	QList<ModelPart*> mps;
 	try {
-		mps = moveToPartsFolder(unzipDir, this, addToBin, true, FolderUtils::getUserPartsPath(), "user", true);
+		mps = moveToPartsFolder(unzipDir, addToBin, true, FolderUtils::getUserPartsPath(), "user", true);
 	}
 	catch (const QString & msg) {
 		FMessageBox::warning(
@@ -2092,45 +2096,88 @@ QStringList MainWindow::saveBundledAux(ModelPart *mp, const QDir &destFolder) {
 	return names;
 }
 
-QList<ModelPart*> MainWindow::moveToPartsFolder(QDir &unzipDir, MainWindow* mw, bool addToBin, bool addToAlien, const QString & prefixFolder, const QString &destFolder, bool importingSinglePart) {
+void MainWindow::validatePartInfo(const QString &fzpPath)
+{
+	FzpInfo info(fzpPath);
+
+	try {
+		info.parse();
+		// Skip validation if there was already a parser error.
+		if (not info.hasAnyErrors()) {
+			info.validate();
+			QString moduleId = info.moduleId();
+			if (!moduleId.isEmpty() && (m_referenceModel->retrieveModelPart(moduleId) != nullptr)) {
+				info.addError(tr("Part module ID must be unique."),
+							  tr("There is already a part with id '%1' loaded into Fritzing.")
+								  .arg(moduleId));
+			}
+		}
+	}
+	catch (const std::exception& e) {
+		FMessageBox::critical(
+			this,
+			tr("Error"),
+			tr("Failed to process part file: %1").arg(e.what())
+			);
+		return;
+	}
+
+	if (info.hasBlockingErrors()) {
+		auto msgBox = FMessageBox::createCustom(
+			this,
+			FMessageBox::Critical,
+			tr("Critical Issues"),
+			tr("Part '%1' has critical issues that prevent it from loading:\n\n%2")
+				.arg(info.title().isEmpty() ? info.path() : info.title(), info.getSummaryText()));
+		msgBox->setDetailedText(info.getDetailsText());
+		msgBox->enableClipboardButton(true);
+		msgBox->exec();
+		throw QString("Part load error");
+	} else if (info.hasAnyErrors()) {
+		auto msgBox = FMessageBox::createCustom(
+			this,
+			FMessageBox::Warning,
+			tr("Warning"),
+			tr("Part '%1' was loaded with warnings:\n\n%2")
+				.arg(info.title(), info.getSummaryText()),
+			FMessageBox::Ok);
+		msgBox->setDetailedText(info.getDetailsText());
+		msgBox->enableClipboardButton(true);
+		msgBox->exec();
+	}
+}
+
+QList<ModelPart*> MainWindow::moveToPartsFolder(QDir &unzipDir, bool addToBin, bool addToAlien, const QString & prefixFolder, const QString &destFolder, bool importingSinglePart) {
+
 	QStringList namefilters;
 	QList<ModelPart*> retval;
 
-	if (mw == nullptr) {
-		throw "MainWindow::moveToPartsFolder mainwindow missing";
-	}
-
-	namefilters.clear();
 	namefilters << ZIP_PART+"*";
 	QList<QFileInfo> partEntryInfoList = unzipDir.entryInfoList(namefilters);
 
 	if (importingSinglePart && partEntryInfoList.count() > 0) {
-		QString moduleID = TextUtils::parseFileForModuleID(partEntryInfoList[0].absoluteFilePath());
-		if (!moduleID.isEmpty() && (m_referenceModel->retrieveModelPart(moduleID) != nullptr)) {
-			throw QString("There is already a part with id '%1' loaded into Fritzing.").arg(moduleID);
-		}
+		QString fzpPath = partEntryInfoList[0].absoluteFilePath();
+		validatePartInfo(fzpPath);
 	}
-
 
 	namefilters.clear();
 	namefilters << ZIP_SVG+"*";
 	Q_FOREACH(QFileInfo file, unzipDir.entryInfoList(namefilters)) { // svg files
 		//DebugDialog::debug("unzip svg " + file.absoluteFilePath());
-		mw->copyToSvgFolder(file, addToAlien, prefixFolder, destFolder);
+		copyToSvgFolder(file, addToAlien, prefixFolder, destFolder);
 	}
-
 
 	Q_FOREACH(QFileInfo file, partEntryInfoList) { // part files
 		//DebugDialog::debug("unzip part " + file.absoluteFilePath());
-		ModelPart * mp = mw->copyToPartsFolder(file, addToAlien, prefixFolder, destFolder);
-		retval << mp;
-		if (addToBin && (mp != nullptr)) {
-			// should only be here when adding single new part
-			m_binManager->addToMyParts(mp);
+		ModelPart * mp = copyToPartsFolder(file, addToAlien, prefixFolder, destFolder);
+		if (mp) {
+			retval << mp;
+			if (addToBin) {
+				// should only be here when adding single new part
+				m_binManager->addToMyParts(mp);
+			}
 		}
 	}
-
-
 
 	return retval;
 }

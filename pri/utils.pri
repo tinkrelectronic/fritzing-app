@@ -15,6 +15,7 @@
 
 HEADERS += \
 	$$PWD/../src/utils/duplicatetracker.h \
+	$$PWD/../src/utils/fpsmonitor.h \
 	$$PWD/../src/utils/ftooltip.h \
 src/utils/abstractstatesbutton.h \
 src/utils/autoclosemessagebox.h \
@@ -47,6 +48,7 @@ src/utils/FMessageLogProbe.h \
 src/utils/uploadpair.h
 
 SOURCES += \
+	$$PWD/../src/utils/fpsmonitor.cpp \
 	$$PWD/../src/utils/ftooltip.cpp \
 src/utils/autoclosemessagebox.cpp \
 src/utils/bendpointaction.cpp \

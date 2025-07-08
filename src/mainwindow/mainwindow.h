@@ -41,17 +41,18 @@ along with Fritzing.  If not, see <http://www.gnu.org/licenses/>.
 #include <QNetworkAccessManager>
 #include <QShortcut>
 
-#include "fritzingwindow.h"
-#include "sketchareawidget.h"
-#include "getspice.h"
-#include "../viewlayer.h"
-#include "../project_properties.h"
-#include "../program/programwindow.h"
-#include "../svg/svg2gerber.h"
-#include "../routingstatus.h"
-#include "../simulation/simulator.h"
 #include "../model/modelpart.h"
 #include "../partseditor/peutils.h"
+#include "../program/programwindow.h"
+#include "../project_properties.h"
+#include "../routingstatus.h"
+#include "../simulation/simulator.h"
+#include "../svg/svg2gerber.h"
+#include "../viewlayer.h"
+#include "fritzingwindow.h"
+#include "getspice.h"
+#include "sketchareawidget.h"
+#include "utils/textutils.h"
 
 QT_BEGIN_NAMESPACE
 class QAction;
@@ -64,6 +65,7 @@ class ServiceListFetcher;
 class FSizeGrip;
 
 class DebugConnectors;
+
 
 typedef class FDockWidget * (*DockFactory)(const QString & title, QWidget * parent);
 
@@ -245,10 +247,8 @@ public Q_SLOTS:
 	void statusMessage(QString message, int timeout);
 	void showPCBView();
 	void groundFill();
-	void groundFillOld();
 	void removeGroundFill();
 	void copperFill();
-	void copperFillOld();
 	void setOneGroundFillSeed();
 	void setGroundFillSeeds();
 	void clearGroundFillSeeds();
@@ -503,7 +503,7 @@ protected:
 	void exportToEagle();
 	void exportToGerber();
 	void exportBOM();
-	void exportBOM_CSV();	
+	void exportBOM_CSV();
 	void exportNetlist();
 	void exportSpiceNetlist();
 	void exportSvg(double res, bool selectedItems, bool flatten);
@@ -527,7 +527,7 @@ protected:
 	void hideShowProgramMenu();
 	void updatePCBTraceMenu(QGraphicsItem *, TraceMenuThing &);
 
-	QList<ModelPart*> moveToPartsFolder(QDir &unzipDir, MainWindow* mw, bool addToBin, bool addToAlien, const QString & prefixFolder, const QString &destFolder, bool importingSinglePart);
+	QList<ModelPart*> moveToPartsFolder(QDir &unzipDir, bool addToBin, bool addToAlien, const QString & prefixFolder, const QString &destFolder, bool importingSinglePart);
 	QString copyToSvgFolder(const QFileInfo& file, bool addToAlien, const QString & prefixFolder, const QString &destFolder);
 	ModelPart* copyToPartsFolder(const QFileInfo& file, bool addToAlien, const QString & prefixFolder, const QString &destFolder);
 
@@ -595,8 +595,8 @@ protected:
 	class ConnectorItem * retrieveConnectorItem();
 	QString getBomProps(ItemBase *);
 	ModelPart * findReplacedby(ModelPart * originalModelPart);
-	void groundFillAux(bool fillGroundTraces, ViewLayer::ViewLayerID viewLayerID, bool useOldVersion);
-	void groundFillAux2(bool fillGroundTraces, bool useOldVersion);
+	void groundFillAux(bool fillGroundTraces, ViewLayer::ViewLayerID viewLayerID);
+	void groundFillAux2(bool fillGroundTraces);
 	void connectStartSave(bool connect);
 	QString loadBundledSketch(const QString &fileName, bool addToRecent, bool setAsLastOpened, bool checkObsolete);
 	void dropEvent(QDropEvent *event);
@@ -883,10 +883,8 @@ protected:
 	QAction *m_selectAllJumperItemsAct = nullptr;
 	QAction *m_selectAllViasAct = nullptr;
 	QAction *m_groundFillAct = nullptr;
-	QAction *m_groundFillOldAct = nullptr;
 	QAction *m_removeGroundFillAct = nullptr;
 	QAction *m_copperFillAct = nullptr;
-	QAction *m_copperFillOldAct = nullptr;
 	class ConnectorItemAction *m_setOneGroundFillSeedAct = nullptr;
 	QAction *m_setGroundFillSeedsAct = nullptr;
 	QAction *m_clearGroundFillSeedsAct = nullptr;
@@ -999,6 +997,9 @@ protected:
 	static int CascadeFactorY;
 	static QRegularExpression GuidMatcher;
 	void exportIPC_D_356A_interactive();
+
+private:
+	void validatePartInfo(const QString &fzpPath);
 };
 
 #endif

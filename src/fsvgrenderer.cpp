@@ -317,7 +317,7 @@ void FSvgRenderer::initLegInfoAux(QDomElement & element, const LoadInfo & loadIn
 				//element.save(stream, 0);
 				//DebugDialog::debug("\t matched " + connectorIDs.at(ix) + " " + temp);
 				connectorInfo->legMatrix = TextUtils::elementToTransform(element);
-				connectorInfo->legColor = element.attribute("stroke");
+				connectorInfo->legColor = TextUtils::getStrokeColor(element, "#8C8C8C");
 				connectorInfo->legLine = QLineF();
 				connectorInfo->legStrokeWidth = 0;
 				initLegInfoAux(element, connectorInfo);
@@ -339,8 +339,9 @@ bool FSvgRenderer::initLegInfoAux(QDomElement & element, ConnectorInfo * connect
 	auto extractDoubleFromAttribute = [&element, &ok](const QString& attribute) {
 		return element.attribute(attribute).toDouble(&ok);
 	};
-	double sw = extractDoubleFromAttribute("stroke-width");
-	if (!ok) return false;
+
+	// Use TextUtils::getStrokeWidth with 29mil (0.029in) as default
+	double sw = TextUtils::getStrokeWidth(element, 0.029);
 
 	double x1 = extractDoubleFromAttribute("x1");
 	if (!ok) return false;
