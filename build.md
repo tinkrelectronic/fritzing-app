@@ -116,6 +116,7 @@ Extract Additional libraries/source to look like this
 
 ## Build
 + Swap lib comments in PRI folder (clipper1detect.pri, zlibdetect.pri, quazipdetect.pri)
++ Uncomment #QMAKE_RPATHDIR += lib line in phoenix.pro
 + Open the pheonix.pro project file in QT creator
 + Configure Qt version
 + Select Release
